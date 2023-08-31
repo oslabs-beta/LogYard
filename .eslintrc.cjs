@@ -4,6 +4,7 @@ module.exports = {
   extends: [
     "airbnb-base"
   ],
+  // parser: "@babel/eslint-parser",
   ignorePatterns: ['dist', '.eslintrc.cjs'],
   parserOptions: { ecmaVersion: 'latest', sourceType: 'module' },
   settings: { react: { version: '18.2' } },
@@ -13,5 +14,9 @@ module.exports = {
       'warn',
       { allowConstantExport: true },
     ],
+    'no-console': ['error', { allow: ['log', 'error', 'warn'] }],
+    'no-unused-vars': 'warn', 
+    'no-param-reassign': 'off',
+
   },
 }
