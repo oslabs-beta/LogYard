@@ -4,12 +4,12 @@ import LogViewer from './main/logViewer/logViewer.jsx';
 import Profile from './main/profile/profile.jsx';
 import './App.css';
 
-function App() {
+const App = () => {
   return (
-    <div className='text-3xl font-bold underline'>
-      Testing Text
+    <div className="font-bold text-primary text-9xl">
+      LogYard
     </div>
   );
-}
+};
 
 export default App;

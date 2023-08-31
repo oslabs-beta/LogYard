@@ -1,5 +1,8 @@
 import express from 'express';
 import cookieParser from 'cookie-parser';
+import connectDB from './db.js';
+
+connectDB();
 
 const app = express();
 const port = 3000;
