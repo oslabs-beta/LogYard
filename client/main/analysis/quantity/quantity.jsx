@@ -1,13 +1,13 @@
 import React from 'react';
 
-const Dashboard = () => {
+const Quantity = () => {
   const Function = () => {
     // function definition here
   };
 
   return (
-    <div>This is the dashboard page</div>
+    <div>This is the quantity page</div>
   );
 };
 
-export default Dashboard;
+export default Quantity;

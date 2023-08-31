@@ -1,18 +1,15 @@
-import { useState } from 'react';
-import './stylesheets/App.css';
+import React from 'react';
+import Dashboard from './main/dashboard/dashboard.jsx';
+import LogViewer from './main/logViewer/logViewer.jsx';
+import Profile from './main/profile/profile.jsx';
+import './App.css';
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <div>
-      <BrowserRouter>
-        <Routes>
-          <Route></Route>
-        </Routes>
-      </BrowserRouter>
+    <div className='text-3xl font-bold underline'>
+      Testing Text
     </div>
   );
-};
+}
 
 export default App;

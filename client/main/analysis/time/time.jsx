@@ -1,13 +1,13 @@
 import React from 'react';
 
-const Dashboard = () => {
+const Time = () => {
   const Function = () => {
     // function definition here
   };
 
   return (
-    <div>This is the dashboard page</div>
+    <div>This is the time page</div>
   );
 };
 
-export default Dashboard;
+export default Time;
