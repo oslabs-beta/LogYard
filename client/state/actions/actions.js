@@ -1,9 +1,9 @@
 import { createAction } from '@reduxjs/toolkit';
 
 import {
-  TEST_ACTION,
-  TEST_ACTION2,
+  LOAD_LOGS,
+  SET_ACTIVE_LOG
 } from '../constants/actionTypes';
 
-export const testAction = createAction(TEST_ACTION); // payload: null
-export const testAction2 = createAction(TEST_ACTION2); // payload: null
+export const loadLogs = createAction(LOAD_LOGS); // payload: Array containing all log data
+export const setActiveLog = createAction(SET_ACTIVE_LOG);

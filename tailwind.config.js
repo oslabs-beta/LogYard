@@ -5,10 +5,13 @@ export default {
     './index.html'
   ],
   theme: {
-    colors: {
-      primary: '#4ADEDE'
+    extend: {
+      colors: {
+        primary: '#4ADEDE',
+      }
     },
-    extend: {},
   },
-  plugins: [],
+  plugins: [
+    require('flowbite/plugin'),
+  ],
 };
