@@ -1,10 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
-import example from '../reducers/example';
+import logsReducer from '../reducers/logsReducer';
 
 const store = configureStore({
   reducer: {
     // Reducers go here
-    example,
+    logsReducer
   },
 });
 
