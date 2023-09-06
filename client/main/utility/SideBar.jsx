@@ -9,11 +9,9 @@ const SideBar = ({ items })=>{
   }
   
   return (
-    <div className='w-64 h-screen transition-transform -translate-x-full sm:translate-x-0 p-5'>
-      <div className="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800 flex-col flex">
-        <div className="space-y-2 font-medium grow flex flex-col justify-center">
-          { itemsReact }
-        </div>
+    <div className='flex w-full justify-center pt-5'>
+      <div className="inline-flex rounded-md shadow-sm" role="group">
+        { itemsReact }
       </div>
     </div>
   );
