@@ -15,6 +15,24 @@ export default createLogger({
     //   ),
     // }),
 
+    /*
+    LOGGER TEMPLATE
+
+    _id: 
+    timestamp
+    level
+    message
+    meta: {
+      LogString:
+      Context: {
+        Context1:
+        Context2:
+      }
+      
+    }
+
+    */
+
     new transports.MongoDB({
       level: 'silly', 
       defaultMeta: {
@@ -27,7 +45,6 @@ export default createLogger({
       dbName: 'your_database_name',
       collection: 'logs',
       format: format.combine(
-        format.timestamp(),
         format.json(),
         format.metadata()
       )

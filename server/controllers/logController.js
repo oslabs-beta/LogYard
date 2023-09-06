@@ -5,16 +5,9 @@ const logController = {};
 logController.getLogs = async (req, res, next) => {
   console.log('inside of logController.getLogs middleware');
   try {
-    // const data = await LogModel.create({
-    //   LogString: 'This is the string',
-    //   Context: 'This is context',
-    //   Severity: 7,
-    // });
-		// console.log('data: ', data);
-
-    // const logs = db.getCollection('logs');
-    
-
+    const data = await LogModel.find({});
+    console.log('data: ', data);
+    res.locals.logs = data;
     return next();
   } catch (err) {
     return next({
