@@ -2,6 +2,7 @@ import express from 'express';
 import cookieParser from 'cookie-parser';
 import connectDB from './db.js';
 import logger from './Logger.js';
+// import cors from 'cors';
 
 import logRouter from './routes/logRouter.js';
 import authRouter from './routes/authRouter.js';
@@ -11,6 +12,7 @@ connectDB();
 const app = express();
 const port = 3000;
 
+// app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
@@ -20,6 +22,7 @@ app.use('/logs', logRouter);
 app.use('/auth', authRouter);
 
 app.use('*', (req, res) => {
+  console.log('global 404 handler');
   res.status(404).send('Not found.');
 });
 

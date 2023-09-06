@@ -21,7 +21,7 @@ const signOutClicked = (navigate)=>{
 const loadLogsOnce = async (dispatch)=>{
   // let logData = await fetch('/logs');
   // logData = await logData.json();
-  // dispatch(loadLogs(logData));`
+  // dispatch(loadLogs(logData));
 };
 
 

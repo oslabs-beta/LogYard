@@ -6,8 +6,12 @@ const authRouter = express.Router();
 
 authRouter.get(
   '/', 
-  // authController.verifyPassword, 
-  // authController.checkCookie,
+  (req, res, next) => {
+    console.log('inside authRouter');
+    return next();
+  },
+  authController.verifyPassword, 
+  authController.setCookie,
   (req, res) => {
     res.sendStatus(200);
   }

@@ -18,17 +18,13 @@ export default createLogger({
     /*
     LOGGER TEMPLATE
 
-    _id: 
-    timestamp
-    level
-    message
+    _id: standard
+    timestamp: standard
+    level: (error, warn, info, http, verbose, debug, silly)
+    message: USER DECLARED!
     meta: {
-      LogString:
-      Context: {
-        Context1:
-        Context2:
-      }
-      
+      Context1: USER DECLARED
+      Context2: USER DECLARED
     }
 
     */

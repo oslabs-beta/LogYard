@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const Login = () => {
   const [password, setPassword] = useState('');
@@ -10,8 +11,14 @@ const Login = () => {
       const params = new URLSearchParams({
         password
       });
-      const response = await fetch(`http://localhost:8080/login/resource?${params}`);
+      const response = await fetch(`/auth/resource?${params}`);
+      // const response = await axios.get('http://localhost:8080/auth', {
+      //   params: {
+      //     password: password,
+      //   }
+      // });
       if (response.ok) {
+        console.log('hello');
         navigate('/main/dashboard');
       }
     }
