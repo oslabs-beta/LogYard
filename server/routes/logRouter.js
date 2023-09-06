@@ -1,11 +1,16 @@
 import express from 'express';
 import logController from '../controllers/logController.js';
 import authController from '../controllers/authController.js';
+import sessionController from '../controllers/sessionController.js';
 
 const router = express.Router();
 
 router.get('/', 
-  authController.checkCookie,
+  (req, res, next) => {
+    console.log('log router reached');
+    return next();
+  },
+  sessionController.checkCookie,
   logController.getLogs, 
   (req, res) => {
     if (res.locals.cookieStatus) {

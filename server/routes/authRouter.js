@@ -1,17 +1,15 @@
 import express from 'express';
 import cookieParser from 'cookie-parser';
 import authController from '../controllers/authController.js';
+import sessionController from '../controllers/sessionController.js';
 
 const authRouter = express.Router();
 
+// use this upon login
 authRouter.get(
   '/', 
-  (req, res, next) => {
-    console.log('inside authRouter');
-    return next();
-  },
   authController.verifyPassword, 
-  authController.setCookie,
+  sessionController.setCookie,
   (req, res) => {
     res.sendStatus(200);
   }

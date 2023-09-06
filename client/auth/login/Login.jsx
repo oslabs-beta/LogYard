@@ -11,10 +11,16 @@ const Login = () => {
       const params = new URLSearchParams({
         password
       });
-      const response = await fetch(`/api/auth/resource?${params}`);
+      // had to change this to properly send query params
+      const response = await fetch(`/api/auth?${params}`);
+      // if response come back ok, redirect to dashboard
       if (response.ok) {
-        console.log('hello');
+        console.log('fetch response came back as OK');
         navigate('/main/dashboard');
+      }
+      // otherwise, redirect to sign in
+      else {
+        navigate('/');
       }
     }
     catch (err) {
