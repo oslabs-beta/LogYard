@@ -10,7 +10,7 @@ const Login = () => {
       const params = new URLSearchParams({
         password
       });
-      const response = await fetch(`http://localhost:8080/login/resource?${params}`);
+      const response = await fetch(`/api/auth/resource?${params}`);
       if (response.ok) {
         navigate('/main/dashboard');
       }
@@ -22,9 +22,9 @@ const Login = () => {
 
 
   return (
-    <div className='min-h-screen flex items-center justify-center'>
-      <input className='passwordInput px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500' type='password' placeholder='password' value={password} onChange= {(e) => setPassword(e.target.value)}></input>
-      <button className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded' onClick={handleclick}> Log In</button>
+    <div className='h-full flex items-center justify-center'>
+      <input className='passwordInput px-4 py-2 border border-secondary-300 rounded-lg focus:outline-none text-white placeholder-primary-300 bg-primary-700 focus:border-secondary-800' type='password' placeholder='password' value={password} onChange= {(e) => setPassword(e.target.value)}></input>
+      <button className='bg-secondary-700 hover:bg-primary-700 text-white font-bold py-2 px-4 rounded' onClick={handleclick}> Log In</button>
     </div>
   );
 };

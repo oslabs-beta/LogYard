@@ -1,18 +1,12 @@
 import React from 'react';
 import AllLogs from './AllLogs';
-import SideBar from '../utility/SideBar';
+import Filter from '../utility/Filter';
 
 const Dashboard = () => {
   
-
   return (
-    <div className='flex grow h-5/6'>
-      <SideBar items={[
-        ['Quantity', ()=>{}],
-        ['Time', ()=>{}],
-        ['Viewer', ()=>{}],
-        ['Export Data', ()=>{}],
-      ]}/>
+    <div className='flex flex-col grow h-5/6'>
+      <Filter/>
       <AllLogs/>
     </div>
   );
