@@ -10,7 +10,7 @@ const Login = () => {
       const params = new URLSearchParams({
         password
       });
-      const response = await fetch(`/api/auth/resource?${params}`);
+      const response = await fetch(`/api/auth?${params}`);
       if (response.ok) {
         navigate('/main/dashboard');
       }
