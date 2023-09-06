@@ -35,8 +35,7 @@ const LogDisplay = ({ data })=>{
       <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
         {
           Object.entries(Context).map(([key, value])=>{
-            return <>{key}: {value}<br></br></>;
-            
+            return <React.Fragment key={key}> {key}: {value}<br></br></React.Fragment>; 
           })
         }
       </th>

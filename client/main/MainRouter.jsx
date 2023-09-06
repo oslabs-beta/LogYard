@@ -15,7 +15,7 @@ const profileClicked = (navigate)=>{
 };
 
 const signOutClicked = (navigate)=>{
-
+  navigate('/');
 };
 
 const loadLogsOnce = async (dispatch)=>{
