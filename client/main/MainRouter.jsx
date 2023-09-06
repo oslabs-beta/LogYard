@@ -19,9 +19,9 @@ const signOutClicked = (navigate)=>{
 };
 
 const loadLogsOnce = async (dispatch)=>{
-  // let logData = await fetch('/logs');
-  // logData = await logData.json();
-  // dispatch(loadLogs(logData));`
+  let logData = await fetch('/api/logs');
+  logData = await logData.json();
+  dispatch(loadLogs(logData));
 };
 
 
@@ -38,6 +38,8 @@ const MainRouter = () => {
     <div className='flex flex-col h-full'>
       <NavBar routes={[
         ['Dashboard', () => {dashboardClicked(navigate);}],
+        ['Quantity', () => {profileClicked(navigate);}],
+        ['Timeline', () => {profileClicked(navigate);}],
         ['Profile', () => {profileClicked(navigate);}],
         ['Sign Out', () => {signOutClicked(navigate);}]
       ]}/>
