@@ -11,17 +11,7 @@ logController.getLogs = async (req, res, next) => {
       res.locals.logs = data;
       return next();
     }
-    // const data = await LogModel.find({});
-    // console.log('data: ', data);
-    // res.locals.logs = data;
-    // return next({
-    //   log: 'error in logController.getLogs',
-    //   status: 401,
-    //   message: {
-    //     err: 'Error occured in logController.getLogs. Cookie issue.',
-    //   },
-    // });
-    // return next();
+
   } catch (err) {
     return next({
       log: `logController.getLogs: ERROR - ${err}`,
