@@ -36,18 +36,12 @@ app.use((err, req, res, next) => {
 
 
 app.listen(port, () => {
-  // const childLogger = logger.child({ key: 'value'});
-
-  // logger.info('this is the new error message', {
-  //   LogString: 'this is the new log string',
-  //   Context: 'Node1',
+  
+  // logger.error('Test Error', {
+  //   Context1: 'This is context1',
+  //   Context2: 'This is context2'
   // });
-  // logger.warn();
-  // logger.info();
-  // logger.http();
-  // logger.verbose();
-  // logger.debug();
-  // logger.silly();
+
   console.log(`Server is running on port ${port}`);
 });
 
