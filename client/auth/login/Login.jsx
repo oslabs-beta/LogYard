@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const Login = () => {
   const [password, setPassword] = useState('');
@@ -12,7 +13,12 @@ const Login = () => {
       });
       const response = await fetch(`/api/auth?${params}`);
       if (response.ok) {
+        console.log('fetch response came back as OK');
         navigate('/main/dashboard');
+      }
+      // otherwise, redirect to sign in
+      else {
+        navigate('/');
       }
     }
     catch (err) {

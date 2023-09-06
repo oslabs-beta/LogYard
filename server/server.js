@@ -6,6 +6,7 @@ import logger from './Logger.js';
 import logRouter from './routes/logRouter.js';
 import authRouter from './routes/authRouter.js';
 
+/* connect to mongo database */
 connectDB();
 
 const app = express();
@@ -15,14 +16,17 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-// routers here
+/* Routers */
 app.use('/logs', logRouter);
 app.use('/auth', authRouter);
 
+/* 404 handler */
 app.use('*', (req, res) => {
+  console.log('global 404 handler');
   res.status(404).send('Not found.');
 });
 
+/* Global error handler */
 app.use((err, req, res, next) => {
   const defaultErr = {
     log: 'Express error handler caught unknown middleware error',
@@ -34,14 +38,8 @@ app.use((err, req, res, next) => {
   return res.status(errObj.status).json(errObj.message);
 });
 
-
+/* Port initialization */
 app.listen(port, () => {
-  
-  // logger.error('Test Error', {
-  //   Context1: 'This is context1',
-  //   Context2: 'This is context2'
-  // });
-
   console.log(`Server is running on port ${port}`);
 });
 
