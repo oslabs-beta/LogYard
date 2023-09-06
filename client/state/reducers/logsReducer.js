@@ -19,7 +19,7 @@ const logsReducer = createReducer(initialState, (builder) => {
     })
     .addCase(SET_ACTIVE_LOG, (state, action) => {
       state.activeLog = action.payload;
-    })
+    });
 });
 
 
