@@ -1,24 +1,39 @@
+/**
+ * ************************************
+ *
+ * @module  MainRouter
+ * @authors Preston Coldwell, Ryan Smithey, Geoff Sun, Andrew Wagner, Brian Hwang
+ * @date 09/06/2023
+ * @description description goes here...
+ * 
+ * ************************************
+ */
+
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect } from 'react';
 import { useNavigate, Outlet } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { loadLogs } from '../state/actions/actions';
 
-
 import NavBar from './NavBar.jsx';
 
-const dashboardClicked = (navigate)=>{
+// navigator for dashboard
+const dashboardClicked = (navigate) => {
   navigate('/main/dashboard');
 };
 
-const profileClicked = (navigate)=>{
+// navigator for profile
+const profileClicked = (navigate) => {
   navigate('/main/profile');
 };
 
-const signOutClicked = (navigate)=>{
+// navigator for sign out
+const signOutClicked = (navigate) => {
   navigate('/');
 };
 
-const loadLogsOnce = async (dispatch)=>{
+// function for getting logs from database
+const loadLogsOnce = async (dispatch) => {
   let logData = await fetch('/api/logs');
   logData = await logData.json();
   dispatch(loadLogs(logData));
@@ -26,10 +41,12 @@ const loadLogsOnce = async (dispatch)=>{
 
 
 const MainRouter = () => {
+  // inialize navigation
   const navigate = useNavigate();
+  // initialize dispatch
   const dispatch = useDispatch();
 
-  //Load data to State
+  // load data to state upon page initialization
   useEffect(() => {
     loadLogsOnce(dispatch);
   }, []);
