@@ -1,25 +1,37 @@
+/**
+ * ************************************
+ *
+ * @module  sessionController
+ * @authors Preston Coldwell, Ryan Smithey, Geoff Sun, Andrew Wagner, Brian Hwang
+ * @date 09/06/2023
+ * @description (.checkCookie checks if cookie is present in database) (.setCookie sets a cookie on the database and in the browser)
+ * 
+ * ************************************
+ **/
+
 import SessionModel from '../models/sessionModel.js';
 
 const sessionController = {};
 
-// CHECKS IF COOKIE IS PRESENT IN DATABASE
 sessionController.checkCookie = async (req, res, next) => {
   try {
+    /* get cookie from user */
     const { session } = req.cookies;
-    console.log('session:', session);
 
-    // look for session in database
+    /* look for that cookie in database */ 
     const currSession = await SessionModel.findOne({ cookieId: session });
 
-    // if cookie doesnt exist, set cookieStatus to false
+    /* if cookie doesn't exist, set cookieStatus to false for navigation use in front-end, and vice versa */ 
     if (!currSession) {
       console.log('no cookie found');
       res.locals.cookieStatus = false;
     } else {
-      res.locals.cookieStatus = true;  
       console.log('cookie found');
-      return next();
+      res.locals.cookieStatus = true;  
     }
+
+    return next();
+
   } catch (err) {
     return next({
       log: 'An error has occured in sessionController.checkCookie', 
@@ -29,16 +41,18 @@ sessionController.checkCookie = async (req, res, next) => {
   }
 };
 
-// SETS A COOKIE ON THE DATABASE AND BROWSER
 sessionController.setCookie = async (req, res, next) => {
   try {
-    const cookie = Math.floor(Math.random() * 100).toString();
-    console.log('cookie:', cookie);
+    /* generate random number for cookie value */ 
+    const cookie = Math.floor(Math.random() * 10000).toString();
+    // console.log('cookie:', cookie);
 
+    /* create a cookie */ 
     res.cookie('session', cookie, { httpOnly: true });
 
+    /* save info from that cookie onto the database */ 
     const response = await SessionModel.create({ cookieId: cookie });
-    console.log('response: ', response);
+    // console.log('response: ', response);
     
     return next();
   } catch (err) {
@@ -49,31 +63,5 @@ sessionController.setCookie = async (req, res, next) => {
     });
   }
 };
-
-
-// sessionController.checkCookie = async (req, res, next) => {
-//   console.log('inside of authController.checkCookie');
-//   try {
-//     // logic here for checking if cookie exists...
-//     const { session } = req.cookies;
-//     console.log('session cookie: ', session);
-  
-//     if (session === 'value') {
-//       res.locals.cookieStatus = true;
-//       return next();
-//     } else {
-//       res.locals.cookieStatus = false;
-//       // res.redirect('/'); // not sure if this is working through postman
-//     }
-//   } catch (err) {
-//     return next({
-//       log: `authController.checkCookie ERROR: ${err}`,
-//       status: 400,
-//       message: {
-//         err: 'Error while finding cookie',
-//       },
-//     });
-//   }
-// };
 
 export default sessionController;

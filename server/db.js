@@ -1,3 +1,14 @@
+/**
+ * ************************************
+ *
+ * @module  connectDB
+ * @authors Preston Coldwell, Ryan Smithey, Geoff Sun, Andrew Wagner, Brian Hwang
+ * @date 09/06/2023
+ * @description Database connection module
+ * 
+ * ************************************
+ **/
+
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
   
