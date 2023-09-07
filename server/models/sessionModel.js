@@ -12,12 +12,11 @@
 
 import mongoose from 'mongoose';
 
-
+// session schema uses unique mongo _id to set a unique cookie
 const sessionSchema = new mongoose.Schema({
-  cookieId: { type: String, required: true, unique: true },
   createdAt: { type: Date, expires: 3000, default: Date.now }
 });
 
-const SessionModel = mongoose.model('session', sessionSchema);
+const SessionModel = mongoose.model('sessiondocument', sessionSchema);
 
 export default SessionModel;
