@@ -44,8 +44,6 @@ const InspectEntry = ({ log }) => {
   );
 };
 
-
-
 const logEntryCreator = (data) => {
 
   // destructure from data params - which is used in AllLogs.jsx
@@ -53,50 +51,14 @@ const logEntryCreator = (data) => {
   // get items from data.meta
   const { Context, LogString } = meta;
 
-
   return [
-    <TextEntry key={Math.random()}/>,
-    <TextEntry key={Math.random()}/>,
-    <TextEntry key={Math.random()}/>,
-    <TextEntry key={Math.random()}/>,
-    <ContextEntry key={Math.random()}/>,
-    <InspectEntry key={Math.random()}/>
+    <TextEntry key={Math.random()} input={Time}/>,
+    <TextEntry key={Math.random()} input={_id}/>,
+    <TextEntry key={Math.random()} input={level}/>,
+    <TextEntry key={Math.random()} input={message}/>,
+    <ContextEntry key={Math.random()} contexts={Context}/>,
+    <InspectEntry key={Math.random()} log={ data }/>
   ];
-    
-      // <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-      //   {Time}
-      // </th>
-      // <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-      //   {_id}
-      // </th>
-      // <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-      //   {level}
-      // </th>
-      // <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-      //   {message}
-      // </th>
-      // <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-      //   {/* list of contexts */}
-      //   {
-      //     Object.entries(Context).map(([key, value])=>{
-      //       return <React.Fragment key={key}> {key}: {value}<br></br></React.Fragment>; 
-      //     })
-      //   }
-      // </th>
-      // <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-
-      //   <button onClick={()=>{
-      //     // upon clicking the magnifying glass, set the current log object in state
-      //     getLogID(dispatch, data);
-      //     // then navigate to individual log viewer
-      //     navigate('/main/logviewer');
-      //   }}>
-      //     {/* magnifying class photo */}
-      //     <img src='../../5971.png' alt='Inspect' className='w-8 min-w-8 h-w'></img>
-      //   </button>
-      // </th>
-    
-  // );
 };
 
 export default logEntryCreator;
