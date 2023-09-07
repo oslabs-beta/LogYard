@@ -5,7 +5,7 @@
  * @authors Preston Coldwell, Ryan Smithey, Geoff Sun, Andrew Wagner, Brian Hwang
  * @date 09/06/2023
  * @description (.checkCookie checks if cookie is present in database) (.setCookie sets a cookie on the database and in the browser)
- * 
+ *
  * ************************************
  **/
 
@@ -18,23 +18,20 @@ sessionController.checkCookie = async (req, res, next) => {
     /* get cookie from user */
     const { session } = req.cookies;
 
-    /* look for that cookie in database */ 
-    const currSession = await SessionModel.findOne({ cookieId: session });
+    /* look for that cookie in database */
+    const currSession = await SessionModel.findOne({ _id: session });
 
-    /* if cookie doesn't exist, set cookieStatus to false for navigation use in front-end, and vice versa */ 
+    /* if cookie doesn't exist, set cookieStatus to false for navigation use in front-end, and vice versa */
     if (!currSession) {
-      console.log('no cookie found');
       res.locals.cookieStatus = false;
     } else {
-      console.log('cookie found');
-      res.locals.cookieStatus = true;  
+      res.locals.cookieStatus = true;
     }
 
     return next();
-
   } catch (err) {
     return next({
-      log: 'An error has occured in sessionController.checkCookie', 
+      log: `An error has occured in sessionController.checkCookie. ERROR - ${err}`,
       status: 400,
       message: { err: 'An error occured' },
     });
@@ -43,21 +40,19 @@ sessionController.checkCookie = async (req, res, next) => {
 
 sessionController.setCookie = async (req, res, next) => {
   try {
-    /* generate random number for cookie value */ 
-    const cookie = Math.floor(Math.random() * 10000).toString();
-    // console.log('cookie:', cookie);
+    /* create a reference in database that will have a unique id for cookie */
+    const response = await SessionModel.create({});
 
-    /* create a cookie */ 
-    res.cookie('session', cookie, { httpOnly: true });
+    // extract id from database entry
+    const id = response._id;
 
-    /* save info from that cookie onto the database */ 
-    const response = await SessionModel.create({ cookieId: cookie });
-    // console.log('response: ', response);
-    
+    /* create a cookie with a value of that databse id */
+    res.cookie('session', `${id}`, { httpOnly: true });
+
     return next();
   } catch (err) {
     return next({
-      log: 'An error has occured in sessionController.setCookie', 
+      log: `An error has occured in sessionController.setCookie. ERROR - ${err}`,
       status: 400,
       message: { err: 'An error occured' },
     });

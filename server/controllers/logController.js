@@ -22,8 +22,11 @@ logController.getLogs = async (req, res, next) => {
     if (res.locals.cookieStatus) {
       const data = await LogModel.find({});
       res.locals.logs = data;
-      return next();
-    }
+    } 
+    // else {
+    //   res.locals.logs = false;
+    // }
+    return next();
   } catch (err) {
     return next({
       log: `logController.getLogs: ERROR - ${err}`,
