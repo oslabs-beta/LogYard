@@ -11,24 +11,37 @@
 
 import React from 'react';
 import { useSelector } from 'react-redux';
-import LogDisplay from './LogDisplay';
+import logEntryCreator from './logEntryCreator';
+import Table from '../utility/Table/Table';
 
 
-
-const AllLogs = () => {
+//Display Data is an object with with keys as columns and values as arrays of data (expected square)
+const AllLogs = ({displayData}) => {
 
   // get data from state
   const allLogs = useSelector(state=>state.logsReducer.logs);
 
+  const tableEntries = [];
+
   const logComponents = [];
 
+
   // create the array of logs for dashboard display
-  for (const log of allLogs){
-    logComponents.push(<LogDisplay key={Math.random()} data={ log } />);
+  for (const log of allLogs){//<LogDisplay key={Math.random()} data={ log } />
+    tableEntries.push(logEntryCreator(log));
   }
 
   return (
     <>
+      <Table displayHeaders={[
+        'Time',
+        'ID',
+        'Level',
+        'Message',
+        'Context',
+        'Inspect'
+      ]} displayData={ tableEntries }/>
+
       <div className="p-5 w-full relative overflow-x-auto">
         <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
           <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
