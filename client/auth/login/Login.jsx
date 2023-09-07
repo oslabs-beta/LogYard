@@ -30,7 +30,6 @@ const Login = () => {
       const response = await fetch(`/api/auth?${params}`);
       // if backend comes back as 200, navigate to dashboard
       if (response.ok) {
-        console.log('fetch response came back as OK');
         navigate('/main/dashboard');
       }
       // otherwise, redirect to sign in
