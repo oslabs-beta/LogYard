@@ -1,3 +1,14 @@
+/**
+ * ************************************
+ *
+ * @module  App
+ * @authors Preston Coldwell, Ryan Smithey, Geoff Sun, Andrew Wagner, Brian Hwang
+ * @date 09/06/2023
+ * @description routers for entire application
+ * 
+ * ************************************
+ */
+
 import React, { useEffect } from 'react';
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';

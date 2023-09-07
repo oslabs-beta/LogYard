@@ -1,3 +1,14 @@
+/**
+ * ************************************
+ *
+ * @module  FilterDropdown
+ * @authors Preston Coldwell, Ryan Smithey, Geoff Sun, Andrew Wagner, Brian Hwang
+ * @date 09/06/2023
+ * @description .jsx - description goes here...
+ * 
+ * ************************************
+ */
+
 import React, { useState } from 'react';
 import FilterDropdownItem from './FilterDropdownItem';
 
