@@ -32,6 +32,20 @@ const signOutClicked = (navigate) => {
   navigate('/');
 };
 
+const loadLogsOnce = async (dispatch, navigate) => {
+  // make a request to get logs from backend
+  let logData = await fetch('/api/logs');
+
+  // if response comes back ok, dispatch logs to save in state
+  if (logData.ok) {
+    logData = await logData.json();
+    dispatch(loadLogs(logData));
+  } else {
+    // otherwise, redirect to login page
+    signOutClicked(navigate);
+  }
+};
+
 const MainRouter = () => {
   // inialize navigation
   const navigate = useNavigate();
@@ -40,20 +54,7 @@ const MainRouter = () => {
 
   useEffect(() => {
     /* gets logs from backend if cookie exists, redirects otherwise */
-    const loadLogsOnce = async () => {
-      // make a request to get logs from backend
-      let logData = await fetch('/api/logs');
-
-      // if response comes back ok, dispatch logs to save in state
-      if (logData.ok) {
-        logData = await logData.json();
-        dispatch(loadLogs(logData));
-      } else {
-        // otherwise, redirect to login page
-        signOutClicked(navigate);
-      }
-    };
-    loadLogsOnce();
+    loadLogsOnce(dispatch, navigate);
   }, []);
 
   return (
