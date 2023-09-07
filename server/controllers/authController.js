@@ -1,20 +1,38 @@
+/**
+ * ************************************
+ *
+ * @module  authController
+ * @authors Preston Coldwell, Ryan Smithey, Geoff Sun, Andrew Wagner, Brian Hwang
+ * @date 09/06/2023
+ * @description .verifyPassword checks if password in .env matches one entered by user on login
+ * 
+ * ************************************
+ */
+
 import cookieParser from 'cookie-parser';
 import dotenv from 'dotenv';
 import LogModel from '../models/logModel.js';
 
+dotenv.config();
+
 const authController = {};
 
 authController.verifyPassword = async (req, res, next) => {
-  // console.log('inside of authController.verifyPassword');
+
+  // console.log('entered authController.verifyPassword');
+
   try {
-    const { password } = req.params;
+    /* get password from query */
+    const { password } = req.query;
 
     // console.log('password: ', password);
     // console.log('process.env.VITE_USER_PASSWORD: ', process.env.VITE_USER_PASSWORD);
 
+    /* check if password typed by user matches .env password - if so, proceed.*/
     if (password === process.env.VITE_USER_PASSWORD) {
       return next();
     } else {
+      /* if incorrect, pass to global error handler */
       return next({
         log: 'Password is incorrect',
         status: 401,
@@ -29,44 +47,6 @@ authController.verifyPassword = async (req, res, next) => {
       status: 400,
       message: {
         err: 'Error with cookie',
-      },
-    });
-  }
-};
-
-authController.setCookie = async (req, res, next) => {
-  // console.log('inside of authController.setCookie');
-  try {
-    res.cookie('id', res.locals.id, {
-      httpOnly: true,
-      secure: true,
-      sameSite: 'None',
-      maxAge: 5 * 60 * 1000,
-    });
-    return next();
-  } catch (err) {
-    return next({
-      log: `authController.setCookie ERROR: ${err}`,
-      status: 400,
-      message: {
-        err: 'Error with cookie',
-      },
-    });
-  }
-};
-
-authController.checkCookie = async (req, res, next) => {
-  // console.log('inside of authController.checkCookie');
-  try {
-    // logic here for checking if cookie exists...
-
-    return next();
-  } catch (err) {
-    return next({
-      log: `authController.checkCookie ERROR: ${err}`,
-      status: 400,
-      message: {
-        err: 'Error while finding cookie',
       },
     });
   }

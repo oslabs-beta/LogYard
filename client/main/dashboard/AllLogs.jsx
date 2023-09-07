@@ -1,23 +1,41 @@
+/**
+ * ************************************
+ *
+ * @module  AllLogs
+ * @authors Preston Coldwell, Ryan Smithey, Geoff Sun, Andrew Wagner, Brian Hwang
+ * @date 09/06/2023
+ * @description .jsx - creates table for dashboard
+ * 
+ * ************************************
+ */
+
 import React from 'react';
 import { useSelector } from 'react-redux';
-import LogDisplay from './LogDisplay';
+import logEntryCreator from './logEntryCreator';
+import Table from '../utility/Table/Table';
 
 
+//Display Data is an object with with keys as columns and values as arrays of data (expected square)
+const AllLogs = ({displayData}) => {
 
-const AllLogs = () => {
-  //Get Data From Selector
+  // get data from state
   const allLogs = useSelector(state=>state.logsReducer.logs);
+  const tableEntries = [];
 
-  const logComponents = [];
-
+  // create the array of logs for dashboard display
   for (const log of allLogs){
-    logComponents.push(<LogDisplay key={Math.random()} data={ log } />);
+    tableEntries.push(logEntryCreator(log));
   }
 
   return (
-    <div className='flex grow flex-col max-h-full overflow-y-scroll'>
-      {logComponents}
-    </div>
+    <Table displayHeaders={[
+      'Time',
+      'ID',
+      'Level',
+      'Message',
+      'Context',
+      'Inspect'
+    ]} displayData={ tableEntries }/>
   );
 };
 

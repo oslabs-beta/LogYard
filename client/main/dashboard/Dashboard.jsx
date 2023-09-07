@@ -1,18 +1,25 @@
+/**
+ * ************************************
+ *
+ * @module  Dashboard
+ * @authors Preston Coldwell, Ryan Smithey, Geoff Sun, Andrew Wagner, Brian Hwang
+ * @date 09/06/2023
+ * @description .jsx - combines filter options and log table
+ * 
+ * ************************************
+ */
+
 import React from 'react';
 import AllLogs from './AllLogs';
-import SideBar from '../utility/SideBar';
+import Filter from '../utility/Filter';
 
 const Dashboard = () => {
   
-
   return (
-    <div className='flex grow h-5/6'>
-      <SideBar items={[
-        ['Quantity', ()=>{}],
-        ['Time', ()=>{}],
-        ['Viewer', ()=>{}],
-        ['Export Data', ()=>{}],
-      ]}/>
+    <div className='flex flex-col grow h-5/6'>
+      {/* filter options component */}
+      <Filter/>
+      {/* log table */}
       <AllLogs/>
     </div>
   );
