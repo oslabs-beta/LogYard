@@ -1,7 +1,7 @@
 /**
  * ************************************
  *
- * @module  AllLogs
+ * @module  Table
  * @authors Preston Coldwell, Ryan Smithey, Geoff Sun, Andrew Wagner, Brian Hwang
  * @date 09/06/2023
  * @description .jsx - creates table from relevant inputs

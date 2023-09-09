@@ -61,36 +61,11 @@ const MainRouter = () => {
     <div className='flex flex-col h-full'>
       <NavBar
         routes={[
-          [
-            'Dashboard',
-            () => {
-              dashboardClicked(navigate);
-            },
-          ],
-          [
-            'Quantity',
-            () => {
-              profileClicked(navigate);
-            },
-          ],
-          [
-            'Timeline',
-            () => {
-              profileClicked(navigate);
-            },
-          ],
-          [
-            'Profile',
-            () => {
-              profileClicked(navigate);
-            },
-          ],
-          [
-            'Sign Out',
-            () => {
-              signOutClicked(navigate);
-            },
-          ],
+          [ 'Dashboard', () => { dashboardClicked(navigate); } ],
+          [ 'Quantity', () => { profileClicked(navigate); } ],
+          [ 'Timeline', () => { profileClicked(navigate); } ],
+          [ 'Profile', () => { profileClicked(navigate); } ],
+          [ 'Sign Out', () => { signOutClicked(navigate); } ],
         ]}
       />
 
