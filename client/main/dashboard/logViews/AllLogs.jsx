@@ -12,7 +12,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import logEntryCreator from './logEntryCreator';
-import Table from '../utility/Table/Table';
+import Table from '../../utility/Table/Table';
 
 
 //Display Data is an object with with keys as columns and values as arrays of data (expected square)

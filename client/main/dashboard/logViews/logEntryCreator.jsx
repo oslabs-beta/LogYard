@@ -1,10 +1,10 @@
 /**
  * ************************************
  *
- * @module  LogDisplay
+ * @module  logEntryCreator
  * @authors Preston Coldwell, Ryan Smithey, Geoff Sun, Andrew Wagner, Brian Hwang
  * @date 09/06/2023
- * @description .jsx - each individual log component on dashboard
+ * @description .jsx - Used to display an individual log in a Table
  * 
  * ************************************
  */
@@ -12,7 +12,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { setActiveLog } from '../../state/actions/actions';
+import { setActiveLog } from '../../../state/actions/actions';
 
 // set the active log in state to current log object
 const onInspectEntry = (dispatch, navigate, data) => {
