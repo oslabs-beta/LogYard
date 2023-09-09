@@ -16,7 +16,6 @@ import sessionController from '../controllers/sessionController.js';
 
 const authRouter = express.Router();
 
-/* desc */
 authRouter.get(
   '/', 
   authController.verifyPassword, 

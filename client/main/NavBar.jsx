@@ -1,18 +1,32 @@
+/**
+ * ************************************
+ *
+ * @module  NavBar
+ * @authors Preston Coldwell, Ryan Smithey, Geoff Sun, Andrew Wagner, Brian Hwang
+ * @date 09/06/2023
+ * @description .jsx - nav-bar component
+ * 
+ * ************************************
+ */
+
 import React from 'react';
 import NavItem from './NavItem.jsx';
 
 const NavBar = ({routes})=>{
+  // array to hold nav options in the nav-bar
   const options = [];
-  
+  // push navigation options to array
   for (const route of routes){
-    options.push(<NavItem key={route[0]} label={route[0]} func={route[1]}></NavItem>);
+    options.push(
+      <NavItem key={route[0]} label={route[0]} func={route[1]}></NavItem>
+    );
   }
   
   return (
     <nav className='bg-white border-gray-200 dark:bg-gray-900'>
       <div className='max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4'>
         <div className="flex items-center">
-          <img src="../public/FullLogo.png" className="h-12 mr-0" alt="Logo" />
+          <img src="../FullLogo.png" className="h-12 mr-0" alt="Logo" />
           {/* <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">LogYard</span> */}
         </div>
         <div className='hidden w-full md:block md:w-auto'>
