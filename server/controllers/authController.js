@@ -13,6 +13,8 @@ import cookieParser from 'cookie-parser';
 import dotenv from 'dotenv';
 import LogModel from '../models/logModel.js';
 
+dotenv.config();
+
 const authController = {};
 
 authController.verifyPassword = async (req, res, next) => {
