@@ -28,10 +28,14 @@ const Login = () => {
 
 
   return (
-    <div className='h-full flex items-center justify-center'>
-      <input className='passwordInput px-4 py-2 border border-secondary-300 rounded-lg focus:outline-none text-white placeholder-primary-300 bg-primary-700 focus:border-secondary-800' type='password' placeholder='password' value={password} onChange= {(e) => setPassword(e.target.value)}></input>
-      <button className='bg-secondary-700 hover:bg-primary-700 text-white font-bold py-2 px-4 rounded' onClick={handleclick}> Log In</button>
-      <button className='button'>Hello</button>
+    <div className='h-full flex items-center justify-center relative bg-gradient-to-r from-blue-500 to-green-500'>
+      <img className='absolute inset-0 object-cover w-full h-full opacity-50' src='../../../forest.png'></img>
+      <div className='relative'>
+        <input className='passwordInput px-4 py-2 border border-tertiary-300 rounded-lg focus:outline-none text-tertiary-600 placeholder-tertiary-800 bg-white-700 focus:border-secondary-800' type='password' placeholder='password' value={password} onChange= {(e) => setPassword(e.target.value)}></input>
+        <button className='bg-tertiary-600 hover:bg-tertiary-800 text-white font-bold py-2 px-4 rounded' onClick={handleclick}> Log In</button>
+        <button className='button'>Hello</button>
+      </div>
+     
     </div>
   );
 };
