@@ -24,7 +24,7 @@ const AllLogs = ({displayData}) => {
 
   // create the array of logs for dashboard display
   for (const log of allLogs){
-    tableEntries.push(logEntryCreator(log));
+    tableEntries.unshift(logEntryCreator(log));
   }
 
   return (

@@ -11,7 +11,8 @@ const HAS = (logs, hasArgs)=>{
 
   outer: for (const log of logs){
     for (const hasArg of hasArgs){
-      if (filterSelector(log, hasArg) !== hasArg.slice(-1)) {
+      console.log(filterSelector(log, hasArg), hasArg.params[hasArg.params.length]);
+      if (filterSelector(log, hasArg.params) !== hasArg.params[hasArg.params.length]) {
         continue outer;
       }
     }

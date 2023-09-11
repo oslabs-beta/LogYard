@@ -10,10 +10,12 @@
  */
 
 import { createReducer } from '@reduxjs/toolkit';
+import applyFilter from '../filtering/applyFilter';
 
 import {
   LOAD_LOGS,
   SET_ACTIVE_LOG,
+  FILTER_LOGS,
 } from '../constants/actionTypes';
 
 // set initial state for log reducer
@@ -29,10 +31,20 @@ const logsReducer = createReducer(initialState, (builder) => {
     // getting logs from database (for dashboard)
     .addCase(LOAD_LOGS, (state, action) => {
       state.logs = action.payload;
+      state.filteredLogs = action.payload;
     })
     // setting the active log state (for navigating to individual log page)
     .addCase(SET_ACTIVE_LOG, (state, action) => {
       state.activeLog = action.payload;
+    })
+    .addCase(FILTER_LOGS, (state, action)=>{
+      try{
+        state.filteredLogs = applyFilter(state.logs, action.payload);
+      }
+      catch (e) {
+        alert('Failed filtering IDK GL');
+        console.log(e);
+      }
     });
 });
 
