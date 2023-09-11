@@ -19,7 +19,10 @@ const Filter = (props)=>{
     <div className='flex flex-row pt-5 px-5'>
       {/* Save, Load And Delete */}
       <InputBar className={'mr-5'}>
-        <Dropdown label='Load' className='' entries={[['Test Entry 1', ()=>{}], ['Test Entry 2', ()=>{}]]}/>
+        <Dropdown label='Load' className='' entries={[
+          ['Test Entry 1', ()=>{}], 
+          ['Test Entry 2', ()=>{}]]
+        }/>
         <TextInput value='' onChange={()=>{}} placeholder='Filter Name'/>
         <ButtonInput label='Save'/>
         <ButtonInput label='Delete'/>
