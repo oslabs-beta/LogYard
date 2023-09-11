@@ -5,12 +5,12 @@ const NOT = (logs, notArgs)=>{
 
   outer: for (const log of logs){
     for (const notArg of notArgs){
-      if (filterSelector(log, notArg) === notArg.slice(-1)) {
+      if (filterSelector(log, notArg) !== notArg.slice(-1)) {
+        output.push(log);
         continue outer;
       }
     }
 
-    output.push(log);
   }
 
   return output;
