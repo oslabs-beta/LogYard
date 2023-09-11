@@ -1,8 +1,7 @@
 import filterSelector from '../selectors/filterSelector';
 
 const GROUP = (logs, groupArgs) => {
-  const groupObject = {
-  };
+  const groupObject = {};
 
   for (const log of logs) {
     let key = '';

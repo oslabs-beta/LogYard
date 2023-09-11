@@ -25,6 +25,7 @@
     "flowbite": "^1.8.1",
     "jsonwebtoken": "^9.0.2",
     "logger": "file:Logger",
+    "logger-express": "file:logger-express",
     "mongodb": "^6.0.0",
     "mongoose": "^7.5.0",
     "morgan": "^1.10.0",

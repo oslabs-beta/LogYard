@@ -3,19 +3,14 @@ import filterSelector from '../selectors/filterSelector';
 const NOTANY = (logs, notAnyArgs)=>{
   const output = [];
 
-  for (const log of logs) {
-    let successful = true;
-
+  outer: for (const log of logs) {
     for (const notAnyArg of notAnyArgs) {
       if (filterSelector(log, notAnyArg) === notAnyArg.slice(-1)) {
-        successful = false;
-        break;
+        continue outer;
       }
     }
     
-    if (successful){
-      output.push(log);
-    }
+    output.push(log);
   }
 
   return output;
