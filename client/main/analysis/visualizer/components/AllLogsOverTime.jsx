@@ -5,8 +5,6 @@ import c3 from 'c3';
 
 const AllLogsOverTime = () => {
 
-  // let chart; 
-
   // const allLogs = useSelector( state => state.logsReducer.logs );
 
   const mockDates = [
@@ -22,21 +20,6 @@ const AllLogsOverTime = () => {
     '2020-07-22',
     '2020-07-23',
     '2020-07-24'
-  ];
-
-  const mockDates2 = [
-    '2020-08-13',
-    '2020-08-14',
-    '2020-08-15',
-    '2020-08-16',
-    '2020-08-17',
-    '2020-08-18',
-    '2020-08-19',
-    '2020-08-20',
-    '2020-08-21',
-    '2020-08-22',
-    '2020-08-23',
-    '2020-08-24'
   ];
 
   const mockData = [
@@ -174,23 +157,19 @@ const AllLogsOverTime = () => {
       //     step: undefined,
       //   },
       // },
-    }).resize({
+    });
+    
+    chart.resize({
       // size of graph
       width: 1200,
       height: 600,
     });
 
-    /* 
-      setTimeout not working as-is... 
-      Browser Console -> 'Uncaught TypeError: Cannot read properties of undefined (reading 'load')'
-    */
-
     setTimeout(function () {
-      console.log('hello');
       chart.load({
         unload: ['x', 'data1', 'data2', 'data3', 'data4', 'data5', 'data6', 'data7'],
         columns: [
-          [ 'x', ...mockDates2 ],
+          [ 'x', ...mockDates ],
           [ 'data1', ...mockData ],
           [ 'data2', ...mockData ],
           [ 'data3', ...mockData ],
@@ -200,12 +179,10 @@ const AllLogsOverTime = () => {
           [ 'data7', ...mockData ],
         ]
       });
-    }, 5000);
+    }, 2000);
 
   };
 
-
-  // eslint claims renderChart is needed as a dependency here - its not..
   useEffect(() => {
     renderChart();
     // eslint-disable-next-line react-hooks/exhaustive-deps
