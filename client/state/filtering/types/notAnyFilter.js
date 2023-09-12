@@ -5,7 +5,7 @@ const NOTANY = (logs, notAnyArgs)=>{
 
   outer: for (const log of logs) {
     for (const notAnyArg of notAnyArgs) {
-      if (filterSelector(log, notAnyArg) === notAnyArg.slice(-1)) {
+      if (filterSelector(log, notAnyArg) === notAnyArg.params[notAnyArg.params.length - 1]) {
         continue outer;
       }
     }

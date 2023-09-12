@@ -4,7 +4,6 @@ const HASANY = (logs, hasAnyArgs)=>{
   const output = [];
 
   outer: for (const log of logs) {
-
     for (const hasAnyArg of hasAnyArgs) {
       if (filterSelector(log, hasAnyArg) === hasAnyArg.params[hasAnyArg.params.length - 1]) {
         output.push(log);
