@@ -9,11 +9,11 @@
  * ************************************
  **/
 
-import { createLogger, format, transports } from 'winston';
-import 'winston-mongodb';
-import dotenv from 'dotenv';
+const { createLogger, format, transports } = require('winston');
+require('winston-mongodb');
+const dotenv = require('dotenv');
 
-export default createLogger({
+module.exports = createLogger({
   transports: [
     /* !LOGGER TEMPLATE!
 
@@ -25,6 +25,8 @@ export default createLogger({
       Context1: USER DECLARED
       Context2: USER DECLARED
     }
+
+    logger.error('message', {Contexts: ''})
 
     */
 
