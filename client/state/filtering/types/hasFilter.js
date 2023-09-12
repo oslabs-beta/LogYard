@@ -11,12 +11,11 @@ const HAS = (logs, hasArgs)=>{
 
   outer: for (const log of logs){
     for (const hasArg of hasArgs){
-      console.log(filterSelector(log, hasArg), hasArg.params[hasArg.params.length]);
-      if (filterSelector(log, hasArg.params) !== hasArg.params[hasArg.params.length]) {
+      if (filterSelector(log, hasArg) !== hasArg.params[hasArg.params.length - 1]) {
         continue outer;
       }
     }
-
+    
     output.push(log);
   }
 

@@ -11,8 +11,7 @@
 
 import React from 'react';
 
-//displayHeaders is an array with values as columns
-//displayData is an array with values as entries
+
 // An entry is an array with values as inner HTML
 const TableHeader = ({columns}) => {
   const allColumns = [];

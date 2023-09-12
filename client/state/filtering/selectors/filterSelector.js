@@ -12,6 +12,8 @@
 
 
 const filterSelector = (log, argument)=>{
+  // console.log(JSON.parse(JSON.stringify(log['meta']['Context'])));
+
   switch (argument.name){
   case ('LEVEL'):
     return log['level'];
@@ -19,13 +21,24 @@ const filterSelector = (log, argument)=>{
     return log['Time'];
   case ('ID'):
     return log['_id'];
-  case ('CONTEXTKEY'):
-    return log['meta']['Context'];
-  case ('CONTEXTVAL'):
-    return log['meta']['Context'][argument[0]];
+  case ('MESSAGE'):
+    return log['message'];
+  case ('CONTEXT'):
+    if (argument.params.length > 1){
+      return log['meta']['Context'][argument.params[0]];
+    }
+    if (Object.prototype.hasOwnProperty.call(log['meta']['Context'], argument.params[0])){
+      return argument.params[0];
+    }
+
+    return undefined;
   default:
     return 'Invalid';
   }
+};
+
+const comparisonFunction = (selectedData, )=>{
+
 };
 
 export default filterSelector;

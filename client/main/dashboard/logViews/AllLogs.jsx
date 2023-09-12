@@ -12,30 +12,43 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import logEntryCreator from './logEntryCreator';
+import groupEntryCreator from './groupEntryCreator';
 import Table from '../../utility/Table/Table';
 
 
 //Display Data is an object with with keys as columns and values as arrays of data (expected square)
-const AllLogs = ({displayData}) => {
-
+const AllLogs = () => {
   // get data from state
-  const allLogs = useSelector(state=>state.logsReducer.logs);
+  const allLogs = useSelector(state=>state.logsReducer.filteredLogs);
+  
   const tableEntries = [];
+  const tableHeaders = [];
 
   // create the array of logs for dashboard display
-  for (const log of allLogs){
-    tableEntries.unshift(logEntryCreator(log));
-  }
+  if (Array.isArray(allLogs)){
+    tableHeaders.push('Time');
+    tableHeaders.push('ID');
+    tableHeaders.push('Level');
+    tableHeaders.push('Message');
+    tableHeaders.push('Context');
+    tableHeaders.push('Inspect');
 
+    for (const log of allLogs) {
+      tableEntries.unshift(logEntryCreator(log));
+    }
+  }
+  else {
+    tableHeaders.push('Key');
+    tableHeaders.push('Count');
+    tableHeaders.push('Inspect');
+
+    for (const [key, value] of Object.entries(allLogs)){
+      tableEntries.unshift(groupEntryCreator(key, value));
+    }
+  }
+  
   return (
-    <Table displayHeaders={[
-      'Time',
-      'ID',
-      'Level',
-      'Message',
-      'Context',
-      'Inspect'
-    ]} displayData={ tableEntries }/>
+    <Table displayHeaders={tableHeaders} displayData={ tableEntries }/>
   );
 };
 

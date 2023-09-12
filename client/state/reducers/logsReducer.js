@@ -16,6 +16,7 @@ import {
   LOAD_LOGS,
   SET_ACTIVE_LOG,
   FILTER_LOGS,
+  SET_FILTERED_LOGS,
 } from '../constants/actionTypes';
 
 // set initial state for log reducer
@@ -43,6 +44,15 @@ const logsReducer = createReducer(initialState, (builder) => {
       }
       catch (e) {
         alert('Failed filtering IDK GL');
+        console.log(e);
+      }
+    })
+    .addCase(SET_FILTERED_LOGS, (state, action)=>{
+      try{
+        state.filteredLogs = state.filteredLogs[action.payload];
+      }
+      catch (e){
+        alert('Failed navigating to log group');
         console.log(e);
       }
     });
