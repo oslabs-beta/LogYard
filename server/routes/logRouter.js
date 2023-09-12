@@ -20,8 +20,12 @@ router.get('/',
   logController.getLogs, 
   (req, res) => {
     if (res.locals.cookieStatus) {
+      // res.locals.logger.log('info', 'Successful Data Load');
+
       res.status(200).json(res.locals.logs);
     } else {
+      // res.locals.logger.log('info', 'Unsuccessful Data Load');
+
       res.sendStatus(400);
     }
   }

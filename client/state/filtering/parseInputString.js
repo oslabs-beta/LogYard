@@ -5,6 +5,7 @@
 // Just ensure it properly matches and creates filters
 
 // Ex. L0A1(L1A1("L2A1") L1A2("L2A1") L1A3("L2A1" "L2A2")) L0A2(L1A1("L2A1")) L0A3(L1A1() L1A2("L2A1"))
+// Ex. Valid: HAS(LEVEL("error"))
 
 const parseLevel1 = (filterString, i, level0Arguments) => {
   if (filterString[i + 1] === ')') return i + 2;
@@ -78,5 +79,7 @@ const parseInputString = (filterString) => {
 
   return results;
 };
+
+// console.log(parseInputString('GROUP(CONTEXTKEY("asdf") LEVEL())'));
 
 export default parseInputString;
