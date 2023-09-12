@@ -13,6 +13,12 @@ import React from 'react';
 import AllLogs from './logViews/AllLogs';
 import Filter from './filters/Filter';
 
+import OneLogOverTime from '../analysis/time/OneLogOverTime.jsx';
+import TotalPie from '../analysis/time/TotalPie.jsx';
+import AllLogsOverTime from '../analysis/time/AllLogsOverTime.jsx';
+
+import Testing from '../analysis/time/Testing.jsx';
+
 const Dashboard = () => {
   
   return (
@@ -21,6 +27,11 @@ const Dashboard = () => {
       <Filter/>
       {/* log table */}
       <AllLogs/>
+      {/* <Time /> */}
+      <Testing />
+      <OneLogOverTime />
+      <TotalPie />
+      <AllLogsOverTime />
     </div>
   );
 };
