@@ -21,6 +21,7 @@ import Profile from './main/profile/Profile.jsx';
 import Login from './auth/login/Login.jsx';
 import Signup from './auth/signup/Signup.jsx';
 import Recovery from './auth/recovery/Recovery.jsx';
+import Visualizer from './main/analysis/visualizer/Visualizer.jsx';
 
 const App = () => {
   return (
@@ -35,6 +36,7 @@ const App = () => {
           <Route path="/main/dashboard" element={<Dashboard/>} />
           <Route path="/main/logViewer" element={<LogViewer/>} />
           <Route path="/main/profile" element={<Profile/>} />
+          <Route path="/main/visualizer" element={<Visualizer/>} />
         </Route>
       </Routes>
     </BrowserRouter>

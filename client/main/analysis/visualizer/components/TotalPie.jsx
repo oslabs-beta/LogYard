@@ -52,9 +52,9 @@ const TotalPie = () => {
         },
       },
 
-      donut: {
-        title: 'Log Makeup - Past 24 hours'
-      },
+      // donut: {
+      //   title: 'Log Makeup - Past 24 hours'
+      // },
 
       // legend properties
       // legend: {
@@ -70,7 +70,7 @@ const TotalPie = () => {
     })
       .resize({
       // size of graph
-        width: 1200,
+        width: 600,
         height: 600,
       });
   };
@@ -83,6 +83,7 @@ const TotalPie = () => {
 
   return (
     <div className="bg-white mt-8 m-auto p-8 pl-4 place-content-center rounded-lg">
+      <h1 className='text-4xl text-center'>Log Makeup</h1>
       <div id="totalPie"></div>
     </div>
   );

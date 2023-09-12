@@ -120,6 +120,7 @@ const OneLogOverTime = () => {
 
   return (
     <div className="bg-white mt-8 m-auto p-8 pl-4 place-content-center rounded-lg">
+      <h1 className='text-4xl text-center'>One Log Over Time</h1>
       <div id="oneLogOverTime"></div>
     </div>
   );

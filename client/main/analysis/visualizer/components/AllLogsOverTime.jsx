@@ -213,6 +213,7 @@ const AllLogsOverTime = () => {
 
   return (
     <div className="bg-white mt-8 m-auto p-8 pl-4 place-content-center rounded-lg">
+      <h1 className='text-4xl text-center'>All Logs Over Time</h1>
       <div id="allLogsOverTime"></div>
     </div>
   );
