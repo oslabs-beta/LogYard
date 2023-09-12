@@ -1,7 +1,9 @@
 import express from 'express';
 import cookieParser from 'cookie-parser';
 import connectDB from './db.js';
-import logger from './Logger.js';
+import expressLogger from 'logger-express';
+const { addLogger, createLog, addContext } = expressLogger;
+import logger from 'logger';
 
 import logRouter from './routes/logRouter.js';
 import authRouter from './routes/authRouter.js';
@@ -17,8 +19,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 /* Routers */
-app.use('/logs', logRouter);
-app.use('/auth', authRouter);
+app.use('/logs', addLogger('router', 'logs'), addContext('server', '0'), logRouter);
+app.use('/auth', addLogger('router', 'auth'), addContext('server', '0'), authRouter);
 
 /* 404 handler */
 app.use('*', (req, res) => {
@@ -40,6 +42,9 @@ app.use((err, req, res, next) => {
 
 /* Port initialization */
 app.listen(port, () => {
+  logger.info('ServerStarted', {Context: {
+    'server': '0'
+  }});
   console.log(`Server is running on port ${port}`);
 });
 
