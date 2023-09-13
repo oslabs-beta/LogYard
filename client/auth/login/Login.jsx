@@ -54,10 +54,9 @@ const Login = () => {
         onClick={handleclick}
       >
         Log In
-        </button>
-      </div>
-     
+      </button>
     </div>
+     
   );
 };
 
