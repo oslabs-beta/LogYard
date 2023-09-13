@@ -5,11 +5,9 @@ import NOT from './types/notFilter';
 import NOTANY from './types/notAnyFilter';
 import GROUP from './types/groupFilter';
 
-const applyFilter = (logs, filterString) => {
+const applyFilter = (results, filterString) => {
   //Step 1 Parse the filter String
   const filters = parseInputString(filterString);
-
-  let results = logs;
   
   //Step 2 Run the current logs through the filter string
   for (const filter of filters) {

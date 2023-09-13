@@ -26,6 +26,8 @@ module.exports = createLogger({
       Context2: USER DECLARED
     }
 
+    logger.error('message', {Contexts: ''})
+
     */
 
     new transports.MongoDB({
