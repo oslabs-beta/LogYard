@@ -107,7 +107,7 @@ const OneLogOverTime = () => {
       },
     }).resize({
       // size of graph
-      width: 1200,
+      width: 1000,
       height: 600,
     });
   };

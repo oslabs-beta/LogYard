@@ -1,222 +1,107 @@
 import React, { useEffect, useState } from 'react';
+import BarChart from './BarChart';
 import { useSelector } from 'react-redux';
 
-import c3 from 'c3';
+import levelToInd from '../utilities/levelTypeToIndex.js';
+import getISOTimeArray from '../utilities/getISOTimeArray.js';
+import getSTDTimeArray from '../utilities/getSTDTimeArray.js';
+
+
+/* Ryan's notes about how to better modularize this file
+
+cosnt asdf = new ChartData()
+asdf.setXlabels([asdf1, asdf2, asdf3])
+asdf.addData(label, [H1, H2, H3])
+asdf.addData(label, [H1, H2, H3])
+asdf.addData(label, [H1, H2, H3])
+asdf.addData(label, [H1, H2, H3])
+
+<BarChart 
+  name='allLogsOverTime'
+  datesArray={asdf.labels}
+  dataArray={asdf.data}
+  height='600'
+  width='1200'
+/>
+*/
 
 const AllLogsOverTime = () => {
 
-  // let chart; 
+  // get logs from state
+  const allLogs = useSelector( state => state.logsReducer.logs );
 
-  // const allLogs = useSelector( state => state.logsReducer.logs );
+  // array of dates for graph filtering (in ISO format)
+  let ISOdates;
+  // array of dates for graph rendering (in standard format)
+  let STDdates;
+  // results array (for global availability)
+  let results;
 
-  const mockDates = [
-    '2020-07-13',
-    '2020-07-14',
-    '2020-07-15',
-    '2020-07-16',
-    '2020-07-17',
-    '2020-07-18',
-    '2020-07-19',
-    '2020-07-20',
-    '2020-07-21',
-    '2020-07-22',
-    '2020-07-23',
-    '2020-07-24'
-  ];
+  // returns an array of data points, corresponding to start and end times, intervals, and individual log-type
+  const createDataArray = (logArray, startTime, endTime, intervals) => {
 
-  const mockDates2 = [
-    '2020-08-13',
-    '2020-08-14',
-    '2020-08-15',
-    '2020-08-16',
-    '2020-08-17',
-    '2020-08-18',
-    '2020-08-19',
-    '2020-08-20',
-    '2020-08-21',
-    '2020-08-22',
-    '2020-08-23',
-    '2020-08-24'
-  ];
+    // gets appropriate index in results array based on time
+    const getTimeIndex = (time) => {
+      const tempStart = Date.parse(startTime);
+      const tempEnd = Date.parse(endTime);
 
-  const mockData = [
-    Math.floor(Math.random() * 100),
-    Math.floor(Math.random() * 100),
-    Math.floor(Math.random() * 100),
-    Math.floor(Math.random() * 100),
-    Math.floor(Math.random() * 100),
-    Math.floor(Math.random() * 100),
-    Math.floor(Math.random() * 100),
-    Math.floor(Math.random() * 100),
-    Math.floor(Math.random() * 100),
-    Math.floor(Math.random() * 100),
-    Math.floor(Math.random() * 100),
-    Math.floor(Math.random() * 100)
-  ];
+      const intervalWidth = ((tempEnd - tempStart) / intervals);
 
-  // substitute for state until filters are made
-  const [data, setData] = useState({
-    // date format: 2023-09-06T14:48:20.958+00:00
+      return Math.floor((time - tempStart) / intervalWidth );
+    };
+
+    // create array of times based on user-inputted requests
+    const timeArray = getISOTimeArray(startTime, endTime, intervals);
+    // assign global 'ISOdates' variable to timeArray -> for access in filtering
+    ISOdates = timeArray;
+
+    // create array of times for graph axis labels
+    const STDTimeArray = getSTDTimeArray(timeArray);
+    // assign global 'STDdates' variable to STDTimeArray -> for access by graph
+    STDdates = STDTimeArray;
     
-    column0: [ 'x', ...mockDates ],
-    column1: [ 'data1', ...mockData ],
-    column2: [ 'data2', ...mockData ],
-    column3: [ 'data3', ...mockData ],
-    column4: [ 'data4', ...mockData ],
-    column5: [ 'data5', ...mockData ],
-    column6: [ 'data6', ...mockData ],
-    column7: [ 'data7', ...mockData ],
-  });
-
-  // chart data
-  const renderChart = () => {
-    var chart = c3.generate({
-      // id of element in jsx return block
-      bindto: '#allLogsOverTime',
-
-      // data values and manipulation
-      data: {
-        x: 'x',
-        // axis labels (0)error, (1)warn, (2)info, (3)http, (4)verbose, (5)debug, (6)silly
-        names: {
-          data1: 'error',
-          data2: 'warn',
-          data3: 'info',
-          data4: 'http',
-          data5: 'verbose',
-          data6: 'debug',
-          data7: 'silly',
-        },
-        // data values
-        columns: [
-          data.column0, // dates
-          data.column1, // array with first stacked bar
-          data.column2,
-          data.column3,
-          data.column4,
-          data.column5,
-          data.column6,
-          data.column7,
-        ],
-        // graph types
-        type: 'bar',
-        // data colors
-        colors: {
-          data1: '#A88C7D',
-          data2: '#B2A68D',
-          data3: '#7297A0',
-          data4: '#7D99A0',
-          data5: '#54738E',
-          data6: '#82AC7C',
-          data7: '#9DBA94',
-        },
-        // not needed if only showing one type of data, but useful for stacked bar-chart
-        groups: [[
-          'data1',
-          'data2',
-          'data3',
-          'data4',
-          'data5',
-          'data6',
-          'data7',
-        ]],
-        // in the case where no data is present
-        empty: {
-          label: {
-            text: 'No Data',
-          },
-        },
-      },
-
-      // axis properties
-      axis: {
-        // x-axis
-        x: {
-          type: 'timeseries',
-          tick: {
-            rotate: 50,
-            format: '%Y-%m-%d %H:%M:%S',
-          },
-          // label: {
-          //   text: 'X-axis name',
-          //   position: 'outer-center',
-          // },
-        },
-        // y-axis
-        y: {
-          label: {
-            text: 'Y-axis name',
-            position: 'outer-middle',
-          },
-        },
-      },
-
-      // grid properties
-      grid: {
-        x: {
-          show: true,
-          color: '#000000',
-        },
-        y: {
-          show: true,
-          color: '#000000',
-        },
-      },
-
-      // legend properties
-      // legend: {
-      //   show: true,
-      //   position: 'inset',
-      //   inset: {
-      //     anchor: 'top-left',
-      //     x: 30,
-      //     y: 20,
-      //     step: undefined,
-      //   },
-      // },
-    }).resize({
-      // size of graph
-      width: 1200,
-      height: 600,
+    // create blank slate for log-type counts
+    // structure: array consisting of 7 arrays - each with as many indexes as intervals
+    results = Array.from({length: 7}, (_, i) => {
+      return Array(intervals).fill(0);
     });
 
-    /* 
-      setTimeout not working as-is... 
-      Browser Console -> 'Uncaught TypeError: Cannot read properties of undefined (reading 'load')'
-    */
+    // iterate through log array and increment count at the respective data point in results if conditions are met
+    logArray.forEach(log => {
+      // convert date to millisecond format
+      const timeIndex = getTimeIndex(Date.parse(log.timestamp));
+      // increment count in result array at appropriate log-type and time
+      if ( timeArray[timeIndex] ) {
+        results[levelToInd(log.level)][timeIndex]++;
+      }
+    });
 
-    setTimeout(function () {
-      console.log('hello');
-      chart.load({
-        unload: ['x', 'data1', 'data2', 'data3', 'data4', 'data5', 'data6', 'data7'],
-        columns: [
-          [ 'x', ...mockDates2 ],
-          [ 'data1', ...mockData ],
-          [ 'data2', ...mockData ],
-          [ 'data3', ...mockData ],
-          [ 'data4', ...mockData ],
-          [ 'data5', ...mockData ],
-          [ 'data6', ...mockData ],
-          [ 'data7', ...mockData ],
-        ]
-      });
-    }, 5000);
+    // add data_ to beginning of each array for reference use in graph generation
+    for (let i = 0; i < results.length; i++) {
+      results[i].unshift(`data${i + 1}`);
+    }
+
+    // return results
+    return results;
 
   };
 
-
-  // eslint claims renderChart is needed as a dependency here - its not..
-  useEffect(() => {
-    renderChart();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [data]);
-
+  // createDataArray call to get counts related to time
+  const dataState = createDataArray(allLogs, '2023-09-12T21:23:30.335Z', new Date().toISOString(), 24);  
+  
   return (
     <div className="bg-white mt-8 m-auto p-8 pl-4 place-content-center rounded-lg">
       <h1 className='text-4xl text-center'>All Logs Over Time</h1>
-      <div id="allLogsOverTime"></div>
+      <BarChart 
+        name='allLogsOverTime'
+        datesArray={STDdates}
+        dataArray={dataState}
+        height='800'
+        width='1000'
+      />
     </div>
   );
+
 };
 
 export default AllLogsOverTime;

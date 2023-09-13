@@ -12,13 +12,17 @@
 import mongoose from 'mongoose';
 
 const LogSchema = new mongoose.Schema({
-  LogString: String,
-  Context: Object,
-  Severity: Number,
-  Time: {
+  timestamp: {
     type: Date,
     default: Date.now,
   },
+  level: String,
+  message: String,
+  meta: {
+    Context : {
+      type: mongoose.Schema.Types.Mixed,
+    }
+  }
 });
 
 const LogModel = mongoose.model('log', LogSchema);
