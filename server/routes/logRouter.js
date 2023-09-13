@@ -31,4 +31,10 @@ router.get('/',
   }
 );
 
+router.post('/', sessionController.checkCookie, logController.addLog, (req, res) => {
+  res.status(200);
+});
+
+
+
 export default router;
