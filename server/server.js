@@ -1,8 +1,6 @@
 import express from 'express';
 import cookieParser from 'cookie-parser';
 import connectDB from './db.js';
-import logger from 'logger';
-
 import logRouter from './routes/logRouter.js';
 import authRouter from './routes/authRouter.js';
 

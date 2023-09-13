@@ -47,12 +47,12 @@ const InspectEntry = ({ log }) => {
 const logEntryCreator = (data) => {
 
   // destructure from data params - which is used in AllLogs.jsx
-  const { Time, level, meta, message, _id } = data;
+  const { timestamp, level, meta, message, _id } = data;
   // get items from data.meta
   const { Context, LogString } = meta;
 
   return [
-    <TextEntry key={Math.random()} input={Time}/>,
+    <TextEntry key={Math.random()} input={timestamp}/>,
     <TextEntry key={Math.random()} input={_id}/>,
     <TextEntry key={Math.random()} input={level}/>,
     <TextEntry key={Math.random()} input={message}/>,
