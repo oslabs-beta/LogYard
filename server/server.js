@@ -42,7 +42,7 @@ app.use((err, req, res, next) => {
 
 /* Port initialization */
 app.listen(port, () => {
-  logger.info('ServerStarted', {Context: {
+  logger.silly('ServerStarted', {Context: {
     'server': '0'
   }});
   console.log(`Server is running on port ${port}`);
