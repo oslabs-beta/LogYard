@@ -37,11 +37,11 @@ const AuthRouter = () => {
   return (
     <div className='flex flex-col h-full'>
       {/* routes for the nav-bar */}
-      <NavBar routes={[
+      {/* <NavBar routes={[
         ['Dashboard', () => {dashboardClicked(navigate);}],
         ['Profile', () => {profileClicked(navigate);}],
         ['Sign Out', () => {signOutClicked(navigate);}]
-      ]}/>
+      ]}/> */}
       {/* what does this do? */}
       <Outlet/>
     </div>
