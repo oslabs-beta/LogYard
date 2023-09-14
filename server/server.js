@@ -23,7 +23,7 @@ app.use(addLogger('server', 'main'));
 /* Routers */
 app.use('/logs', addContext('router', 'logs'), logRouter);
 app.use('/auth', addContext('router', 'auth'), authRouter);
-app.use('/profile', addContext('router', 'auth'), profileRouter);
+app.use('/profile', addContext('router', 'profile'), profileRouter);
 
 /* 404 handler */
 app.use('*', (req, res) => {

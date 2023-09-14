@@ -99,7 +99,7 @@ const AllLogsOverTime = () => {
           data.column7,
         ],
         // graph types
-        type: 'bar',
+        type: 'line',
         // data colors
         colors: {
           data1: '#A88C7D',
@@ -111,15 +111,15 @@ const AllLogsOverTime = () => {
           data7: '#9DBA94',
         },
         // not needed if only showing one type of data, but useful for stacked bar-chart
-        groups: [[
-          'data1',
-          'data2',
-          'data3',
-          'data4',
-          'data5',
-          'data6',
-          'data7',
-        ]],
+        // groups: [[
+        //   'data1',
+        //   'data2',
+        //   'data3',
+        //   'data4',
+        //   'data5',
+        //   'data6',
+        //   'data7',
+        // ]],
         // in the case where no data is present
         empty: {
           label: {

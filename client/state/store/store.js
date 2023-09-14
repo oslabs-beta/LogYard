@@ -26,6 +26,7 @@ import storage from 'redux-persist/lib/storage';
 import thunk from 'redux-thunk';
 
 import logsReducer from '../reducers/logsReducer';
+import userReducer from '../reducers/userReducer';
 
 // config for persisting state across navigation
 const persistConfig = {
@@ -42,6 +43,7 @@ export const store = configureStore({
   reducer: {
     // for persisting state, pass the persistedReducer as value
     logsReducer: persistedReducer,
+    userReducer,
   },
   // WHAT DOES THIS DO..?
   middleware: [thunk]

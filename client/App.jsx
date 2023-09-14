@@ -23,6 +23,7 @@ import Login from './auth/login/Login.jsx';
 import Signup from './auth/signup/Signup.jsx';
 import Recovery from './auth/recovery/Recovery.jsx';
 import Visualizer from './main/analysis/visualizer/Visualizer.jsx';
+import SignedLogin from './auth/signedLogin/SignedLogin';
 
 const App = () => {
   return (
@@ -32,6 +33,7 @@ const App = () => {
           <Route path='/' element={<Login />} />
           <Route path='/signup' element={<Signup />} />
           <Route path='/recovery' element={<Recovery />} />
+          <Route path='/signedlogin' element={<SignedLogin />}/>
         </Route>
         <Route path='/main' element={<MainRouter />}>
           <Route path="/main/dashboard" element={<Dashboard/>} />

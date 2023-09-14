@@ -54,12 +54,12 @@ const logEntryCreator = (data) => {
   const logTime = new Date(timestamp);
 
   return [
-    <TextEntry key={Math.random()} input={logTime.toLocaleTimeString()}/>,
-    <TextEntry key={Math.random()} input={_id}/>,
-    <TextEntry key={Math.random()} input={level}/>,
-    <TextEntry key={Math.random()} input={message}/>,
-    <ContextEntry key={Math.random()} contexts={Context}/>,
-    <InspectEntry key={Math.random()} log={ data }/>
+    <TextEntry key={_id + '1'} input={logTime.toLocaleTimeString()}/>,
+    <TextEntry key={_id + '2'} input={_id}/>,
+    <TextEntry key={_id + '3'} input={level}/>,
+    <TextEntry key={_id + '4'} input={message}/>,
+    <ContextEntry key={_id + '5'} contexts={Context}/>,
+    <InspectEntry key={_id + '6'} log={ data }/>
   ];
 };
 

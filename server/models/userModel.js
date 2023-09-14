@@ -13,12 +13,25 @@
 import mongoose from 'mongoose';
 
 // session schema uses unique mongo _id to set a unique cookie
-const sessionSchema = new mongoose.Schema({
-  username: String,
-  password: String,
-  savedFilters: Object
+const userSchema = new mongoose.Schema({
+  username: {
+    type: String, 
+    required: true,
+    unique: true,
+  },
+  password: {
+    type: String, 
+    required: true,
+  },
+  savedFilters: {
+    type: Object,
+    required: true,
+    default: {}
+  },
+}, {
+  minimize: false,
 });
 
-const SessionModel = mongoose.model('sessiondocument', sessionSchema);
+const UserModel = mongoose.model('userdocument', userSchema);
 
-export default SessionModel;
+export default UserModel;

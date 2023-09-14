@@ -9,56 +9,136 @@
  * ************************************
  **/
 
-import SessionModel from '../models/sessionModel.js';
+import UserModel from '../models/userModel.js';
 
 const userController = {};
 
-userController.updateLogFilter = async (req, res, next) => {
-  try {
-    /* get cookie from user */
-    const { session } = req.cookies;
+userController.createUser = async (req, res, next) => {
+  try{
+    const {username, password} = req.body;
+    
+    const result = await UserModel.create({
+      username,
+      password,
+    });
 
-    /* look for that cookie in database */
-    const currSession = await SessionModel.findOne({ _id: session });
-
-    /* if cookie doesn't exist, set cookieStatus to false for navigation use in front-end, and vice versa */
-    if (!currSession) {
-      res.locals.cookieStatus = false;
-    } else {
-      res.locals.cookieStatus = true;
-    }
-
+    res.locals.userData = result;
+    
     return next();
-  } catch (err) {
+  }
+  catch (e) {
     return next({
-      log: `An error has occured in sessionController.checkCookie. ERROR - ${err}`,
-      status: 400,
-      message: { err: 'An error occured' },
+      log: `userController.createUser ERROR: ${e}`,
+      status: e.status || 500,
+      message: {
+        err: 'Error with User Creation',
+      },
     });
   }
 };
 
-userController.deleteLogFilter = async (req, res, next) => {
+userController.signin = async (req, res, next) => {
+  try{
+    const {username, password} = req.body;
+    
+    const result = await UserModel.findOne({ username , password});
+    
+    res.locals.userData = result;
+    
+    return next();
+  }
+  catch (e) {
+    return next({
+      log: `userController.signin ERROR: ${e}`,
+      status: e.status || 500,
+      message: {
+        err: 'Error with User Sign In',
+      },
+    });
+  }
+};
+
+userController.addToken = async (req, res, next)=>{
   try {
-    /* get cookie from user */
-    const { session } = req.cookies;
+    const {username, password} = res.locals.userData;
 
-    /* look for that cookie in database */
-    const currSession = await SessionModel.findOne({ _id: session });
+    res.cookie('username', username);
+    res.cookie('password', password);
+    
+    return next();
+  }
+  catch (e){
+    return next({log: `userController.addToken ERROR: ${e}`,
+      status: e.status || 500,
+      message: {
+        err: 'Error with Token Creation',
+      },
+    });
+  }
+};
 
-    /* if cookie doesn't exist, set cookieStatus to false for navigation use in front-end, and vice versa */
-    if (!currSession) {
-      res.locals.cookieStatus = false;
-    } else {
-      res.locals.cookieStatus = true;
-    }
+userController.validateUser = async (req, res, next) => {
+  try{
+    const { username, password } = req.cookies;
+
+    res.locals.userData = await UserModel.findOne({ username, password });//Compare passwords using bcrypt
+    
+    return next();
+  }
+  catch (e) {
+    return next({
+      log: `userController.validateUser ERROR: ${e}`,
+      status: e.status || 500,
+      message: {
+        err: 'Error with User Creation',
+      },
+    });
+  }
+};
+
+userController.updateLogFilter = async (req, res, next) => {
+  try{
+    const { username } = res.locals.userData;
+    const { filterName, filterString} = req.body;
+
+    res.locals.userData = await UserModel.findOneAndUpdate(
+      { username }, 
+      { $set: { [`savedFilters.${filterName}`]: filterString } },
+      { 
+        upsert: true,
+        returnOriginal: false
+      },
+    );
 
     return next();
-  } catch (err) {
+  }
+  catch (e) {
+    return next({});
+  }
+};
+
+userController.deleteLogFilter = async (req, res, next) => {
+  try{
+    const { username } = res.locals.userData;
+    const { filterName } = req.body;
+
+    res.locals.userData = await UserModel.findOneAndUpdate(
+      { username }, 
+      { $unset: { [`savedFilters.${filterName}`]: '' } },
+      {
+        returnOriginal: false
+      }
+    );
+    
+    return next();
+  }
+  catch (e) {
     return next({
-      log: `An error has occured in sessionController.checkCookie. ERROR - ${err}`,
-      status: 400,
-      message: { err: 'An error occured' },
+      log: `userController.deleteLogFilter ERROR: ${e}`,
+      status: e.status || 500,
+      message: {
+        err: 'Error with Delete Log',
+      },
     });
   }
 };
