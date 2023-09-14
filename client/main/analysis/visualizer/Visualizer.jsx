@@ -6,7 +6,7 @@ import TotalPie from './components/TotalPie.jsx';
 
 const Visualizer = () => {
   return (
-    <div className='flex flex-wrap'>
+    <div className='flex flex-wrap bg-gradient-to-b from-sky-400 to-blue-800'>
       <AllLogsOverTime />
       <TotalPie />
       <OneLogOverTime />
