@@ -33,7 +33,7 @@ module.exports = createLogger({
     new transports.MongoDB({
       // to collect all level types in DB, put this as 'silly'. Anything at or below the indicated level here will be placed in the database.
       level: 'silly', 
-      db: `mongodb+srv://${process.env.VITE_DB_USERNAME}:${process.env.VITE_DB_PASSWORD}@charon.g9lks56.mongodb.net/`,
+      db: `${process.env.VITE_DB_URI}`,
       options: {
         useUnifiedTopology: true,
       },
