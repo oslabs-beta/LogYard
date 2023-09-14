@@ -18,19 +18,19 @@ const LogViewer = () => {
   const log = useSelector( state => state.logsReducer.activeLog );
 
   // get data from individual log
-  const { _id, Time, meta, message, level} = log;
+  const { _id, timestamp, meta, message, level} = log;
 
   // get items from log.meta
   const { Context, LogString} = meta;
 
   return (
-    <div className='container'>
-      <div className='flex  justify-center items-center space-x-4 p-4 bg-gray-200 border-2 border-black'>
-        <h1 className='text-xl font-bold'>ID: {_id} </h1>
-        <h1 className='text-xl font-bold'>Time: {Time} </h1>
-        <h1 className='text-xl font-bold'>Level: {level} </h1>
+    <div className='mx-10 my-10'>
+      <div className='flex  justify-center items-center space-x-4 p-4 bg-gray-50 border-b border-gray-900 text-gray-900 whitespace-nowrap'>
+        <h1 className='text-xl font-bold'>ID: </h1><h2 className=''>{_id}</h2>
+        <h1 className='text-xl font-bold'>Time: </h1><h2 className=''>{timestamp}</h2>
+        <h1 className='text-xl font-bold'>Level: </h1><h2 className=''>{level}</h2>
       </div>
-      <div className='min-h-full flex flex-col justify-center items-center mx-auto block w-full p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700'>
+      <div className='min-h-full flex flex-col justify-center items-center mx-auto block w-full p-6 border border-gray-200 shadow bg-gray-200 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700'>
         <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{message}</h5>
         <div>
           {/* list of contexts */}

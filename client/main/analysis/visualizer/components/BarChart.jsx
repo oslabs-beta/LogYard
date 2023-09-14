@@ -6,7 +6,11 @@ const BarChart = ({ name, datesArray, dataArray, height, width }) => {
     const chart = c3.generate({
       // id of element in jsx return block
       bindto: '#' + name,
-
+      tooltip: {
+        position: function (data, width, height, element) {
+          return {top: 0, left: 0};
+        }
+      },
       // data values and manipulation
       data: {
         x: 'dates',

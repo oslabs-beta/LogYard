@@ -23,7 +23,7 @@ const NavBar = ({routes})=>{
   }
   
   return (
-    <nav className='bg-gray-50 border-b border-gray-200 dark:bg-gray-900 shadow-md h-24' >
+    <nav className='bg-gray-50 border-b border-gray-200 dark:bg-gray-900 shadow-md h-auto' >
       <div className='max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4'>
         <div className="flex items-center ml-20">
           <img src="../horiBrown.png" className="h-12  mr-0" alt="Logo" />
