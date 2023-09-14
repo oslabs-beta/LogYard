@@ -7,13 +7,16 @@ FROM node:18.17-alpine
 RUN mkdir -p /usr/
 
 # Set working directory inside container
-WORKDIR /usr/
+WORKDIR /usr/app
 
-# Copy local files to container's working directory
-COPY . .
+# Copy package.json and package-lock.json to the container
+COPY package*.json ./
 
 ###  Install dependencies
 RUN npm install --silent
+
+# Copy local files to container's working directory
+COPY . .
 
 # Expose ports 3000 and 8080 on the container
 EXPOSE 3000
