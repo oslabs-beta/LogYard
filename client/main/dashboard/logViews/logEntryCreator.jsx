@@ -38,8 +38,7 @@ const InspectEntry = ({ log }) => {
 
   return (
     <button onClick={()=>onInspectEntry(dispatch, navigate, log)}>
-      {/* magnifying class photo */}
-      <img src='../../5971.png' alt='Inspect' className='w-8 min-w-8 h-w'></img>
+      <img src='/5971.png' alt='Inspect' className='w-8 min-w-8 h-w'></img>
     </button>
   );
 };
