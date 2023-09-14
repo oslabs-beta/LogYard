@@ -18,7 +18,8 @@ services:
   # Node App Service
   app:
     container_name: app_container
-    image: logyard
+    build: .
+    image: logyard:latest
     env_file:
       - ./.env
     ports:
