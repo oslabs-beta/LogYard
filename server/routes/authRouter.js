@@ -21,6 +21,9 @@ authRouter.get(
   authController.verifyPassword, 
   sessionController.setCookie,
   (req, res) => {
+
+    // res.locals.logger.log('info', 'Successful Auth');
+    
     res.sendStatus(200);
   }
 );

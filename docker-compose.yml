@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  # MongoDB Service
+  mongodb:
+    container_name: database_container
+    image: mongo
+    env_file:
+      - ./.env
+    restart: always
+    ports:
+      - 27017:27017
+    networks: 
+      - app-network
+    volumes:
+      - mongodb:/data/database_container
+
+  # Node App Service
+  app:
+    container_name: app_container
+    build: .
+    image: logyard:latest
+    env_file:
+      - ./.env
+    ports:
+      - 3000:3000
+      - 8080:8080
+    volumes:
+      - ./logyard:/app
+    depends_on:
+      - mongodb
+    networks: 
+      - app-network
+
+networks:
+  app-network: 
+    driver: bridge
+
+volumes:
+  mongodb:
+    driver: local

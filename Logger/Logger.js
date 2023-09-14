@@ -9,11 +9,11 @@
  * ************************************
  **/
 
-import { createLogger, format, transports } from 'winston';
-import 'winston-mongodb';
-import dotenv from 'dotenv';
+const { createLogger, format, transports } = require('winston');
+require('winston-mongodb');
+const dotenv = require('dotenv');
 
-export default createLogger({
+module.exports = createLogger({
   transports: [
     /* !LOGGER TEMPLATE!
 
@@ -26,12 +26,14 @@ export default createLogger({
       Context2: USER DECLARED
     }
 
+    logger.error('message', {Contexts: ''})
+
     */
 
     new transports.MongoDB({
       // to collect all level types in DB, put this as 'silly'. Anything at or below the indicated level here will be placed in the database.
       level: 'silly', 
-      db: `mongodb+srv://${process.env.VITE_DB_USERNAME}:${process.env.VITE_DB_PASSWORD}@charon.g9lks56.mongodb.net/`,
+      db: `${process.env.VITE_DB_URI}`,
       options: {
         useUnifiedTopology: true,
       },

@@ -14,19 +14,19 @@ import { useNavigate, Outlet } from 'react-router-dom';
 
 import NavBar from '../main/NavBar.jsx';
 
-// navigator for dashboard
-const dashboardClicked = (navigate)=>{
-  navigate('/main/dashboard');
+
+const navAnonymous = (navigate)=>{
+  // navigate('/main/dashboard');
 };
 
 // navigator for profile
-const profileClicked = (navigate)=>{
-  navigate('/main/profile');
+const signInClicked = (navigate)=>{
+  navigate('/signedlogin');
 };
 
 // navigator for sign-out
-const signOutClicked = (navigate)=>{
-
+const createAccountClicked = (navigate)=>{
+  navigate('/signup');
 };
 
 const AuthRouter = () => {
@@ -38,9 +38,9 @@ const AuthRouter = () => {
     <div className='flex flex-col h-full'>
       {/* routes for the nav-bar */}
       <NavBar routes={[
-        ['Dashboard', () => {dashboardClicked(navigate);}],
-        ['Profile', () => {profileClicked(navigate);}],
-        ['Sign Out', () => {signOutClicked(navigate);}]
+        ['No Account', () => {navAnonymous(navigate);}],
+        ['Sign In', () => {signInClicked(navigate);}],
+        ['Create Account', () => {createAccountClicked(navigate);}]
       ]}/>
       {/* what does this do? */}
       <Outlet/>

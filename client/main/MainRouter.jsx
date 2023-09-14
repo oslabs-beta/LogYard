@@ -32,6 +32,11 @@ const signOutClicked = (navigate) => {
   navigate('/');
 };
 
+// navigator for visualizer
+const visualizerClicked = (navigate) => {
+  navigate('/main/visualizer');
+};
+
 const loadLogsOnce = async (dispatch, navigate) => {
   // make a request to get logs from backend
   let logData = await fetch('/api/logs');
@@ -61,36 +66,11 @@ const MainRouter = () => {
     <div className='flex flex-col h-full'>
       <NavBar
         routes={[
-          [
-            'Dashboard',
-            () => {
-              dashboardClicked(navigate);
-            },
-          ],
-          [
-            'Quantity',
-            () => {
-              profileClicked(navigate);
-            },
-          ],
-          [
-            'Timeline',
-            () => {
-              profileClicked(navigate);
-            },
-          ],
-          [
-            'Profile',
-            () => {
-              profileClicked(navigate);
-            },
-          ],
-          [
-            'Sign Out',
-            () => {
-              signOutClicked(navigate);
-            },
-          ],
+          [ 'Dashboard', () => { dashboardClicked(navigate); } ],
+          // [ 'Quantity', () => { profileClicked(navigate); } ],
+          [ 'Visualize', () => { visualizerClicked(navigate); } ],
+          [ 'Profile', () => { profileClicked(navigate); } ],
+          [ 'Sign Out', () => { signOutClicked(navigate); } ],
         ]}
       />
 

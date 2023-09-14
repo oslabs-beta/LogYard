@@ -2,12 +2,24 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/svg+xml" href="/logoIcon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Load c3.css -->
+    <link href="./c3.css" rel="stylesheet">
+
     <title>LogYard</title>
   </head>
-  <body class="bg-primary-400 text-primary-900">
+  <body class=" bg-gradient-to-b from-sky-400 to-blue-800 text-brown-900">
     <div id="root"></div>
-    <script type="module" src="/client/main.jsx"></script>
+
+    <!-- Load d3.js and c3.js -->
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <!-- <script src="/path/to/d3.v5.min.js" charset="utf-8"></script> -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.7.20/c3.min.js"></script>
+    <!-- <script src="./c3.min.js"></script> -->
+
+    <script type="module" src="/client/Main.jsx"></script>
   </body>
 </html>

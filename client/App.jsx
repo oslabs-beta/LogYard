@@ -9,6 +9,7 @@
  * ************************************
  */
 
+//Change /main/ to be dashboard rouute
 import React, { useEffect } from 'react';
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
@@ -21,6 +22,8 @@ import Profile from './main/profile/Profile.jsx';
 import Login from './auth/login/Login.jsx';
 import Signup from './auth/signup/Signup.jsx';
 import Recovery from './auth/recovery/Recovery.jsx';
+import Visualizer from './main/analysis/visualizer/Visualizer.jsx';
+import SignedLogin from './auth/signedLogin/SignedLogin';
 
 const App = () => {
   return (
@@ -30,11 +33,13 @@ const App = () => {
           <Route path='/' element={<Login />} />
           <Route path='/signup' element={<Signup />} />
           <Route path='/recovery' element={<Recovery />} />
+          <Route path='/signedlogin' element={<SignedLogin />}/>
         </Route>
         <Route path='/main' element={<MainRouter />}>
           <Route path="/main/dashboard" element={<Dashboard/>} />
           <Route path="/main/logViewer" element={<LogViewer/>} />
           <Route path="/main/profile" element={<Profile/>} />
+          <Route path="/main/visualizer" element={<Visualizer/>} />
         </Route>
       </Routes>
     </BrowserRouter>

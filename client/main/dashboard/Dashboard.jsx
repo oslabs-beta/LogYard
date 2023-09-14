@@ -10,8 +10,8 @@
  */
 
 import React from 'react';
-import AllLogs from './AllLogs';
-import Filter from '../utility/Filter';
+import AllLogs from './logViews/AllLogs';
+import Filter from './filters/Filter';
 
 const Dashboard = () => {
   
