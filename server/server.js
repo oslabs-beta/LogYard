@@ -8,7 +8,6 @@ import logger from 'logger';
 import logRouter from './routes/logRouter.js';
 import authRouter from './routes/authRouter.js';
 import profileRouter from './routes/profileRouter.js';
-import profileRouter from './routes/profileRouter.js';
 
 /* connect to mongo database */
 connectDB();
@@ -19,7 +18,6 @@ const port = 3000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
-app.use(addLogger('server', 'main'));
 app.use(addLogger('server', 'main'));
 
 /* Routers */

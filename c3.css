@@ -135,6 +135,9 @@
 .c3-legend-item {
   font-size: 12px;
 }
+.c3-legend-item text {
+  fill: #eceaea;
+}
 
 .c3-legend-item-hidden {
   opacity: 0.15;
@@ -142,7 +145,7 @@
 
 .c3-legend-background {
   opacity: 0.75;
-  fill: white;
+  fill: rgb(140, 140, 140);
   stroke: lightgray;
   stroke-width: 1;
 }
@@ -173,7 +176,7 @@
 }
 
 .c3-tooltip th {
-  background-color: #aaa;
+  background-color: #969696;
   font-size: 14px;
   padding: 2px 5px;
   text-align: left;
@@ -183,7 +186,7 @@
 .c3-tooltip td {
   font-size: 13px;
   padding: 3px 6px;
-  background-color: #fff;
+  background-color: #757575;
   border-left: 1px dotted #999;
 }
 

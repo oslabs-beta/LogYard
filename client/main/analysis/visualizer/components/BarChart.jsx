@@ -33,13 +33,13 @@ const BarChart = ({ name, datesArray, dataArray, height, width }) => {
         type: 'bar',
         // data colors (for level types)
         colors: {
-          data1: '#A88C7D', // error
-          data2: '#B2A68D', // warn
-          data3: '#7297A0', // info
-          data4: '#7D99A0', // http
-          data5: '#54738E', // verbose
-          data6: '#82AC7C', // debug
-          data7: '#9DBA94', // silly
+          data1: '#3D3D3D', //black
+          data2: '#9D5C0D', //dark brown
+          data3: '#E5890A', //orange brown
+          data4: '#F7D08A', //tan
+          data5: '#aaa', //gray
+          data6: '#9C2310', //Red Brown
+          data7: '#FC5713', //orange
         },
         // create groups based on level-types
         groups: [['data1', 'data2', 'data3', 'data4', 'data5', 'data6', 'data7']],
