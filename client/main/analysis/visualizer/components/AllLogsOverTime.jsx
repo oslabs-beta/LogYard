@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import BarChart from './BarChart';
+import BarChart from '../templates/BarChart.jsx';
 import { useSelector } from 'react-redux';
 
 import levelToInd from '../utilities/levelTypeToIndex.js';
