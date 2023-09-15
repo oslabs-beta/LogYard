@@ -86,11 +86,12 @@ const AllLogsOverTime = () => {
 
   };
 
+  const currentTime = new Date().toLocaleString();
   // createDataArray call to get counts related to time
-  const dataState = createDataArray(allLogs, '2023-09-13T21:23:30.335Z', '2023-09-14T23:59:30.335Z', 24);  
+  const dataState = createDataArray(allLogs, '2023-09-13T21:23:30.335Z', currentTime, 24);  
   
   return (
-    <div className="bg-white mt-8 m-auto p-8 pl-4 place-content-center rounded-lg">
+    <div className="bg-gray-800 text-gray-50  mt-8 m-auto p-8 pl-4 place-content-center rounded-lg">
       <h1 className='text-4xl text-center'>All Logs Over Time</h1>
       <BarChart 
         name='allLogsOverTime'

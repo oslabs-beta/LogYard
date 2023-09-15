@@ -13,7 +13,7 @@ const getISOTimeArray = (startTime, endTime, intervals) => {
   const timeArray = [];
 
   // loop 'interval' times, creating appropriate time array
-  for (let i = 0; i < intervals; i++) {
+  for (let i = 0; i < intervals + 1; i++) {
     // start at start time and add increments in time until end time is met
     timeArray.push(startToNum + timeInterval * i);
   }

@@ -6,7 +6,7 @@
 
 .c3 path, .c3 line {
   fill: none;
-  stroke: #000;
+  stroke: #d3d0d0;
 }
 
 .c3 text {
@@ -38,6 +38,22 @@
 }
 
 /*-- Axis --*/
+.c3-axis-x-label {
+  fill: #ff0000; /* Change the color to your desired color (e.g., red) */
+}
+
+/* Y-axis title */
+.c3-axis-y-label {
+  fill: #f4f8f4; /* Change the color to your desired color (e.g., green) */
+}
+
+.c3-axis-x text {
+  fill: #d8dcd8
+}
+
+.c3-axis-y text {
+  fill: #d8dcd8
+}
 /*-- Grid --*/
 .c3-grid line {
   stroke: #aaa;

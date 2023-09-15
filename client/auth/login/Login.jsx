@@ -12,6 +12,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import backgroundImage from '/fallBG.jpg';
 
 const Login = () => {
   // states
@@ -41,10 +42,10 @@ const Login = () => {
   };
 
   return (
-    <div className='grow h-5/6 flex flex-col items-center justify-between overflow-x-auto overflow-y-auto bg-gradient-to-b from-sky-400 to-blue-800'>
-      <div className='h-42 shrink-0 flex flex-col items-center mt-2'>
-        <img src='horiBrown.png' className='h-32 mb-1 mt-40'></img>
-        <div className='flex mt-20'>
+    <div className='grow h-5/6 flex flex-col items-center justify-between overflow-x-auto overflow-y-auto bg-cover' style={{ backgroundImage: `url(${backgroundImage})` }}>
+      <div className='h-12 shrink-0 flex flex-col justify-start items-center'>
+        <img src='LogYardHori.png' className='h-32 mb-1 mt-12'></img>
+        <div className='flex mt-36'>
           <input
             className='passwordInput px-4 py-2 border border-brown-700 rounded-lg focus:ring-brown-500 focus:border-brown-500 text-white p-2 italic placeholder-gray-200 bg-transparent'
             type='password'
@@ -61,7 +62,7 @@ const Login = () => {
         </div>
       </div>
     
-      <img src="/greenForest.png" className='h-42 w-full bottom-0 object-cover'></img>
+      {/* <img src="/greenForest.png" className='h-42 w-full bottom-0 object-cover'></img> */}
       {/* <div className='h-42 w-full'>
       </div> */}
     </div>
