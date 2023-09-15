@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import BarChart from './BarChart';
+import BarChart from '../templates/BarChart.jsx';
 import { useSelector } from 'react-redux';
 
 import levelToInd from '../utilities/levelTypeToIndex.js';
@@ -86,8 +86,8 @@ const AllLogsOverTime = () => {
 
   };
 
-  const currentTime = new Date().toLocaleString();
   // createDataArray call to get counts related to time
+  const currentTime = new Date().toLocaleString();
   const dataState = createDataArray(allLogs, '2023-09-13T21:23:30.335Z', currentTime, 24);  
   
   return (

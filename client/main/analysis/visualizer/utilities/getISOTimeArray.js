@@ -7,7 +7,8 @@ const getISOTimeArray = (startTime, endTime, intervals) => {
   const totalTimeSpan = endToNum - startToNum;
 
   // calculate time interval between ticks
-  const timeInterval = Math.floor(totalTimeSpan / intervals);
+  // const timeInterval = Math.floor(totalTimeSpan / intervals);
+  const timeInterval = (totalTimeSpan / intervals);
 
   // initialize array of times
   const timeArray = [];
@@ -17,6 +18,8 @@ const getISOTimeArray = (startTime, endTime, intervals) => {
     // start at start time and add increments in time until end time is met
     timeArray.push(startToNum + timeInterval * i);
   }
+
+  // console.log('timeArray: ', timeArray);
 
   return timeArray;
 };
