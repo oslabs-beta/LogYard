@@ -33,8 +33,11 @@ const AllLogs = () => {
     tableHeaders.push('Context');
     tableHeaders.push('Inspect');
 
+    let i = 0;
     for (const log of allLogs) {
+      if (i > 100) break;
       tableEntries.unshift(logEntryCreator(log));
+      i++;
     }
   }
   else {

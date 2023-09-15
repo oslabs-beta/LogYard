@@ -26,7 +26,7 @@ services:
       - 3000:3000
       - 8080:8080
     volumes:
-      - /usr/
+      - ./logyard:/app
     depends_on:
       - mongodb
     networks: 
@@ -37,4 +37,5 @@ networks:
     driver: bridge
 
 volumes:
-  mongodb: {}
+  mongodb:
+    driver: local
