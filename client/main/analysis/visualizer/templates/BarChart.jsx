@@ -77,20 +77,7 @@ const BarChart = ({ name, datesArray, dataArray, height, width }) => {
           color: '#000000',
         },
       },
-
-      // legend properties
-      // legend: {
-      //   show: true,
-      //   position: 'inset',
-      //   inset: {
-      //     anchor: 'top-left',
-      //     x: 30,
-      //     y: 20,
-      //     step: undefined,
-      //   },
-      // },
     });
-    
 
     // chart size
     chart.resize({
@@ -99,6 +86,7 @@ const BarChart = ({ name, datesArray, dataArray, height, width }) => {
       height: height,
     });
 
+    // return the chart
     return chart;
   };
 

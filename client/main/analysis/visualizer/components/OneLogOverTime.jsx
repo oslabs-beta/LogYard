@@ -4,7 +4,20 @@ import { useSelector } from 'react-redux';
 import c3 from 'c3';
 
 const OneLogOverTime = () => {
-  // const allLogs = useSelector( state => state.logsReducer.logs );
+
+  // get all logs from state
+  const allLogs = useSelector( state => state.logsReducer.logs );
+
+
+
+
+
+  // left off here..
+
+
+
+
+
 
   // data from store (hard-coded for testing)
   const dates = ['2020-07-13', '2020-07-14', '2020-07-15', '2020-07-16', '2020-07-17', '2020-07-18', '2020-07-19', '2020-07-20', '2020-07-21', '2020-07-22', '2020-07-23', '2020-07-24', '2020-07-25', '2020-07-26', '2020-07-27', '2020-07-28', '2020-07-29' ];
