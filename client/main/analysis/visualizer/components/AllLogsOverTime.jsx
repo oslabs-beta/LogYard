@@ -87,7 +87,8 @@ const AllLogsOverTime = () => {
   };
 
   // createDataArray call to get counts related to time
-  const dataState = createDataArray(allLogs, '2023-09-13T21:23:30.335Z', '2023-09-14T23:59:30.335Z', 24);  
+  const currentTime = new Date().toLocaleString();
+  const dataState = createDataArray(allLogs, '2023-09-13T21:23:30.335Z', currentTime, 24);  
   
   return (
     <div className="bg-white mt-8 m-auto p-8 pl-4 place-content-center rounded-lg">

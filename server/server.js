@@ -8,7 +8,6 @@ import logger from 'logger';
 import logRouter from './routes/logRouter.js';
 import authRouter from './routes/authRouter.js';
 import profileRouter from './routes/profileRouter.js';
-import profileRouter from './routes/profileRouter.js';
 
 /* connect to mongo database */
 connectDB();
