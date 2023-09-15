@@ -16,7 +16,7 @@ import NavBar from '../main/NavBar.jsx';
 
 
 const navAnonymous = (navigate)=>{
-  // navigate('/main/dashboard');
+  navigate('/');
 };
 
 // navigator for profile

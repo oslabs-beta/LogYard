@@ -42,13 +42,13 @@ const TotalPie = () => {
         type: 'donut',
         // data colors
         colors: {
-          data1: '#A88C7D',
-          data2: '#B2A68D',
-          data3: '#7297A0',
-          data4: '#7D99A0',
-          data5: '#54738E',
-          data6: '#82AC7C',
-          data7: '#9DBA94',
+          data1: '#3D3D3D', //black
+          data2: '#9D5C0D', //dark brown
+          data3: '#E5890A', //orange brown
+          data4: '#F7D08A', //tan
+          data5: '#aaa', //gray
+          data6: '#9C2310', //Red Brown
+          data7: '#FC5713', //orange
         },
       },
 
@@ -82,7 +82,7 @@ const TotalPie = () => {
   }, [data]);
 
   return (
-    <div className="bg-white mt-8 m-auto p-8 pl-4 place-content-center rounded-lg">
+    <div className="bg-gray-800 text-gray-50  mt-8 m-auto p-8 pl-4 place-content-center rounded-lg">
       <h1 className='text-4xl text-center'>Log Makeup</h1>
       <div id="totalPie"></div>
     </div>

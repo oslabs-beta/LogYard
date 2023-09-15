@@ -12,6 +12,7 @@
 import express from 'express';
 import userController from '../controllers/userController.js';
 import sessionController from '../controllers/sessionController.js';
+import authController from '../controllers/authController.js';
 
 const profileRouter = express.Router();
 
@@ -19,6 +20,7 @@ const profileRouter = express.Router();
 //Outputs: success or not success
 profileRouter.post(
   '/signup',
+  authController.verifyPassword,
   userController.createUser,
   userController.addToken,
   sessionController.setCookie,
