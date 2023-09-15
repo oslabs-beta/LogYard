@@ -42,7 +42,7 @@ const OneLogOverTime = () => {
         },
         // data colors
         colors: {
-          data1: '#9DBA94',
+          data1: '#E5890A',
         },
         // in the case where no data is present
         empty: {
@@ -119,7 +119,7 @@ const OneLogOverTime = () => {
   }, [data]);
 
   return (
-    <div className="bg-white mt-8 m-auto p-8 pl-4 place-content-center rounded-lg">
+    <div className="bg-gray-800 text-gray-50  mt-8 m-auto p-8 pl-4 place-content-center rounded-lg">
       <h1 className='text-4xl text-center'>One Log Over Time</h1>
       <div id="oneLogOverTime"></div>
     </div>

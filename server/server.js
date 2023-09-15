@@ -19,7 +19,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(addLogger('server', 'main'));
-app.use(addLogger('server', 'main'));
 
 /* Routers */
 app.use('/logs', addContext('router', 'logs'), logRouter);

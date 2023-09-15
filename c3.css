@@ -6,7 +6,7 @@
 
 .c3 path, .c3 line {
   fill: none;
-  stroke: #000;
+  stroke: #d3d0d0;
 }
 
 .c3 text {
@@ -38,6 +38,22 @@
 }
 
 /*-- Axis --*/
+.c3-axis-x-label {
+  fill: #ff0000; /* Change the color to your desired color (e.g., red) */
+}
+
+/* Y-axis title */
+.c3-axis-y-label {
+  fill: #f4f8f4; /* Change the color to your desired color (e.g., green) */
+}
+
+.c3-axis-x text {
+  fill: #d8dcd8
+}
+
+.c3-axis-y text {
+  fill: #d8dcd8
+}
 /*-- Grid --*/
 .c3-grid line {
   stroke: #aaa;
@@ -119,6 +135,9 @@
 .c3-legend-item {
   font-size: 12px;
 }
+.c3-legend-item text {
+  fill: #eceaea;
+}
 
 .c3-legend-item-hidden {
   opacity: 0.15;
@@ -126,7 +145,7 @@
 
 .c3-legend-background {
   opacity: 0.75;
-  fill: white;
+  fill: rgb(140, 140, 140);
   stroke: lightgray;
   stroke-width: 1;
 }
@@ -157,7 +176,7 @@
 }
 
 .c3-tooltip th {
-  background-color: #aaa;
+  background-color: #969696;
   font-size: 14px;
   padding: 2px 5px;
   text-align: left;
@@ -167,7 +186,7 @@
 .c3-tooltip td {
   font-size: 13px;
   padding: 3px 6px;
-  background-color: #fff;
+  background-color: #757575;
   border-left: 1px dotted #999;
 }
 
