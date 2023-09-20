@@ -48,6 +48,24 @@ const Signup = () => {
 
   // initialize navigation
   const navigate = useNavigate();
+  const signUpRequest = async (username, password, serverPassword, navigate) => {
+  
+    const result = await fetch('/api/profile/signup', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username, password, serverPassword } ),
+    });
+  
+    if (result.ok){
+      return navigate('/main/dashboard');
+    }
+    else {
+      setPasswordCheck(true);
+    }
+    
+    // alert('Failed to create profile');
+  };
+
 
   return (
     <div className='grow flex flex-col content-center justify-center flex-wrap'>
