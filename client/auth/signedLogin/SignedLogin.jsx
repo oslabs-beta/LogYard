@@ -11,7 +11,7 @@
 
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { TextInput, ButtonInput} from '../../main/utility/InputBar/InputBar';
+import InputBar, { TextInput, ButtonInput} from '../../main/utility/InputBar/InputBar';
 import { useDispatch } from 'react-redux';
 import { setUserData } from '../../state/actions/actions';
 
@@ -48,6 +48,10 @@ const SignedLogin = () => {
       <TextInput onChange={(e)=>setPassword(e.target.value)} placeholder='Password' className='w-96 rounded-lg my-1'/>
       {passwordCheck && <h1 className='text-gray-50 text-xl italic'>Invalid password</h1>}
       <ButtonInput onClick={()=>loginRequest(username, password, navigate, dispatch, setPasswordCheck)} label='Login' className='w-96 rounded-lg my-1'/>
+      <InputBar className='my-1 flex'>
+        <ButtonInput onClick={()=> navigate('/')} label='Skip' className='grow'/>
+        <ButtonInput onClick={()=> navigate('/signup')} label='Create Account' className='grow'/>
+      </InputBar>
     </div>
   );
 };

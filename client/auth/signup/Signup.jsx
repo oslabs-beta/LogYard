@@ -11,7 +11,7 @@
 
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { TextInput, ButtonInput } from '../../main/utility/InputBar/InputBar';
+import InputBar, { TextInput, ButtonInput } from '../../main/utility/InputBar/InputBar';
 import { useDispatch } from 'react-redux';
 import { setUserData } from '../../state/actions/actions';
 
@@ -62,6 +62,10 @@ const Signup = () => {
       {/* if passwordCheck is true (password is incorrect or name is taken) render invalid message */}
       {passwordCheck && <h1 className='text-gray-50 text-xl italic'>Username is taken or invalid server password</h1>}
       <ButtonInput onClick={signUpRequest} label='Create' className='w-96 rounded-lg my-1'/>
+      <InputBar className='my-1 flex'>
+        <ButtonInput onClick={()=> navigate('/')} label='Skip' className='grow'/>
+        <ButtonInput onClick={()=> navigate('/signedlogin')} label='Sign In' className='grow'/>
+      </InputBar>
     </div>
   );
 };
