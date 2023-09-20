@@ -24,14 +24,11 @@ const Signup = () => {
   const navigate = useNavigate();
 
   const signUpRequest = async (username, password, serverPassword, navigate) => {
-    const params = new URLSearchParams({
-      password: serverPassword,
-    });
   
-    const result = await fetch(`/api/profile/signup?${params}`, {
+    const result = await fetch('/api/profile/signup', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ username, password } ),
+      body: JSON.stringify({ username, password, serverPassword } ),
     });
   
     if (result.ok){
