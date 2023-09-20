@@ -54,6 +54,7 @@ const deleteFilterClicked = async (filterName, dispatch)=>{
 const Filter = (props)=>{
   const [filterText, setFilterText] = useState('');
   const [filterName, setFilterName] = useState('');
+  const [filterValid, setFilterValid] = useState(false);
   const dispatch = useDispatch();
 
   const onFilterClicked = (e) => {
@@ -74,20 +75,26 @@ const Filter = (props)=>{
 
 
   return (
-    <div className='flex flex-row pt-5 px-5'>
-      {/* Save, Load And Delete */}
-      <InputBar className={'mr-5'}>
-        <Dropdown label='Load' className='' entries={ dropdownOptions }/>
-        <TextInput value={filterName} onChange={(e)=>setFilterName(e.target.value)} placeholder='Filter Name'/>
-        <ButtonInput label='Save' onClick={()=>saveFilterClicked(filterName, filterText, dispatch)}/>
-        <ButtonInput label='Delete' onClick={()=>deleteFilterClicked(filterName, dispatch)}/>
-      </InputBar>
-      {/* Actual Filter String */}
-      <InputBar className={'grow'}>
-        <TextInput value={filterText} onChange={(e)=>{setFilterText(e.target.value);}} placeholder='Filter Text' className='grow'/>
-        <ButtonInput onClick={onFilterClicked} label='Apply Filter'/>
-      </InputBar>
-    </div>);
+    <div>
+      <div className='flex flex-row pt-5 px-5'>
+        {/* Save, Load And Delete */}
+        <InputBar className={'mr-5'}>
+          <Dropdown label='Load' className='' entries={ dropdownOptions }/>
+          <TextInput value={filterName} onChange={(e)=>setFilterName(e.target.value)} placeholder='Filter Name'/>
+          <ButtonInput label='Save' onClick={()=>saveFilterClicked(filterName, filterText, dispatch)}/>
+          <ButtonInput label='Delete' onClick={()=>deleteFilterClicked(filterName, dispatch)}/>
+        </InputBar>
+        {/* Actual Filter String */}
+        <InputBar className={'grow'}>
+          <TextInput value={filterText} onChange={(e)=>{setFilterText(e.target.value);}} placeholder='Filter Text' className='grow'/>
+          <ButtonInput onClick={onFilterClicked} label='Apply Filter'/>
+        </InputBar>
+      </div>
+      <div className='flex justify-center'>
+        {filterValid && <h1 className='text-gray-50 italic'>Invalid Filter: Please Reference Tooltip</h1>}
+      </div>
+    </div>
+  );
 };
 
 export default Filter;

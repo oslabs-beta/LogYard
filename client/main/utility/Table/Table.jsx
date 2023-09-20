@@ -31,14 +31,14 @@ const Table = ({displayHeaders, displayData}) => {
   }
 
   return (
-    <div className="p-5 w-full relative overflow-x-auto">
-      <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-        <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+    <div className="relative my-5 px-5 w-full overflow-y-scroll">
+      <table className="w-full h-12 text-sm text-left text-gray-500 dark:text-gray-400">
+        <thead className="w-full text-xs text-gray-50 uppercase bg-gray-900 dark:bg-gray-700 dark:text-gray-400 sticky top-0">
           <tr>
             { tableHeaders }
           </tr>
         </thead>
-        <tbody>
+        <tbody className='h-full'>
           { tableItems }
         </tbody>
       </table>

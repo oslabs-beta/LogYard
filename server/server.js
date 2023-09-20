@@ -19,7 +19,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(addLogger('server', 'main'));
-app.use(addLogger('server', 'main'));
 
 /* Routers */
 app.use('/logs', addContext('router', 'logs'), logRouter);
@@ -47,27 +46,27 @@ app.use((err, req, res, next) => {
 /* Port initialization */
 app.listen(port, () => {
   // (0)error, (1)warn, (2)info, (3)http, (4)verbose, (5)debug, (6)silly
-  logger.error('test error', {Context: {
-    'server': '0'
-  }});
-  logger.warn('test warn', {Context: {
-    'server': '0'
-  }});
+  // logger.error('test error', {Context: {
+  //   'server': '0'
+  // }});
+  // logger.warn('test warn', {Context: {
+  //   'server': '0'
+  // }});
   logger.info('test info', {Context: {
     'server': '0'
   }});
-  logger.http('test http', {Context: {
-    'server': '0'
-  }});
-  logger.verbose('test verbose', {Context: {
-    'server': '0'
-  }});
-  logger.debug('test debug', {Context: {
-    'server': '0'
-  }});
-  logger.silly('test silly', {Context: {
-    'server': '0'
-  }});
+  // logger.http('test http', {Context: {
+  //   'server': '0'
+  // }});
+  // logger.verbose('test verbose', {Context: {
+  //   'server': '0'
+  // }});
+  // logger.debug('test debug', {Context: {
+  //   'server': '0'
+  // }});
+  // logger.silly('test silly', {Context: {
+  //   'server': '0'
+  // }});
   console.log(`Server is running on port ${port}`);
 });
 

@@ -18,7 +18,7 @@ const TableHeader = ({columns}) => {
 
   for (const col of columns){
     allColumns.push((
-      <th key={Math.random()} scope="row" className="px-6 py-4 font-medium bg-gray-200 border-b border-gray-100 text-gray-900 whitespace-nowrap dark:text-white">
+      <th key={Math.random()} scope="row" className="px-6 py-4 font-medium bg-gray-700 border-b border-x border-gray-900 text-gray-50 whitespace-nowrap dark:text-white">
         { col }
       </th>
     ));
