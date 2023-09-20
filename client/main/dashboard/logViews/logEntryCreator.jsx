@@ -54,7 +54,7 @@ const logEntryCreator = (data) => {
   const logTime = new Date(timestamp);
 
   return [
-    <TextEntry key={_id + '1'} input={logTime.toLocaleTimeString()}/>,
+    <TextEntry key={_id + '1'} input={[logTime.toLocaleTimeString(), <br key={ Math.random() } />, logTime.toLocaleDateString()]}/>,
     <TextEntry key={_id + '2'} input={_id}/>,
     <TextEntry key={_id + '3'} input={level}/>,
     <TextEntry key={_id + '4'} input={message}/>,
