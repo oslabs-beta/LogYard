@@ -19,7 +19,7 @@ import NavBar from './NavBar.jsx';
 
 // navigator for dashboard
 const dashboardClicked = (navigate) => {
-  navigate('/main/dashboard');
+  navigate('/main');
 };
 
 // navigator for profile

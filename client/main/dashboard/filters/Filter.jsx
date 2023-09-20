@@ -14,8 +14,11 @@ import InputBar, {Dropdown, ButtonInput, TextInput} from '../../utility/InputBar
 import { filterLogs, setUserData,  } from '../../../state/actions/actions';
 import { useSelector, useDispatch } from 'react-redux';
 
+import ModalIcon from '../../utility/InputBar/ModalIcon.jsx';
+import ModalMessage from '../../utility/InputBar/ModalMessage';
+
 const saveFilterClicked = async (filterName, filterString, dispatch) => {
-  //Upserts to DB and reassigns filter
+  // Upserts to DB and reassigns filter
   const result = await fetch('/api/profile/filter', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -23,7 +26,7 @@ const saveFilterClicked = async (filterName, filterString, dispatch) => {
   });
   const body = await result.json();
 
-  //Dispatch to state from result if OK
+  // Dispatch to state from result if OK
   if (result.ok){
     dispatch(setUserData(body));
   }
@@ -66,6 +69,11 @@ const Filter = (props)=>{
     dispatch(filterLogs(filterText));
   };
 
+  // set local input text state to empty
+  const onClearClicked = () => {
+    setFilterText('');
+  };
+
   // array for saved filters
   const dropdownOptions = [];
 
@@ -82,9 +90,9 @@ const Filter = (props)=>{
     }
   }
 
-
   return (
     <div>
+
       <div className='flex flex-row pt-5 px-5'>
         {/* Save, Load And Delete */}
         <InputBar className={'mr-5'}>
@@ -93,9 +101,12 @@ const Filter = (props)=>{
           <ButtonInput label='Save' onClick={()=>saveFilterClicked(filterName, filterText, dispatch)}/>
           <ButtonInput label='Delete' onClick={()=>deleteFilterClicked(filterName, dispatch)}/>
         </InputBar>
+        
+        <ModalIcon />
         {/* Actual Filter String */}
         <InputBar className={'grow'}>
           <TextInput value={filterText} onChange={(e)=>{setFilterText(e.target.value);}} placeholder='Filter Text' className='grow'/>
+          <ButtonInput onClick={onClearClicked} label='Clear Filter' />
           <ButtonInput onClick={onFilterClicked} label='Apply Filter'/>
         </InputBar>
       </div>
