@@ -100,24 +100,13 @@ const Filter = (props)=>{
 
       <div className='flex flex-row pt-5 px-5'>
         {/* Save, Load And Delete */}
-        <InputBar className={'mr-5'}>
-          <Dropdown label='Load' className='' entries={ dropdownOptions }/>
-          <TextInput value={filterName} onChange={(e)=>setFilterName(e.target.value)} placeholder='Filter Name'/>
-          <ButtonInput label='Save' onClick={()=>saveFilterClicked(filterName, filterText, dispatch)}/>
-          <ButtonInput label='Delete' onClick={()=>deleteFilterClicked(filterName, dispatch)}/>
-        </InputBar>
-        
-        <ModalIcon />
         <SaveLoad
           filterText = { filterText }
           setFilterText = { setFilterText }
         />
-        {/* Actual Filter String */}
-        <InputBar className={'grow'}>
-          <TextInput value={filterText} onChange={(e)=>{setFilterText(e.target.value);}} placeholder='Filter Text' className='grow'/>
-          <ButtonInput onClick={onClearClicked} label='Clear Filter' />
-          <ButtonInput onClick={onFilterClicked} label='Apply Filter'/>
-        </InputBar>
+
+        <ModalIcon />
+        
         <FilterText 
           filterText = { filterText }
           setFilterText = { setFilterText }
