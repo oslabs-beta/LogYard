@@ -26,7 +26,7 @@ const loginRequest = async (username, password, navigate, dispatch, setPasswordC
     const body = await result.json();
     
     dispatch(setUserData(body));
-    navigate('/main/dashboard');
+    navigate('/main');
   }
   else {
     setPasswordCheck(true);
