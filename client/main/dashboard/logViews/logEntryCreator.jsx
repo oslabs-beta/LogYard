@@ -36,6 +36,7 @@ const InspectEntry = ({ log }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  // updates 'current log' in store to properly render inspect page upon click
   return (
     <button onClick={()=>onInspectEntry(dispatch, navigate, log)}>
       <img src='/5971.png' alt='Inspect' className='w-8 min-w-8 h-w'></img>
@@ -45,7 +46,7 @@ const InspectEntry = ({ log }) => {
 
 const logEntryCreator = (data) => {
 
-  // destructure from data params - which is used in AllLogs.jsx
+  // destructure from data params - which is called in AllLogs.jsx
   const { timestamp, level, meta, message, _id } = data;
   // get items from data.meta
   const { Context } = meta;

@@ -1,3 +1,14 @@
+/**
+ * ************************************
+ *
+ * @module  DonutChart
+ * @authors Preston Coldwell, Ryan Smithey, Geoff Sun, Andrew Wagner, Brian Hwang
+ * @date 09/20/2023
+ * @description .jsx - creates a donut chart over time relative to log type counts
+ * 
+ * ************************************
+ */
+
 import React, { useEffect, useState } from 'react';
 import c3 from 'c3';
 
@@ -32,13 +43,13 @@ const DonutChart = ({ name, dataArray, height, width }) => {
         type: 'donut',
         // data colors
         colors: {
-          data1: '#3D3D3D', //black
-          data2: '#9D5C0D', //dark brown
-          data3: '#E5890A', //orange brown
-          data4: '#F7D08A', //tan
-          data5: '#aaa', //gray
-          data6: '#9C2310', //Red Brown
-          data7: '#FC5713', //orange
+          data1: '#ef4444', // equivalent to tailwind red-500
+          data2: '#fb923c', // orange-400
+          data3: '#22c55e', // green-500
+          data4: '#60a5fa', // blue-400
+          data5: '#2dd4bf', // teal-400
+          data6: '#fde68a', // amber-200
+          data7: '#a78bfa', // violet-400
         },
       },
     });

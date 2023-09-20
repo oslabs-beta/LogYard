@@ -32,9 +32,9 @@ const Login = () => {
       });
       // if backend comes back as 200, navigate to dashboard
       if (response.ok) {
-        navigate('/main/dashboard');
+        navigate('/main');
       }
-      // otherwise, redirect to sign in
+      // otherwise, give invalid password message
       else {
         setPasswordCheck(true);
       }

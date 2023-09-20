@@ -35,6 +35,7 @@ const AllLogs = () => {
 
     let i = 0;
     for (const log of allLogs) {
+      // TODO: add pages to filter through all logs or fix speed issue
       if (i > 100) break;
       tableEntries.unshift(logEntryCreator(log));
       i++;
@@ -45,7 +46,7 @@ const AllLogs = () => {
     tableHeaders.push('Count');
     tableHeaders.push('Inspect');
 
-    for (const [key, value] of Object.entries(allLogs)){
+    for (const [key, value] of Object.entries(allLogs)) {
       tableEntries.unshift(groupEntryCreator(key, value));
     }
   }

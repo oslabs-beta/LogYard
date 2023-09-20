@@ -15,10 +15,7 @@ export function renderWithProviders(
       activeLog: undefined,
     },
     // Automatically create a store instance if no store was passed in
-    store = configureStore({
-      reducer: { logsReducer, userReducer },
-      preloadedState,
-    }),
+    store = configureStore({ reducer: { logsReducer, userReducer }, preloadedState }),
     ...renderOptions
   } = {}
 ) {
