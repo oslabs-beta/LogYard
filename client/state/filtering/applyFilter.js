@@ -30,7 +30,6 @@ const applyFilter = (results, filterString, metaData = {}) => {
       results = GROUP(results, filter.arguments, metaData);
       break;
     default:
-      console.log(filter.name);
       metaData.errors.push(`top level function: ${filter.name} not found`);
       break;
     }

@@ -42,7 +42,7 @@ const AllLogs = () => {
     tableHeaders.push('Count');
     tableHeaders.push('Inspect');
 
-    for (const [key, value] of Object.entries(allLogs)){
+    for (const [key, value] of Object.entries(allLogs)) {
       tableEntries.unshift(groupEntryCreator(key, value));
     }
   }

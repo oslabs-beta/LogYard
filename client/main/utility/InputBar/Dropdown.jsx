@@ -37,7 +37,8 @@ const Dropdown = ({label, className, entries})=>{
           {items}
         </ul>
       </div>
-    </button>);
+    </button>
+  );
 };
 
 export default Dropdown;

@@ -14,7 +14,7 @@ import { useNavigate, Outlet } from 'react-router-dom';
 
 import NavBar from '../main/NavBar.jsx';
 
-
+// navigator for having no account
 const navAnonymous = (navigate)=>{
   navigate('/');
 };
@@ -42,7 +42,7 @@ const AuthRouter = () => {
         ['Sign In', () => {signInClicked(navigate);}],
         ['Create Account', () => {createAccountClicked(navigate);}]
       ]}/>
-      {/* what does this do? */}
+      {/* react-router-dom component for rendering appropriate route component */}
       <Outlet/>
     </div>
   );

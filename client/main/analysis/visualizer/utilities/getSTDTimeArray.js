@@ -1,3 +1,14 @@
+/**
+ * ************************************
+ *
+ * @module  getSTDTimeArray
+ * @authors Preston Coldwell, Ryan Smithey, Geoff Sun, Andrew Wagner, Brian Hwang
+ * @date 09/20/2023
+ * @description converts ISOTimeArray into a readable array for graph x-axis labeling
+ * 
+ * ************************************
+ */
+
 const getSTDTimeArray = (arrayOfMilliseconds) => {
 
   const results = [];

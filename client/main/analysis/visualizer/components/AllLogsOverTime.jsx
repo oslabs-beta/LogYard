@@ -1,10 +1,23 @@
+/**
+ * ************************************
+ *
+ * @module  AllLogsOverTime
+ * @authors Preston Coldwell, Ryan Smithey, Geoff Sun, Andrew Wagner, Brian Hwang
+ * @date 09/20/2023
+ * @description .jsx - Compiles appropriate data and calls AllLogsBarChart to create a graph
+ * 
+ * ************************************
+ */
+
 import React, { useEffect, useState } from 'react';
-import BarChart from '../templates/BarChart.jsx';
+import AllLogsBarChart from '../templates/AllLogsBarChart.jsx';
 import { useSelector } from 'react-redux';
 
 import levelToInd from '../utilities/levelTypeToIndex.js';
 import getISOTimeArray from '../utilities/getISOTimeArray.js';
 import getSTDTimeArray from '../utilities/getSTDTimeArray.js';
+
+import Dropdown from '../../../utility/InputBar/Dropdown.jsx';
 
 
 /* Ryan's notes about how to better modularize this file
@@ -82,23 +95,66 @@ const AllLogsOverTime = () => {
     }
 
     // return results
+    console.log('results: ', results);
     return results;
 
   };
 
-  // createDataArray call to get counts related to time
+  // current time variable
   const currentTime = new Date().toLocaleString();
-  const dataState = createDataArray(allLogs, '2023-09-13T21:23:30.335Z', currentTime, 24);  
+  // Past 24 hours
+  const twentyFourHoursAgoInMS = Date.parse(currentTime) - 86400000;
+  const twentyFourHoursAgoInString = new Date(twentyFourHoursAgoInMS).toLocaleString();
+  // Past 48 hours
+  const fourtyEightHoursAgoInMS = Date.parse(currentTime) - 86400000;
+  const fourtyEightHoursAgoInString = new Date(fourtyEightHoursAgoInMS).toLocaleString();
+  // Past 7 days
+  const sevenDaysAgoInMS = Date.parse(currentTime) - 604800000;
+  const sevenDaysAgoInString = new Date(sevenDaysAgoInMS).toLocaleString();
+
+  // local state variables
+  const [graphStartTime, setGraphStartTime] = useState(sevenDaysAgoInString);
+  const [graphStartTimeLabel, setGraphStartTimeLabel] = useState('Past 7 Days');
+
+  // time selection options
+  const dropdownOptions = [
+    ['Past 24 Hours', 
+      () => {
+        setGraphStartTime(twentyFourHoursAgoInString);
+        setGraphStartTimeLabel('Past 24 Hours');
+      }
+    ],
+    ['Past 48 Hours', 
+      () => {
+        setGraphStartTime(fourtyEightHoursAgoInString);
+        setGraphStartTimeLabel('Past 48 Hours');
+      }
+    ],
+    ['Past 7 Days', 
+      () => {
+        setGraphStartTime(sevenDaysAgoInString);
+        setGraphStartTimeLabel('Past 7 Days');
+      }
+    ],
+  ];
+
+  // initial createDataArray call to get counts related to time
+  const dataState = createDataArray(allLogs, graphStartTime, currentTime, 24);  
   
   return (
-    <div className="bg-gray-800 text-gray-50  mt-8 m-auto p-8 pl-4 place-content-center rounded-lg">
+    <div className="bg-gray-800 text-gray-50  mt-8 m-auto p-8 pl-4 place-content-center text-center rounded-lg">
       <h1 className='text-4xl text-center'>All Logs Over Time</h1>
-      <BarChart 
+      <Dropdown
+        label={graphStartTimeLabel}
+        className='m-5'
+        entries={dropdownOptions}
+      />
+      <AllLogsBarChart 
         name='allLogsOverTime'
         datesArray={STDdates}
         dataArray={dataState}
         height='800'
-        width='1000'
+        width='1400'
       />
     </div>
   );

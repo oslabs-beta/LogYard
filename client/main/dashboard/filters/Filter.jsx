@@ -14,6 +14,7 @@ import SaveLoad from './SaveLoad';
 import FilterText from './FilterText';
 
 const Filter = (props)=>{
+  // filter text state input
   const [filterText, setFilterText] = useState('');
   const [filterErrors, setFilterErrors] = useState([]);
 
