@@ -7,16 +7,19 @@ const getISOTimeArray = (startTime, endTime, intervals) => {
   const totalTimeSpan = endToNum - startToNum;
 
   // calculate time interval between ticks
-  const timeInterval = Math.floor(totalTimeSpan / intervals);
+  // const timeInterval = Math.floor(totalTimeSpan / intervals);
+  const timeInterval = (totalTimeSpan / intervals);
 
   // initialize array of times
   const timeArray = [];
 
   // loop 'interval' times, creating appropriate time array
-  for (let i = 0; i < intervals; i++) {
+  for (let i = 0; i < intervals + 1; i++) {
     // start at start time and add increments in time until end time is met
     timeArray.push(startToNum + timeInterval * i);
   }
+
+  // console.log('timeArray: ', timeArray);
 
   return timeArray;
 };

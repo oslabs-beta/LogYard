@@ -4,7 +4,20 @@ import { useSelector } from 'react-redux';
 import c3 from 'c3';
 
 const OneLogOverTime = () => {
-  // const allLogs = useSelector( state => state.logsReducer.logs );
+
+  // get all logs from state
+  const allLogs = useSelector( state => state.logsReducer.logs );
+
+
+
+
+
+  // left off here..
+
+
+
+
+
 
   // data from store (hard-coded for testing)
   const dates = ['2020-07-13', '2020-07-14', '2020-07-15', '2020-07-16', '2020-07-17', '2020-07-18', '2020-07-19', '2020-07-20', '2020-07-21', '2020-07-22', '2020-07-23', '2020-07-24', '2020-07-25', '2020-07-26', '2020-07-27', '2020-07-28', '2020-07-29' ];
@@ -42,7 +55,7 @@ const OneLogOverTime = () => {
         },
         // data colors
         colors: {
-          data1: '#9DBA94',
+          data1: '#E5890A',
         },
         // in the case where no data is present
         empty: {
@@ -119,7 +132,7 @@ const OneLogOverTime = () => {
   }, [data]);
 
   return (
-    <div className="bg-white mt-8 m-auto p-8 pl-4 place-content-center rounded-lg">
+    <div className="bg-gray-800 text-gray-50  mt-8 m-auto p-8 pl-4 place-content-center rounded-lg">
       <h1 className='text-4xl text-center'>One Log Over Time</h1>
       <div id="oneLogOverTime"></div>
     </div>
