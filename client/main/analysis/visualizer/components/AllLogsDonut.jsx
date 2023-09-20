@@ -23,10 +23,8 @@ const AllLogsDonut = () => {
 
     // create blank array, each index representing a log type
     const result = new Array(7).fill(0);
-    // reassign global dataArray variable to be results array
-    dataArray = result;
 
-    allLogs.forEach(log => {
+    logArray.forEach(log => {
       // get respective log's time
       const logTime = Date.parse(log.timestamp);
       // get respective log's level type in index position format
@@ -37,6 +35,9 @@ const AllLogsDonut = () => {
         result[logIndex]++;
       }
     });
+    
+    // reassign global dataArray variable to be results array
+    dataArray = result;
   };
 
   // invoke function

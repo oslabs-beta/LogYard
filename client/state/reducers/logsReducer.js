@@ -43,7 +43,7 @@ const logsReducer = createReducer(initialState, (builder) => {
         state.filteredLogs = applyFilter(state.logs, action.payload);
       }
       catch (e) {
-        alert('Failed filtering IDK GL');
+        alert('Failed filtering');
         console.log(e);
       }
     })

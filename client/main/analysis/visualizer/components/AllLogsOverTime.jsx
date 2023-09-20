@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import BarChart from '../templates/BarChart.jsx';
+import AllLogsBarChart from '../templates/AllLogsBarChart.jsx';
 import { useSelector } from 'react-redux';
 
 import levelToInd from '../utilities/levelTypeToIndex.js';
@@ -82,6 +82,7 @@ const AllLogsOverTime = () => {
     }
 
     // return results
+    console.log('results: ', results);
     return results;
 
   };
@@ -93,12 +94,12 @@ const AllLogsOverTime = () => {
   return (
     <div className="bg-gray-800 text-gray-50  mt-8 m-auto p-8 pl-4 place-content-center rounded-lg">
       <h1 className='text-4xl text-center'>All Logs Over Time</h1>
-      <BarChart 
+      <AllLogsBarChart 
         name='allLogsOverTime'
         datesArray={STDdates}
         dataArray={dataState}
         height='800'
-        width='1000'
+        width='1400'
       />
     </div>
   );

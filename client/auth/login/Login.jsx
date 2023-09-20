@@ -15,8 +15,9 @@ import axios from 'axios';
 import backgroundImage from '/fallBG.jpg';
 
 const Login = () => {
-  // states
+  // password entry state
   const [password, setPassword] = useState('');
+  // password authentication state (for pop-up message)
   const [passwordCheck, setPasswordCheck] = useState(false);
 
   // initialize navigation
@@ -25,15 +26,16 @@ const Login = () => {
   // contact backend to check password
   const handleclick = async () => {
     try {
+      // format search params for browser
       const params = new URLSearchParams({
         password,
       });
       const response = await fetch(`/api/auth?${params}`);
       // if backend comes back as 200, navigate to dashboard
       if (response.ok) {
-        navigate('/main/dashboard');
+        navigate('/main');
       }
-      // otherwise, redirect to sign in
+      // otherwise, give invalid password message
       else {
         setPasswordCheck(true);
       }
@@ -61,14 +63,10 @@ const Login = () => {
         Log In
           </button>
         </div>
+        {/* if passwordCheck is true (password is incorrect) render invalid password message */}
         {passwordCheck && <h1 className='text-red-900 text-xl italic pr-12 mr-12'>Invalid password</h1>}
       </div>
-    
-      {/* <img src="/greenForest.png" className='h-42 w-full bottom-0 object-cover'></img> */}
-      {/* <div className='h-42 w-full'>
-      </div> */}
     </div>
-     
   );
 };
 

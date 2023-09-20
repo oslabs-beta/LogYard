@@ -17,7 +17,7 @@ import TextInput from './TextInput';
 const InputBar = ({children, className})=>{
   
   return (
-    <div className={`flex items-stretch items-end rounded-lg ${className}`}>
+    <div className={`flex items-stretch rounded-lg ${className}`}>
       {children}
     </div>
   );

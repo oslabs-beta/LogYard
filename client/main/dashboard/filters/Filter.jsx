@@ -52,17 +52,26 @@ const deleteFilterClicked = async (filterName, dispatch)=>{
 };
 
 const Filter = (props)=>{
+  // filter text state input
   const [filterText, setFilterText] = useState('');
+  // filter name state input
   const [filterName, setFilterName] = useState('');
+
+  // initialize dispatch
   const dispatch = useDispatch();
 
-  const onFilterClicked = (e) => {
+  // dispatch click function for applying filtering on logs
+  const onFilterClicked = () => {
     dispatch(filterLogs(filterText));
   };
 
+  // array for saved filters
   const dropdownOptions = [];
+
+  // grab store variable for all user's filtered logs
   const filters = useSelector((state)=>state.userReducer.userData.savedFilters);
 
+  // load filters for dropdown menu
   if (filters){
     for (const [key, value] of Object.entries(filters)){
       dropdownOptions.push([

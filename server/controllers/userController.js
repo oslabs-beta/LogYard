@@ -64,7 +64,7 @@ userController.addToken = async (req, res, next)=>{
 
     res.cookie('username', username);
     res.cookie('password', password);
-    
+
     return next();
   }
   catch (e){

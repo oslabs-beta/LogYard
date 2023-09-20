@@ -3,140 +3,107 @@ import { useSelector } from 'react-redux';
 
 import c3 from 'c3';
 
+import levelToInd from '../utilities/levelTypeToIndex.js';
+import getISOTimeArray from '../utilities/getISOTimeArray.js';
+import getSTDTimeArray from '../utilities/getSTDTimeArray.js';
+import OneLogBarChart from '../templates/OneLogBarChart.jsx';
+// import { Dropdown } from '../../../utility/InputBar/Dropdown.jsx';
+
 const OneLogOverTime = () => {
+
+  // array of dates for graph filtering (in ISO format)
+  let ISOdates;
+  // array of dates for graph rendering (in standard format)
+  let STDdates;
+  // results array (for global availability)
+  let results;
+  // logType global variable
+  let logTypeForGraph;
+  // global graph type vaiable
+  let graphTypeForGraph;
 
   // get all logs from state
   const allLogs = useSelector( state => state.logsReducer.logs );
 
+  const createDataArray = (logArray, logType, graphType, startTime, endTime, intervals) => {
 
+    // declare logType globally
+    logTypeForGraph = logType;
 
+    // declare graphType globally
+    graphTypeForGraph = graphType;
 
+    // gets appropriate index in results array based on time
+    const getTimeIndex = (time) => {
+      const tempStart = Date.parse(startTime);
+      const tempEnd = Date.parse(endTime);
 
-  // left off here..
+      const intervalWidth = ((tempEnd - tempStart) / intervals);
 
+      return Math.floor((time - tempStart) / intervalWidth );
+    };
 
+    // create array of times based on user-inputted requests
+    const timeArray = getISOTimeArray(startTime, endTime, intervals);
+    // assign global 'ISOdates' variable to timeArray -> for access in filtering
+    ISOdates = timeArray;
 
+    // create array of times for graph axis labels
+    const STDTimeArray = getSTDTimeArray(timeArray);
+    // assign global 'STDdates' variable to STDTimeArray -> for access by graph
+    STDdates = STDTimeArray;
 
+    // create blank array, each index representing a log type
+    const result = new Array(intervals).fill(0);
 
+    // console.log('Time Array: ', timeArray)
 
-  // data from store (hard-coded for testing)
-  const dates = ['2020-07-13', '2020-07-14', '2020-07-15', '2020-07-16', '2020-07-17', '2020-07-18', '2020-07-19', '2020-07-20', '2020-07-21', '2020-07-22', '2020-07-23', '2020-07-24', '2020-07-25', '2020-07-26', '2020-07-27', '2020-07-28', '2020-07-29' ];
-  const data1 = [ 13, 18, 11, 12, 14, 19, 17, 24, 22, 14, 36, 42, 32, 34, 20, 16, 22, 26 ];
-
-  // substitute for state until filters are made
-  const [data, setData] = useState({
-    // date format: 2023-09-06T14:48:20.958+00:00
-    logType: 'error',
-    column0: [ 'x', ...dates ],
-    column1: [ 'data1', ...data1 ],
-  });
-
-  // chart data
-  const renderChart = () => {
-    c3.generate({
-      // id of element in jsx return block
-      bindto: '#oneLogOverTime',
-
-      // data values and manipulation
-      data: {
-        x: 'x',
-        // axis labels
-        names: {
-          data1: `${data.logType} logs`,
-        },
-        // data values
-        columns: [
-          data.column0, // dates
-          data.column1, // bar chart
-        ],
-        // graph types
-        types: {
-          data1: 'bar',
-        },
-        // data colors
-        colors: {
-          data1: '#E5890A',
-        },
-        // in the case where no data is present
-        empty: {
-          label: {
-            text: 'No Data',
-          },
-        },
-      },
-      
-      // bar properties
-      bar: {
-        width: {
-          ratio: 0.9
+    logArray.forEach(log => {
+      // convert date to millisecond format
+      const timeIndex = getTimeIndex(Date.parse(log.timestamp));
+      // console.log('timeArray[timeIndex]: ', timeArray[timeIndex])
+      if ( timeArray[timeIndex] ) {
+        // console.log('timeArray[timeIndex]: ', timeArray[timeIndex])
+        // console.log('log.level: ', log.level);
+        // console.log('logType: ', logType);
+        if (log.level === logType) {
+          result[timeIndex] === 0 ? result[timeIndex] = 1 : result[timeIndex]++;
+          // console.log('result[timeIndex]: ', result[timeIndex])
         }
-      },
+      }
+    })
 
-      // axis properties
-      axis: {
-        // x-axis
-        x: {
-          type: 'timeseries',
-          tick: {
-            rotate: 50,
-            format: '%Y-%m-%d %H:%M:%S',
-          },
-          // label: {
-          //   text: 'X-axis name',
-          //   position: 'outer-center',
-          // },
-        },
-        // y-axis
-        y: {
-          label: {
-            text: 'Y-axis name',
-            position: 'outer-middle',
-          },
-        },
-      },
+    result.unshift('data1');
 
-      // grid properties
-      grid: {
-        x: {
-          show: true,
-          color: '#000000',
-        },
-        y: {
-          show: true,
-          color: '#000000',
-        },
-      },
-
-      // legend properties
-      legend: {
-        show: true,
-        position: 'inset',
-        inset: {
-          anchor: 'top-left',
-          x: 30,
-          y: 20,
-          step: undefined,
-        },
-      },
-    }).resize({
-      // size of graph
-      width: 1000,
-      height: 600,
-    });
+    return result;
+  };
+  
+  const [isOpen, setOpen] = useState(false);
+  
+  const handleDropDown = () => {
+    setOpen(!isOpen);
   };
 
-  // eslint claims renderChart is needed as a dependency here - its not..
-  useEffect(() => {
-    renderChart();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [data]);
+  const invokedGraphCreation =  createDataArray(allLogs, 'error','bar', '2023-09-13T21:23:30.335Z', new Date().toLocaleString(), 24);
 
   return (
-    <div className="bg-gray-800 text-gray-50  mt-8 m-auto p-8 pl-4 place-content-center rounded-lg">
-      <h1 className='text-4xl text-center'>One Log Over Time</h1>
-      <div id="oneLogOverTime"></div>
+    <div className="bg-gray-800 text-gray-50  mt-8 m-auto p-8 pl-4 place-content-center text-center rounded-lg">
+      <h1 className='text-4xl text-center m-2'>One Log Over Time</h1>
+      {/* <Dropdown 
+        label={'Log Type'}
+        entries={' STOPPED HERE - reference dashboard/filters/Filer.jsx for more info on what goes here. '}
+      /> */}
+      <OneLogBarChart 
+        name='oneLogOverTime'
+        logType={logTypeForGraph}
+        graphType={graphTypeForGraph}
+        datesArray={STDdates}
+        dataArray={invokedGraphCreation}
+        height='800'
+        width='1400'
+      />
     </div>
-  );
+  )
 };
 
 export default OneLogOverTime;

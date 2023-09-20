@@ -5,10 +5,10 @@ import NOT from './types/notFilter';
 import NOTANY from './types/notAnyFilter';
 import GROUP from './types/groupFilter';
 
-const applyFilter = (results, filterString) => {
+const applyFilter = (results, filterString, metaData = {valid: true}) => {
   //Step 1 Parse the filter String
   const filters = parseInputString(filterString);
-  
+
   //Step 2 Run the current logs through the filter string
   for (const filter of filters) {
     switch (filter.name) {
@@ -28,6 +28,7 @@ const applyFilter = (results, filterString) => {
       results = GROUP(results, filter.arguments);
       break;
     default:
+      metaData.valid = false;
       break;
     }
   }
