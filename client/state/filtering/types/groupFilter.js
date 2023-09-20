@@ -1,13 +1,13 @@
 import filterSelector from '../selectors/filterSelector';
 
-const GROUP = (logs, groupArgs) => {
+const GROUP = (logs, groupArgs, metaData) => {
   const groupObject = {};
 
   for (const log of logs) {
     let key = '';
     
     for (const groupArg of groupArgs) {
-      const groupBy = filterSelector(log, groupArg);
+      const groupBy = filterSelector(log, groupArg, metaData);
       
       key += groupBy + ' ';
     }

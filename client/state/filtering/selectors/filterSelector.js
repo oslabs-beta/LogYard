@@ -11,7 +11,7 @@
   // CONTEXTVAL (KEY:'') => CONTEXTVAL
 
 
-const filterSelector = (log, argument)=>{
+const filterSelector = (log, argument, metaData)=>{
   // console.log(JSON.parse(JSON.stringify(log['meta']['Context'])));
 
   switch (argument.name){
@@ -33,12 +33,10 @@ const filterSelector = (log, argument)=>{
 
     return undefined;
   default:
+    metaData.errors.push(`Selector: ${argument.name} not found`);
     return 'Invalid';
   }
 };
 
-const comparisonFunction = (selectedData, )=>{
-
-};
 
 export default filterSelector;

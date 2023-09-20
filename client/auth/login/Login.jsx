@@ -10,10 +10,7 @@
  */
 
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { setUserData } from '../../state/actions/actions';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
 import backgroundImage from '/fallBG.jpg';
 
 const Login = () => {
@@ -23,7 +20,6 @@ const Login = () => {
 
   // initialize navigation
   const navigate = useNavigate();
-  const dispatch = useDispatch();
 
 
   // contact backend to check password
@@ -33,10 +29,8 @@ const Login = () => {
         password,
       });
       const response = await fetch(`/api/auth?${params}`);
-      const body = (await response.json()).body;
       // if backend comes back as 200, navigate to dashboard
       if (response.ok) {
-        dispatch(setUserData(body));
         navigate('/main/dashboard');
       }
       // otherwise, redirect to sign in

@@ -18,7 +18,7 @@ userController.createUser = async (req, res, next) => {
   try{
     const {username, password} = req.body;
     
-    const encrypted = bcrypt.hashSync(password);
+    const encrypted = bcrypt.hashSync(password, bcrypt.genSaltSync());
 
     const result = await UserModel.create({
       username,
