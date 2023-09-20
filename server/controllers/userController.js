@@ -10,6 +10,7 @@
  **/
 
 import UserModel from '../models/userModel.js';
+import bcrypt from 'bcrypt';
 
 const userController = {};
 
@@ -17,9 +18,11 @@ userController.createUser = async (req, res, next) => {
   try{
     const {username, password} = req.body;
     
+    const encrypted = bcrypt.hashSync(password);
+
     const result = await UserModel.create({
       username,
-      password,
+      password: encrypted,
     });
 
     res.locals.userData = result;
@@ -41,8 +44,22 @@ userController.signin = async (req, res, next) => {
   try{
     const {username, password} = req.body;
     
-    const result = await UserModel.findOne({ username , password});
+    let result = await UserModel.findOne({ username });
     
+    if (!result){
+      result = {password: ''};
+    }
+
+    if (!bcrypt.compare(password, result.password)) {
+      return next({
+        log: 'userController.signin ERROR: Incorect or no password',
+        status: 500,
+        message: {
+          err: 'Error with User Sign In',
+        },
+      });
+    }
+
     res.locals.userData = result;
     
     return next();
@@ -50,7 +67,7 @@ userController.signin = async (req, res, next) => {
   catch (e) {
     return next({
       log: `userController.signin ERROR: ${e}`,
-      status: e.status || 500,
+      status: 500,
       message: {
         err: 'Error with User Sign In',
       },
@@ -81,16 +98,27 @@ userController.validateUser = async (req, res, next) => {
   try{
     const { username, password } = req.cookies;
 
-    res.locals.userData = await UserModel.findOne({ username, password });//Compare passwords using bcrypt
+    const userData = await UserModel.findOne({ username });//Compare passwords using bcrypt
     
+    if (!bcrypt.compare(password, userData.password)) {
+      return next({
+        log: 'userController.validateUser ERROR: incorect password',
+        status: 500,
+        message: {
+          err: 'Error with User Validation',
+        },
+      });
+    }
+
+    res.locals.userData = userData;
     return next();
   }
   catch (e) {
     return next({
       log: `userController.validateUser ERROR: ${e}`,
-      status: e.status || 500,
+      status: 500,
       message: {
-        err: 'Error with User Creation',
+        err: 'Error with User Validation',
       },
     });
   }
