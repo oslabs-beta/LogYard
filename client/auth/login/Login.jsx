@@ -11,8 +11,7 @@
 
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
-
+import backgroundImage from '/fallBG.jpg';
 
 const Login = () => {
   // states
@@ -21,6 +20,7 @@ const Login = () => {
 
   // initialize navigation
   const navigate = useNavigate();
+
 
   // contact backend to check password
   const handleclick = async (serverPassword, navigate) => {
