@@ -2,9 +2,24 @@ import React, { useState } from 'react';
 import InputBar, { Dropdown, ButtonInput, TextInput} from '../../utility/InputBar/InputBar';
 import { setUserData } from '../../../state/actions/actions';
 import { useDispatch, useSelector } from 'react-redux';
+import applyFilter from '../../../state/filtering/applyFilter';
 
+const validateFilter = (filterString)=>{
+  try {
+    const metaData = {};
+    
+    applyFilter([], filterString, metaData);
+
+    return metaData.errors.length === 0;
+  }
+  catch (e){
+    return false;
+  }
+};
 
 const saveFilterClicked = async (filterName, filterString, dispatch) => {
+  if (!validateFilter(filterString)) return alert('Fix all errors before saving filter');
+
   //Upserts to DB and reassigns filter
   const result = await fetch('/api/profile/filter', {
     method: 'POST',
