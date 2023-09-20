@@ -67,13 +67,11 @@ const MainRouter = () => {
       <NavBar
         routes={[
           [ 'Dashboard', () => { dashboardClicked(navigate); } ],
-          // [ 'Quantity', () => { profileClicked(navigate); } ],
           [ 'Visualize', () => { visualizerClicked(navigate); } ],
           [ 'Profile', () => { profileClicked(navigate); } ],
           [ 'Sign Out', () => { signOutClicked(navigate); } ],
         ]}
       />
-
       <Outlet />
     </div>
   );
