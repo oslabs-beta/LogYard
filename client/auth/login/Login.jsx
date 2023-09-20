@@ -12,6 +12,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import backgroundImage from '/fallBG.jpg';
+import InputBar, { ButtonInput } from '../../main/utility/InputBar/InputBar';
 
 const Login = () => {
   // states
@@ -70,6 +71,10 @@ const Login = () => {
             Invalid password
           </h1>
         )}
+        <InputBar className='mt-5 flex'>
+          <ButtonInput onClick={()=> navigate('/signedlogin')} label='Sign In' className='grow'/>
+          <ButtonInput onClick={()=> navigate('/signup')} label='Create Account' className='grow'/>
+        </InputBar>
       </div>
 
       {/* <img src="/greenForest.png" className='h-42 w-full bottom-0 object-cover'></img> */}

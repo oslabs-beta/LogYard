@@ -36,12 +36,6 @@ const AuthRouter = () => {
 
   return (
     <div className='flex flex-col h-full'>
-      {/* routes for the nav-bar */}
-      <NavBar routes={[
-        ['No Account', () => {navAnonymous(navigate);}],
-        ['Sign In', () => {signInClicked(navigate);}],
-        ['Create Account', () => {createAccountClicked(navigate);}]
-      ]}/>
       {/* react-router-dom component for rendering appropriate route component */}
       <Outlet/>
     </div>
