@@ -14,7 +14,10 @@ import DropdownItem from './DropdownItem';
 
 const Dropdown = ({label, className, entries})=>{
   const [focused, setFocused] = React.useState(false);
-  const onFocus = () => setFocused(true);
+  const onFocus = () => {
+    if (!entries.length) return;
+    setFocused(true);
+  };
   const onBlur = () => setFocused(false);
   
   const items = [];

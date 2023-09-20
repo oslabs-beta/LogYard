@@ -10,6 +10,9 @@
  */
 
 import React, { useState } from 'react';
+import SaveLoad from './SaveLoad';
+import FilterText from './FilterText';
+
 import InputBar, {Dropdown, ButtonInput, TextInput} from '../../utility/InputBar/InputBar';
 import { filterLogs, setUserData,  } from '../../../state/actions/actions';
 import { useSelector, useDispatch } from 'react-redux';
@@ -57,6 +60,8 @@ const deleteFilterClicked = async (filterName, dispatch)=>{
 const Filter = (props)=>{
   // filter text state input
   const [filterText, setFilterText] = useState('');
+  const [filterErrors, setFilterErrors] = useState([]);
+
   // filter name state input
   const [filterName, setFilterName] = useState('');
   const [filterValid, setFilterValid] = useState(false);
@@ -103,16 +108,31 @@ const Filter = (props)=>{
         </InputBar>
         
         <ModalIcon />
+        <SaveLoad
+          filterText = { filterText }
+          setFilterText = { setFilterText }
+        />
         {/* Actual Filter String */}
         <InputBar className={'grow'}>
           <TextInput value={filterText} onChange={(e)=>{setFilterText(e.target.value);}} placeholder='Filter Text' className='grow'/>
           <ButtonInput onClick={onClearClicked} label='Clear Filter' />
           <ButtonInput onClick={onFilterClicked} label='Apply Filter'/>
         </InputBar>
+        <FilterText 
+          filterText = { filterText }
+          setFilterText = { setFilterText }
+          setFilterErrors = { setFilterErrors }
+        />
       </div>
-      <div className='flex justify-center'>
-        {filterValid && <h1 className='text-gray-50 italic'>Invalid Filter: Please Reference Tooltip</h1>}
-      </div>
+      {
+        filterErrors.map((element)=>{
+          return (
+            <div key={Math.random()} className='flex justify-center'>
+              <h1 className='text-gray-50 italic'> { element } </h1>
+            </div>
+          );
+        })
+      }
     </div>
   );
 };

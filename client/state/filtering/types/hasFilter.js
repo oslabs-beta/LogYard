@@ -6,12 +6,12 @@
 
 import filterSelector from '../selectors/filterSelector';
 
-const HAS = (logs, hasArgs)=>{
+const HAS = (logs, hasArgs, metaData)=>{
   const output = [];
 
   outer: for (const log of logs){
     for (const hasArg of hasArgs){
-      if (filterSelector(log, hasArg) !== hasArg.params[hasArg.params.length - 1]) {
+      if (filterSelector(log, hasArg, metaData) !== hasArg.params[hasArg.params.length - 1]) {
         continue outer;
       }
     }

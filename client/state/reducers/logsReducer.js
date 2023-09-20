@@ -49,7 +49,7 @@ const logsReducer = createReducer(initialState, (builder) => {
     })
     .addCase(SET_FILTERED_LOGS, (state, action)=>{
       try{
-        state.filteredLogs = state.filteredLogs[action.payload];
+        state.filteredLogs = state.filteredLogs = action.payload;
       }
       catch (e){
         alert('Failed navigating to log group');

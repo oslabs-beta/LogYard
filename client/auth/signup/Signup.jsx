@@ -12,29 +12,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { TextInput, ButtonInput } from '../../main/utility/InputBar/InputBar';
-
-const signUpRequest = async (username, password, serverPassword, setPasswordCheck, navigate) => {
-  // format search params for browser
-  const params = new URLSearchParams({
-    password: serverPassword,
-  });
-
-  // send post request for signup
-  const result = await fetch(`/api/profile/signup?${params}`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ username, password } ),
-  });
-
-  if (result.ok){
-    // if backend comes back as 200, navigate to dashboard
-    return navigate('/main');
-  }
-  else {
-    // otherwise, give invalid password message
-    setPasswordCheck(true);
-  }
-};
+import { useDispatch } from 'react-redux';
+import { setUserData } from '../../state/actions/actions';
 
 const Signup = () => {
   // username entry state
@@ -48,6 +27,32 @@ const Signup = () => {
 
   // initialize navigation
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  
+  //Upon attempted Sign in
+  const signUpRequest = async () => {
+    
+    // send post request for signup
+    const result = await fetch('/api/profile/signup', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username, password, serverPassword } ),
+    });
+    
+    const body = await result.json();
+
+    if (result.ok){
+      // if backend comes back as 200, navigate to dashboard and set data
+      dispatch(setUserData(body));
+
+      return navigate('/main');
+    }
+    else {
+      // otherwise, give invalid password message
+      setPasswordCheck(true);
+    }
+  };
+
 
   return (
     <div className='grow flex flex-col content-center justify-center flex-wrap'>
@@ -56,7 +61,7 @@ const Signup = () => {
       <TextInput onChange={(e) => setServerPassword(e.target.value)}  placeholder='Server Password' className='w-96 rounded-lg my-1'/>
       {/* if passwordCheck is true (password is incorrect or name is taken) render invalid message */}
       {passwordCheck && <h1 className='text-gray-50 text-xl italic'>Username is taken or invalid server password</h1>}
-      <ButtonInput onClick={() => signUpRequest(username, password, serverPassword, setPasswordCheck, navigate)} label='Create' className='w-96 rounded-lg my-1'/>
+      <ButtonInput onClick={signUpRequest} label='Create' className='w-96 rounded-lg my-1'/>
     </div>
   );
 };
