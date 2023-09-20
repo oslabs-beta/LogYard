@@ -1,3 +1,14 @@
+/**
+ * ************************************
+ *
+ * @module  AllLogsBarChart
+ * @authors Preston Coldwell, Ryan Smithey, Geoff Sun, Andrew Wagner, Brian Hwang
+ * @date 09/20/2023
+ * @description .jsx - creates a graph over time with all log types
+ * 
+ * ************************************
+ */
+
 import React, { useEffect, useState } from 'react';
 import c3 from 'c3';
 
@@ -30,19 +41,19 @@ const AllLogsBarChart = ({ name, datesArray, dataArray, height, width }) => {
           ...dataArray, // array of 7 log-type arrays, which consist of log-type counts per time interval
         ],
         // graph type
-        type: 'bar',
+        type: 'line',
         // data colors (for level types)
         colors: {
-          data1: '#3D3D3D', //black
-          data2: '#9D5C0D', //dark brown
-          data3: '#E5890A', //orange brown
-          data4: '#F7D08A', //tan
-          data5: '#aaa', //gray
-          data6: '#9C2310', //Red Brown
-          data7: '#FC5713', //orange
+          data1: '#ef4444', // equivalent to tailwind red-500
+          data2: '#fb923c', // orange-400
+          data3: '#22c55e', // green-500
+          data4: '#60a5fa', // blue-400
+          data5: '#2dd4bf', // teal-400
+          data6: '#fde68a', // amber-200
+          data7: '#a78bfa', // violet-400
         },
         // create groups based on level-types
-        groups: [['data1', 'data2', 'data3', 'data4', 'data5', 'data6', 'data7']],
+        // groups: [['data1', 'data2', 'data3', 'data4', 'data5', 'data6', 'data7']],
       },
 
       // axis properties

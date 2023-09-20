@@ -1,19 +1,31 @@
+/**
+ * ************************************
+ *
+ * @module  OneLogBarChart
+ * @authors Preston Coldwell, Ryan Smithey, Geoff Sun, Andrew Wagner, Brian Hwang
+ * @date 09/20/2023
+ * @description .jsx - creates a graph over time with one log type
+ * 
+ * ************************************
+ */
+
 import React, { useEffect, useState } from 'react';
 import c3 from 'c3';
 
-const OneLogBarChart = ({ name, logType, graphType, datesArray, dataArray, height, width }) => {
+const OneLogBarChart = ({ name, logType, datesArray, dataArray, height, width }) => {
+  
+  // graph colors
+  const colors = {
+    error: '#ef4444', // equivalent to tailwind red-500
+    warn: '#fb923c', // orange-400
+    info: '#22c55e', // green-500
+    http: '#60a5fa', // blue-400
+    verbose: '#2dd4bf', // teal-400
+    debug: '#fde68a', // amber-200
+    silly: '#a78bfa', // violet-400
+  };
+  
   const createGraph = () => {
-
-
-    const colors = {
-      error: '#d46842',
-      warn: '#c3c3c1',
-      info: '#c3c3c1',
-      http: '#c3c3c1',
-      verbose: '#c3c3c1',
-      debug: '#c3c3c1',
-      silly: '#c3c3c1',
-    };
 
     const chart = c3.generate({
       // id of element in jsx return block
@@ -36,7 +48,7 @@ const OneLogBarChart = ({ name, logType, graphType, datesArray, dataArray, heigh
           dataArray, // array of log-type, which consist of log-type counts per time interval
         ],
         // graph type
-        type: `${graphType}`,
+        type: 'bar',
         // data colors (for level types)
         colors: {
           data1: `${colors[logType]}`, // black
@@ -98,6 +110,9 @@ const OneLogBarChart = ({ name, logType, graphType, datesArray, dataArray, heigh
         ['dates', ...datesArray], // dates
         dataArray, // array of 7 log-type arrays, which consist of log-type counts per time interval
       ],
+      colors: {
+        data1: `${colors[logType]}`, // black
+      },
     });
   };
 
