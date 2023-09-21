@@ -36,7 +36,7 @@ const saveFilterClicked = async (filterName, filterString, dispatch) => {
 };
 
 const loadFilterClicked = async (filterName, filterString, setFilterName, setFilterText)=>{
-  //Loads from State
+  // Loads from State
   setFilterName(filterName);
   setFilterText(filterString);
 };

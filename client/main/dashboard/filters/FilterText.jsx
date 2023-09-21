@@ -30,8 +30,23 @@ const FilterText = ({filterText, setFilterText, setFilterErrors}) => {
 
   return (
     <InputBar className={'grow'}>
-      <TextInput value={filterText} onChange={(e)=>{setFilterText(e.target.value);}} placeholder='Filter Text' className='grow'/>
-      <ButtonInput onClick={()=>applyFilterClicked(filterText, dispatch, setFilterErrors)} label='Apply Filter'/>
+      <TextInput 
+        value={filterText} 
+        onChange={(e)=>{setFilterText(e.target.value);}} 
+        placeholder='Filter Text' 
+        className='grow'
+      />
+      <ButtonInput 
+        onClick={() => {
+          setFilterText('');
+          applyFilterClicked('', dispatch, setFilterErrors);
+        }}
+        label='Clear Filter' 
+      />
+      <ButtonInput 
+        onClick={()=>applyFilterClicked(filterText, dispatch, setFilterErrors)} 
+        label='Apply Filter'
+      />
     </InputBar>
   );
 };
