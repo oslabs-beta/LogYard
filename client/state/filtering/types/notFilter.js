@@ -1,11 +1,11 @@
 import filterSelector from '../selectors/filterSelector';
 
-const NOT = (logs, notArgs)=>{
+const NOT = (logs, notArgs, metaData)=>{
   const output = [];
 
   outer: for (const log of logs){
     for (const notArg of notArgs){
-      if (filterSelector(log, notArg) !== notArg.params[notArg.params.length - 1]) {
+      if (filterSelector(log, notArg, metaData) !== notArg.params[notArg.params.length - 1]) {
         output.push(log);
         continue outer;
       }

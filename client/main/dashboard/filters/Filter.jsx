@@ -10,12 +10,18 @@
  */
 
 import React, { useState } from 'react';
+import SaveLoad from './SaveLoad';
+import FilterText from './FilterText';
+
 import InputBar, {Dropdown, ButtonInput, TextInput} from '../../utility/InputBar/InputBar';
 import { filterLogs, setUserData,  } from '../../../state/actions/actions';
 import { useSelector, useDispatch } from 'react-redux';
 
+import ModalIcon from '../../utility/InputBar/ModalIcon.jsx';
+import ModalMessage from '../../utility/InputBar/ModalMessage';
+
 const saveFilterClicked = async (filterName, filterString, dispatch) => {
-  //Upserts to DB and reassigns filter
+  // Upserts to DB and reassigns filter
   const result = await fetch('/api/profile/filter', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -23,14 +29,14 @@ const saveFilterClicked = async (filterName, filterString, dispatch) => {
   });
   const body = await result.json();
 
-  //Dispatch to state from result if OK
+  // Dispatch to state from result if OK
   if (result.ok){
     dispatch(setUserData(body));
   }
 };
 
 const loadFilterClicked = async (filterName, filterString, setFilterName, setFilterText)=>{
-  //Loads from State
+  // Loads from State
   setFilterName(filterName);
   setFilterText(filterString);
 };
@@ -54,6 +60,8 @@ const deleteFilterClicked = async (filterName, dispatch)=>{
 const Filter = (props)=>{
   // filter text state input
   const [filterText, setFilterText] = useState('');
+  const [filterErrors, setFilterErrors] = useState([]);
+
   // filter name state input
   const [filterName, setFilterName] = useState('');
   const [filterValid, setFilterValid] = useState(false);
@@ -64,6 +72,11 @@ const Filter = (props)=>{
   // dispatch click function for applying filtering on logs
   const onFilterClicked = () => {
     dispatch(filterLogs(filterText));
+  };
+
+  // set local input text state to empty
+  const onClearClicked = () => {
+    setFilterText('');
   };
 
   // array for saved filters
@@ -82,26 +95,33 @@ const Filter = (props)=>{
     }
   }
 
-
   return (
     <div>
+
       <div className='flex flex-row pt-5 px-5'>
         {/* Save, Load And Delete */}
-        <InputBar className={'mr-5'}>
-          <Dropdown label='Load' className='' entries={ dropdownOptions }/>
-          <TextInput value={filterName} onChange={(e)=>setFilterName(e.target.value)} placeholder='Filter Name'/>
-          <ButtonInput label='Save' onClick={()=>saveFilterClicked(filterName, filterText, dispatch)}/>
-          <ButtonInput label='Delete' onClick={()=>deleteFilterClicked(filterName, dispatch)}/>
-        </InputBar>
-        {/* Actual Filter String */}
-        <InputBar className={'grow'}>
-          <TextInput value={filterText} onChange={(e)=>{setFilterText(e.target.value);}} placeholder='Filter Text' className='grow'/>
-          <ButtonInput onClick={onFilterClicked} label='Apply Filter'/>
-        </InputBar>
+        <SaveLoad
+          filterText = { filterText }
+          setFilterText = { setFilterText }
+        />
+
+        <ModalIcon />
+        
+        <FilterText 
+          filterText = { filterText }
+          setFilterText = { setFilterText }
+          setFilterErrors = { setFilterErrors }
+        />
       </div>
-      <div className='flex justify-center'>
-        {filterValid && <h1 className='text-gray-50 italic'>Invalid Filter: Please Reference Tooltip</h1>}
-      </div>
+      {
+        filterErrors.map((element)=>{
+          return (
+            <div key={Math.random()} className='flex justify-center'>
+              <h1 className='text-gray-50 italic'> { element } </h1>
+            </div>
+          );
+        })
+      }
     </div>
   );
 };

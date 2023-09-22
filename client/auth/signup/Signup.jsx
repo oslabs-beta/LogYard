@@ -11,30 +11,9 @@
 
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { TextInput, ButtonInput } from '../../main/utility/InputBar/InputBar';
-
-const signUpRequest = async (username, password, serverPassword, setPasswordCheck, navigate) => {
-  // format search params for browser
-  const params = new URLSearchParams({
-    password: serverPassword,
-  });
-
-  // send post request for signup
-  const result = await fetch(`/api/profile/signup?${params}`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ username, password } ),
-  });
-
-  if (result.ok){
-    // if backend comes back as 200, navigate to dashboard
-    return navigate('/main');
-  }
-  else {
-    // otherwise, give invalid password message
-    setPasswordCheck(true);
-  }
-};
+import InputBar, { TextInput, ButtonInput } from '../../main/utility/InputBar/InputBar';
+import { useDispatch } from 'react-redux';
+import { setUserData } from '../../state/actions/actions';
 
 const Signup = () => {
   // username entry state
@@ -48,33 +27,48 @@ const Signup = () => {
 
   // initialize navigation
   const navigate = useNavigate();
-  const signUpRequest = async (username, password, serverPassword, navigate) => {
+  const dispatch = useDispatch();
   
+  //Upon attempted Sign in
+  const signUpRequest = async () => {
+    
+    // send post request for signup
     const result = await fetch('/api/profile/signup', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ username, password, serverPassword } ),
     });
-  
+    
+    const body = await result.json();
+
     if (result.ok){
-      return navigate('/main/dashboard');
+      // if backend comes back as 200, navigate to dashboard and set data
+      dispatch(setUserData(body));
+
+      return navigate('/main');
     }
     else {
+      // otherwise, give invalid password message
       setPasswordCheck(true);
     }
-    
-    // alert('Failed to create profile');
   };
 
 
   return (
-    <div className='grow flex flex-col content-center justify-center flex-wrap'>
-      <TextInput onChange={(e) => setUsername(e.target.value)} placeholder='Username' className='w-96 rounded-lg my-1'/>
-      <TextInput type='password' placeholder='Password' className='w-96 rounded-lg my-1' onChange={(e) => setPassword(e.target.value)} />
-      <TextInput onChange={(e) => setServerPassword(e.target.value)}  placeholder='Server Password' className='w-96 rounded-lg my-1'/>
-      {/* if passwordCheck is true (password is incorrect or name is taken) render invalid message */}
-      {passwordCheck && <h1 className='text-gray-50 text-xl italic'>Username is taken or invalid server password</h1>}
-      <ButtonInput onClick={() => signUpRequest(username, password, serverPassword, setPasswordCheck, navigate)} label='Create' className='w-96 rounded-lg my-1'/>
+    <div className='grow flex flex-col content-center text-center mt-36 flex-wrap'>
+      <div className='bg-gray-500/80 p-10 rounded-lg'>
+        <h1 className='text-4xl text-white pb-2'>Sign Up:</h1>
+        <TextInput onChange={(e) => setUsername(e.target.value)} placeholder='Username' className='my-1 w-96 px-4 py-2 mt-1 border border-brown-700 rounded-lg focus:ring-brown-500 focus:border-orange-900 text-white p-2 italic placeholder-gray-200 bg-transparent'/>
+        <TextInput type='password' placeholder='Password' onChange={(e) => setPassword(e.target.value)} className='w-96 px-4 py-2 mt-1 border border-brown-700 rounded-lg focus:ring-brown-500 focus:border-orange-900 text-white p-2 italic placeholder-gray-200 bg-transparent'/>
+        <TextInput onChange={(e) => setServerPassword(e.target.value)}  placeholder='Server Password' className='my-1 w-96 px-4 py-2 mt-1 border border-brown-700 rounded-lg focus:ring-brown-500 focus:border-orange-900 text-white p-2 italic placeholder-gray-200 bg-transparent'/>
+        {/* if passwordCheck is true (password is incorrect or name is taken) render invalid message */}
+        {passwordCheck && <h1 className='text-gray-50 text-xl italic'>Username is taken or invalid server password</h1>}
+        <ButtonInput onClick={signUpRequest} label='Create' className='w-96 rounded-lg my-1'/>
+        <InputBar className='my-1 flex'>
+          <ButtonInput onClick={()=> navigate('/')} label='Sign-In as Guest' className='w-[50%]'/>
+          <ButtonInput onClick={()=> navigate('/signedlogin')} label='Sign In' className='w-[50%]'/>
+        </InputBar>
+      </div>
     </div>
   );
 };

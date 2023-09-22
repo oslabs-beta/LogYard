@@ -7,7 +7,6 @@ services:
     image: mongo
     env_file:
       - ./.env
-    restart: always
     ports:
       - 27017:27017
     networks: 
@@ -25,8 +24,6 @@ services:
     ports:
       - 3000:3000
       - 8080:8080
-    volumes:
-      - ./logyard:/app
     depends_on:
       - mongodb
     networks: 
@@ -38,4 +35,3 @@ networks:
 
 volumes:
   mongodb:
-    driver: local

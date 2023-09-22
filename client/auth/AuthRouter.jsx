@@ -11,7 +11,7 @@
 
 import React from 'react';
 import { useNavigate, Outlet } from 'react-router-dom';
-
+import backgroundImage from '/fallBG.jpg';
 import NavBar from '../main/NavBar.jsx';
 
 // navigator for having no account
@@ -35,15 +35,14 @@ const AuthRouter = () => {
   const navigate = useNavigate();
 
   return (
-    <div className='flex flex-col h-full'>
-      {/* routes for the nav-bar */}
-      <NavBar routes={[
-        ['No Account', () => {navAnonymous(navigate);}],
-        ['Sign In', () => {signInClicked(navigate);}],
-        ['Create Account', () => {createAccountClicked(navigate);}]
-      ]}/>
-      {/* react-router-dom component for rendering appropriate route component */}
-      <Outlet/>
+    <div
+      className='grow h-full w-full flex flex-col items-center justify-between overflow-x-auto overflow-y-auto bg-cover'
+      style={{ backgroundImage: `url(${backgroundImage})` }}
+    >
+      <div className='flex flex-col h-full w-full'>
+        {/* react-router-dom component for rendering appropriate route component */}
+        <Outlet/>
+      </div>
     </div>
   );
 };
