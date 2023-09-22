@@ -33,13 +33,10 @@ const AllLogs = () => {
     tableHeaders.push('Context');
     tableHeaders.push('Inspect');
 
-    let i = 0;
-    for (const log of allLogs) {
-      // TODO: add pages to filter through all logs or fix speed issue
-      if (i > 100) break;
-      tableEntries.unshift(logEntryCreator(log));
-      i++;
+    for (let i = allLogs.length - 1; i >= Math.max(0, allLogs.length - 101); i--){
+      tableEntries.push(logEntryCreator(allLogs[i]));
     }
+    
   }
   else {
     tableHeaders.push('Key');
