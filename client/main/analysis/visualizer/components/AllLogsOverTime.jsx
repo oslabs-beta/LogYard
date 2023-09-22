@@ -20,24 +20,6 @@ import getSTDTimeArray from '../utilities/getSTDTimeArray.js';
 import Dropdown from '../../../utility/InputBar/Dropdown.jsx';
 
 
-/* Ryan's notes about how to better modularize this file
-
-cosnt asdf = new ChartData()
-asdf.setXlabels([asdf1, asdf2, asdf3])
-asdf.addData(label, [H1, H2, H3])
-asdf.addData(label, [H1, H2, H3])
-asdf.addData(label, [H1, H2, H3])
-asdf.addData(label, [H1, H2, H3])
-
-<BarChart 
-  name='allLogsOverTime'
-  datesArray={asdf.labels}
-  dataArray={asdf.data}
-  height='600'
-  width='1200'
-/>
-*/
-
 const AllLogsOverTime = () => {
 
   // get logs from state

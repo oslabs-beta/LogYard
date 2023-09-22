@@ -14,14 +14,15 @@ import React, { useEffect } from 'react';
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import AuthRouter from './auth/AuthRouter';
 import MainRouter from './main/MainRouter';
 import Dashboard from './main/dashboard/Dashboard.jsx';
 import LogViewer from './main/logViewer/LogViewer.jsx';
 import Profile from './main/profile/Profile.jsx';
+import Visualizer from './main/visualizer/Visualizer.jsx';
+
+import AuthRouter from './auth/AuthRouter';
 import Login from './auth/login/Login.jsx';
 import Signup from './auth/signup/Signup.jsx';
-import Visualizer from './main/analysis/visualizer/Visualizer.jsx';
 import SignedLogin from './auth/signedLogin/SignedLogin';
 
 const App = () => {
