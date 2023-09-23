@@ -11,6 +11,7 @@
 
 import React from 'react';
 import NavItem from './NavItem.jsx';
+import { useNavigate } from 'react-router-dom';
 
 const NavBar = ({routes})=>{
   // array to hold nav options in the nav-bar
@@ -21,12 +22,19 @@ const NavBar = ({routes})=>{
       <NavItem key={route[0]} label={route[0]} func={route[1]}></NavItem>
     );
   }
+
+  // initialize navigation
+  const navigate = useNavigate();
+  // navigate to dashboard when logo is clicked
+  const handleClick = async () => {
+    navigate('/main');
+  };
   
   return (
     <nav className='bg-gray-900 border-b border-gray-200 dark:bg-gray-900 shadow-md h-auto' >
       <div className='max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4'>
         <div className="flex items-center ml-20">
-          <img src="../horiWhite.png" className="h-12  mr-0" alt="Logo" />
+          <img onClick={handleClick} src="../horiWhite.png" className="h-12 mr-0 hover:cursor-pointer" alt="Logo" />
           {/* <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">LogYard</span> */}
         </div>
         <div className='hidden w-full md:block md:w-auto'>
