@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 
 //classname is used for any properties you want to add to the containing div
 //bindID is the id of the object you want to bind to

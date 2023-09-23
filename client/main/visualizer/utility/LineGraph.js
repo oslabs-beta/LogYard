@@ -1,3 +1,6 @@
+// wraps a c3 chart within an object for bulk modification
+// If internaldata is mutated directly ensure proper reloading of graph
+
 // Constructor (bindID) 
 //  The ID of the DOM element to bind to.
 // applyGraphChanges()
@@ -8,13 +11,12 @@
 //  Caches an additional graph rows
 // loadData()
 //  Applies cached changes 
+
 import c3 from 'c3';
 import { data, axis, grid, tooltip, columns, categories, colors } from './lineGraphDefaults';
+import levelToInd from './levelTypeToIndex';
 
 
-//wraps a c3 chart within an object for bulk modification
-//Only interact through predefined functions.
-//If internaldata is mutated directly ensure proper reloading of graph
 class LineGraph {
   constructor(bindID) {
     //Permanent local for modification of graph
@@ -48,6 +50,7 @@ class LineGraph {
 
   clear() {
     this.columns = [];
+    this.colors = null;
   }
 
   Graph(label, data) {
@@ -67,7 +70,15 @@ class LineGraph {
 
     let i = 0;
     for (const col of this.columns){
-      localColors[col[0]] = this.availableColors[i % this.availableColors.length];
+      const predefinedColorIndex = levelToInd(col[0]);
+
+      if (predefinedColorIndex !== undefined){
+        localColors[col[0]] = this.availableColors[predefinedColorIndex];
+      }
+      else{
+        localColors[col[0]] = this.availableColors[i % this.availableColors.length];
+      }
+
       i++;
     }
 
@@ -75,6 +86,8 @@ class LineGraph {
   }
 
   loadData() {
+    if (!this.chart) return;
+    
     if (this.colors) {
       return this.chart.load({
         columns: this.columns,
@@ -84,7 +97,7 @@ class LineGraph {
       });
     }
     
-    return this.chart.load({
+    this.chart.load({
       columns: this.columns,
       categories: this.categories,
       unload: true,

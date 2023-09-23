@@ -2,13 +2,10 @@
 export const data = ()=>{return {
   x: '',
   columns: [[]],
-  // graph type
   type: 'line',
-  //colors (set at load time)
 };};
 
 export const axis = ()=>{return {
-  // x-axis
   x: {
     type: 'categories',
     categories: [],
@@ -18,7 +15,6 @@ export const axis = ()=>{return {
     },
     // height: 50,
   },
-  // y-axis
   y: {
     label: {
       text: 'Counts',

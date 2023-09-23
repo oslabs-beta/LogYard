@@ -21,8 +21,10 @@ const makeRandomID = (length) => {
 };
 
 const assignDataToGraph = (lineGraph, logData, timeOption) => {
+  lineGraph.clear();
+
   if (Array.isArray(logData)){
-    lineGraph.Graph('Logs', timeBucketData( logData, timeOption ));
+    lineGraph.Graph('All Logs', timeBucketData( logData, timeOption ));
   }
   else {
     for (const [key, value] of Object.entries(logData)){
@@ -32,6 +34,7 @@ const assignDataToGraph = (lineGraph, logData, timeOption) => {
 
   lineGraph.setXLabels(timeOption.getDivisionLabels());
   lineGraph.genColorData();
+  
   lineGraph.loadData();
 };
 
@@ -44,25 +47,20 @@ const TimeSeries = ({logData, className}) => {
   const lineGraph = useRefGraph.current;
 
   useEffect(() => {
-    lineGraph.applyGraphChanges();
+    if (!lineGraph.chart) lineGraph.applyGraphChanges();
     
-    //filter and reassign logData by level
     assignDataToGraph(lineGraph, logData, timeOption);
 
     initializeObj.initialize(lineGraph.chart);
-  }, []);
-
-  if (lineGraph.chart) {
-    assignDataToGraph(lineGraph, logData, timeOption);
-  }
+  }, [timeOption, logData, lineGraph]);
 
   return (
-    <div className={`flex flex-col bg-gray-800 text-gray-50 mt-8 m-auto p-8 pl-4 place-content-center text-center rounded-lg ${ className }`}>
+    <div className={`flex flex-col bg-gray-800 text-gray-50 p-8 pl-4 place-content-center text-center rounded-lg ${ className }`}>
       <h1 className='text-4xl text-center'>Time Series Data</h1>
       <Dropdown
         label={timeOption.label}
         className='m-5'
-        entries={ timeOptions.map((el, i)=>[el.label, ()=>setTimeOption(el)]) }
+        entries={ timeOptions.map((el)=>[el.label, ()=>setTimeOption(el)]) }
       />
       <GraphResize bindID={ bindIDRef.current } initializeObj={ initializeObj } className='grow'/>
     </div>

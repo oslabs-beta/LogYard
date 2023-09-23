@@ -4,6 +4,8 @@ function getIndex(millisecondsEpoc) {
   return Math.floor((millisecondsEpoc - this.millisecondsStart) / intervalWidth );
 }
 
+const dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
 export const oneDay = ()=>{return {
   label: 'Past 24 Hours',
   millisecondsStart: Date.now() - (24 * 60 * 60 * 1000),
@@ -11,7 +13,13 @@ export const oneDay = ()=>{return {
   numDivisions: 12,
 
   getDivisionLabels: function() {
-    return [];
+    const results = [];
+
+    for (let i = 0; i < 12; i++){
+      results.unshift((new Date(this.millisecondsEnd - (i * 2 * 60 * 60 * 1000))).toLocaleTimeString());
+    }
+
+    return results;
   },
   getIndex,
 };};
@@ -23,7 +31,13 @@ export const twoDays = ()=>{ return {
   numDivisions: 12,
 
   getDivisionLabels: function() {
-    return [];
+    const results = [];
+
+    for (let i = 0; i < 12; i++){
+      results.unshift((new Date(this.millisecondsEnd - (i * 4 * 60 * 60 * 1000))).toLocaleTimeString());
+    }
+
+    return results;
   },
   getIndex,
 };};
@@ -35,7 +49,13 @@ export const oneWeek = ()=>{ return {
   numDivisions: 7,
 
   getDivisionLabels: function() {
-    return [];
+    const results = [];
+
+    for (let i = 0; i < 7; i++){
+      results.unshift(dayNames[(new Date(this.millisecondsEnd - (i * 24 * 60 * 60 * 1000))).getDay()]);
+    }
+
+    return results;
   },
   getIndex,
 };};
