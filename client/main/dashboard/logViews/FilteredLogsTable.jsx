@@ -1,10 +1,10 @@
 /**
  * ************************************
  *
- * @module  AllLogs
+ * @module  FilteredLogsTable
  * @authors Preston Coldwell, Ryan Smithey, Geoff Sun, Andrew Wagner, Brian Hwang
  * @date 09/06/2023
- * @description .jsx - creates table for dashboard
+ * @description .jsx - Creates a table from current logs and filters
  * 
  * ************************************
  */
@@ -15,17 +15,13 @@ import logEntryCreator from './logEntryCreator';
 import groupEntryCreator from './groupEntryCreator';
 import Table from '../../utility/Table/Table';
 
-
-//Display Data is an object with with keys as columns and values as arrays of data (expected square)
-const AllLogs = () => {
-  // get data from state
-  const allLogs = useSelector(state=>state.logsReducer.filteredLogs);
+const FilteredLogsTable = () => {
+  const filteredLogs = useSelector(state=>state.logsReducer.filteredLogs);
   
   const tableEntries = [];
   const tableHeaders = [];
 
-  // create the array of logs for dashboard display
-  if (Array.isArray(allLogs)){
+  if (Array.isArray(filteredLogs)){
     tableHeaders.push('Time');
     tableHeaders.push('ID');
     tableHeaders.push('Level');
@@ -33,8 +29,10 @@ const AllLogs = () => {
     tableHeaders.push('Context');
     tableHeaders.push('Inspect');
 
-    for (let i = allLogs.length - 1; i >= Math.max(0, allLogs.length - 101); i--){
-      tableEntries.push(logEntryCreator(allLogs[i]));
+    const startingIndex = Math.max(0, filteredLogs.length - 101);
+
+    for (let i = startingIndex; i <  filteredLogs.length ; i++){
+      tableEntries.unshift(logEntryCreator(filteredLogs[i]));
     }
     
   }
@@ -43,14 +41,14 @@ const AllLogs = () => {
     tableHeaders.push('Count');
     tableHeaders.push('Inspect');
 
-    for (const [key, value] of Object.entries(allLogs)) {
+    for (const [key, value] of Object.entries(filteredLogs)) {
       tableEntries.unshift(groupEntryCreator(key, value));
     }
   }
   
   return (
-    <Table displayHeaders={tableHeaders} displayData={ tableEntries }/>
+    <Table displayHeaders={ tableHeaders } displayData={ tableEntries }/>
   );
 };
 
-export default AllLogs;
+export default FilteredLogsTable;

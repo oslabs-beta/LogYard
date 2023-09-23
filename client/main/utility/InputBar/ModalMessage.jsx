@@ -1,3 +1,14 @@
+/**
+ * ************************************
+ *
+ * @module  ModalMessage
+ * @authors Preston Coldwell, Ryan Smithey, Geoff Sun, Andrew Wagner, Brian Hwang
+ * @date 09/06/2023
+ * @description .jsx - A modal that displays proper filter strings
+ * 
+ * ************************************
+ */
+
 // eslint modifier for example scripts in modal
 /* eslint-disable react/no-unescaped-entities */
 
