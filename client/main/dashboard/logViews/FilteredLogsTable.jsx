@@ -34,6 +34,7 @@ const FilteredLogsTable = () => {
     for (let i = startingIndex; i <  filteredLogs.length ; i++){
       tableEntries.unshift(logEntryCreator(filteredLogs[i]));
     }
+    
   }
   else {
     tableHeaders.push('Key');

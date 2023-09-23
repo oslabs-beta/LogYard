@@ -8,7 +8,7 @@ services:
     env_file:
       - ./.env
     ports:
-      - 27017:27017
+      - 8000:27017
     networks: 
       - app-network
     volumes:

@@ -21,7 +21,7 @@ const connectDB = async () => {
     await mongoose.connect(MONGO_URI, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
-      dbName: 'your_database_name', // Replace with your database name
+      dbName: `${process.env.VITE_DB_DBNAME || 'LogYard'}`,
     });
     console.log('Connected to MongoDB');
   } catch (error) {
