@@ -14,7 +14,7 @@ import Dropdown from './Dropdown';
 import ButtonInput from './ButtonInput';
 import TextInput from './TextInput';
 
-const InputBar = ({children, className})=>{
+const InputBar = ({ children, className })=>{
   
   return (
     <div className={`flex items-stretch rounded-lg ${className}`}>
@@ -23,5 +23,5 @@ const InputBar = ({children, className})=>{
   );
 };
 
-export {Dropdown, ButtonInput, TextInput};
+export { Dropdown, ButtonInput, TextInput };
 export default InputBar;
