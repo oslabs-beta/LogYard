@@ -17,7 +17,6 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import MainRouter from './main/MainRouter';
 import Dashboard from './main/dashboard/Dashboard.jsx';
 import LogViewer from './main/logViewer/LogViewer.jsx';
-import Profile from './main/profile/Profile.jsx';
 import Visualizer from './main/visualizer/Visualizer.jsx';
 
 import AuthRouter from './auth/AuthRouter';
@@ -37,7 +36,6 @@ const App = () => {
         <Route path='/main' element={<MainRouter />}>
           <Route path="/main" element={<Dashboard/>} />
           <Route path="/main/logViewer" element={<LogViewer/>} />
-          <Route path="/main/profile" element={<Profile/>} />
           <Route path="/main/visualizer" element={<Visualizer/>} />
         </Route>
       </Routes>
