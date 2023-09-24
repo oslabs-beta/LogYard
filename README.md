@@ -30,7 +30,7 @@ Our mission is to simplify log management for our users. With our custom npm log
 
 # <img width='20px' src='./public/Icon.png'> Features
 - Logging Package
-    - Our custom npm logging package enables you to record both your frontend and backend logs and have them stored safely in a local database.
+    - Our custom npm logging package enables you to record both your frontend and backend logs and have them stored safely in a local Docker/MongoDB database.
     - Logs have various customizable attributes:
         - Type ( Options: error, warn, info, http, verbose, debug, silly )
         - Message ( What message do you want to be displayed with this log? )
@@ -45,13 +45,13 @@ Our mission is to simplify log management for our users. With our custom npm log
 
 In order to start logging in your application and using LogYard's application, follow the steps below to install the proper dependencies.
 
-### 1. Frontend Logging
+## Frontend Logging
 - Run `'npm install logyard'` in your command line.
 
-### 2. Backend Logging
+## Backend Logging
 - Run `'npm install logyardbackend'` in your command line.
 
-### 3. Application
+## Application
 - Ensure you have a DockerHub account and have Docker Desktop installed. 
 - We will go into the steps of how to pull the Docker image in the 'How to Use' section.
 
@@ -63,7 +63,7 @@ For any inquiries about installation or usage, please feel free to contact the t
 
 Due to some interactions between the browser and ___ , we need to have two logging packages (one for the frontend and one for the backend) in order to reliably send, store and retrieve your logs.
 
-### - Logging
+## Logging
 1. Start by navigating to the file that you would like to use the logger in. 
 2. At the top of your file, import the appropriate logger using one of the following line of code: 
     - Frontend: `import logyard from 'logyard'`
@@ -92,7 +92,7 @@ Due to some interactions between the browser and ___ , we need to have two loggi
             )
         ```
 
-### Application
+## Application
 1. Navigate to the [LogYard repository](https://google.com) on DockerHub.
 2. Fork and clone the repo.
 3. Type the following command in your termindal to pull the LogYard image from the repository: 
@@ -109,18 +109,18 @@ If you have found a bug or an area that you feel could be improved within our pr
 
 Following the completion of your outstanding work, if you create a PR, our team will review your code! We thank all of those who contribute toward improving our product's reliability and expanding upon it's features.
 
-#### Potential Tasks for Contrubution
+## Tasks for Contrubution
 - [x] Be Awesome.
-- [] Rebuild using Bun.io
-- [] Some other things that are less important than Bun ...
+- [ ] Rebuild using Bun.io
+- [ ] Some other things that are less important than Bun ...
 
 # <img width='20px' src='./public/Icon.png'> Publications
 - Link to various article(s) - Medium, etc.
 
 # <img width='20px' src='./public/Icon.png'> Our Team
-| ![Person1's Headshot](./public/PrestonHeadshot.jpeg) | ![Person2's Headshot](./public/RyanHeadshot.jpg) | ![Person3's Headshot](./public/GeoffHeadshot.png) | ![Person4's Headshot](./public/AndyHeadshot.jpeg) | ![Person5's Headshot](./public/BrianHeadshot.jpeg) |
+| [<img src="./public/PrestonHeadshot.jpeg" width="100px" >](https://www.linkedin.com/in/prestoncoldwell/) | [<img src="./public/RyanHeadshot.jpg" width="100px" >](https://www.linkedin.com/in/ryan-smithey/) | [<img src="./public/GeoffHeadshot.png" width="100px" >](https://www.linkedin.com/in/geoffrey-sun/) | [<img src="./public/AndyHeadshot.jpeg" width="100px" >](https://www.linkedin.com/in/andrewclarkwagner/) | [<img src="./public/BrianHeadshot.jpeg" width="100px" >](https://www.linkedin.com/in/brianhwang2/) |
 | ------------- | ------------- |------------- | ------------- | ------------- |
-| Preston Coldwell [<img src="githubIcon" width="30px" >](https://github.com/PrestonColdwell) [<img src="linkedInLogo" width="30px" >](https://www.linkedin.com/in/prestoncoldwell/) | Ryan Smithey [<img src="githubIcon" width="30px" >](https://github.com/RyanSmithey) [<img src="linkedInLogo" width="30px" >](https://www.linkedin.com/in/ryan-smithey/) | Geoffrey Sun [<img src="githubIcon" width="30px" >](https://github.com/geoffsun2) [<img src="linkedInLogo" width="30px" >](https://www.linkedin.com/in/geoffrey-sun/) | Andy Wagner [<img src="githubIcon" width="30px" >](https://github.com/a-c-wagner) [<img src="linkedInLogo" width="30px" >](https://www.linkedin.com/in/andrewclarkwagner/) | Brian Hwang [<img src="githubIcon" width="30px" >](https://github.com/bri-engineer) [<img src="linkedInLogo" width="30px" >](https://www.linkedin.com/in/brianhwang2/) |
+| <div style="text-align: center">Preston Coldwell</div>  <div style="text-align: center">[<img src="./public/githubIcon.png" width="20px" >](https://github.com/PrestonColdwell) [<img src="./public/linkedInLogo.png" width="22px" >](https://www.linkedin.com/in/prestoncoldwell/)</div> | <div style="text-align: center">Ryan Smithey</div>  <div style="text-align: center">[<img src="./public/githubIcon.png" width="20px" >](https://github.com/RyanSmithey) [<img src="./public/linkedInLogo.png" width="22px" >](https://www.linkedin.com/in/ryan-smithey/)</div> | <div style="text-align: center">Geoffrey Sun</div>  <div style="text-align: center">[<img src="./public/githubIcon.png" width="20px" >](https://github.com/geoffsun2) [<img src="./public/linkedInLogo.png" width="22px" >](https://www.linkedin.com/in/geoffrey-sun/)</div> | <div style="text-align: center">Andy Wagner</div>  <div style="text-align: center">[<img src="./public/githubIcon.png" width="20px" >](https://github.com/a-c-wagner) [<img src="./public/linkedInLogo.png" width="22px" >](https://www.linkedin.com/in/andrewclarkwagner/)</div> | <div style="text-align: center">Brian Hwang</div>  <div style="text-align: center">[<img src="./public/githubIcon.png" width="20px" >](https://github.com/bri-engineer) [<img src="./public/linkedInLogo.png" width="22px" >](https://www.linkedin.com/in/brianhwang2/)</div> |
 
 # <img width='20px' src='./public/Icon.png'> Acknowledgments
 - [OSLabs](https://github.com/open-source-labs)
