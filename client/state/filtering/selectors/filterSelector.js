@@ -1,19 +1,19 @@
-// { Time, level, meta, message, _id }
-
-// Handling grouping?
-// For Group By each additional arg splits the data further (pure string comparisons)
-  // ALL
-  // TIME->TIME //Custom Time comparison
-  // ID->ID
-  // LEVEL->LEVEL
-  // MESSAGE->MESSAGE
-  // CONTEXTKEY -> contextKeys
-  // CONTEXTVAL (KEY:'') => CONTEXTVAL
-
+/**
+ * ************************************
+ *
+ * @module  logsReducer
+ * @authors Preston Coldwell, Ryan Smithey, Geoff Sun, Andrew Wagner, Brian Hwang
+ * @date 09/06/2023
+ * @description Used for geting relevant log data depending on user filter.
+ * 
+ * 
+ * { Time, level, meta, message, _id }
+ * 
+ * 
+ * ************************************
+ */
 
 const filterSelector = (log, argument, metaData)=>{
-  // console.log(JSON.parse(JSON.stringify(log['meta']['Context'])));
-
   switch (argument.name){
   case ('LEVEL'):
     return log['level'];

@@ -4,31 +4,19 @@
  * @module  store
  * @authors Preston Coldwell, Ryan Smithey, Geoff Sun, Andrew Wagner, Brian Hwang
  * @date 09/06/2023
- * @description redux store
+ * @description centralizes reducers and adds persistent storage for logs
  * 
  * ************************************
  */
 
-/**
- * ************************************
- *
- * @module  persistor
- * @authors Preston Coldwell, Ryan Smithey, Geoff Sun, Andrew Wagner, Brian Hwang
- * @date 09/06/2023
- * @description package to persist state across navigation
- * 
- * ************************************
- */
 
 import { configureStore } from '@reduxjs/toolkit';
 import { persistStore, persistReducer} from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import thunk from 'redux-thunk';
-
 import logsReducer from '../reducers/logsReducer';
 import userReducer from '../reducers/userReducer';
 
-// config for persisting state across navigation
 const persistConfig = {
   key: 'root',
   storage,
@@ -36,16 +24,14 @@ const persistConfig = {
   blacklist: ['logs']
 };
 
-// params for persistReducer - (config object, reducer)
 const persistedReducer = persistReducer(persistConfig, logsReducer); 
 
 export const store = configureStore({
   reducer: {
-    // for persisting state, pass the persistedReducer as value
     logsReducer: persistedReducer,
     userReducer,
   },
-  // WHAT DOES THIS DO..?
+  // required for peristing
   middleware: [thunk]
 });
 
