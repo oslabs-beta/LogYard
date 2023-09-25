@@ -49,8 +49,8 @@ const SignedLogin = () => {
         
         <h1 className='text-2xl pb-2'>SIGN IN:</h1>
         <TextInput onChange={(e)=>setUsername(e.target.value)} placeholder='Username' className='w-96 px-4 py-2 mt-1 border border-brown-700 rounded-lg focus:ring-brown-500 focus:border-orange-900 p-2 italic placeholder-gray-200 bg-transparent'/>
-        <TextInput type='password' onChange={(e)=>setPassword(e.target.value)} placeholder='Password' className='w-96 px-4 py-2 my-1 border border-brown-700 rounded-lg focus:ring-brown-500 focus:border-orange-900 p-2 italic placeholder-gray-200 bg-transparent'/>
-        {loginFailed && <h1 className='text-gray-50 text-xl italic'>Invalid password</h1>}
+        <TextInput type='password' onChange={(e)=>setPassword(e.target.value)} placeholder='Password' className='w-96 px-4 py-2 my-1 mb-4 border border-brown-700 rounded-lg focus:ring-brown-500 focus:border-orange-900 p-2 italic placeholder-gray-200 bg-transparent'/>
+        {loginFailed && <h1 className='text-gray-50 text-xl italic mb-4'>Invalid password</h1>}
         
         <ButtonInputAuth onClick={()=>attemptLogin(username, password, navigate, dispatch, setLoginFailed)} label='Login' className='w-96 rounded-lg my-1'/>
         <InputBar className='my-1 flex'>

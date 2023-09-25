@@ -45,11 +45,11 @@ const Login = () => {
         
         <h1 className='text-2xl  pb-2'>GUEST:</h1>
         <TextInput type='password' onChange={(e)=>setServerPassword(e.target.value)} placeholder='Server Password' className='w-96 px-4 py-2 mb-4 mt-1 border border-brown-700 rounded-lg focus:ring-brown-500 focus:border-orange-900 p-2 italic  placeholder-gray-200 bg-transparent'/>
-        {passwordFailed && ( <h1 className='text-red-900 text-xl italic'> Invalid password - please try again </h1> )}
+        {passwordFailed && ( <h1 className='text-gray-50 italic mb-4'> Invalid password - please try again </h1> )}
         
         <ButtonInputAuth onClick={() => onLoginClicked(serverPassword, navigate, setPasswordFailed)} label='Login' className='w-96 mb-2 rounded-lg my-1'/>
         <InputBar className='flex'>
-          <ButtonInputAuth onClick={()=> navigate('/signedlogin')} label='Sign In' className='grow'/>
+          <ButtonInputAuth onClick={()=> navigate('/signedlogin')} label='User Sign In' className='grow'/>
           <ButtonInputAuth onClick={()=> navigate('/signup')} label='Create Account' className='grow'/>
         </InputBar>
 
