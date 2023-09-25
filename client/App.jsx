@@ -29,10 +29,8 @@ const App = () => {
     <BrowserRouter >
       <Routes>
         <Route path='/' element={<AuthRouter />}>
-          {/* <Route path='/' element={<Login />} /> */}
           <Route path='/' element={<SignedLogin />} />
           <Route path='/signup' element={<Signup />} />
-          {/* <Route path='/signedlogin' element={<SignedLogin />}/> */}
           <Route path='/guestLogin' element={<Login />}/>
         </Route>
         <Route path='/main' element={<MainRouter />}>
