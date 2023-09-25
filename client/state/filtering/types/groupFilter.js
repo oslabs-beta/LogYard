@@ -1,3 +1,14 @@
+/**
+ * ************************************
+ *
+ * @module  logsReducer
+ * @authors Preston Coldwell, Ryan Smithey, Geoff Sun, Andrew Wagner, Brian Hwang
+ * @date 09/06/2023
+ * @description Combines all logs into an object. Each key is a unique log property based on input filter.
+ * 
+ * ************************************
+ */
+
 import filterSelector from '../selectors/filterSelector';
 
 const GROUP = (logs, groupArgs, metaData) => {

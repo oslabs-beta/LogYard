@@ -9,20 +9,19 @@
  * ************************************
  */
 
-//Change /main/ to be dashboard rouute
-import React, { useEffect } from 'react';
+import React from 'react';
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-
-import MainRouter from './main/MainRouter';
-import Dashboard from './main/dashboard/Dashboard.jsx';
-import LogViewer from './main/logViewer/LogViewer.jsx';
-import Visualizer from './main/visualizer/Visualizer.jsx';
 
 import AuthRouter from './auth/AuthRouter';
 import Login from './auth/login/Login.jsx';
 import Signup from './auth/signup/Signup.jsx';
 import SignedLogin from './auth/signedLogin/SignedLogin';
+
+import MainRouter from './main/MainRouter';
+import Dashboard from './main/dashboard/Dashboard.jsx';
+import LogViewer from './main/logViewer/LogViewer.jsx';
+import Visualizer from './main/visualizer/Visualizer.jsx';
 
 const App = () => {
   return (

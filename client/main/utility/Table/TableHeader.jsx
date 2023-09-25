@@ -11,14 +11,10 @@
 
 import React from 'react';
 
-//displayHeaders is an array with values as columns
-//displayData is an array with values as entries
-// An entry is an array with values as inner HTML
-const TableHeader = ({innerJSX}) => {
-
+const TableHeader = ({ innerJSX }) => {
   return (
     <th scope="col" className="px-6 py-3">
-      {innerJSX}
+      { innerJSX }
     </th>
   );
 };

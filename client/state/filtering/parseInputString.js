@@ -1,13 +1,17 @@
-// import filter from './filter';
+/**
+ * ************************************
+ *
+ * @module  logsReducer
+ * @authors Preston Coldwell, Ryan Smithey, Geoff Sun, Andrew Wagner, Brian Hwang
+ * @date 09/06/2023
+ * @description Used for parsing a user generated filter
+ * 
+ * ************************************
+ */
+// Expects format of FilterMethod(LogDataType() LogDataType2("Argument")) FilterMethod2(FilterArg2("asdf")) /  is an escape character
 
-// Expects format of FilterType(FilterArg() FilterArg2("Argument")) FilterType2(FilterArg2("asdf")) /  is an escape character
-// This is a big mess. You are welcome and encouraged to refactor.
-// Just ensure it properly matches and creates filters
 
-// Ex. L0A1(L1A1("L2A1") L1A2("L2A1") L1A3("L2A1" "L2A2")) L0A2(L1A1("L2A1")) L0A3(L1A1() L1A2("L2A1"))
-// Ex. Valid: HAS(LEVEL("error"))
-
-const parseLevel1 = (filterString, i, level0Arguments) => {
+const parseLogDataTypes = (filterString, i, level0Arguments) => {
   if (filterString[i + 1] === ')') return i + 2;
 
   while (filterString[i] && filterString[i] !== ')'){
@@ -23,7 +27,7 @@ const parseLevel1 = (filterString, i, level0Arguments) => {
       i++;
     }
     
-    i = parseLevel2(filterString, i, argument.params);
+    i = parseLogDataTypeArguments(filterString, i, argument.params);
     
     level0Arguments.push(argument);
   }
@@ -32,7 +36,7 @@ const parseLevel1 = (filterString, i, level0Arguments) => {
   return i;
 };
 
-const parseLevel2 = (filterString, i, outputObject) => {
+const parseLogDataTypeArguments = (filterString, i, outputObject) => {
   if (filterString[i+1] === ')') return i + 2;
   
   while (filterString[i] && filterString[i] !== ')'){
@@ -56,30 +60,34 @@ const parseLevel2 = (filterString, i, outputObject) => {
   return i;
 };
 
+const parseFilterMethod = (filterString, i, outputObject) => {
+  const outputFilterMethod = {
+    name: '',
+    arguments: []
+  };
+
+  while (filterString[i] && filterString[i] !== '('){
+    outputFilterMethod.name += filterString[i];
+    i++;
+  }
+  
+  i = parseLogDataTypes(filterString, i, outputFilterMethod.arguments);
+
+  outputObject.push(outputFilterMethod);
+  i++;
+  
+  return i;
+};
+
 const parseInputString = (filterString) => {
   let i = 0;
   const results = [];
   
   while (i < filterString.length){
-    const outputFilterArgs = {
-      name: '',
-      arguments: []
-    };
-
-    while (filterString[i] && filterString[i] !== '('){
-      outputFilterArgs.name += filterString[i];
-      i++;
-    }
-    
-    i = parseLevel1(filterString, i, outputFilterArgs.arguments);
-
-    results.push(outputFilterArgs);
-    i++;
+    i = parseFilterMethod(filterString, i, results);
   }
 
   return results;
 };
-
-// console.log(parseInputString('GROUP(CONTEXTKEY("asdf") LEVEL())'));
 
 export default parseInputString;

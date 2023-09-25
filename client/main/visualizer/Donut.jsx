@@ -1,3 +1,14 @@
+/**
+ * ************************************
+ *
+ * @module  levelToInd
+ * @authors Preston Coldwell, Ryan Smithey, Geoff Sun, Andrew Wagner, Brian Hwang
+ * @date 09/20/2023
+ * @description A graph similar to time chart but it is a donut..
+ * 
+ * ************************************
+ */
+
 import React, { useEffect, useRef, useState } from 'react';
 import GraphResize from './utility/GraphResize';
 import LineGraph from './utility/LineGraph';

@@ -1,9 +1,20 @@
+/**
+ * ************************************
+ *
+ * @module  levelToInd
+ * @authors Preston Coldwell, Ryan Smithey, Geoff Sun, Andrew Wagner, Brian Hwang
+ * @date 09/20/2023
+ * @description A graph for displaying time series data about logs.
+ * 
+ * ************************************
+ */
+
 import React, { useEffect, useRef, useState } from 'react';
 import GraphResize from './utility/GraphResize';
 import LineGraph from './utility/LineGraph';
-import Dropdown from '../utility/InputBar/Dropdown';
 import timeBucketData from './utility/timeBucket';
 import { oneDay, twoDays, oneWeek } from './utility/timeOptions';
+import Dropdown from '../utility/InputBar/Dropdown';
 
 const timeOptions = [
   oneDay(),
