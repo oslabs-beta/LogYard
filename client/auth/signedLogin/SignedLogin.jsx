@@ -54,8 +54,8 @@ const SignedLogin = () => {
         
         <ButtonInputAuth onClick={()=>attemptLogin(username, password, navigate, dispatch, setLoginFailed)} label='Login' className='w-96 rounded-lg my-1'/>
         <InputBar className='my-1 flex'>
-          <ButtonInputAuth onClick={()=> navigate('/')} label='Sign-In as Guest' className='grow'/>
-          <ButtonInputAuth onClick={()=> navigate('/signup')} label='Create Account' className='grow'/>
+          <ButtonInputAuth onClick={()=> navigate('/guestLogin')} label='Guest Log In' className='w-[50%]'/>
+          <ButtonInputAuth onClick={()=> navigate('/signup')} label='Sign Up' className='w-[50%]'/>
         </InputBar>
 
       </div>
