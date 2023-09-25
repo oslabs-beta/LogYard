@@ -3,7 +3,7 @@
  *
  * @authors Preston Coldwell, Ryan Smithey, Geoff Sun, Andrew Wagner, Brian Hwang
  * @date 09/06/2023
- * @description for (1.) connecting the store to App and (2.) implementing state persistence
+ * @description Connects the store to App and implements state persistence
  * 
  * ************************************
  */

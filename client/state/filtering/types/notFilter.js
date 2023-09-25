@@ -1,3 +1,14 @@
+/**
+ * ************************************
+ *
+ * @module  logsReducer
+ * @authors Preston Coldwell, Ryan Smithey, Geoff Sun, Andrew Wagner, Brian Hwang
+ * @date 09/06/2023
+ * @description removes all logs that have all of the specified properties
+ * 
+ * ************************************
+ */
+
 import filterSelector from '../selectors/filterSelector';
 
 const NOT = (logs, notArgs, metaData)=>{
