@@ -1,6 +1,8 @@
 ![README Banner](./public/READMEBanner.png)
 
-# <img width='20px' src='./public/Icon.png'> Built With
+# <img width='20px' src='./public/Icon.png' /> About
+
+## Built With
 ![JavaScript](https://img.shields.io/badge/-javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 ![React](https://img.shields.io/badge/-react-white?style=for-the-badge&logo=react&logoColor=blue)
 ![ReactRouter](https://img.shields.io/badge/-ReactRouter-white?style=for-the-badge&logo=ReactRouter&logoColor=blue)
@@ -25,50 +27,81 @@
 ![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
 <br>
 
-# <img width='20px' src='./public/Icon.png'> Introduction
-Our mission is to simplify log management for our users. With our custom npm logging package that seamlessly integrates into your code, alongside the LogYard application, you can easily visualize and analyze logs using various graphs based on various timeframes and log types. Our platform also offers dynamic log filtering, allowing users to group logs as well as filter them based on their individual properties. These features aim to make log management a breeze - helping you to make monitoring and troubleshooting effortless. 
+## Introduction
+Our mission is to simplify log management for our users. With our custom logging package that seamlessly integrates into your code, alongside the LogYard application, you can easily visualize and analyze logs using multiple, customizable graphs based on timeframes and log types. Our platform also offers dynamic log filtering, allowing users to group logs as well as filter them based on their individual properties. These features aim to make log management a breeze - helping you monitor and troubleshoot effortlessly. 
 
-# <img width='20px' src='./public/Icon.png'> Features
-- Logging Package
-    - Our custom npm logging package enables you to record both your frontend and backend logs and have them stored safely in a local Docker/MongoDB database.
-    - Logs have various customizable attributes:
-        - Type ( Options: error, warn, info, http, verbose, debug, silly )
-        - Message ( What message do you want to be displayed with this log? )
-        - Context ( Allows you to assign relevant information to your log. Such as which file or container it came from. )
-- Application
-    - See your logs in real-time.
-    - Sort and filter logs based on various properties.
-    - Save custom filters to your account.
-    - Visualize your logs through several graph types. Using log-type filtering and time selection, only visualize the logs your need.
+## Features
+Logging Package
+- Our custom logging package allows you to record frontend and backend logs and to store them safely in a local Docker or MongoDB cloud database.
+- Logs have various customizable attributes:
+    - Type ( Options: error, warn, info, http, verbose, debug, silly )
+    - Message ( What message do you want to be displayed with this log? )
+    - Context ( Allows you to assign relevant information to your log, such as which file or container it came from. )
 
-# <img width='20px' src='./public/Icon.png'> How to Install
+Application
+- See your logs in real time.
+- Sort and filter logs based on level and customizable properties.
+- Save custom filters to your account.
+- Visualize your logs through several graph types. Using log-type filtering and time selection, only visualize the logs you need.
 
-In order to start logging in your application and using LogYard's application, follow the steps below to install the proper dependencies.
+## Walkthrough
+- Login / Signup
 
-## Frontend Logging
-- Run `'npm install logyard'` in your command line.
+    <img width='' src='LOGIN GIF'/>
+- Dashboard / Filtering
 
-## Backend Logging
-- Run `'npm install logyardbackend'` in your command line.
+    <img width='' src='DASHBOARD GIF'/>
+- Visualizer
 
-## Application
-- Ensure you have a DockerHub account and have Docker Desktop installed. 
-- We will go into the steps of how to pull the Docker image in the 'How to Use' section.
+    <img width='' src='VISUALIZER GIF'/>
 
-Once the dependencies have been installed, follow the instructions in the 'How to Use' section to import and implement the logging functionality in your project, as well as how to use the LogYard application itself. 
+# <img width='20px' src='./public/Icon.png'/> Demo Our Product
+We created a demo project for you to easily test our product's logging functionality and use our frontend manager/visualizer. Follow the steps below in order to properly run the demo.
 
-For any inquiries about installation or usage, please feel free to contact the team at logyardOSP@gmail.com.
+1. LogYard
+    1. Ensure you have Docker Desktop installed and opened, and that you are signed in with your Docker account.
+    2. In your browser, navigate to the [LogYard](https://github.com/oslabs-beta/LogYard) GitHub repository.
+    3. Clone this repository using the following terminal command:
 
-# <img width='20px' src='./public/Icon.png'> How to Use
+        `git clone https://github.com/oslabs-beta/LogYard.git`
+    4. Open this repo in your terminal and enter the following command lines in your terminal to properly create a Docker image.
+        1. Compose
+        
+            `docker-compose ...`
+        2. Next Step..
+        
+            `docker-...`
+    5. Open Docker Desktop and navigate to your containers.
+    6. To open the LogYard application, click on the port for ...
 
-Due to some interactions between the browser and ___ , we need to have two logging packages (one for the frontend and one for the backend) in order to reliably send, store and retrieve your logs.
+2. Demo App
+    1. Navigate to our [demo app](https://www.google.com/)'s GitHub repository.
+    2. Clone this repository using the following command in your terminal:
+    
+        `git clone https://ourdemoapprepopage.com`
+    3. Within the demo app's directory, install package dependencies and run the app using the following terminal commands:
+    
+        `npm install`
+        
+        `npm run dev`
+- After following the above steps, the demo app should now be visible on localhost:0000 and the LogYard GUI should be available on localhost:9999.
+    4. Implement our package into the demo app using [these steps](#Installing-/-Using-Logging-Packages)
 
-## Logging
-1. Start by navigating to the file that you would like to use the logger in. 
-2. At the top of your file, import the appropriate logger using one of the following line of code: 
+# <img width='20px' src='./public/Icon.png'/> Use Our Product
+
+In order to start logging in your application and using LogYard, follow the steps below to install the proper dependencies.
+
+## Installing / Using Logging Packages
+Note: If you are navigating here from the demo section, please skip to step 3.
+1. Navigate to the directory in which you would like to install our packages. This should be the root directory for your project.
+2. In your terminal, type the following command to install the appropriate packages for frontend and backend logging capabilities.
+
+    `npm install logyard logyardbackend`
+3. Navigate to the file that you would like to use the logger in. 
+4. At the top of your file, import the appropriate logger using one of the following line of code: 
     - Frontend: `import logyard from 'logyard'`
-    - Backend: `import logyard from 'logyard-be'`
-3. Once the frontend logger has been imported, embed the 'logyard' function with the following argument options and by following the template below.
+    - Backend: `import logyard from 'logyardbackend'`
+5. Once the frontend logger has been imported, embed the 'logyard' function with the following argument options and by following the template below.
     - Arguments:
         - Error Type (Type: String) : 
             - 'error', 'warn', 'info', 'http', 'verbose', 'debug', or 'silly'.
@@ -92,17 +125,32 @@ Due to some interactions between the browser and ___ , we need to have two loggi
             )
         ```
 
-## Application
-1. Navigate to the [LogYard repository](https://google.com) on DockerHub.
-2. Fork and clone the repo.
-3. Type the following command in your termindal to pull the LogYard image from the repository: 
+## Setting up .env file
+Directions here...
 
-    `'docker pull logyard/[repo-name???]'`
+## Setting up .config file(s)
+Directions here...
 
-4. Open Docker Desktop and run the LogYard container.
-5. Open localhost:8080 - the LogYard application should appear here!
+## Installing / Using LogYard GUI
+... copy directions from demo...
 
-# <img width='20px' src='./public/Icon.png'> Contributing
+For any inquiries about installation or usage, please feel free to contact the team at logyardOSP@gmail.com.
+
+# <img width='20px' src='./public/Icon.png'> How to Use
+
+Due to some interactions between the browser and ___ , we need to have two logging packages (one for the frontend and one for the backend) in order to reliably send, store, and retrieve your logs.
+
+# <img width='20px' src='./public/Icon.png' /> FAQ
+1. Why do two seperate packages exist for logging?
+    - A browser application cannot directly connect to a database. Therefore the frontend logger sends logs first to a server that is connected to your database. The backend logger directly connects to the database.
+2. I can read my server logs why use this service?
+    - LogYard provides a central location for accessing, reading, and analyzing logs. It is unnecessary for a single server but as an organization scales reading logs from more than 2-3 sources quickly becomes a time sink.
+3. Will this work with my distributed compute cluster?
+    - LogYard is designed to work with any compute service that can connect to a database.
+4. Can I use this for state replication?
+    - LogYard does not provide state replication. It is intended as a lightweight solution for active logging analysis not an all encompassing tool.
+
+# <img width='20px' src='./public/Icon.png' /> Contributing
 We hope you enjoy using our product and find it useful! 
 
 If you have found a bug or an area that you feel could be improved within our product, please reach out - or if you'd like, you can create a fork on this repo and contribute to our product yourself! Contributions are vital to the open-source community and all contributions are greatly appreciated!
@@ -110,9 +158,12 @@ If you have found a bug or an area that you feel could be improved within our pr
 Following the completion of your outstanding work, if you create a PR, our team will review your code! We thank all of those who contribute toward improving our product's reliability and expanding upon it's features.
 
 ## Tasks for Contrubution
-- [x] Be Awesome.
-- [ ] Rebuild using Bun.io
-- [ ] Some other things that are less important than Bun ...
+- [ ] Improving analysis tools. Current tools provide a simple interface but lack in depth capabilities.
+- [ ] Additional account customization. 
+    - Current accounts lack any organization features. Managing access to logs could be useful depending on application.
+    - A more customizable dashboard and visualization page. Currently rather basic save, load, and delete is used for monitoring.
+- [ ] More robust log displays. Currently all logs require a specific layout. A major improvement would be a single location to allow a drop in replacement for different log models.
+- [ ] Improved C3 integrations. C3 is a powerful graphing tool however it directly effects the DOM unlike React which uses a virtual DOM. A major task would be to improve the current interface between C3 and React. Specifically more a more responsive layout for graphs allowing a more customizable visualization page.
 
 # <img width='20px' src='./public/Icon.png'> Publications
 - Link to various article(s) - Medium, etc.
@@ -128,3 +179,5 @@ Following the completion of your outstanding work, if you create a PR, our team 
 
 # <img width='20px' src='./public/Icon.png'> Support Us
 If our product has helped you, or you would just like to show your support, please ⭐️ this repository! It helps more than you know!
+
+    level: USER DECLARED ( (0)error, (1)warn, (2)info, (3)http, (4)verbose, (5)debug, (6)silly )
