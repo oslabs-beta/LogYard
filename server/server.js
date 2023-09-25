@@ -52,9 +52,6 @@ app.listen(port, () => {
   // logger.warn('test warn', {Context: {
   //   'server': '0'
   // }});
-  logger.info('test info', {Context: {
-    'server': '0'
-  }});
   // logger.http('test http', {Context: {
   //   'server': '0'
   // }});
