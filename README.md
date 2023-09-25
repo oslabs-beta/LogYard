@@ -28,123 +28,87 @@
 <br>
 
 ## Introduction
-
 Our mission is to simplify log management for our users. With our custom logging package that seamlessly integrates into your code, alongside the LogYard application, you can easily visualize and analyze logs using multiple, customizable graphs based on timeframes and log types. Our platform also offers dynamic log filtering, allowing users to group logs as well as filter them based on their individual properties. These features aim to make log management a breeze - helping you monitor and troubleshoot effortlessly. 
 
 ## Features
+Logging Package
+- Our custom logging package allows you to record frontend and backend logs and to store them safely in a local Docker or MongoDB cloud database.
+- Logs have various customizable attributes:
+    - Type ( Options: error, warn, info, http, verbose, debug, silly )
+    - Message ( What message do you want to be displayed with this log? )
+    - Context ( Allows you to assign relevant information to your log, such as which file or container it came from. )
 
-- Logging Package
+Application
+- See your logs in real time.
+- Sort and filter logs based on level and customizable properties.
+- Save custom filters to your account.
+- Visualize your logs through several graph types. Using log-type filtering and time selection, only visualize the logs you need.
 
-    - Our custom logging package allows you to record frontend and backend logs and to store them safely in a local Docker or MongoDB cloud database.
-    - Logs have various customizable attributes:
-        - Type ( Options: error, warn, info, http, verbose, debug, silly )
-        - Message ( What message do you want to be displayed with this log? )
-        - Context ( Allows you to assign relevant information to your log, such as which file or container it came from. )
-
-- Application
-
-    - See your logs in real time.
-    - Sort and filter logs based on level and customizable properties.
-    - Save custom filters to your account.
-    - Visualize your logs through several graph types. Using log-type filtering and time selection, only visualize the logs you need.
-<!-- 
 ## Walkthrough
-
 - Login / Signup
 
-    <img width='' src='LOGIN GIF'/>GIF
-
+    <img width='' src='LOGIN GIF'/>
 - Dashboard / Filtering
 
-    <img width='' src='DASHBOARD GIF'/>GIF
-
+    <img width='' src='DASHBOARD GIF'/>
 - Visualizer
 
-    <img width='' src='VISUALIZER GIF'/>GIF -->
+    <img width='' src='VISUALIZER GIF'/>
 
 # <img width='20px' src='./public/Icon.png'/> Demo Our Product
-
 We created a demo project for you to easily test our product's logging functionality and use our frontend manager/visualizer. Follow the steps below in order to properly run the demo.
 
 1. LogYard
-
     1. Ensure you have Docker Desktop installed and opened, and that you are signed in with your Docker account.
-
-    2. In your browser, navigate to the [LogYard GitHub repository](https://github.com/oslabs-beta/LogYard).
-
+    2. In your browser, navigate to the [LogYard](https://github.com/oslabs-beta/LogYard) GitHub repository.
     3. Clone this repository using the following terminal command:
 
         `git clone https://github.com/oslabs-beta/LogYard.git`
-
     4. Open this repo in your terminal and enter the following command lines in your terminal to properly create a Docker image.
-
-        `docker-compose ...`
-
-        `docker-...`
-
+        1. Compose
+        
+            `docker-compose ...`
+        2. Next Step..
+        
+            `docker-...`
     5. Open Docker Desktop and navigate to your containers.
-
     6. To open the LogYard application, click on the port for ...
 
-    7. Filter and visualize your data - see how [here](#Using-GUI).
-
 2. Demo App
-
-    1. Navigate to our [demo app's GitHub repository](https://www.google.com/).
-
+    1. Navigate to our [demo app](https://www.google.com/)'s GitHub repository.
     2. Clone this repository using the following command in your terminal:
-
+    
         `git clone https://ourdemoapprepopage.com`
-
-    3. Within the demo app's directory, install package dependencies and run the app using the following terminal commands, in this order:
-
+    3. Within the demo app's directory, install package dependencies and run the app using the following terminal commands:
+    
         `npm install`
-
+        
         `npm run dev`
-
 - After following the above steps, the demo app should now be visible on localhost:0000 and the LogYard GUI should be available on localhost:9999.
-
-    4. Implement our package into the demo app using [these steps](#Using-packages).
+    4. Implement our package into the demo app using [these steps](#Installing-/-Using-Logging-Packages)
 
 # <img width='20px' src='./public/Icon.png'/> Use Our Product
 
 In order to start logging in your application and using LogYard, follow the steps below to install the proper dependencies.
 
-## 1. Logging Packages
-
-### Installing packages
-
+## Installing / Using Logging Packages
+Note: If you are navigating here from the demo section, please skip to step 3.
 1. Navigate to the directory in which you would like to install our packages. This should be the root directory for your project.
+2. In your terminal, type the following command to install the appropriate packages for frontend and backend logging capabilities.
 
-2. In your terminal, type the following commands to install the appropriate packages for frontend and backend logging capabilities.
-
-    `npm install logyard`
-
-    `npm install logyardbackend`
-
-### Using packages
-
-1. Navigate to the file that you would like to use the logger in. 
-
-2. At the top of your file, import the appropriate logger using one of the following line of code: 
-
-    - For Frontend Logs: `import logyard from 'logyard'`
-
-    - For Backend Logs: `import logyard from 'logyardbackend'`
-
-3. Once the frontend logger has been imported, embed the 'logyard' function with the following argument options and by following the template below.
-
+    `npm install logyard logyardbackend`
+3. Navigate to the file that you would like to use the logger in. 
+4. At the top of your file, import the appropriate logger using one of the following line of code: 
+    - Frontend: `import logyard from 'logyard'`
+    - Backend: `import logyard from 'logyardbackend'`
+5. Once the frontend logger has been imported, embed the 'logyard' function with the following argument options and by following the template below.
     - Arguments:
-
         - Error Type (Type: String) : 
             - 'error', 'warn', 'info', 'http', 'verbose', 'debug', or 'silly'.
-
         - Message (Type: String) : 
             - Any message you wish to be sent with the log.
-
         - Context(s) (Type: Object) :
             - Key-value pairs for each context you wish to include.
-
         ```env
             Template:
             logyard(
@@ -161,36 +125,30 @@ In order to start logging in your application and using LogYard, follow the step
             )
         ```
 
-## 2. Setting up .env file
+## Setting up .env file
 Directions here...
 
-## 3. Setting up .config file(s)
+## Setting up .config file(s)
 Directions here...
 
-## 4. LogYard GUI
-
-### Installing GUI
+## Installing / Using LogYard GUI
 ... copy directions from demo...
 
-### Using GUI
 For any inquiries about installation or usage, please feel free to contact the team at logyardOSP@gmail.com.
 
-# <img width='20px' src='./public/Icon.png' /> FAQ
+# <img width='20px' src='./public/Icon.png'> How to Use
 
+Due to some interactions between the browser and ___ , we need to have two logging packages (one for the frontend and one for the backend) in order to reliably send, store, and retrieve your logs.
+
+# <img width='20px' src='./public/Icon.png' /> FAQ
 1. Why do two seperate packages exist for logging?
     - A browser application cannot directly connect to a database. Therefore the frontend logger sends logs first to a server that is connected to your database. The backend logger directly connects to the database.
-
 2. I can read my server logs why use this service?
     - LogYard provides a central location for accessing, reading, and analyzing logs. It is unnecessary for a single server but as an organization scales reading logs from more than 2-3 sources quickly becomes a time sink.
-
 3. Will this work with my distributed compute cluster?
     - LogYard is designed to work with any compute service that can connect to a database.
-
 4. Can I use this for state replication?
     - LogYard does not provide state replication. It is intended as a lightweight solution for active logging analysis not an all encompassing tool.
-
-5. What if my app is running on port 8080?
-    - answer
 
 # <img width='20px' src='./public/Icon.png' /> Contributing
 We hope you enjoy using our product and find it useful! 
@@ -222,4 +180,4 @@ Following the completion of your outstanding work, if you create a PR, our team 
 # <img width='20px' src='./public/Icon.png'> Support Us
 If our product has helped you, or you would just like to show your support, please ⭐️ this repository! It helps more than you know!
 
-<!-- level: USER DECLARED ( (0)error, (1)warn, (2)info, (3)http, (4)verbose, (5)debug, (6)silly ) -->
+    level: USER DECLARED ( (0)error, (1)warn, (2)info, (3)http, (4)verbose, (5)debug, (6)silly )
