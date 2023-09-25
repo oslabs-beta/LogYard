@@ -68,7 +68,6 @@ const MainRouter = () => {
         routes={[
           [ 'Dashboard', () => { dashboardClicked(navigate); } ],
           [ 'Visualize', () => { visualizerClicked(navigate); } ],
-          [ 'Profile', () => { profileClicked(navigate); } ],
           [ 'Sign Out', () => { signOutClicked(navigate); } ],
         ]}
       />

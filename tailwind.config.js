@@ -72,7 +72,15 @@ export default {
           '900': '#7e1f10',
           '950': '#440c06',
         },
-      
+        'logo': {
+          '100': '#d8c1ab',
+          '200': '#a66d4b',
+          '300': '#59380d',
+          
+        }
+      },
+      fontFamily: {
+        montserrat: ['Montserrat', 'sans'],
       },
     },
   },

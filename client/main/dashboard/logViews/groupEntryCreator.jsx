@@ -1,3 +1,14 @@
+/**
+ * ************************************
+ *
+ * @module  groupEntryCreator
+ * @authors Preston Coldwell, Ryan Smithey, Geoff Sun, Andrew Wagner, Brian Hwang
+ * @date 09/06/2023
+ * @description .jsx - Used to display a data group of logs in a Table
+ * 
+ * ************************************
+ */
+
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setFilteredLogs } from '../../../state/actions/actions';
