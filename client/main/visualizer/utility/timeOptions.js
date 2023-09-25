@@ -1,3 +1,14 @@
+/**
+ * ************************************
+ *
+ * @module  levelToInd
+ * @authors Preston Coldwell, Ryan Smithey, Geoff Sun, Andrew Wagner, Brian Hwang
+ * @date 09/20/2023
+ * @description A set of objects that describe how to organize time based data within a graph.
+ * 
+ * ************************************
+ */
+
 function getIndex(millisecondsEpoc) {
   const intervalWidth = ((this.millisecondsEnd - this.millisecondsStart) / this.numDivisions);
 
@@ -59,3 +70,21 @@ export const oneWeek = ()=>{ return {
   },
   getIndex,
 };};
+
+export const userSpecified = (
+  label = 'Test Label', 
+  millisecondsStart = 0, 
+  millisecondsEnd = Date.now(), 
+  numDivisions = 1, 
+  getDivisionLabels) => { 
+  
+  return {
+    label,
+    millisecondsStart,
+    millisecondsEnd,
+    numDivisions,
+
+    getDivisionLabels,
+    getIndex,
+  };
+};

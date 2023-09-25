@@ -13,11 +13,9 @@ import React from 'react';
 import TableItem from './TableItem';
 import TableHeader from './TableHeader';
 
-
-//displayHeaders is an array with values as columns
-//displayData is an array with values as entries
-// An entry is an array with values as inner HTML
-const Table = ({displayHeaders, displayData}) => {
+//displayHeaders ex: ['h1', 'h2', 'header3']
+//displayData ex: [['H1 Data', 'H2 data', 'asdf']]
+const Table = ({ displayHeaders, displayData }) => {
   const tableHeaders = [];
   const tableItems = [];
 
