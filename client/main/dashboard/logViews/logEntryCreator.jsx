@@ -37,7 +37,9 @@ const InspectEntry = ({ log }) => {
 
   return (
     <button onClick={()=>onInspectEntry(dispatch, navigate, log)}>
-      <img src='/5971.png' alt='Inspect' className='w-8 min-w-8 h-w'></img>
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="darkgreen" className="w-6 h-6">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+      </svg>
     </button>
   );
 };
@@ -54,7 +56,7 @@ const logEntryCreator = (individualLog) => {
     <TextEntry key={_id + '3'} input={level}/>,
     <TextEntry key={_id + '4'} input={message}/>,
     <ContextEntry key={_id + '5'} contexts={Context}/>,
-    <InspectEntry key={_id + '6'} log={ individualLog }/>
+    <InspectEntry key={_id + '6'} log={ individualLog } className='w-16'/>
   ];
 };
 
