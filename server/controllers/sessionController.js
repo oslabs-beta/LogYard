@@ -15,11 +15,9 @@ const sessionController = {};
 
 sessionController.checkCookie = async (req, res, next) => {
   try {
-    /* get cookie from user */
-    const { session } = req.cookies;
+    const { logyard_session } = req.cookies;
 
-    /* look for that cookie in database */
-    const currSession = await SessionModel.findOne({ _id: session });
+    const currSession = await SessionModel.findOne({ _id: logyard_session });
 
     /* if cookie doesn't exist, set cookieStatus to false for navigation use in front-end, and vice versa */
     if (!currSession) {
@@ -40,14 +38,18 @@ sessionController.checkCookie = async (req, res, next) => {
 
 sessionController.setCookie = async (req, res, next) => {
   try {
-    /* create a reference in database that will have a unique id for cookie */
-    const response = await SessionModel.create({});
+    const sessionDoc = {};
+
+    if (res.locals.userData) {
+      sessionDoc.username = res.locals.userData.username;
+    }
+
+    const response = await SessionModel.create(sessionDoc);
 
     // extract id from database entry
     const id = response._id;
 
-    /* create a cookie with a value of that databse id */
-    res.cookie('session', `${id}`, { httpOnly: true });
+    res.cookie('logyard_session', `${id}`, { httpOnly: true });
 
     return next();
   } catch (err) {
