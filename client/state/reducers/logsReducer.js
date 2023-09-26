@@ -18,6 +18,7 @@ import {
   FILTER_LOGS,
   SET_FILTERED_LOGS,
   DELETE_LOG,
+  DELETE_ALL_LOGS,
 } from '../constants/actionTypes';
 
 const initialState = {
@@ -36,7 +37,6 @@ const logsReducer = createReducer(initialState, (builder) => {
       state.activeLog = action.payload;
     })
     .addCase(DELETE_LOG, (state, action) => {
-      console.log('in reducer func')
       try{
         const idToDelete = action.payload;
         state.logs = state.logs.filter((log) => log._id !== idToDelete);
@@ -46,6 +46,9 @@ const logsReducer = createReducer(initialState, (builder) => {
         alert('Couldn\'t delete this log');
         console.log(e);
       }
+    })
+    .addCase(DELETE_ALL_LOGS, (state, action) => {
+      state = initialState;
     })
     .addCase(FILTER_LOGS, (state, action)=>{
       try{
