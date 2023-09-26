@@ -29,9 +29,9 @@ const Table = ({ displayHeaders, displayData }) => {
   }
 
   return (
-    <div className="relative my-5 px-5 w-full overflow-y-scroll">
+    <div className="relative my-5 pl-5 pr-1 w-full overflow-y-scroll">
       <table className="w-full h-12 text-sm text-left text-gray-500 dark:text-gray-400">
-        <thead className="w-full text-xs text-gray-50 uppercase bg-gray-900 dark:bg-gray-700 dark:text-gray-400 sticky top-0">
+        <thead className="w-full text-xs text-custom-darkgreen uppercase bg-custom-darktan sticky top-0">
           <tr>
             { tableHeaders }
           </tr>

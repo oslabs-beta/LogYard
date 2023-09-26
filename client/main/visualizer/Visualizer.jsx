@@ -25,7 +25,7 @@ const Visualizer = () => {
   const [displayDonut, setDisplayDonut] = useState(true);
 
   return (
-    <div className='grow flex flex-col bg-gradient-to-t from-red-800 via-yellow-600 to-yellow-500'>
+    <div className='grow flex flex-col'>
       <Filter />
       <Checkbox displayLine={ displayLine } setDisplayLine={ setDisplayLine } displayDonut={ displayDonut } setDisplayDonut={ setDisplayDonut } />
       <div className='flex grow sm-flex-col'>

@@ -39,21 +39,25 @@ const Login = () => {
   const navigate = useNavigate();
 
   return (
-    <div className='h-12 shrink-0 flex flex-col justify-start items-center font-montserrat text-gray-50'>
-      <img src='LogYardHori.png' className='h-32 mb-1 mt-12'></img>
-      <div className='bg-logo-200/80 p-5 shadow-lg shadow-brown-900 pt-3 rounded-lg mt-28 text-center'>
+    <div className='h-12 shrink-0 flex flex-col justify-start items-start font-montserrat text-gray-50'>
+      <img src='AuthLogo.png' className='h-48 mb-1 mt-12 ml-12'></img>
+      <div className='mx-auto'>
+        <div className='bg-custom-darkgreen/90 shadow-lg shadow-brown-900 p-5 pt-3 mt-28 rounded-lg text-center'>
         
-        <h1 className='text-2xl  pb-2'>GUEST:</h1>
-        <TextInput type='password' onChange={(e)=>setServerPassword(e.target.value)} placeholder='Server Password' className='w-96 px-4 py-2 mb-4 mt-1 border border-brown-700 rounded-lg focus:ring-brown-500 focus:border-orange-900 p-2 italic  placeholder-gray-200 bg-transparent'/>
-        {passwordFailed && ( <h1 className='text-gray-50 italic mb-4'> Invalid password - please try again </h1> )}
+          <h1 className='text-2xl pb-2 text-custom-tan'>GUEST:</h1>
+          <TextInput type='password' onChange={(e)=>setServerPassword(e.target.value)} placeholder='Server Password' className='w-96 px-4 py-2 mb-4 mt-1 border border-custom-tan rounded-lg focus:ring-custom-tan focus:border-custom-tan p-2 italic placeholder-custom-tan text-custom-tan bg-transparent'/>
+          {passwordFailed && ( <h1 className='text-gray-50 italic mb-4'> Invalid password - please try again </h1> )}
         
-        <ButtonInputAuth onClick={() => onLoginClicked(serverPassword, navigate, setPasswordFailed)} label='Login' className='w-96 mb-2 rounded-lg my-1'/>
-        <InputBar className='flex'>
-          <ButtonInputAuth onClick={()=> navigate('/')} label='User Sign In' className='w-[50%]'/>
-          <ButtonInputAuth onClick={()=> navigate('/signup')} label='Sign Up' className='w-[50%]'/>
-        </InputBar>
+          <ButtonInputAuth onClick={() => onLoginClicked(serverPassword, navigate, setPasswordFailed)} label='Login' className='w-96 mb-2 rounded-lg my-1'/>
+          <InputBar className='flex'>
+            <ButtonInputAuth onClick={()=> navigate('/')} label='User Sign In' className='w-[50%]'/>
+            <ButtonInputAuth onClick={()=> navigate('/signup')} label='Sign Up' className='w-[50%]'/>
+          </InputBar>
 
+        </div>
       </div>
+      
+      
     </div>
   );
 };
