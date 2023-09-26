@@ -98,7 +98,7 @@ userController.validateUser = async (req, res, next) => {
   try{
     const { username, password } = req.cookies;
 
-    const userData = await UserModel.findOne({ username });//Compare passwords using bcrypt
+    const userData = await UserModel.findOne({ username });
     
     if (!bcrypt.compare(password, userData.password)) {
       return next({

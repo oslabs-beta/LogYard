@@ -14,18 +14,12 @@ import LogModel from '../models/logModel.js';
 const logController = {};
 
 logController.getLogs = async (req, res, next) => {
-  
-  // console.log('inside of logController.getLogs middleware');
-
   try {
-    /* check if cookie status is true on locals - if so, fetch all logs from database*/
     if (res.locals.cookieStatus) {
       const data = await LogModel.find({});
       res.locals.logs = data;
-    } 
-    // else {
-    //   res.locals.logs = false;
-    // }
+    }
+
     return next();
   } catch (err) {
     return next({
