@@ -4,46 +4,26 @@
  * @module  AuthRouter
  * @authors Preston Coldwell, Ryan Smithey, Geoff Sun, Andrew Wagner, Brian Hwang
  * @date 09/06/2023
- * @description .jsx - routes for nav-bar
+ * @description .jsx - Configuration for all authentication pages
  * 
  * ************************************
  */
 
 import React from 'react';
-import { useNavigate, Outlet } from 'react-router-dom';
-
-import NavBar from '../main/NavBar.jsx';
-
-
-const navAnonymous = (navigate)=>{
-  // navigate('/main/dashboard');
-};
-
-// navigator for profile
-const signInClicked = (navigate)=>{
-  navigate('/signedlogin');
-};
-
-// navigator for sign-out
-const createAccountClicked = (navigate)=>{
-  navigate('/signup');
-};
+import { Outlet } from 'react-router-dom';
+import backgroundImage from '/fallBG.jpg';
 
 const AuthRouter = () => {
 
-  // initialize navigation
-  const navigate = useNavigate();
-
   return (
-    <div className='flex flex-col h-full'>
-      {/* routes for the nav-bar */}
-      <NavBar routes={[
-        ['No Account', () => {navAnonymous(navigate);}],
-        ['Sign In', () => {signInClicked(navigate);}],
-        ['Create Account', () => {createAccountClicked(navigate);}]
-      ]}/>
-      {/* what does this do? */}
-      <Outlet/>
+    <div
+      className='grow h-full w-full flex flex-col items-center justify-between overflow-x-auto overflow-y-auto bg-cover'
+      style={{ backgroundImage: `url(${backgroundImage})` }}
+    >
+      <div className='flex flex-col h-full w-full'>
+        {/* source: /client/App.jsx */}
+        <Outlet/>
+      </div>
     </div>
   );
 };

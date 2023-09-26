@@ -14,7 +14,6 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { setActiveLog } from '../../../state/actions/actions';
 
-// set the active log in state to current log object
 const onInspectEntry = (dispatch, navigate, data) => {
   navigate('/main/logviewer');
   dispatch(setActiveLog(data));
@@ -43,22 +42,19 @@ const InspectEntry = ({ log }) => {
   );
 };
 
-const logEntryCreator = (data) => {
-
-  // destructure from data params - which is used in AllLogs.jsx
-  const { timestamp, level, meta, message, _id } = data;
-  // get items from data.meta
+const logEntryCreator = (individualLog) => {
+  const { timestamp, level, meta, message, _id } = individualLog;
   const { Context } = meta;
 
   const logTime = new Date(timestamp);
 
   return [
-    <TextEntry key={_id + '1'} input={logTime.toLocaleTimeString()}/>,
+    <TextEntry key={_id + '1'} input={[logTime.toLocaleTimeString(), <br key={ Math.random() } />, logTime.toLocaleDateString()]}/>,
     <TextEntry key={_id + '2'} input={_id}/>,
     <TextEntry key={_id + '3'} input={level}/>,
     <TextEntry key={_id + '4'} input={message}/>,
     <ContextEntry key={_id + '5'} contexts={Context}/>,
-    <InspectEntry key={_id + '6'} log={ data }/>
+    <InspectEntry key={_id + '6'} log={ individualLog }/>
   ];
 };
 

@@ -16,8 +16,14 @@ const LogSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
-  level: String,
-  message: String,
+  level: {
+    type: String,
+    required: true,
+  },
+  message: {
+    type: String,
+    required: true,
+  },
   meta: {
     Context : {
       type: mongoose.Schema.Types.Mixed,

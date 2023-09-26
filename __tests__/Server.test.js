@@ -12,29 +12,29 @@ let cookieValue;
 
 /* Testing suite for /auth route */
 
-test('/auth responds to GET request with 200 status when provided with correct password', () => {
+test('/auth responds to POST request with 200 status when provided with correct password', () => {
   return request(server)
-    .get('/auth')
-    .query({
-      password: process.env.VITE_USER_PASSWORD,
+    .post('/auth')
+    .send({
+      serverPassword: process.env.VITE_USER_PASSWORD,
     })
     .expect(200);
 });
 
-test('/auth responds to GET request with 200 status when provided with correct password', () => {
+test('/auth responds to POST request with 200 status when provided with correct password', () => {
   return request(server)
-    .get('/auth')
-    .query({
-      password: 'wrongPassword',
+    .post('/auth')
+    .send({
+      serverPassword: 'wrongPassword',
     })
     .expect(401);
 });
 
 test('assigns a cookie upon successful login', () => {
   return request(server)
-    .get('/auth')
-    .query({
-      password: process.env.VITE_USER_PASSWORD,
+    .post('/auth')
+    .send({
+      serverPassword: process.env.VITE_USER_PASSWORD,
     })
     .then((req, res) => {
       const cookies = req.headers['set-cookie'];

@@ -19,22 +19,18 @@ import {
   SET_FILTERED_LOGS,
 } from '../constants/actionTypes';
 
-// set initial state for log reducer
 const initialState = {
   logs: [],
   filteredLogs: [],
-  logFilters: [],
   activeLog: undefined,
 };
 
 const logsReducer = createReducer(initialState, (builder) => {
   builder
-    // getting logs from database (for dashboard)
     .addCase(LOAD_LOGS, (state, action) => {
       state.logs = action.payload;
       state.filteredLogs = action.payload;
     })
-    // setting the active log state (for navigating to individual log page)
     .addCase(SET_ACTIVE_LOG, (state, action) => {
       state.activeLog = action.payload;
     })
@@ -43,13 +39,13 @@ const logsReducer = createReducer(initialState, (builder) => {
         state.filteredLogs = applyFilter(state.logs, action.payload);
       }
       catch (e) {
-        alert('Failed filtering IDK GL');
+        alert('Failed filtering');
         console.log(e);
       }
     })
     .addCase(SET_FILTERED_LOGS, (state, action)=>{
       try{
-        state.filteredLogs = state.filteredLogs[action.payload];
+        state.filteredLogs = state.filteredLogs = action.payload;
       }
       catch (e){
         alert('Failed navigating to log group');

@@ -9,36 +9,32 @@
  * ************************************
  */
 
-//Change /main/ to be dashboard rouute
-import React, { useEffect } from 'react';
+import React from 'react';
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import AuthRouter from './auth/AuthRouter';
+import Login from './auth/login/Login.jsx';
+import Signup from './auth/signup/Signup.jsx';
+import SignedLogin from './auth/signedLogin/SignedLogin';
+
 import MainRouter from './main/MainRouter';
 import Dashboard from './main/dashboard/Dashboard.jsx';
 import LogViewer from './main/logViewer/LogViewer.jsx';
-import Profile from './main/profile/Profile.jsx';
-import Login from './auth/login/Login.jsx';
-import Signup from './auth/signup/Signup.jsx';
-import Recovery from './auth/recovery/Recovery.jsx';
-import Visualizer from './main/analysis/visualizer/Visualizer.jsx';
-import SignedLogin from './auth/signedLogin/SignedLogin';
+import Visualizer from './main/visualizer/Visualizer.jsx';
 
 const App = () => {
   return (
     <BrowserRouter >
       <Routes>
         <Route path='/' element={<AuthRouter />}>
-          <Route path='/' element={<Login />} />
+          <Route path='/' element={<SignedLogin />} />
           <Route path='/signup' element={<Signup />} />
-          <Route path='/recovery' element={<Recovery />} />
-          <Route path='/signedlogin' element={<SignedLogin />}/>
+          <Route path='/guestLogin' element={<Login />}/>
         </Route>
         <Route path='/main' element={<MainRouter />}>
-          <Route path="/main/dashboard" element={<Dashboard/>} />
+          <Route path="/main" element={<Dashboard/>} />
           <Route path="/main/logViewer" element={<LogViewer/>} />
-          <Route path="/main/profile" element={<Profile/>} />
           <Route path="/main/visualizer" element={<Visualizer/>} />
         </Route>
       </Routes>
