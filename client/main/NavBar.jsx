@@ -25,7 +25,7 @@ const NavBar = ({routes})=>{
   }
 
   return (
-    <nav className='bg-gray-900 border-b border-gray-200 dark:bg-gray-900 shadow-md h-auto' >
+    <nav className='bg-gray-900 border-b border-gray-900 dark:bg-gray-900 shadow-md h-auto' >
       <div className='max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4'>
         <div className="flex items-center ml-20">
           <img onClick={() => navigate('/main')} src="../horiWhite.png" className="h-12 mr-0 hover:cursor-pointer" alt="Logo" />

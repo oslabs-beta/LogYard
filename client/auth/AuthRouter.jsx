@@ -11,7 +11,7 @@
 
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import backgroundImage from '/fallBG.jpg';
+import backgroundImage from '/Trees.jpg';
 
 const AuthRouter = () => {
 
@@ -20,7 +20,7 @@ const AuthRouter = () => {
       className='grow h-full w-full flex flex-col items-center justify-between overflow-x-auto overflow-y-auto bg-cover'
       style={{ backgroundImage: `url(${backgroundImage})` }}
     >
-      <div className='flex flex-col h-full w-full'>
+      <div className='flex backdrop-blur-sm flex-col h-full w-full'>
         {/* source: /client/App.jsx */}
         <Outlet/>
       </div>

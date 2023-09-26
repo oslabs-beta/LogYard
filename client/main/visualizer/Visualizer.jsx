@@ -20,7 +20,7 @@ const Visualizer = () => {
   const logData = useSelector(state=>state.logsReducer.filteredLogs);
 
   return (
-    <div className='grow flex flex-col bg-gradient-to-t from-red-800 via-yellow-600 to-yellow-500'>
+    <div className='grow flex flex-col'>
       <Filter />
       <div className='flex grow sm-flex-col'>
         <TimeSeries logData={ logData } className='grow m-4'/>
