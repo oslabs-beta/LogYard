@@ -56,11 +56,11 @@ const Signup = () => {
         
         <ButtonInputAuth 
           onClick={() => signUpRequest(username, password, serverPassword, navigate, dispatch, setCreateAccountFailed)} 
-          label='Create' 
+          label='Complete Sign Up' 
           className='w-96 rounded-lg my-1'/>
         <InputBar className='my-1 flex'>
-          <ButtonInputAuth onClick={()=> navigate('/')} label='Sign-In as Guest' className='grow'/>
-          <ButtonInputAuth onClick={()=> navigate('/signedlogin')} label='User Sign In' className='grow'/>
+          <ButtonInputAuth onClick={()=> navigate('/guestLogin')} label='Guest Sign In' className='w-[50%]'/>
+          <ButtonInputAuth onClick={()=> navigate('/')} label='User Sign In' className='w-[50%]'/>
         </InputBar>
       
       </div>

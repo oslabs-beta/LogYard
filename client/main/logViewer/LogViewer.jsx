@@ -20,26 +20,41 @@ const LogViewer = () => {
 
   const { Context } = meta;
 
+  const date = new Date(Date.parse(timestamp)).toLocaleDateString();
+
+  const time = new Date(Date.parse(timestamp)).toLocaleTimeString();
+
   return (
-    <div className='mx-10 my-10'>
+    <>
+      <div className='bg-gray-700 rounded-lg text-white m-6 shadow-2xl'>
+        <section id='pageTitle' className='text-center'>
+          <h1 className='text-6xl my-12'>Log Inspection</h1>
+        </section>
 
-      <div className='flex  justify-center items-center space-x-4 p-4 bg-gray-50 border-b border-gray-900 text-gray-900 whitespace-nowrap'>
-        <h1 className='text-xl font-bold'>ID: </h1><h2 className=''>{_id}</h2>
-        <h1 className='text-xl font-bold'>Time: </h1><h2 className=''>{timestamp}</h2>
-        <h1 className='text-xl font-bold'>Level: </h1><h2 className=''>{level}</h2>
+        <section className='text-center mt-5 mb-10'>
+          <div className='border m-5 p-5 rounded-lg shadow-lg'>
+            <div className='text-4xl font-light'>Date: </div>
+            <div className='text-2xl mt-5'>{date} at {time}</div>
+          </div>
+          <div className='border m-5 p-5 rounded-lg shadow-lg'>
+            <div className='text-4xl font-light'>Level: </div>
+            <div className='text-2xl mt-5'>{level}</div>
+          </div>
+          <div className='border m-5 p-5 rounded-lg shadow-lg'>
+            <div className='text-4xl font-light'>Message: </div>
+            <div className='text-2xl mt-5'>{message}</div>
+          </div>
+          <div className='border m-5 p-5 rounded-lg shadow-lg'>
+            <div className='text-4xl font-light'>Context: </div> 
+            {
+              Object.entries(Context).map(([key, value])=>{
+                return <div className='text-2xl mt-5' key={key}> {key}: {value}<br></br></div>; 
+              })
+            }
+          </div>
+        </section>
       </div>
-
-      <div className='min-h-full flex flex-col justify-center items-center mx-auto block w-full p-6 border border-gray-200 shadow bg-gray-200 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700'>
-        <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{message}</h5>
-        <div>
-          {
-            Object.entries(Context).map(([key, value])=>{
-              return <React.Fragment key={key}> {key}: {value}<br></br></React.Fragment>; 
-            })
-          }
-        </div>
-      </div>
-    </div>
+    </>
   );
 };
 
