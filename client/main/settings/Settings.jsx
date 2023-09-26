@@ -26,7 +26,7 @@ const deleteAllLogsClicked = async (dispatch) => {
       dispatch(deleteAllLogs());
 
       // delete all logs from database
-      await axios.delete('http://localhost:3000/api/logs/deleteAllLogs');
+      await axios.delete('/api/logs/deleteAllLogs');
 
       alert('All logs have been deleted.');
     } 

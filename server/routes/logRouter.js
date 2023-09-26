@@ -44,7 +44,7 @@ router.delete(
 );
 
 router.delete(
-  '/deleteAll',
+  '/deleteAllLogs',
   logController.deleteAllLogs,
   (req, res) => {
     res.sendStatus(200);

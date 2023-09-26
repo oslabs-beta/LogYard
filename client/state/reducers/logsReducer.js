@@ -48,7 +48,9 @@ const logsReducer = createReducer(initialState, (builder) => {
       }
     })
     .addCase(DELETE_ALL_LOGS, (state, action) => {
-      state = initialState;
+      state.logs = [];
+      state.filteredLogs = [];
+      state.activeLog = undefined;
     })
     .addCase(FILTER_LOGS, (state, action)=>{
       try{
