@@ -9,20 +9,22 @@
  * ************************************
  **/
 
+import SessionModel from '../../models/sessionModel.js';
 import UserModel from '../../models/userModel.js';
-import bcrypt from 'bcrypt';
 
 const validateUser = async (req, res, next) => {
   try {
-    const { username, password } = req.cookies;
+    const { logyard_session } = req.cookies;
 
+    const sessionData = await SessionModel.findOne({ _id: logyard_session });
+    console.log('sessionData: ', sessionData);
+    const { username } = sessionData;
+    
     const userData = await UserModel.findOne({ username });
-
-    const cryptResult = await bcrypt.compare(password, userData.password);
-
-    if (!cryptResult) {
+    console.log('userData: ', userData);
+    if (!userData) {
       return next({
-        log: 'userController.validateUser ERROR: incorect password',
+        log: 'userController.validateUser ERROR: User Validation Error',
         status: 500,
         message: {
           err: 'Error with User Validation',
