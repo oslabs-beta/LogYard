@@ -66,7 +66,7 @@ const TimeSeries = ({logData, className}) => {
   }, [timeOption, logData, lineGraph]);
 
   return (
-    <div className={`flex flex-col bg-gray-800 text-gray-50 p-8 pl-4 place-content-center text-center rounded-lg ${ className }`}>
+    <div className={`flex flex-col bg-custom-tan text-custom-darkgreen p-8 pl-4 place-content-center text-center rounded-lg ${ className }`}>
       <h1 className='text-4xl text-center'>Time Series Data</h1>
       <Dropdown
         label={timeOption.label}
