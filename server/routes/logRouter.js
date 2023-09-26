@@ -35,4 +35,12 @@ router.post('/', sessionController.checkCookie, logController.addLog, (req, res)
   res.status(200);
 });
 
+router.delete(
+  '/delete/:id', 
+  logController.deleteLog,
+  (req, res) => {
+    res.status(200).json(res.locals.deleted);
+  }
+);
+
 export default router;
