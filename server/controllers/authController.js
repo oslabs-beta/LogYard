@@ -9,30 +9,19 @@
  * ************************************
  */
 
-import cookieParser from 'cookie-parser';
 import dotenv from 'dotenv';
-import LogModel from '../models/logModel.js';
 
 dotenv.config();
 
 const authController = {};
 
 authController.verifyPassword = async (req, res, next) => {
-
-  // console.log('entered authController.verifyPassword');
-
   try {
-    /* get password from request body */
     const { serverPassword } = req.body;
 
-    // console.log('password: ', password);
-    // console.log('process.env.VITE_USER_PASSWORD: ', process.env.VITE_USER_PASSWORD);
-
-    /* check if password typed by user matches .env password - if so, proceed.*/
     if (serverPassword === process.env.VITE_USER_PASSWORD) {
       return next();
     } else {
-      /* if incorrect, pass to global error handler */
       return next({
         log: 'Password is incorrect',
         status: 401,
