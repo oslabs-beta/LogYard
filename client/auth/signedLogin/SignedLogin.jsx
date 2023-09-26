@@ -42,23 +42,26 @@ const SignedLogin = () => {
   const dispatch = useDispatch();
 
   return (
-    <div className='gh-12 shrink-0 flex flex-col justify-start items-center font-montserrat text-gray-50'>
-      <img src='AuthLogo.png' className='h-32 mb-1 mt-12'></img>
+    <div className='gh-12 shrink-0 flex flex-col justify-start items-start font-montserrat text-gray-50'>
+      <img src='AuthLogo.png' className='h-48 mb-1 mt-12 ml-12'></img>
 
-      <div className='bg-custom-darkgreen/50 shadow-lg shadow-brown-900 p-5 pt-3 mt-28 rounded-lg text-center'>
+      <div className='mx-auto'>
+        <div className='bg-custom-darkgreen/90 shadow-lg shadow-brown-900 p-5 pt-3 mt-28 rounded-lg text-center'>
         
-        <h1 className='text-2xl pb-2 text-custom-tan'>SIGN IN:</h1>
-        <TextInput onChange={(e)=>setUsername(e.target.value)} placeholder='Username' className='w-96 px-4 py-2 mt-1 border border-custom-tan rounded-lg focus:ring-custom-tan focus:border-custom-tan p-2 italic placeholder-custom-tan text-custom-tan bg-transparent'/>
-        <TextInput type='password' onChange={(e)=>setPassword(e.target.value)} placeholder='Password' className='w-96 px-4 py-2 my-1 mb-4 border border-custom-tan rounded-lg focus:ring-custom-tan focus:border-custom-tan p-2 italic placeholder-custom-tan text-custom-tan bg-transparent'/>
-        {loginFailed && <h1 className='text-gray-50 text-xl italic mb-4'>Invalid password</h1>}
+          <h1 className='text-2xl pb-2 text-custom-tan'>SIGN IN:</h1>
+          <TextInput onChange={(e)=>setUsername(e.target.value)} placeholder='Username' className='w-96 px-4 py-2 mt-1 border border-custom-tan rounded-lg focus:ring-custom-tan focus:border-custom-tan p-2 italic placeholder-custom-tan text-custom-tan bg-transparent'/>
+          <TextInput type='password' onChange={(e)=>setPassword(e.target.value)} placeholder='Password' className='w-96 px-4 py-2 my-1 mb-4 border border-custom-tan rounded-lg focus:ring-custom-tan focus:border-custom-tan p-2 italic placeholder-custom-tan text-custom-tan bg-transparent'/>
+          {loginFailed && <h1 className='text-gray-50 text-xl italic mb-4'>Invalid password</h1>}
         
-        <ButtonInputAuth onClick={()=>attemptLogin(username, password, navigate, dispatch, setLoginFailed)} label='Login' className='w-96 rounded-lg my-1'/>
-        <InputBar className='my-1 flex'>
-          <ButtonInputAuth onClick={()=> navigate('/guestLogin')} label='Guest Log In' className='w-[50%]'/>
-          <ButtonInputAuth onClick={()=> navigate('/signup')} label='Sign Up' className='w-[50%]'/>
-        </InputBar>
+          <ButtonInputAuth onClick={()=>attemptLogin(username, password, navigate, dispatch, setLoginFailed)} label='Login' className='w-96 rounded-lg my-1'/>
+          <InputBar className='my-1 flex'>
+            <ButtonInputAuth onClick={()=> navigate('/guestLogin')} label='Guest Log In' className='w-[50%]'/>
+            <ButtonInputAuth onClick={()=> navigate('/signup')} label='Sign Up' className='w-[50%]'/>
+          </InputBar>
 
+        </div>
       </div>
+      
     </div>
   );
 };
