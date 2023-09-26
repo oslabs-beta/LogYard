@@ -32,7 +32,7 @@ router.get('/',
 );
 
 router.post('/', sessionController.checkCookie, logController.addLog, (req, res) => {
-  res.status(200);
+  res.sendStatus(200);
 });
 
 router.delete(
