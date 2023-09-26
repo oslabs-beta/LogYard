@@ -49,8 +49,8 @@ const Login = () => {
         
         <ButtonInputAuth onClick={() => onLoginClicked(serverPassword, navigate, setPasswordFailed)} label='Login' className='w-96 mb-2 rounded-lg my-1'/>
         <InputBar className='flex'>
-          <ButtonInputAuth onClick={()=> navigate('/signedlogin')} label='User Sign In' className='grow'/>
-          <ButtonInputAuth onClick={()=> navigate('/signup')} label='Create Account' className='grow'/>
+          <ButtonInputAuth onClick={()=> navigate('/')} label='User Sign In' className='w-[50%]'/>
+          <ButtonInputAuth onClick={()=> navigate('/signup')} label='Sign Up' className='w-[50%]'/>
         </InputBar>
 
       </div>
