@@ -1,3 +1,14 @@
+/**
+ * ************************************
+ *
+ * @module  deleteLogFilter
+ * @authors Preston Coldwell, Ryan Smithey, Geoff Sun, Andrew Wagner, Brian Hwang
+ * @date 09/06/2023
+ * @description Deletes a user created filter. Requires the filter name in the request body.
+ *
+ * ************************************
+ **/
+
 import UserModel from '../../models/userModel.js';
 
 const deleteLogFilter = async (req, res, next) => {

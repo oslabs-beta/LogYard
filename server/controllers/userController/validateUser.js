@@ -1,3 +1,14 @@
+/**
+ * ************************************
+ *
+ * @module  updateLogFilter
+ * @authors Preston Coldwell, Ryan Smithey, Geoff Sun, Andrew Wagner, Brian Hwang
+ * @date 09/06/2023
+ * @description Checks request cookies for valid username and password. Throws an error if invalid.
+ *
+ * ************************************
+ **/
+
 import UserModel from '../../models/userModel.js';
 import bcrypt from 'bcrypt';
 
