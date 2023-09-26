@@ -189,7 +189,7 @@ For any inquiries about installation or usage, please feel free to contact the t
 4. Can I use this for state replication?
     - LogYard does not provide state replication. It is intended as a lightweight solution for active logging analysis not an all encompassing tool.
 
-5. What if my app is running on port 8080?
+5. What if my app is running on port 5555?
     - answer
 
 # <img width='20px' src='./public/Icon.png' /> Contributing
