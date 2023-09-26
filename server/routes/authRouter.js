@@ -10,7 +10,6 @@
  **/
 
 import express from 'express';
-import cookieParser from 'cookie-parser';
 import authController from '../controllers/authController.js';
 import sessionController from '../controllers/sessionController.js';
 
