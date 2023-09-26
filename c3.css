@@ -1,12 +1,12 @@
 /*-- Chart --*/
 .c3 svg {
-  font: 10px sans-serif;
+  font: 10px 'Montserrat';
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 .c3 path, .c3 line {
   fill: none;
-  stroke: #d3d0d0;
+  stroke: #5F7161;
 }
 
 .c3 text {
@@ -24,43 +24,43 @@
 }
 
 .c3-chart-arc path {
-  stroke: #fff;
+  stroke: #5F7161;
 }
 
 .c3-chart-arc rect {
-  stroke: white;
+  stroke: #5F7161;
   stroke-width: 1;
 }
 
 .c3-chart-arc text {
-  fill: #fff;
+  fill: #5F7161;
   font-size: 15px;
 }
 
 /*-- Axis --*/
 .c3-axis-x-label {
-  fill: #ff0000; /* Change the color to your desired color (e.g., red) */
+  fill: #5F7161; /* Change the color to your desired color (e.g., red) */
 }
 
 /* Y-axis title */
 .c3-axis-y-label {
-  fill: #f4f8f4; /* Change the color to your desired color (e.g., green) */
+  fill: #5F7161; /* Change the color to your desired color (e.g., green) */
 }
 
 .c3-axis-x text {
-  fill: #d8dcd8
+  fill: #5F7161
 }
 
 .c3-axis-y text {
-  fill: #d8dcd8
+  fill: #5F7161
 }
 /*-- Grid --*/
 .c3-grid line {
-  stroke: #aaa;
+  stroke: #5F7161;
 }
 
 .c3-grid text {
-  fill: #aaa;
+  fill: #5F7161;
 }
 
 .c3-xgrid, .c3-ygrid {
@@ -69,7 +69,7 @@
 
 /*-- Text on Chart --*/
 .c3-text.c3-empty {
-  fill: #808080;
+  fill: #5F7161;
   font-size: 2em;
 }
 
@@ -85,11 +85,11 @@
 
 .c3-circle._expanded_ {
   stroke-width: 1px;
-  stroke: white;
+  stroke: #5F7161;
 }
 
 .c3-selected-circle {
-  fill: white;
+  fill: #5F7161;
   stroke-width: 2px;
 }
 
@@ -136,7 +136,7 @@
   font-size: 12px;
 }
 .c3-legend-item text {
-  fill: #eceaea;
+  fill: #5F7161;
 }
 
 .c3-legend-item-hidden {
@@ -145,7 +145,7 @@
 
 .c3-legend-background {
   opacity: 0.75;
-  fill: rgb(140, 140, 140);
+  fill: #5F7161;
   stroke: lightgray;
   stroke-width: 1;
 }
@@ -165,28 +165,28 @@
   border-spacing: 0;
   background-color: #fff;
   empty-cells: show;
-  -webkit-box-shadow: 7px 7px 12px -9px #777777;
-  -moz-box-shadow: 7px 7px 12px -9px #777777;
-  box-shadow: 7px 7px 12px -9px #777777;
+  -webkit-box-shadow: 7px 7px 12px -9px #5F7161;
+  -moz-box-shadow: 7px 7px 12px -9px #5F7161;
+  box-shadow: 7px 7px 12px -9px #5F7161;
   opacity: 0.9;
 }
 
 .c3-tooltip tr {
-  border: 1px solid #CCC;
+  border: 1px solid #5F7161;
 }
 
 .c3-tooltip th {
-  background-color: #969696;
+  background-color: #EFEAD8;
   font-size: 14px;
   padding: 2px 5px;
   text-align: left;
-  color: #FFF;
+  color: #5F7161;
 }
 
 .c3-tooltip td {
   font-size: 13px;
   padding: 3px 6px;
-  background-color: #757575;
+  background-color: #EFEAD8;
   border-left: 1px dotted #999;
 }
 
@@ -214,12 +214,12 @@
 }
 
 .c3-chart-arcs .c3-chart-arcs-background {
-  fill: #e0e0e0;
+  fill: #5F7161;
   stroke: #FFF;
 }
 
 .c3-chart-arcs .c3-chart-arcs-gauge-unit {
-  fill: #000;
+  fill: #5F7161;
   font-size: 16px;
 }
 

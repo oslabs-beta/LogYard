@@ -26,26 +26,27 @@ const LogViewer = () => {
 
   return (
     <>
-      <div className='bg-gray-700 rounded-lg text-white m-6 shadow-2xl'>
+      <div className='bg-custom-tan rounded-lg text-custom-darkgreen m-6 mt-14 shadow-2xl'>
         <section id='pageTitle' className='text-center'>
-          <h1 className='text-6xl my-12'>Log Inspection</h1>
+          <h1 className='text-6xl my-12 font-light'>Log Inspection</h1>
         </section>
 
-        <section className='text-center mt-5 mb-10'>
-          <div className='border m-5 p-5 rounded-lg shadow-lg'>
+        <section className='text-center mt-5 mb-10 border-1 border-custom-darkgreen'>
+
+          <div className='border m-5 p-5 rounded-lg shadow-lg border-1 border-custom-darkgreen'>
             <div className='text-4xl font-light'>Date: </div>
             <div className='text-2xl mt-5'>{date} at {time}</div>
           </div>
-          <div className='border m-5 p-5 rounded-lg shadow-lg'>
+          <div className='border m-5 p-5 rounded-lg shadow-lg border-1 border-custom-darkgreen'>
             <div className='text-4xl font-light'>Level: </div>
             <div className='text-2xl mt-5'>{level}</div>
           </div>
-          <div className='border m-5 p-5 rounded-lg shadow-lg'>
+          <div className='border m-5 p-5 rounded-lg shadow-lg border-1 border-custom-darkgreen'>
             <div className='text-4xl font-light'>Message: </div>
             <div className='text-2xl mt-5'>{message}</div>
           </div>
-          <div className='border m-5 p-5 rounded-lg shadow-lg'>
-            <div className='text-4xl font-light'>Context: </div> 
+          <div className='border m-5 p-5 rounded-lg shadow-lg border-1 border-custom-darkgreen'>
+            <div className='text-4xl font-light'>Context(s): </div> 
             {
               Object.entries(Context).map(([key, value])=>{
                 return <div className='text-2xl mt-5' key={key}> {key}: {value}<br></br></div>; 
