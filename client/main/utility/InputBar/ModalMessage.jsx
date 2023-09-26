@@ -18,11 +18,17 @@ const ModalMessage = ({ onClose }) => {
 
   return ( 
     <div className={'absolute z-10 flex justify-center items-center mt-3'}>
-      <div className='bg-gray-700 text-gray-50 p-2 rounded border-4 border-black'>
+      <div className='bg-gray-700 text-gray-100 p-2 rounded border-4 border-black'>
 
-        <div className='w-full flex space-x-56'>
+        <div className='w-full flex space-x-64'>
           <p>*Note: filter arguments must use double quotes</p>
-          <button className='text-gray-50 bg-red-700 w-16' onClick={onClose}>Close</button>
+          {/* <button className='text-gray-50 bg-logo-300 w-16' onClick={onClose}>Close</button> */}
+
+          <svg onClick={onClose} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="white" className="w-8 h-8">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+
+
         </div>
         
 

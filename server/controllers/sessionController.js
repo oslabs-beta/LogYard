@@ -19,7 +19,6 @@ sessionController.checkCookie = async (req, res, next) => {
 
     const currSession = await SessionModel.findOne({ _id: logyard_session });
 
-    /* if cookie doesn't exist, set cookieStatus to false for navigation use in front-end, and vice versa */
     if (!currSession) {
       res.locals.cookieStatus = false;
     } else {
@@ -46,7 +45,6 @@ sessionController.setCookie = async (req, res, next) => {
 
     const response = await SessionModel.create(sessionDoc);
 
-    // extract id from database entry
     const id = response._id;
 
     res.cookie('logyard_session', `${id}`, { httpOnly: true });
