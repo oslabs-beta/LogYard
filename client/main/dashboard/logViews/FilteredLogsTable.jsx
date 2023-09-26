@@ -28,6 +28,7 @@ const FilteredLogsTable = () => {
     tableHeaders.push('Message');
     tableHeaders.push('Context');
     tableHeaders.push('Inspect');
+    tableHeaders.push('Delete')
 
     const startingIndex = Math.max(0, filteredLogs.length - 101);
 

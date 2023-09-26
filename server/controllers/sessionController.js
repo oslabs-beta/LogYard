@@ -15,9 +15,9 @@ const sessionController = {};
 
 sessionController.checkCookie = async (req, res, next) => {
   try {
-    const { session } = req.cookies;
+    const { logyard_session } = req.cookies;
 
-    const currSession = await SessionModel.findOne({ _id: session });
+    const currSession = await SessionModel.findOne({ _id: logyard_session });
 
     if (!currSession) {
       res.locals.cookieStatus = false;
@@ -37,11 +37,17 @@ sessionController.checkCookie = async (req, res, next) => {
 
 sessionController.setCookie = async (req, res, next) => {
   try {
-    const response = await SessionModel.create({});
+    const sessionDoc = {};
+
+    if (res.locals.userData) {
+      sessionDoc.username = res.locals.userData.username;
+    }
+
+    const response = await SessionModel.create(sessionDoc);
 
     const id = response._id;
 
-    res.cookie('session', `${id}`, { httpOnly: true });
+    res.cookie('logyard_session', `${id}`, { httpOnly: true });
 
     return next();
   } catch (err) {

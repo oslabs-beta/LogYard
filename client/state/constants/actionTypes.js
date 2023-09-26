@@ -11,6 +11,7 @@
 // Main Reducer
 export const LOAD_LOGS = 'LOAD_LOGS';
 export const SET_ACTIVE_LOG = 'SET_ACTIVE_LOG';
+export const DELETE_LOG  = 'DELETE_LOG';
 export const FILTER_LOGS = 'FILTER_LOGS';
 export const SET_FILTERED_LOGS = 'SET_FILTERED_LOGS';
 
