@@ -30,7 +30,9 @@ const GraphResize = ({ className, bindID, initializeObj })=>{
 
   return(
     <div className={`relative ${ className }`}>
-      <div id={ bindID } className='absolute flex flex-col top-0 left-0 w-full h-full max-w-full max-h-full' />
+      <div className='absolute flex flex-col top-0 left-0 w-full h-full max-w-full max-h-full'>
+        <div id={ bindID } className='grow min-h-full'/>
+      </div>
     </div>
   );
 };
