@@ -9,22 +9,28 @@
  * ************************************
  */
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
 import Filter from '../dashboard/filters/Filter';
 import TimeSeries from './TimeSeries';
 import Donut from './Donut';
+import Checkbox from './Checkbox';
+
+
 
 const Visualizer = () => {
   const logData = useSelector(state=>state.logsReducer.filteredLogs);
+  const [displayLine, setDisplayLine] = useState(true);
+  const [displayDonut, setDisplayDonut] = useState(true);
 
   return (
     <div className='grow flex flex-col'>
       <Filter />
+      <Checkbox displayLine={ displayLine } setDisplayLine={ setDisplayLine } displayDonut={ displayDonut } setDisplayDonut={ setDisplayDonut } />
       <div className='flex grow sm-flex-col'>
-        <TimeSeries logData={ logData } className='grow m-4'/>
-        <Donut logData={ logData } className='grow m-4'/>
+        {displayLine && (<TimeSeries logData={ logData } className='grow m-4'/> )}
+        {displayDonut && (<Donut logData={ logData } className='grow m-4'/> )}
       </div>
     </div>
   );
