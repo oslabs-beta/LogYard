@@ -1,26 +1,34 @@
+/**
+ * ************************************
+ *
+ * @module  Filter Text
+ * @authors Preston Coldwell, Ryan Smithey, Geoff Sun, Andrew Wagner, Brian Hwang
+ * @date 09/06/2023
+ * @description .jsx - Used for creating and applying filters
+ * 
+ * ************************************
+ */
+
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { setFilteredLogs } from '../../../state/actions/actions';
 import { store } from '../../../state/store/store';
 import applyFilter from '../../../state/filtering/applyFilter';
-import { setFilteredLogs } from '../../../state/actions/actions';
 import InputBar, { ButtonInput, TextInput} from '../../utility/InputBar/InputBar';
-import { useDispatch } from 'react-redux';
 
 
 const applyFilterClicked = (filterString, dispatch, setFilterErrors) => {
-  //Apply Filter to all logs. Using store to avoid re-rendering with use selector
   let filteredLogs = store.getState().logsReducer.logs;
   try {
     const filterMetadata = {};
     filteredLogs = applyFilter(filteredLogs, filterString, filterMetadata);
 
-    //Return issues
     setFilterErrors(filterMetadata.errors);
   }
   catch (e) {
     setFilterErrors(['User filter caused an error']);
   }
   finally {
-    //Dispatch set all filters
     dispatch(setFilteredLogs(filteredLogs));
   }
 };
@@ -30,8 +38,23 @@ const FilterText = ({filterText, setFilterText, setFilterErrors}) => {
 
   return (
     <InputBar className={'grow'}>
-      <TextInput value={filterText} onChange={(e)=>{setFilterText(e.target.value);}} placeholder='Filter Text' className='grow'/>
-      <ButtonInput onClick={()=>applyFilterClicked(filterText, dispatch, setFilterErrors)} label='Apply Filter'/>
+      <TextInput 
+        value={filterText} 
+        onChange={(e)=>{setFilterText(e.target.value);}} 
+        placeholder='Filter Text' 
+        className='grow'
+      />
+      <ButtonInput 
+        onClick={() => {
+          setFilterText('');
+          applyFilterClicked('', dispatch, setFilterErrors);
+        }}
+        label='Clear Filter' 
+      />
+      <ButtonInput 
+        onClick={()=>applyFilterClicked(filterText, dispatch, setFilterErrors)} 
+        label='Apply Filter'
+      />
     </InputBar>
   );
 };

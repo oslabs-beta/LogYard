@@ -9,16 +9,16 @@
  * ************************************
  */
 
-import React, { useState } from 'react';
+import React from 'react';
 import DropdownItem from './DropdownItem';
+
+const onFocus = (entries, setFocused) => {
+  if (!entries.length) return;
+  setFocused(true);
+};
 
 const Dropdown = ({label, className, entries})=>{
   const [focused, setFocused] = React.useState(false);
-  const onFocus = () => {
-    if (!entries.length) return;
-    setFocused(true);
-  };
-  const onBlur = () => setFocused(false);
   
   const items = [];
 
@@ -27,7 +27,7 @@ const Dropdown = ({label, className, entries})=>{
   }
 
   return (
-    <button onFocus={onFocus} onBlur={onBlur} className={`first:rounded-l-lg last:rounded-r-lg relative text-white bg-gray-900 hover:bg-brown-800 hover:text-orange-500 focus:ring-4 focus:outline-none focus:ring-brown-300 font-medium text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-brown-600 dark:hover:bg-brown-700 dark:focus:ring-brown-800 ${className}`} type='button'>
+    <button onFocus={()=>onFocus(entries, setFocused)} onBlur={() => setFocused(false)} className={`first:rounded-l-lg last:rounded-r-lg relative text-white bg-gray-900 hover:text-lime-500 focus:ring-2 focus:outline-none focus:ring-brown-300 font-medium text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-brown-600 dark:hover:bg-brown-700 dark:focus:ring-brown-800 ${className}`} type='button'>
       { label }
       <svg className="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
         <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4"/>

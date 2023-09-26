@@ -1,8 +1,13 @@
-// For blacklist all args must fail
-// For whitelist all args must pass
-// For blacklistAny one args must fail
-// For whitelistAny one arg must pass
-
+/**
+ * ************************************
+ *
+ * @module  logsReducer
+ * @authors Preston Coldwell, Ryan Smithey, Geoff Sun, Andrew Wagner, Brian Hwang
+ * @date 09/06/2023
+ * @description removes all logs that do not have all of the specified properties
+ * 
+ * ************************************
+ */
 
 import filterSelector from '../selectors/filterSelector';
 
