@@ -2,6 +2,7 @@ import express from 'express';
 import cookieParser from 'cookie-parser';
 import connectDB from './db.js';
 import expressLogger from 'logger-express';
+import cors from 'cors';
 const { addLogger, addContext } = expressLogger;
 
 import logRouter from './routes/logRouter.js';
@@ -14,6 +15,7 @@ connectDB();
 const app = express();
 const port = 3000;
 
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
