@@ -41,4 +41,12 @@ router.delete(
   }
 );
 
+router.delete(
+  '/deleteAllLogs',
+  logController.deleteAllLogs,
+  (req, res) => {
+    res.sendStatus(200);
+  }
+);
+
 export default router;
