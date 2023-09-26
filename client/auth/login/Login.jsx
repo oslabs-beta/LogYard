@@ -40,7 +40,7 @@ const Login = () => {
 
   return (
     <div className='h-12 shrink-0 flex flex-col justify-start items-center font-montserrat text-gray-50'>
-      <img src='NavBarLogo.png' className='h-32 mb-1 mt-12'></img>
+      <img src='AuthLogo.png' className='h-32 mb-1 mt-12'></img>
       <div className='bg-custom-darkgreen/50 shadow-lg shadow-brown-900 p-5 pt-3 mt-28 rounded-lg text-center'>
         
         <h1 className='text-2xl pb-2 text-custom-tan'>GUEST:</h1>
