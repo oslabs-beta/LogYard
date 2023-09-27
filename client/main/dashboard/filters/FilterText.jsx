@@ -33,7 +33,7 @@ const applyFilterClicked = (filterString, dispatch, setFilterErrors) => {
   }
 };
 
-const FilterText = ({filterText, setFilterText, setFilterErrors}) => {
+const FilterText = ({filterText, setFilterText, setFilterErrors, setfilterName}) => {
   const dispatch = useDispatch();
 
   return (
@@ -47,6 +47,7 @@ const FilterText = ({filterText, setFilterText, setFilterErrors}) => {
       <ButtonInput 
         onClick={() => {
           setFilterText('');
+          setfilterName('');
           applyFilterClicked('', dispatch, setFilterErrors);
         }}
         label='Clear Filter' 

@@ -56,7 +56,7 @@ We created a demo project for you to easily test our product's logging functiona
 
     1. Ensure you have Docker Desktop installed and opened, and that you are signed in with your Docker account.
 
-    2. Clone the LogYard repository using the following terminal command (you can visit the repo [here](https://github.com/oslabs-beta/LogYard)):
+    2. Clone the LogYard repository using the following terminal command:
 
         `git clone https://github.com/oslabs-beta/LogYard.git`
 
@@ -66,7 +66,7 @@ We created a demo project for you to easily test our product's logging functiona
 
         `docker compose up`
 
-    4. Open Docker Desktop and navigate to Containers.
+    4. Open Docker Dashboard and navigate to Containers.
 
     5. To open the LogYard application, click on the logyard app_container running on port '5555:5555'.
 
@@ -77,13 +77,11 @@ We created a demo project for you to easily test our product's logging functiona
 
 2. Demo App
 
-    1. Navigate to our demo app's GitHub [repository](https://www.google.com/).
-
-    2. Clone the LogYard demo app's repository using the following terminal command (you can visit the repo [here](https://github.com/OSP7/LogYard-Demo-App)):
+    1. Clone the LogYard demo app's repository using the following terminal command (you can visit the repo [here](https://github.com/OSP7/LogYard-Demo-App)):
 
         `git clone https://github.com/OSP7/LogYard-Demo-App.git`
 
-    3. Within the demo app's directory, install package dependencies and run the app using the following terminal commands, in order:
+    2. Within the demo app's directory, install package dependencies and run the app using the following terminal commands, in order:
 
         `npm install`
 
@@ -91,7 +89,7 @@ We created a demo project for you to easily test our product's logging functiona
 
         After following the above steps, the demo app should now be visible on localhost:9000 and the LogYard GUI should remain accessible through your Docker container.
 
-    4. Interacting with the demo app will generate logs that can be seen in the LogYard GUI! Go ahead and give it a try -- filter and visualize these logs!
+    3. Interacting with the demo app will generate logs that can be seen in the LogYard GUI! Go ahead and give it a try -- filter and visualize these logs!
 
         <img width='' src='./public/GIF/SaveFilter.gif'/>
         <img width='' src='./public/GIF/GraphFilterAndTime.gif'/>
@@ -197,7 +195,7 @@ In order to start logging in your application and using the GUI, follow the step
 
 ## 3. LogYard GUI
 
-Note: If you have already installed the GUI from the demo, please ensure you have properly set up your .env file in your project, as outlined [here](#3.-Setting-up-.config-file)
+Note: If you have already installed the GUI from the demo, please ensure you have properly set up your .env file in your project as outlined below.
 
 1. Ensure you have Docker Desktop installed and opened, and that you are signed in with your Docker account.
 

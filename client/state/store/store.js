@@ -17,19 +17,27 @@ import thunk from 'redux-thunk';
 import logsReducer from '../reducers/logsReducer';
 import userReducer from '../reducers/userReducer';
 
-const persistConfig = {
+const logsPersistConfig = {
   key: 'root',
   storage,
   whitelist: ['activeLog'],
   blacklist: ['logs']
 };
 
-const persistedReducer = persistReducer(persistConfig, logsReducer); 
+const userPersistConfig = {
+  key: 'root',
+  storage,
+  whitelist: ['savedFilters'],
+  blacklist: ['password']
+};
+
+const persistedLogsReducer = persistReducer(logsPersistConfig, logsReducer); 
+const persistedUserReducer = persistReducer(userPersistConfig, userReducer);
 
 export const store = configureStore({
   reducer: {
-    logsReducer: persistedReducer,
-    userReducer,
+    logsReducer: persistedLogsReducer,
+    userReducer: persistedUserReducer,
   },
   // required for peristing
   middleware: [thunk]
