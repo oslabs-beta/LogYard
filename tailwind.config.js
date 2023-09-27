@@ -13,6 +13,7 @@ export default {
           'tan': '#EFEAD8',
           'darktan': '#D0C9C0',
           'gray': '#D0C9C0',
+          'red': '#8D021F',
         },
       },
       fontFamily: {

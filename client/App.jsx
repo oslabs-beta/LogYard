@@ -18,6 +18,7 @@ import Login from './auth/login/Login.jsx';
 import Signup from './auth/signup/Signup.jsx';
 import SignedLogin from './auth/signedLogin/SignedLogin';
 
+import Settings from './main/settings/Settings.jsx';
 import MainRouter from './main/MainRouter';
 import Dashboard from './main/dashboard/Dashboard.jsx';
 import LogViewer from './main/logViewer/LogViewer.jsx';
@@ -34,6 +35,7 @@ const App = () => {
         </Route>
         <Route path='/main' element={<MainRouter />}>
           <Route path="/main" element={<Dashboard/>} />
+          <Route path='/main/settings' element={<Settings/>} />
           <Route path="/main/logViewer" element={<LogViewer/>} />
           <Route path="/main/visualizer" element={<Visualizer/>} />
         </Route>
