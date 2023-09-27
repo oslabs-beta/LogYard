@@ -12,7 +12,7 @@
 import React, { useEffect } from 'react';
 import { useNavigate, Outlet } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { loadLogs } from '../state/actions/actions';
+import { loadLogs, setUserData } from '../state/actions/actions';
 import NavBar from './NavBar.jsx';
 
 const loadAllLogs = async (dispatch, navigate) => {
@@ -24,6 +24,21 @@ const loadAllLogs = async (dispatch, navigate) => {
     dispatch(loadLogs(logData));
   } else {
     navigate('/');
+  }
+};
+
+const signOutUser = async (dispatch, navigate) => {
+  try {
+    await fetch('/api/profile/signout', {
+      method: 'DELETE',
+    });
+
+    dispatch(setUserData([]));
+
+    navigate('/');
+
+  } catch (err) {
+    console.log(err);
   }
 };
 
@@ -43,7 +58,7 @@ const MainRouter = () => {
           [ 'Dashboard', () => { navigate('/main'); } ],
           [ 'Visualize', () => { navigate('/main/visualizer'); } ],
           [ 'Settings', () => { navigate('/main/settings'); } ],
-          [ 'Sign Out', () => { navigate('/'); } ],
+          [ 'Sign Out', () => { signOutUser(dispatch, navigate); } ],
         ]}
       />
       <Outlet />

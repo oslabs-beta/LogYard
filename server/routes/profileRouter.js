@@ -61,4 +61,12 @@ profileRouter.delete(
   }
 );// Deletes the requested filter
 
+profileRouter.delete(
+  '/signout',
+  sessionController.deleteCookie,
+  (req,res) => {
+    res.sendStatus(204);
+  }
+);
+
 export default profileRouter;
