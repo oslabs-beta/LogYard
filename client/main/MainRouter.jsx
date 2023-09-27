@@ -48,6 +48,7 @@ const MainRouter = () => {
 
   useEffect(() => {
     loadAllLogs(dispatch, navigate);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -56,6 +57,7 @@ const MainRouter = () => {
         routes={[
           [ 'Dashboard', () => { navigate('/main'); } ],
           [ 'Visualize', () => { navigate('/main/visualizer'); } ],
+          [ 'Settings', () => { navigate('/main/settings'); } ],
           [ 'Sign Out', () => { signOutUser(dispatch, navigate); } ],
         ]}
       />

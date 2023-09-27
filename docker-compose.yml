@@ -22,8 +22,8 @@ services:
     env_file:
       - ./.env
     ports:
-      - 3000:3000
-      - 8080:8080
+      - 3333:3333
+      - 5555:5555
     depends_on:
       - mongodb
     networks: 

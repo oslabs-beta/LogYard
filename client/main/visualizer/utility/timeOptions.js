@@ -27,7 +27,7 @@ export const oneDay = ()=>{return {
     const results = [];
 
     for (let i = 0; i < 12; i++){
-      results.unshift((new Date(this.millisecondsEnd - (i * 2 * 60 * 60 * 1000))).toLocaleTimeString());
+      results.unshift((new Date(this.millisecondsEnd + 1000 - ((i + 1) * 2 * 60 * 60 * 1000))).toLocaleTimeString() + '-' + (new Date(this.millisecondsEnd - (i * 2 * 60 * 60 * 1000))).toLocaleTimeString());
     }
 
     return results;
