@@ -40,7 +40,7 @@ const Login = () => {
 
   return (
     <div className='h-12 shrink-0 flex flex-col justify-start items-start font-montserrat text-gray-50'>
-      <img src='../../../public/AuthLogo.png' className='h-48 mb-1 mt-12 ml-12'></img>
+      <img src='../../../public/AuthLogo.png' className='h-36 mb-1 mt-12 ml-12'></img>
       <div className='mx-auto'>
         <div className='bg-custom-darkgreen/90 shadow-lg shadow-brown-900 p-5 pt-3 mt-28 rounded-lg text-center'>
         

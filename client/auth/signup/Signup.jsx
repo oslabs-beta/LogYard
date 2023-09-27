@@ -44,15 +44,15 @@ const Signup = () => {
   
   return (
     <div className='gh-12 shrink-0 flex flex-col justify-start items-start font-montserrat text-gray-50'>
-      <img src='../../../public/AuthLogo.png' className='h-48 mb-1 mt-12 ml-12'></img>
+      <img src='../../../public/AuthLogo.png' className='h-36 mb-1 mt-12 ml-12'></img>
 
       <div className='mx-auto'>
         <div className='bg-custom-darkgreen/90 shadow-lg shadow-brown-900 p-5 pt-3 mt-28 rounded-lg text-center'>
         
           <h1 className='text-2xl pb-2'>SIGN UP:</h1>
-          <TextInput onChange={(e) => setUsername(e.target.value)} placeholder='Username' className='my-1 w-96 px-4 py-2 mt-1 border border-brown-700 rounded-lg focus:ring-brown-500 focus:border-white p-2 italic placeholder-gray-200 bg-transparent'/>
-          <TextInput type='password' placeholder='Password' onChange={(e) => setPassword(e.target.value)} className='w-96 px-4 py-2 mt-1 border border-brown-700 rounded-lg focus:ring-brown-500 focus:border-white p-2 italic placeholder-gray-200 bg-transparent'/>
-          <TextInput type='password' onChange={(e) => setServerPassword(e.target.value)}  placeholder='Server Password' className='my-1 w-96 px-4 py-2 mt-1 mb-4 border border-brown-700 rounded-lg focus:ring-brown-500 focus:border-white p-2 italic placeholder-gray-200 bg-transparent'/>
+          <TextInput onChange={(e) => setUsername(e.target.value)} placeholder='Username' className='my-1 w-96 px-4 py-2 mt-1 border border-brown-700 rounded-lg focus:ring-brown-500 focus:border-white p-2 italic placeholder-gray-200 bg-transparent text-gray-100'/>
+          <TextInput type='password' placeholder='Password' onChange={(e) => setPassword(e.target.value)} className='w-96 px-4 py-2 mt-1 border border-brown-700 rounded-lg focus:ring-brown-500 focus:border-white p-2 italic placeholder-gray-200 bg-transparent text-gray-100'/>
+          <TextInput type='password' onChange={(e) => setServerPassword(e.target.value)}  placeholder='Server Password' className='my-1 w-96 px-4 py-2 mt-1 mb-4 border border-brown-700 rounded-lg focus:ring-brown-500 focus:border-white p-2 italic placeholder-gray-200 bg-transparent text-gray-100'/>
           {createAccountFailed && <h1 className='text-gray-50 italic mb-4'>Username is taken or invalid server password</h1>}
         
           <ButtonInputAuth 

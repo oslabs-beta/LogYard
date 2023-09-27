@@ -47,12 +47,30 @@ sessionController.setCookie = async (req, res, next) => {
 
     const id = response._id;
 
-    res.cookie('logyard_session', `${id}`, { httpOnly: true });
+    res.cookie('logyard_session', `${id}`, { httpOnly: true, maxAge: 3000000 });
 
     return next();
   } catch (err) {
     return next({
       log: `An error has occured in sessionController.setCookie. ERROR - ${err}`,
+      status: 400,
+      message: { err: 'An error occured' },
+    });
+  }
+};
+
+sessionController.deleteCookie = async (req, res, next) => {
+  try {
+    const { logyard_session } = req.cookies;
+
+    await SessionModel.findOneAndDelete({ _id: logyard_session });
+
+    res.clearCookie('logyard_session');
+
+    return next();
+  } catch (err) {
+    return next({
+      log: `An error has occured in sessionController.deleteCookie. ERROR - ${err}`,
       status: 400,
       message: { err: 'An error occured' },
     });
