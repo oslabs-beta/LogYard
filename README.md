@@ -35,9 +35,9 @@ Our mission is to simplify log management for our users. With our custom logging
 
 - Logging Package
 
-    - Our custom logging package allows you to record frontend and backend logs and to store them safely in a local Docker or MongoDB cloud database.
+    - Our custom logging packages allow you to record frontend and backend logs and to store them safely in a local Docker or MongoDB cloud database.
     - Logs have various customizable attributes:
-        - Type ( Options: error, warn, info, http, verbose, debug, silly )
+        - Level ( Options: error, warn, info, http, verbose, debug, silly )
         - Message ( What message do you want to be displayed with this log? )
         - Context ( Allows you to assign relevant information to your log, such as which file or container it came from. )
 
@@ -46,7 +46,7 @@ Our mission is to simplify log management for our users. With our custom logging
     - See your logs in real time.
     - Sort and filter logs based on level and customizable properties.
     - Save custom filters to your account.
-    - Visualize your logs through several graph types. Using log-type filtering and time selection, only visualize the logs you need.
+    - Visualize your logs through several graph types. Using filters and time selection, only visualize the logs you need.
 
 # <img width='20px' src='./public/Icon.png'/> Demo Our Product
 
@@ -89,7 +89,7 @@ We created a demo project for you to easily test our product's logging functiona
 
         `npm run dev`
 
-        After following the above steps, the demo app should now be visible on localhost:0000 and the LogYard GUI should remain accessible through your Docker container.
+        After following the above steps, the demo app should now be visible on localhost:9000 and the LogYard GUI should remain accessible through your Docker container.
 
     4. Interacting with the demo app will generate logs that can be seen in the LogYard GUI! Go ahead and give it a try - filter and visualize these logs!
 
@@ -100,7 +100,7 @@ We created a demo project for you to easily test our product's logging functiona
 
 # <img width='20px' src='./public/Icon.png'/> Use Our Product
 
-In order to start logging in your application and using LogYard the LogYard GUI, follow the steps below to install the proper dependencies.
+In order to start logging in your application and using the GUI, follow the steps below to install the proper dependencies.
 
 ## 1. Logging Packages
 
