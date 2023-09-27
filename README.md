@@ -259,8 +259,8 @@ If you have found a bug or an area that you feel could be improved within our pr
 
 Following the completion of your outstanding work, if you create a PR, our team will review your code! We thank all of those who contribute toward improving our product's reliability and expanding upon it's features.
 
-## Tasks for Contrubution
-- [ ] Improving analysis tools. Current tools provide a simple interface but lack in depth capabilities.
+## Tasks for Contribution
+- [ ] Improving analysis tools. Current tools provide a simple interface but lack in-depth capabilities.
 - [ ] Additional account customization. 
     - Current accounts lack any organization features. Managing access to logs could be useful depending on application.
     - A more customizable dashboard and visualization page. Currently rather basic save, load, and delete is used for monitoring.
@@ -268,7 +268,7 @@ Following the completion of your outstanding work, if you create a PR, our team 
 - [ ] Improved C3 integrations. C3 is a powerful graphing tool however it directly effects the DOM unlike React which uses a virtual DOM. A major task would be to improve the current interface between C3 and React. Specifically more a more responsive layout for graphs allowing a more customizable visualization page.
 
 # <img width='20px' src='./public/Icon.png'> Publications
-- Medium.com Article (NEED TO LINK)
+- [LogYard: A New Log Management and Visualization Platform for Developers](https://medium.com/@andrewclarkwagner/logyard-a-new-log-management-and-visualization-platform-for-developers-3df574575586)
 
 # <img width='20px' src='./public/Icon.png'> Our Team
 | [<img src="./public/PrestonHeadshot.jpeg" width="100px" >](https://www.linkedin.com/in/prestoncoldwell/) | [<img src="./public/RyanHeadshot.jpg" width="100px" >](https://www.linkedin.com/in/ryan-smithey/) | [<img src="./public/GeoffHeadshot.png" width="100px" >](https://www.linkedin.com/in/geoffrey-sun/) | [<img src="./public/AndyHeadshot.jpeg" width="100px" >](https://www.linkedin.com/in/andrewclarkwagner/) | [<img src="./public/BrianHeadshot.jpeg" width="100px" >](https://www.linkedin.com/in/brianhwang2/) |
