@@ -16,16 +16,17 @@ import ModalIcon from '../../utility/InputBar/ModalIcon.jsx';
 
 const Filter = ()=>{
   const [filterText, setFilterText] = useState('');
+  const [filterName, setFilterName] = useState('');
   const [filterErrors, setFilterErrors] = useState([]);
 
   return (
     <div>
       <div className='flex flex-row pt-5 px-5'>
-        <SaveLoad filterText = { filterText } setFilterText = { setFilterText } />
+        <SaveLoad filterName = {filterName} setfilterName = {setFilterName} filterText = { filterText } setFilterText = { setFilterText } />
 
         <ModalIcon />
         
-        <FilterText filterText = { filterText } setFilterText = { setFilterText } setFilterErrors = { setFilterErrors }/>
+        <FilterText setfilterName = {setFilterName} filterText = { filterText } setFilterText = { setFilterText } setFilterErrors = { setFilterErrors }/>
       </div>
       { filterErrors.map((element)=>
         <div key={Math.random()} className='flex justify-center'>

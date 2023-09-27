@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 import { expect, test } from 'vitest';
 import request from 'supertest';
-const server = 'http://localhost:3000';
+const server = 'http://localhost:3333';
 import dotenv from 'dotenv';
 
 // config dotenv to allow process.env to be used

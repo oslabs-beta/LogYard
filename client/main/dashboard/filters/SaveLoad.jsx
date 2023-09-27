@@ -60,7 +60,7 @@ const deleteFilterClicked = async (filterName, dispatch)=>{
     dispatch(setUserData(body));
   }
 };
-
+//setFitlerName, filterName
 const SaveLoad = ({ setFilterText, filterText }) => {
   const dropdownOptions = [];
   const [filterName, setFilterName] = useState('');

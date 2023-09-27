@@ -22,19 +22,17 @@ profileRouter.post(
   '/signup',
   authController.verifyPassword,
   userController.createUser,
-  userController.addToken,
   sessionController.setCookie,
   (req, res) => {
     res.status(200).send(res.locals.userData);
   }
 );
 
-//Inputs: req.paramsusername, password
+//Inputs: req.body.username, password
 //Outputs: all data associated with user
 profileRouter.post(
   '/signin',
   userController.signin, 
-  userController.addToken,
   sessionController.setCookie,
   (req, res) => {
     res.status(200).send(res.locals.userData);
@@ -62,5 +60,13 @@ profileRouter.delete(
     res.status(200).send(res.locals.userData);
   }
 );// Deletes the requested filter
+
+profileRouter.delete(
+  '/signout',
+  sessionController.deleteCookie,
+  (req,res) => {
+    res.sendStatus(204);
+  }
+);
 
 export default profileRouter;
