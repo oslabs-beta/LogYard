@@ -1,0 +1,27 @@
+name: 'build-tests'
+
+on:
+  pull_request:
+    branches:
+      - main
+      - dev
+      - actions
+
+jobs:
+  fe_be_testing:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup repo
+        uses: actions/checkout@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18.13.0"
+      - name: Install Dependencies from package lock json
+        run: npm install --package-lock-only
+      - name: Install 
+        run: npm ci
+      - name: building
+        run: npm run build
+      - name: Run the test with Vitest (integrated with react test library and supertest)
+        run: npm run test
