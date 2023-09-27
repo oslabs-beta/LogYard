@@ -29,7 +29,7 @@ const NavBar = ({routes})=>{
       <div className='max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4'>
         <div className="flex items-center ml-20">
           <img onClick={() => navigate('/main')} 
-            src="NavBarLogo.png" 
+            src="/NavBarLogo.png" 
             className="h-12 mr-0 hover:cursor-pointer" 
             alt="Logo" />
           {/* <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">LogYard</span> */}
