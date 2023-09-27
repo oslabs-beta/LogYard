@@ -257,7 +257,7 @@ We hope you enjoy using our product and find it useful!
 
 If you have found a bug or an area that you feel could be improved within our product, please reach out - or if you'd like, you can create a fork on this repo and contribute to our product yourself! Contributions are vital to the open-source community and all contributions are greatly appreciated!
 
-Following the completion of your outstanding work, if you create a PR, our team will review your code! We thank all of those who contribute toward improving our product's reliability and expanding upon it's features.
+Following the completion of your outstanding work, if you create a PR, our team will review your code! We thank all of those who contribute toward improving our product's reliability and expanding upon its features.
 
 ## Tasks for Contrubution
 - [ ] Improving analysis tools. Current tools provide a simple interface but lack in depth capabilities.
