@@ -58,11 +58,11 @@ export const categories = ()=>[];//Must be an array
 
 // Utility
 export const colors = ()=>[
-  '#ef4444', // equivalent to tailwind red-500
-  '#fb923c', // orange-400
-  '#22c55e', // green-500
-  '#60a5fa', // blue-400
-  '#2dd4bf', // teal-400
-  '#fde68a', // amber-200
-  '#a78bfa', // violet-400
+  '#C31212', // RED
+  '#EA660C', // ORANGE
+  '#40AA13', // GREEN
+  '#2F6EFF', // BLUE
+  '#edd000', // YELLOW
+  '#A838C1', // PURPLE
+  '#fd30d7', // PINK
 ];
