@@ -14,7 +14,7 @@ import GraphResize from './utility/GraphResize';
 import LineGraph from './utility/LineGraph';
 import timeBucketData from './utility/timeBucket';
 import { oneDay, twoDays, oneWeek } from './utility/timeOptions';
-import Dropdown from '../utility/InputBar/Dropdown';
+import InputBar, { Dropdown } from '../utility/InputBar/InputBar';
 
 const timeOptions = [
   oneDay(),
@@ -68,11 +68,14 @@ const TimeSeries = ({logData, className}) => {
   return (
     <div className={`flex flex-col bg-custom-tan text-custom-darkgreen p-8 pl-4 place-content-center text-center rounded-lg ${ className }`}>
       <h1 className='text-4xl text-center'>Time Series Data</h1>
-      <Dropdown
-        label={timeOption.label}
-        className='m-5'
-        entries={ timeOptions.map((el)=>[el.label, ()=>setTimeOption(el)]) }
-      />
+      
+      <InputBar className='m-4'>
+        <Dropdown
+          label={timeOption.label}
+          entries={ timeOptions.map((el)=>[el.label, ()=>setTimeOption(el)]) }
+        />
+        {/* Conditionally render start date and end date when on set custom time  */}
+      </InputBar>
       <GraphResize bindID={ bindIDRef.current } initializeObj={ initializeObj } className='grow'/>
     </div>
   );
