@@ -58,11 +58,11 @@ export const categories = ()=>[];//Must be an array
 
 // Utility
 export const colors = ()=>[
-  '#C31212', // RED
-  '#EA660C', // ORANGE
-  '#40AA13', // GREEN
-  '#2F6EFF', // BLUE
-  '#edd000', // YELLOW
-  '#A838C1', // PURPLE
-  '#fd30d7', // PINK
+  '#FFA2A2', // ERROR
+  '#E9C4B8', // 
+  '#E6C15E', // 
+  '#26D8EA', // 
+  '#5DDA4E', // 
+  '#D9BDF5', // 
+  '#B6D9D5', // SILLY
 ];

@@ -55,7 +55,7 @@ const onDeleteClick = async (dispatch, id) => {
       dispatch(deleteLog(id));
 
       // delete from database
-      const deletedLog = await axios.delete(`http://localhost:3000/api/logs/delete/${id}`);
+      await axios.delete(`/api/logs/delete/${id}`);
     } 
     catch (e) {
       alert('Log could not be deleted.');
