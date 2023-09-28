@@ -23,7 +23,6 @@ services:
       - ./.env
     ports:
       - 3333:3333
-      - 5555:5555
     depends_on:
       - mongodb
     networks: 
