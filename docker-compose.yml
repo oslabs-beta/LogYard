@@ -12,7 +12,7 @@ services:
     networks: 
       - app-network
     volumes:
-      - mongodb:/data/database_container
+      - mongodb:/data/db
 
   # Node App Service
   app:
