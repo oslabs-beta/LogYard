@@ -17,11 +17,9 @@ const validateUser = async (req, res, next) => {
     const { logyard_session } = req.cookies;
 
     const sessionData = await SessionModel.findOne({ _id: logyard_session });
-    console.log('sessionData: ', sessionData);
     const { username } = sessionData;
     
     const userData = await UserModel.findOne({ username });
-    console.log('userData: ', userData);
     if (!userData) {
       return next({
         log: 'userController.validateUser ERROR: User Validation Error',
