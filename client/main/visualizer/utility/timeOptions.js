@@ -62,7 +62,7 @@ export const oneWeek = ()=>{ return {
   getDivisionLabels: function() {
     const results = [];
 
-    for (let i = 0; i < 7; i++){
+    for (let i = 0; i < 7; i++) {
       results.unshift(dayNames[(new Date(this.millisecondsEnd - (i * 24 * 60 * 60 * 1000))).getDay()]);
     }
 

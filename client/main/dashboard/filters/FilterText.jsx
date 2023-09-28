@@ -39,7 +39,8 @@ const FilterText = ({filterText, setFilterText, setFilterErrors, setfilterName})
   return (
     <InputBar className={'grow'}>
       <TextInput 
-        value={filterText} 
+        value={filterText}
+        id='Filter Text' 
         onChange={(e)=>{setFilterText(e.target.value);}} 
         placeholder='Filter Text' 
         className='grow'

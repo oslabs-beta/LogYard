@@ -14,7 +14,7 @@ let cookieValue;
 
 test('/auth responds to POST request with 200 status when provided with correct password', () => {
   return request(server)
-    .post('/auth')
+    .post('/api/auth')
     .send({
       serverPassword: process.env.VITE_USER_PASSWORD,
     })
@@ -23,7 +23,7 @@ test('/auth responds to POST request with 200 status when provided with correct 
 
 test('/auth responds to POST request with 200 status when provided with correct password', () => {
   return request(server)
-    .post('/auth')
+    .post('/api/auth')
     .send({
       serverPassword: 'wrongPassword',
     })
@@ -32,7 +32,7 @@ test('/auth responds to POST request with 200 status when provided with correct 
 
 test('assigns a cookie upon successful login', () => {
   return request(server)
-    .post('/auth')
+    .post('/api/auth')
     .send({
       serverPassword: process.env.VITE_USER_PASSWORD,
     })
@@ -47,12 +47,12 @@ test('assigns a cookie upon successful login', () => {
 /* Testing suite for /logs route */
 
 test('/logs responds to GET request with 200 status when cookie is present', () => {
-  return request(server).get('/logs').set('Cookie', cookieValue).expect(200);
+  return request(server).get('/api/logs').set('Cookie', cookieValue).expect(200);
 });
 
 test('/logs responds to GET request with application/json content-type', () => {
   return request(server)
-    .get('/logs')
+    .get('/api/logs')
     .set('Cookie', cookieValue)
     .expect('Content-Type', /application\/json/);
 });
