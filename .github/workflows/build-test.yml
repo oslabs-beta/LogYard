@@ -23,6 +23,6 @@ jobs:
       - name: Install 
         run: npm ci
       - name: run dev
-        run: npm run dev
+        run: npm run start
       - name: Run the test with Vitest (integrated with react test library and supertest)
         run: npm run test
