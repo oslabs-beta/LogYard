@@ -14,7 +14,7 @@ import React from 'react';
 const DropdownItem = ({ label, onClickFunc })=>{
   return (
     <li>
-      <a onClick={ onClickFunc } className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{ label }</a>
+      <a onClick={ onClickFunc } className="block px-4 py-2 bg-tan hover:bg-custom-darkgreen hover:text-custom-tan">{ label }</a>
     </li>
   );
 };
