@@ -21,7 +21,7 @@ it('renders a Save button on the page correctly', () => {
 
 it('renders a Delete button on the page correctly', () => {
   renderWithProviders(<Dashboard />);
-  expect(screen.getByText('Delete')).toBeVisible();
+  expect(screen.getByRole('button', { name: 'Delete' })).toBeVisible();
 });
 
 it('renders a Filter Text field on the page correctly', () => {
