@@ -21,7 +21,7 @@ jobs:
         run: npm install --package-lock-only
       - name: Install 
         run: npm ci
-      - name: building
-        run: npm run build
+      - name: run dev
+        run: npm run dev
       - name: Run the test with Vitest (integrated with react test library and supertest)
         run: npm run test
