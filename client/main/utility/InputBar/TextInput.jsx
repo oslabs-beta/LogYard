@@ -13,7 +13,7 @@ import React from 'react';
 
 const TextInput = ({ type, value, onChange, placeholder, className}) => {
   return (
-    <input type={type || 'text'} onChange={onChange} value={value} placeholder={placeholder} className={`text-custom-darkgreen first:rounded-l-lg last:rounded-r-lg bg-custom-tan border border-custom-darktan focus:ring-custom-darkgreen focus:border-custom-darkgreen block placeholder-custom-darkgreen ${className}`}/>
+    <input type={type || 'text'} id={Math.random()} onChange={onChange} value={value} placeholder={placeholder} className={`text-custom-darkgreen first:rounded-l-lg last:rounded-r-lg bg-custom-tan border border-custom-darktan focus:ring-custom-darkgreen focus:border-custom-darkgreen block placeholder-custom-darkgreen ${className}`}/>
   );
 };
 
