@@ -273,6 +273,9 @@ Following the completion of your outstanding work, if you create a PR, our team 
 # <img width='20px' src='./public/Icon.png'> Acknowledgments
 - [OSLabs](https://github.com/open-source-labs)
 
+# <img width='20px' src='./public/Icon.png'> License
+Licensed by MIT.
+See 'MIT License' file for more information.
 
 # <img width='20px' src='./public/Icon.png'> Support Us
 If our product has helped you, or you would like to show your support, please ⭐️ this repository! It helps more than you know!
