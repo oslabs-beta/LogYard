@@ -68,7 +68,7 @@ We created a demo project for you to easily test our product's logging functiona
 
     4. Open Docker Dashboard and navigate to Containers.
 
-    5. To open the LogYard application, click on the logyard app_container running on port '5555:5555'.
+    5. To open the LogYard application, click on the logyard app_container running on port '3333:3333'.
 
         <img width='' src='./public/GIF/DockerDesktop.gif'/>
 
@@ -216,7 +216,7 @@ Note: If you have already installed the GUI from the demo, please ensure you hav
 
 5. Open Docker Desktop and navigate to Containers.
 
-6. To open the LogYard application, click on the logyard app_container running on port '5555:5555'.
+6. To open the LogYard application, click on the logyard app_container running on port '3333:3333'.
 
     <img width='' src='./public/GIF/DockerDesktop.gif'/>
 
