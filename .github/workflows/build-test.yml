@@ -6,6 +6,7 @@ on:
       - main
       - dev
       - actions
+      - cicd
 
 jobs:
   fe_be_testing:

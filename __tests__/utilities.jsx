@@ -9,10 +9,15 @@ export function renderWithProviders(
   ui,
   {
     preloadedState = {
-      logs: [],
-      filteredLogs: [],
-      logFilters: [],
-      activeLog: undefined,
+      logsReducer: {
+        logs: [],
+        filteredLogs: [],
+        logFilters: [],
+        activeLog: undefined,
+      },
+      userReducer: {
+        userData: {},
+      },
     },
     // Automatically create a store instance if no store was passed in
     store = configureStore({ reducer: { logsReducer, userReducer }, preloadedState }),
