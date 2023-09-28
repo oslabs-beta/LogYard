@@ -11,6 +11,7 @@ on:
 jobs:
   fe_be_testing:
     runs-on: ubuntu-latest
+    timeout-minutes: 7
     steps:
       - name: Setup repo
         uses: actions/checkout@v3
