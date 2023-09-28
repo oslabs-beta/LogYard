@@ -80,7 +80,7 @@ const SaveLoad = ({ setFilterText, filterText }) => {
   return (
     <InputBar className={'mr-5'}>
       <Dropdown label='Load' className='' entries={ dropdownOptions }/>
-      <TextInput value={ filterName } onChange={(e)=>setFilterName(e.target.value)} placeholder='Filter Name'/>
+      <TextInput value={ filterName } id='filterName' onChange={(e)=>setFilterName(e.target.value)} placeholder='Filter Name'/>
       <ButtonInput label='Save' onClick={()=>saveFilterClicked(filterName, filterText, dispatch)}/>
       <ButtonInput label='Delete' onClick={()=>deleteFilterClicked(filterName, dispatch)}/>
     </InputBar>
