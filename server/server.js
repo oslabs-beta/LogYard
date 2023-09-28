@@ -2,10 +2,17 @@ import express from 'express';
 import cookieParser from 'cookie-parser';
 import connectDB from './db.js';
 import cors from 'cors';
+import { fileURLToPath } from 'url';
+import { dirname, join } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 import logRouter from './routes/logRouter.js';
 import authRouter from './routes/authRouter.js';
 import profileRouter from './routes/profileRouter.js';
+
+
 
 /* connect to mongo database */
 connectDB();
@@ -17,11 +24,16 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
+app.use(express.static(join(__dirname, '../dist')));
 
 /* Routers */
 app.use('/api/logs', logRouter);
 app.use('/api/auth', authRouter);
 app.use('/api/profile', profileRouter);
+
+app.use('/', (req, res, next) => {
+  res.sendFile(join(__dirname, '../dist/index.html'));
+});
 
 /* 404 handler */
 app.use('*', (req, res) => {

@@ -15,9 +15,9 @@ RUN npm install --silent
 # Copy local files to container's working directory
 COPY . /usr/app/
 
-# Expose ports 3333 and 5555 on the container
+# Expose port 3333
 EXPOSE 3333
-EXPOSE 5555
 
 # Specify default command to run when the container starts
-CMD ["npm", "run", "dev"]
+RUN npm run build
+CMD ["npm", "run", "start"]
