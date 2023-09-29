@@ -2,8 +2,6 @@
  * ************************************
  *
  * @module  Login
- * @authors Preston Coldwell, Ryan Smithey, Geoff Sun, Andrew Wagner, Brian Hwang
- * @date 09/06/2023
  * @description .jsx - SignedLogin page used for logging in with u
  *
  * ************************************

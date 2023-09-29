@@ -17,9 +17,9 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: "18.13.0"
-      - name: Install Dependencies from package lock json
+      - name: Install dependencies from package lock json
         run: npm install --package-lock-only
       - name: Install 
         run: npm ci
-      - name: Run the Server and the Vitest
+      - name: Run the server and Vitest
         run: npm run build-test

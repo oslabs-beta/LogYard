@@ -1,9 +1,7 @@
 /**
  * ************************************
  *
- * @module  levelToInd
- * @authors Preston Coldwell, Ryan Smithey, Geoff Sun, Andrew Wagner, Brian Hwang
- * @date 09/20/2023
+ * @module  TimeSeries
  * @description A graph for displaying time series data about logs.
  * 
  * ************************************

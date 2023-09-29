@@ -2,8 +2,6 @@
  * ************************************
  *
  * @module  authRouter
- * @authors Preston Coldwell, Ryan Smithey, Geoff Sun, Andrew Wagner, Brian Hwang
- * @date 09/06/2023
  * @description Used on changing user info
  * 
  * ************************************

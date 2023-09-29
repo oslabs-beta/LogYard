@@ -2,8 +2,6 @@
  * ************************************
  *
  * @module  FilteredLogsTable
- * @authors Preston Coldwell, Ryan Smithey, Geoff Sun, Andrew Wagner, Brian Hwang
- * @date 09/06/2023
  * @description .jsx - Creates a table from current logs and filters
  * 
  * ************************************
@@ -28,7 +26,7 @@ const FilteredLogsTable = () => {
     tableHeaders.push('Message');
     tableHeaders.push('Context');
     tableHeaders.push('Inspect');
-    tableHeaders.push('Delete')
+    tableHeaders.push('Delete');
 
     const startingIndex = Math.max(0, filteredLogs.length - 101);
 

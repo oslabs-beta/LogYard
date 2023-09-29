@@ -1,9 +1,7 @@
 /**
  * ************************************
  *
- * @module  logsReducer
- * @authors Preston Coldwell, Ryan Smithey, Geoff Sun, Andrew Wagner, Brian Hwang
- * @date 09/06/2023
+ * @module  GROUP
  * @description Combines all logs into an object. Each key is a unique log property based on input filter.
  * 
  * ************************************

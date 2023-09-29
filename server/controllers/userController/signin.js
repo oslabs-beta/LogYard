@@ -2,8 +2,6 @@
  * ************************************
  *
  * @module  signin
- * @authors Preston Coldwell, Ryan Smithey, Geoff Sun, Andrew Wagner, Brian Hwang
- * @date 09/06/2023
  * @description Takes in a username and password in the request body. Causes an error if they are invalid.
  *
  * ************************************

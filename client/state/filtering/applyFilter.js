@@ -1,9 +1,7 @@
 /**
  * ************************************
  *
- * @module  logsReducer
- * @authors Preston Coldwell, Ryan Smithey, Geoff Sun, Andrew Wagner, Brian Hwang
- * @date 09/06/2023
+ * @module  applyFilter
  * @description Used for applying a user generated filter. Also contains metaData about the operation.
  * 
  * ************************************

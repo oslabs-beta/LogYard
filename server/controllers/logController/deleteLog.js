@@ -1,3 +1,12 @@
+/**
+ * ************************************
+ *
+ * @module  deleteLog
+ * @description deletes one log
+ *
+ * ************************************
+ **/
+
 import LogModel from '../../models/logModel.js';
 
 const deleteLog = async (req, res, next) => {

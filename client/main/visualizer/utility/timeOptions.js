@@ -1,10 +1,8 @@
 /**
  * ************************************
  *
- * @module  levelToInd
- * @authors Preston Coldwell, Ryan Smithey, Geoff Sun, Andrew Wagner, Brian Hwang
- * @date 09/20/2023
- * @description A set of objects that describe how to organize time based data within a graph.
+ * @module  
+ * @description time options for graphs
  * 
  * ************************************
  */
