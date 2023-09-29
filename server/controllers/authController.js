@@ -2,8 +2,6 @@
  * ************************************
  *
  * @module  authController
- * @authors Preston Coldwell, Ryan Smithey, Geoff Sun, Andrew Wagner, Brian Hwang
- * @date 09/06/2023
  * @description .verifyPassword checks if password in .env matches one entered by user on login
  * 
  * ************************************

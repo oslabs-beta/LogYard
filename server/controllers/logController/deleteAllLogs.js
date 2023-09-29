@@ -1,3 +1,12 @@
+/**
+ * ************************************
+ *
+ * @module  deleteAllLogs
+ * @description deletes all logs from the database
+ *
+ * ************************************
+ **/
+
 import LogModel from '../../models/logModel.js';
 
 const deleteAllLogs = async (req, res, next) => {
