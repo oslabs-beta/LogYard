@@ -21,7 +21,7 @@ const AuthRouter = () => {
       style={{ backgroundImage: `url(${backgroundImage})` }}
     >
       <div className='flex backdrop-blur-sm flex-col h-full w-full'>
-        {/* source: /client/App.jsx */}
+        {/* source: /client/App.tsx */}
         <Outlet/>
       </div>
     </div>
