@@ -7,7 +7,6 @@
  * ************************************
  */
 
-import React from 'react';
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
@@ -22,7 +21,7 @@ import Dashboard from './main/dashboard/Dashboard.jsx';
 import LogViewer from './main/logViewer/LogViewer.jsx';
 import Visualizer from './main/visualizer/Visualizer.jsx';
 
-const App = () => {
+const App: React.FC = () => {
   return (
     <BrowserRouter >
       <Routes>

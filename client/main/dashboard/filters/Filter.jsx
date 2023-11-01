@@ -10,7 +10,7 @@
 import React, { useState } from 'react';
 import FilterText from './FilterText';
 import SaveLoad from './SaveLoad';
-import ModalIcon from '../../utility/InputBar/ModalIcon.jsx';
+import ModalIcon from '../../utility/InputBar/ModalIcon.tsx';
 
 const Filter = ()=>{
   const [filterText, setFilterText] = useState('');

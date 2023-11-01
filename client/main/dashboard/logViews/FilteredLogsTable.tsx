@@ -12,9 +12,11 @@ import { useSelector } from 'react-redux';
 import logEntryCreator from './logEntryCreator';
 import groupEntryCreator from './groupEntryCreator';
 import Table from '../../utility/Table/Table';
+import { RootState } from '../../../state/store/store';
 
-const FilteredLogsTable = () => {
-  const filteredLogs = useSelector(state=>state.logsReducer.filteredLogs);
+
+const FilteredLogsTable: React.FC = () => {
+  const filteredLogs = useSelector((state: RootState)=>state.logsReducer.filteredLogs);
   
   const tableEntries = [];
   const tableHeaders = [];

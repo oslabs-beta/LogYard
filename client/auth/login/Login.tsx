@@ -7,11 +7,15 @@
  * ************************************
  */
 
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import { NavigateFunction, useNavigate } from 'react-router-dom';
 import InputBar, { TextInput, ButtonInputAuth} from '../../main/utility/InputBar/InputBar';
 
-const onLoginClicked = async (serverPassword, navigate, setPasswordFailed) => {
+
+interface ClickFunc {
+  (serverPassword: string, navigate: NavigateFunction, setPasswordFailed:React.Dispatch<React.SetStateAction<boolean>>):Promise<void>
+}
+const onLoginClicked:ClickFunc = async (serverPassword, navigate, setPasswordFailed) => {
   try {
     const response = await fetch('/api/auth', {
       method: 'POST',
@@ -43,7 +47,7 @@ const Login = () => {
         <div className='bg-custom-darkgreen/90 shadow-lg shadow-brown-900 p-5 pt-3 mt-28 rounded-lg text-center'>
         
           <h1 className='text-2xl pb-2 text-custom-tan'>GUEST:</h1>
-          <TextInput type='password' onChange={(e)=>setServerPassword(e.target.value)} placeholder='Server Password' className='w-96 px-4 py-2 mb-4 mt-1 border border-custom-tan rounded-lg focus:ring-custom-tan focus:border-custom-tan p-2 italic placeholder-custom-tan text-custom-tan bg-transparent'/>
+          <TextInput type='password' value={serverPassword} onChange={(e)=>setServerPassword(e.target.value)} placeholder='Server Password' className='w-96 px-4 py-2 mb-4 mt-1 border border-custom-tan rounded-lg focus:ring-custom-tan focus:border-custom-tan p-2 italic placeholder-custom-tan text-custom-tan bg-transparent'/>
           {passwordFailed && ( <h1 className='text-gray-50 italic mb-4'> Invalid password - please try again </h1> )}
         
           <ButtonInputAuth onClick={() => onLoginClicked(serverPassword, navigate, setPasswordFailed)} label='Login' className='w-96 mb-2 rounded-lg my-1'/>

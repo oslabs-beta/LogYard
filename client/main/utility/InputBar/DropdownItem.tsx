@@ -9,7 +9,12 @@
 
 import React from 'react';
 
-const DropdownItem = ({ label, onClickFunc })=>{
+interface DropDownItemProps {
+ label: string
+ onClickFunc: () => void
+}
+
+const DropdownItem: React.FC<DropDownItemProps> = ({ label, onClickFunc })=>{
   return (
     <li>
       <a onClick={ onClickFunc } className="block px-4 py-2 bg-tan hover:bg-custom-darkgreen hover:text-custom-tan">{ label }</a>

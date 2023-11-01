@@ -7,18 +7,28 @@
  * ************************************
  */
 
-import React from 'react';
+import {useState} from 'react';
 import DropdownItem from './DropdownItem';
 
-const onFocus = (entries, setFocused) => {
+interface DropdownProps {
+  label: string
+  className: string
+  entries: [string, () => void][]
+}
+
+interface onFocusFunc {
+  (entries: any[], setFocused:(value: boolean) => void): void
+}
+
+const onFocus: onFocusFunc = (entries, setFocused) => {
   if (!entries.length) return;
   setFocused(true);
 };
 
-const Dropdown = ({label, className, entries})=>{
-  const [focused, setFocused] = React.useState(false);
+const Dropdown: React.FC<DropdownProps> = ({label, className, entries})=>{
+  const [focused, setFocused] = useState<boolean>(false);
   
-  const items = [];
+  const items: React.ReactNode[] = [];
 
   for (const entry of entries){
     items.push(<DropdownItem key={Math.random()} label={entry[0]} onClickFunc={entry[1]}/>);

@@ -13,7 +13,13 @@ import TableHeader from './TableHeader';
 
 //displayHeaders ex: ['h1', 'h2', 'header3']
 //displayData ex: [['H1 Data', 'H2 data', 'asdf']]
-const Table = ({ displayHeaders, displayData }) => {
+
+interface TableProps {
+  displayHeaders: string[]
+  displayData: React.ReactNode[][]
+}
+
+const Table: React.FC<TableProps> = ({ displayHeaders, displayData }) => {
   const tableHeaders = [];
   const tableItems = [];
 
