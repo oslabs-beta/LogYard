@@ -1,3 +1,12 @@
+/**
+ * ************************************
+ *
+ * @module  addLog
+ * @description adds a log to the database
+ *
+ * ************************************
+ **/
+
 import LogModel from '../../models/logModel.js';
 
 const addLog = async (req, res, next) => {

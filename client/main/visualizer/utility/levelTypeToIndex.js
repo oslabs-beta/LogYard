@@ -2,8 +2,6 @@
  * ************************************
  *
  * @module  levelToInd
- * @authors Preston Coldwell, Ryan Smithey, Geoff Sun, Andrew Wagner, Brian Hwang
- * @date 09/20/2023
  * @description used to covert 'level' key (a string) to appropriate number (related to that level type)
  * 
  * ************************************

@@ -2,8 +2,6 @@
  * ************************************
  *
  * @module  SaveLoad
- * @authors Preston Coldwell, Ryan Smithey, Geoff Sun, Andrew Wagner, Brian Hwang
- * @date 09/06/2023
  * @description .jsx - Used for Saving, Loading, and deleting from user data
  * 
  * ************************************

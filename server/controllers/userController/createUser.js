@@ -2,8 +2,6 @@
  * ************************************
  *
  * @module  createUser
- * @authors Preston Coldwell, Ryan Smithey, Geoff Sun, Andrew Wagner, Brian Hwang
- * @date 09/06/2023
  * @description creates a new user given a password and username in request body. 
  * throws an error when already in use.
  *

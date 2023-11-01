@@ -2,8 +2,6 @@
  * ************************************
  *
  * @module  sessionController
- * @authors Preston Coldwell, Ryan Smithey, Geoff Sun, Andrew Wagner, Brian Hwang
- * @date 09/06/2023
  * @description (.checkCookie checks if cookie is present in database) (.setCookie sets a cookie on the database and in the browser)
  *
  * ************************************

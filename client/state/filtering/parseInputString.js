@@ -1,15 +1,13 @@
 /**
  * ************************************
  *
- * @module  logsReducer
- * @authors Preston Coldwell, Ryan Smithey, Geoff Sun, Andrew Wagner, Brian Hwang
- * @date 09/06/2023
+ * @module  parseLogDataTypes
  * @description Used for parsing a user generated filter
  * 
  * ************************************
  */
-// Expects format of FilterMethod(LogDataType() LogDataType2("Argument")) FilterMethod2(FilterArg2("asdf")) /  is an escape character
 
+// Expects format of FilterMethod(LogDataType() LogDataType2("Argument")) FilterMethod2(FilterArg2("asdf")) /  is an escape character
 
 const parseLogDataTypes = (filterString, i, level0Arguments) => {
   if (filterString[i + 1] === ')') return i + 2;
@@ -36,6 +34,15 @@ const parseLogDataTypes = (filterString, i, level0Arguments) => {
   return i;
 };
 
+/**
+ * ************************************
+ *
+ * @module  parseLogDataTypeArguments
+ * @description 
+ * 
+ * ************************************
+ */
+
 const parseLogDataTypeArguments = (filterString, i, outputObject) => {
   if (filterString[i+1] === ')') return i + 2;
   
@@ -60,6 +67,15 @@ const parseLogDataTypeArguments = (filterString, i, outputObject) => {
   return i;
 };
 
+/**
+ * ************************************
+ *
+ * @module  parseFilterMethod
+ * @description 
+ * 
+ * ************************************
+ */
+
 const parseFilterMethod = (filterString, i, outputObject) => {
   const outputFilterMethod = {
     name: '',
@@ -78,6 +94,15 @@ const parseFilterMethod = (filterString, i, outputObject) => {
   
   return i;
 };
+
+/**
+ * ************************************
+ *
+ * @module  parseInputString
+ * @description Parses input string
+ * 
+ * ************************************
+ */
 
 const parseInputString = (filterString) => {
   let i = 0;

@@ -2,8 +2,6 @@
  * ************************************
  *
  * @module  Visualizer
- * @authors Preston Coldwell, Ryan Smithey, Geoff Sun, Andrew Wagner, Brian Hwang
- * @date 09/20/2023
  * @description renders various graph types into single jsx element
  * 
  * ************************************
