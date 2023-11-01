@@ -10,6 +10,7 @@
 import { useState } from 'react';
 import { NavigateFunction, useNavigate } from 'react-router-dom';
 import InputBar, { TextInput, ButtonInputAuth} from '../../main/utility/InputBar/InputBar';
+import { ChangeEventHandler, ClickEventHandler } from '../signedLogin/SignedLogin';
 
 
 interface ClickFunc {
@@ -34,11 +35,16 @@ const onLoginClicked:ClickFunc = async (serverPassword, navigate, setPasswordFai
   }
 };
 
-const Login = () => {
-  const [serverPassword, setServerPassword] = useState('');
-  const [passwordFailed, setPasswordFailed] = useState(false);
+
+const Login: React.FC = () => {
+  const [serverPassword, setServerPassword] = useState<string>('');
+  const [passwordFailed, setPasswordFailed] = useState<boolean>(false);
   
   const navigate = useNavigate();
+  
+  const onServerPasswordChange: ChangeEventHandler = (e) => setServerPassword(e.target.value);
+  const onUserSignInClick: ClickEventHandler = () => navigate('/')
+  const onUserSignUpClick: ClickEventHandler = () => navigate('/signup')
 
   return (
     <div className='h-12 shrink-0 flex flex-col justify-start items-start font-montserrat text-gray-50'>
@@ -47,13 +53,13 @@ const Login = () => {
         <div className='bg-custom-darkgreen/90 shadow-lg shadow-brown-900 p-5 pt-3 mt-28 rounded-lg text-center'>
         
           <h1 className='text-2xl pb-2 text-custom-tan'>GUEST:</h1>
-          <TextInput type='password' value={serverPassword} onChange={(e)=>setServerPassword(e.target.value)} placeholder='Server Password' className='w-96 px-4 py-2 mb-4 mt-1 border border-custom-tan rounded-lg focus:ring-custom-tan focus:border-custom-tan p-2 italic placeholder-custom-tan text-custom-tan bg-transparent'/>
+          <TextInput type='password' value={serverPassword} onChange={onServerPasswordChange} placeholder='Server Password' className='w-96 px-4 py-2 mb-4 mt-1 border border-custom-tan rounded-lg focus:ring-custom-tan focus:border-custom-tan p-2 italic placeholder-custom-tan text-custom-tan bg-transparent'/>
           {passwordFailed && ( <h1 className='text-gray-50 italic mb-4'> Invalid password - please try again </h1> )}
         
           <ButtonInputAuth onClick={() => onLoginClicked(serverPassword, navigate, setPasswordFailed)} label='Login' className='w-96 mb-2 rounded-lg my-1'/>
           <InputBar className='flex'>
-            <ButtonInputAuth onClick={()=> navigate('/')} label='User Sign In' className='w-[50%]'/>
-            <ButtonInputAuth onClick={()=> navigate('/signup')} label='Sign Up' className='w-[50%]'/>
+            <ButtonInputAuth onClick={onUserSignInClick} label='User Sign In' className='w-[50%]'/>
+            <ButtonInputAuth onClick={onUserSignUpClick} label='Sign Up' className='w-[50%]'/>
           </InputBar>
 
         </div>

@@ -12,8 +12,8 @@
 import React, { ChangeEvent } from 'react';
 
 interface TextInputProps {
-  type: string;
-  value: string;
+  type?: string;
+  value?: string;
   onChange:(e: ChangeEvent<HTMLInputElement>) => void;
   placeholder: string;
   className: string;
