@@ -12,9 +12,13 @@
 // eslint modifier for example scripts in modal
 /* eslint-disable react/no-unescaped-entities */
 
-import React, { useState } from 'react';
+import React from 'react';
 
-const ModalMessage = ({ onClose }) => {
+interface ModalMessageProps {
+  onClose: () => void;
+}
+
+const ModalMessage: React.FC<ModalMessageProps> = ({ onClose }) => {
 
   return ( 
     <div className={'absolute z-10 flex justify-center items-center mt-3'}>
