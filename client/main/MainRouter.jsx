@@ -20,7 +20,6 @@ const loadAllLogs = async (dispatch, navigate) => {
 
   if (logData.ok) {
     logData = await logData.json();
-    
     dispatch(loadLogs(logData));
   } else {
     navigate('/');

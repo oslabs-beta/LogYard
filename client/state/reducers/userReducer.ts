@@ -11,17 +11,32 @@
 
 import { createReducer } from '@reduxjs/toolkit';
 
-import {
-  SET_USER_DATA,
-} from '../constants/actionTypes';
+import { setUserData } from '../actions/actions';
 
-const initialState = {
-  userData: {}
+export interface UserState {
+  userData: UserData
+}
+
+export interface UserData {
+  _id: string
+  username: string
+  password: string
+  savedFilters: any
+  createdAt: string
+}
+const initialState: UserState = {
+  userData: {
+    _id: '',
+    username: '',
+    password: '',
+    savedFilters: [],
+    createdAt: ''
+  }
 };
 
 const userReducer = createReducer(initialState, (builder) => {
   builder
-    .addCase(SET_USER_DATA, (state, action) => {
+    .addCase(setUserData, (state, action) => {
       state.userData = action.payload;
     });
 });

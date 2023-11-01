@@ -11,32 +11,51 @@
 
 import { createReducer } from '@reduxjs/toolkit';
 import applyFilter from '../filtering/applyFilter';
+import { PayloadAction } from '@reduxjs/toolkit';
 
-import {
-  LOAD_LOGS,
-  SET_ACTIVE_LOG,
-  FILTER_LOGS,
-  SET_FILTERED_LOGS,
-  DELETE_LOG,
-  DELETE_ALL_LOGS,
-} from '../constants/actionTypes';
+// import {
+//   LOAD_LOGS,
+//   SET_ACTIVE_LOG,
+//   FILTER_LOGS,
+//   SET_FILTERED_LOGS,
+//   DELETE_LOG,
+//   DELETE_ALL_LOGS,
+// } from '../constants/actionTypes';
 
-const initialState = {
+import * as actions from '../actions/actions'
+
+export interface LogsState {
+  logs: LogItem[]
+  filteredLogs: LogItem[]
+  activeLog: LogItem | undefined
+}
+
+export interface LogItem {
+  level: string
+  message: string
+  meta: any
+  timestamp: string
+  _id: string
+}
+
+const initialState: LogsState = {
   logs: [],
   filteredLogs: [],
   activeLog: undefined,
 };
 
+
+
 const logsReducer = createReducer(initialState, (builder) => {
   builder
-    .addCase(LOAD_LOGS, (state, action) => {
+    .addCase(actions.loadLogs, (state, action) => {
       state.logs = action.payload;
       state.filteredLogs = action.payload;
     })
-    .addCase(SET_ACTIVE_LOG, (state, action) => {
+    .addCase(actions.setActiveLog, (state, action) => {
       state.activeLog = action.payload;
     })
-    .addCase(DELETE_LOG, (state, action) => {
+    .addCase(actions.deleteLog, (state, action) => {
       try{
         const idToDelete = action.payload;
         state.logs = state.logs.filter((log) => log._id !== idToDelete);
@@ -47,12 +66,12 @@ const logsReducer = createReducer(initialState, (builder) => {
         console.log(e);
       }
     })
-    .addCase(DELETE_ALL_LOGS, (state, action) => {
+    .addCase(actions.deleteAllLogs, (state) => {
       state.logs = [];
       state.filteredLogs = [];
       state.activeLog = undefined;
     })
-    .addCase(FILTER_LOGS, (state, action)=>{
+    .addCase(actions.filterLogs, (state, action)=>{
       try{
         state.filteredLogs = applyFilter(state.logs, action.payload);
       }
@@ -61,7 +80,7 @@ const logsReducer = createReducer(initialState, (builder) => {
         console.log(e);
       }
     })
-    .addCase(SET_FILTERED_LOGS, (state, action)=>{
+    .addCase(actions.setFilteredLogs, (state, action)=>{
       try{
         state.filteredLogs = state.filteredLogs = action.payload;
       }
