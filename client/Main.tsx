@@ -13,7 +13,6 @@ import { Provider } from 'react-redux';
 import { store, persistor } from './state/store/store.js';
 import { PersistGate } from 'redux-persist/integration/react';
 
-
 const root = document.getElementById('root');
 
 if (root) {
