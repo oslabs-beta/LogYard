@@ -13,7 +13,7 @@ import React from 'react';
 import { Outlet } from 'react-router-dom';
 import backgroundImage from '/Trees.jpg';
 
-const AuthRouter = () => {
+const AuthRouter: React.FC = () => {
 
   return (
     <div
