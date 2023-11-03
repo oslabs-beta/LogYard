@@ -9,14 +9,19 @@
 
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { RootState } from '../../state/store/store';
 
-const LogViewer = () => {
+interface Context {
+  [key:string]: string
+}
 
-  const log = useSelector( state => state.logsReducer.activeLog );
+const LogViewer: React.FC = () => {
 
-  const { _id, timestamp, meta, message, level} = log;
+  const log = useSelector( (state: RootState) => state.logsReducer.activeLog );
 
-  const { Context } = meta;
+  const { timestamp, meta, message, level} = log;
+
+  const { Context } = meta as {Context: Context};
 
   const date = new Date(Date.parse(timestamp)).toLocaleDateString();
 
@@ -46,7 +51,7 @@ const LogViewer = () => {
           <div className='border m-5 p-5 rounded-lg shadow-lg border-1 border-custom-darkgreen'>
             <div className='text-4xl font-light'>Context(s): </div> 
             {
-              Object.entries(Context).map(([key, value])=>{
+              Object.entries(Context).map(([key, value]: [string, string])=>{
                 return <div className='text-2xl mt-5' key={key}> {key}: {value}<br></br></div>; 
               })
             }
