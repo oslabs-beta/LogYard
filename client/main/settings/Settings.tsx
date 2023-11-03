@@ -10,13 +10,12 @@
 import React from 'react';
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 import { deleteAllLogs } from '../../state/actions/actions';
+import { Dispatch } from '@reduxjs/toolkit';
 
+const deleteAllLogsClicked = async (dispatch:Dispatch) => {
 
-const deleteAllLogsClicked = async (dispatch) => {
-
-  const prompt = confirm('Are you sure you want to delete ALL of your logs?');
+  const prompt:boolean = confirm('Are you sure you want to delete ALL of your logs?');
 
   if (prompt) {
     try {
@@ -30,13 +29,13 @@ const deleteAllLogsClicked = async (dispatch) => {
     } 
     catch (e) {
       alert('Log could not be deleted.');
-      console.log(e);
+      console.error(e);
     }
   }
   return;
 };
 
-const Settings = () => {
+const Settings: React.FC = () => {
   const dispatch = useDispatch();
 
   return (
