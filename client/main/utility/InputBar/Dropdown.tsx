@@ -13,7 +13,8 @@ import DropdownItem from './DropdownItem';
 interface DropdownProps {
   label: string
   className: string
-  entries: [string, () => void][]
+  // entries: (() => Promise<void>)[][]
+  entries: any
 }
 
 interface onFocusFunc {

@@ -7,9 +7,13 @@
  * ************************************
  */
 
-import React from 'react';
+import React, { ReactNode } from 'react';
 
-const TableItem = ({ columns }) => {
+interface TableItemProps {
+  columns: ReactNode[]
+}
+
+const TableItem: React.FC<TableItemProps> = ({ columns }) => {
   const allColumns = [];
 
   for (const col of columns){

@@ -10,17 +10,17 @@
 import React, { useState } from 'react';
 import FilterText from './FilterText';
 import SaveLoad from './SaveLoad';
-import ModalIcon from '../../utility/InputBar/ModalIcon.tsx';
+import ModalIcon from '../../utility/InputBar/ModalIcon';
 
-const Filter = ()=>{
-  const [filterText, setFilterText] = useState('');
-  const [filterName, setFilterName] = useState('');
+const Filter: React.FC = ()=>{
+  const [filterText, setFilterText] = useState<string>('');
+  const [filterName, setFilterName] = useState<string>('');
   const [filterErrors, setFilterErrors] = useState([]);
 
   return (
     <div>
       <div className='flex flex-row pt-5 px-5'>
-        <SaveLoad filterName = {filterName} setfilterName = {setFilterName} filterText = { filterText } setFilterText = { setFilterText } />
+        <SaveLoad filterName = {filterName} setFilterName = {setFilterName} filterText = { filterText } setFilterText = { setFilterText } />
 
         <ModalIcon />
         

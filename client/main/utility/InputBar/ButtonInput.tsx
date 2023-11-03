@@ -10,7 +10,7 @@
 interface ButtonInputProps {
   label: string
   onClick: () => void
-  className: string
+  className?: string
 }
 
 const ButtonInput: React.FC<ButtonInputProps> = ({ label, onClick, className })=>{

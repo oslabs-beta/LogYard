@@ -7,11 +7,11 @@
  * ************************************
  */
 
-import React from 'react';
+import React, { ReactNode } from 'react';
 
 interface DropDownItemProps {
- label: string
- onClickFunc: () => void
+ label: any
+ onClickFunc: (() => void)
 }
 
 const DropdownItem: React.FC<DropDownItemProps> = ({ label, onClickFunc })=>{

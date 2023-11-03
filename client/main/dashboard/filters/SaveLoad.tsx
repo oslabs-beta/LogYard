@@ -12,10 +12,20 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setUserData } from '../../../state/actions/actions';
 import applyFilter from '../../../state/filtering/applyFilter';
 import InputBar, { Dropdown, ButtonInput, TextInput} from '../../utility/InputBar/InputBar';
+import { RootState } from '../../../state/store/store';
+import { Dispatch } from '@reduxjs/toolkit';
 
-const validateFilter = (filterString)=>{
+interface validateFilter {
+  (filterString: string): boolean
+}
+
+type filterMetaData = {
+  errors?: any
+}
+
+const validateFilter: validateFilter = (filterString)=>{
   try {
-    const filterMetaData = {};
+    const filterMetaData: filterMetaData = {};
     
     applyFilter([], filterString, filterMetaData);
 
@@ -26,7 +36,15 @@ const validateFilter = (filterString)=>{
   }
 };
 
-const saveFilterClicked = async (filterName, filterString, dispatch) => {
+interface saveFilterClicked {
+  (
+    filterName:string,
+    filterString: string,
+    dispatch: Dispatch
+    ): void
+}
+
+const saveFilterClicked: saveFilterClicked = async (filterName, filterString, dispatch) => {
   if (!validateFilter(filterString)) return alert('Fix all errors before saving filter');
   
   const result = await fetch('/api/profile/filter', {
@@ -41,12 +59,28 @@ const saveFilterClicked = async (filterName, filterString, dispatch) => {
   }
 };
 
-const loadFilterClicked = async (filterName, filterString, setFilterName, setFilterText)=>{
+interface loadFilterClicked {
+  (
+    filterName: string,
+    filterString: string,
+    setFilterName: React.Dispatch<React.SetStateAction<string>>,
+    setFilterText: React.Dispatch<React.SetStateAction<string>>
+  ): void
+}
+
+const loadFilterClicked: loadFilterClicked = async (filterName, filterString, setFilterName, setFilterText)=>{
   setFilterName(filterName);
   setFilterText(filterString);
 };
 
-const deleteFilterClicked = async (filterName, dispatch)=>{
+interface deleteFilterClicked {
+  (
+    filterName: string,
+    dispatch: Dispatch
+  ): void
+}
+
+const deleteFilterClicked: deleteFilterClicked = async (filterName, dispatch)=>{
   const result = await fetch('/api/profile/filter', {
     method: 'DELETE',
     headers: { 'Content-Type': 'application/json' },
@@ -58,19 +92,26 @@ const deleteFilterClicked = async (filterName, dispatch)=>{
     dispatch(setUserData(body));
   }
 };
+
+interface SaveLoadProps {
+  filterName?: string
+  setFilterName?: React.Dispatch<React.SetStateAction<string>>
+  setFilterText: React.Dispatch<React.SetStateAction<string>>,
+  filterText: string
+}
 //setFitlerName, filterName
-const SaveLoad = ({ setFilterText, filterText }) => {
+const SaveLoad: React.FC<SaveLoadProps> = ({ setFilterText, filterText }) => {
   const dropdownOptions = [];
-  const [filterName, setFilterName] = useState('');
+  const [filterName, setFilterName] = useState<string>('');
   const dispatch = useDispatch();
 
-  const filters = useSelector((state)=>state.userReducer.userData.savedFilters);
+  const filters = useSelector((state: RootState)=>state.userReducer.userData.savedFilters);
 
   if (filters) {
     for (const [key, value] of Object.entries(filters)){
       dropdownOptions.push([
         key,
-        ()=>loadFilterClicked(key, value, setFilterName, setFilterText)
+        ()=>loadFilterClicked(key, value as string, setFilterName, setFilterText)
       ]);
     }
   }
@@ -78,7 +119,7 @@ const SaveLoad = ({ setFilterText, filterText }) => {
   return (
     <InputBar className={'mr-5'}>
       <Dropdown label='Load' className='' entries={ dropdownOptions }/>
-      <TextInput value={ filterName } id='filterName' onChange={(e)=>setFilterName(e.target.value)} placeholder='Filter Name'/>
+      <TextInput value={ filterName } className='' onChange={(e)=>setFilterName(e.target.value)} placeholder='Filter Name'/>
       <ButtonInput label='Save' onClick={()=>saveFilterClicked(filterName, filterText, dispatch)}/>
       <ButtonInput label='Delete' onClick={()=>deleteFilterClicked(filterName, dispatch)}/>
     </InputBar>
