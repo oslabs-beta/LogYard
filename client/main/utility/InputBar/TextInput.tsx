@@ -17,11 +17,12 @@ interface TextInputProps {
   onChange:(e: ChangeEvent<HTMLInputElement>) => void;
   placeholder: string;
   className: string;
+  id?: string
 }
 
-const TextInput: React.FC<TextInputProps> = ({ type, value, onChange, placeholder, className}) => {
+const TextInput: React.FC<TextInputProps> = ({ type, value, onChange, placeholder, className, id}) => {
   return (
-    <input type={type || 'text'} id={Math.random().toString()} onChange={onChange} value={value} placeholder={placeholder} className={`text-custom-darkgreen first:rounded-l-lg last:rounded-r-lg bg-custom-tan border border-custom-darktan focus:ring-custom-darkgreen focus:border-custom-darkgreen block placeholder-custom-darkgreen ${className}`}/>
+    <input type={type || 'text'} id={id || Math.random().toString()} onChange={onChange} value={value} placeholder={placeholder} className={`text-custom-darkgreen first:rounded-l-lg last:rounded-r-lg bg-custom-tan border border-custom-darktan focus:ring-custom-darkgreen focus:border-custom-darkgreen block placeholder-custom-darkgreen ${className}`}/>
   );
 };
 

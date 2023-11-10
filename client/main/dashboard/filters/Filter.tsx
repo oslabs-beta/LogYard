@@ -24,7 +24,7 @@ const Filter: React.FC = ()=>{
 
         <ModalIcon />
         
-        <FilterText setfilterName = {setFilterName} filterText = { filterText } setFilterText = { setFilterText } setFilterErrors = { setFilterErrors }/>
+        <FilterText setFilterName = {setFilterName} filterText = { filterText } setFilterText = { setFilterText } setFilterErrors = { setFilterErrors }/>
       </div>
       { filterErrors.map((element)=>
         <div key={Math.random()} className='flex justify-center'>

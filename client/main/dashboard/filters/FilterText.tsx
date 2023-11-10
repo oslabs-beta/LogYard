@@ -14,11 +14,22 @@ import { store } from '../../../state/store/store';
 import applyFilter from '../../../state/filtering/applyFilter';
 import InputBar, { ButtonInput, TextInput} from '../../utility/InputBar/InputBar';
 
+interface applyFilterClicked {
+  (
+    filterString: string,
+    dispatch: any,
+    setFilterErrors: any
+  ): void
+}
 
-const applyFilterClicked = (filterString, dispatch, setFilterErrors) => {
+interface filterMetadata {
+  errors?: string[];
+}
+
+const applyFilterClicked: applyFilterClicked = (filterString, dispatch, setFilterErrors) => {
   let filteredLogs = store.getState().logsReducer.logs;
   try {
-    const filterMetadata = {};
+    const filterMetadata: filterMetadata = {};
     filteredLogs = applyFilter(filteredLogs, filterString, filterMetadata);
 
     setFilterErrors(filterMetadata.errors);
@@ -31,7 +42,15 @@ const applyFilterClicked = (filterString, dispatch, setFilterErrors) => {
   }
 };
 
-const FilterText = ({filterText, setFilterText, setFilterErrors, setfilterName}) => {
+interface FilterTextProps {
+  filterText: string,
+  setFilterText: React.Dispatch<React.SetStateAction<string>>,
+  setFilterErrors: React.Dispatch<React.SetStateAction<never[]>>,
+  setFilterName: React.Dispatch<React.SetStateAction<string>>,
+
+}
+
+const FilterText: React.FC<FilterTextProps> = ({filterText, setFilterText, setFilterErrors, setFilterName}) => {
   const dispatch = useDispatch();
 
   return (
@@ -46,7 +65,7 @@ const FilterText = ({filterText, setFilterText, setFilterErrors, setfilterName})
       <ButtonInput 
         onClick={() => {
           setFilterText('');
-          setfilterName('');
+          setFilterName('');
           applyFilterClicked('', dispatch, setFilterErrors);
         }}
         label='Clear Filter' 
