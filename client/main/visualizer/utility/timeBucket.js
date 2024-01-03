@@ -1,9 +1,7 @@
 /**
  * ************************************
  *
- * @module  levelToInd
- * @authors Preston Coldwell, Ryan Smithey, Geoff Sun, Andrew Wagner, Brian Hwang
- * @date 09/20/2023
+ * @module  timeBucketData
  * @description Converts a given logArray into an array of counted values based on the time Option.
  * 
  * ************************************

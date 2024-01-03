@@ -2,8 +2,6 @@
  * ************************************
  *
  * @module  Filter
- * @authors Preston Coldwell, Ryan Smithey, Geoff Sun, Andrew Wagner, Brian Hwang
- * @date 09/06/2023
  * @description .jsx - A bar that allows CRUD for user filters
  * 
  * ************************************
@@ -12,7 +10,7 @@
 import React, { useState } from 'react';
 import FilterText from './FilterText';
 import SaveLoad from './SaveLoad';
-import ModalIcon from '../../utility/InputBar/ModalIcon.jsx';
+import ModalIcon from '../../utility/InputBar/ModalIcon.tsx';
 
 const Filter = ()=>{
   const [filterText, setFilterText] = useState('');

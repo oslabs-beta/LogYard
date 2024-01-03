@@ -2,8 +2,6 @@
  * ************************************
  *
  * @module  FilteredLogsTable
- * @authors Preston Coldwell, Ryan Smithey, Geoff Sun, Andrew Wagner, Brian Hwang
- * @date 09/06/2023
  * @description .jsx - Creates a table from current logs and filters
  * 
  * ************************************
@@ -14,9 +12,11 @@ import { useSelector } from 'react-redux';
 import logEntryCreator from './logEntryCreator';
 import groupEntryCreator from './groupEntryCreator';
 import Table from '../../utility/Table/Table';
+import { RootState } from '../../../state/store/store';
 
-const FilteredLogsTable = () => {
-  const filteredLogs = useSelector(state=>state.logsReducer.filteredLogs);
+
+const FilteredLogsTable: React.FC = () => {
+  const filteredLogs = useSelector((state: RootState)=>state.logsReducer.filteredLogs);
   
   const tableEntries = [];
   const tableHeaders = [];
@@ -28,7 +28,7 @@ const FilteredLogsTable = () => {
     tableHeaders.push('Message');
     tableHeaders.push('Context');
     tableHeaders.push('Inspect');
-    tableHeaders.push('Delete')
+    tableHeaders.push('Delete');
 
     const startingIndex = Math.max(0, filteredLogs.length - 101);
 

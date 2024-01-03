@@ -2,21 +2,20 @@
  * ************************************
  *
  * @module  ModalIcon
- * @authors Preston Coldwell, Ryan Smithey, Geoff Sun, Andrew Wagner, Brian Hwang
- * @date 09/06/2023
  * @description .jsx - A modal button used for displaying proper filter strings
  * 
  * ************************************
  */
 
 import React, { useState } from 'react';
-import ModalMessage from './ModalMessage.jsx';
+import ModalMessage from './ModalMessage.js';
 
-const ModalIcon = () => {
 
-  const [modalStatus, setModalStatus] = useState(false);
+const ModalIcon: React.FC = () => {
 
-  const handleToggle = () => {
+  const [modalStatus, setModalStatus] = useState<boolean>(false);
+
+  const handleToggle = ():void => {
     setModalStatus(!modalStatus);
   };
 

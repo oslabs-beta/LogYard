@@ -1,3 +1,13 @@
+/**
+ * ************************************
+ *
+ * @module  CheckBox
+ * @description A graph for displaying time series data about logs.
+ * 
+ * ************************************
+ */
+
+
 import React from 'react';
 
 const handleToggle = (booleanValue, setBooleanValue) => {
