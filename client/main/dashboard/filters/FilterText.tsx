@@ -9,18 +9,19 @@
  * ************************************
  */
 
-import React from 'react';
 import { useDispatch } from 'react-redux';
 import { setFilteredLogs } from '../../../state/actions/actions';
 import { store } from '../../../state/store/store';
 import applyFilter from '../../../state/filtering/applyFilter';
 import InputBar, { ButtonInput, TextInput} from '../../utility/InputBar/InputBar';
+import { Dispatch } from 'redux';
+import { FilterMetaData, FilterTextProps, SetFilterErrors } from './types';
 
-
-const applyFilterClicked = (filterString, dispatch, setFilterErrors) => {
+const applyFilterClicked = (filterString: string, dispatch: Dispatch<any>, setFilterErrors: SetFilterErrors) => {
   let filteredLogs = store.getState().logsReducer.logs;
   try {
-    const filterMetadata = {};
+    const filterMetadata: FilterMetaData = 
+      { errors: [], success: false};
     filteredLogs = applyFilter(filteredLogs, filterString, filterMetadata);
 
     setFilterErrors(filterMetadata.errors);
@@ -33,27 +34,29 @@ const applyFilterClicked = (filterString, dispatch, setFilterErrors) => {
   }
 };
 
-const FilterText = ({filterText, setFilterText, setFilterErrors, setfilterName}) => {
+const FilterText = ({filterText, setFilterText, setFilterErrors, setFilterName}: FilterTextProps) => {
   const dispatch = useDispatch();
 
   return (
     <InputBar className={'grow'}>
       <TextInput 
         value={filterText}
-        id='Filter Text' 
+        type='text'
         onChange={(e)=>{setFilterText(e.target.value);}} 
         placeholder='Filter Text' 
         className='grow'
       />
       <ButtonInput 
+        className=''
         onClick={() => {
           setFilterText('');
-          setfilterName('');
+          setFilterName('');
           applyFilterClicked('', dispatch, setFilterErrors);
         }}
         label='Clear Filter' 
       />
-      <ButtonInput 
+      <ButtonInput
+        className=''
         onClick={()=>applyFilterClicked(filterText, dispatch, setFilterErrors)} 
         label='Apply Filter'
       />
