@@ -12,7 +12,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import logEntryCreator from './logEntryCreator';
-import GroupEntryCreator from './GroupEntryCreator';
+import GroupEntryCreator from './groupEntryCreator';
 import Table from '../../utility/Table/Table';
 import { RootState } from '../../../state/store/store';
 
@@ -45,7 +45,7 @@ const FilteredLogsTable: React.FC = () => {
     tableHeaders.push('Inspect');
 
     for (const [key, value] of Object.entries(filteredLogs)) {
-      tableEntries.unshift(GroupEntryCreator(key, value));
+      tableEntries.unshift(GroupEntryCreator(key, value as []));
     }
   }
   
