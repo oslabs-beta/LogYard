@@ -1,3 +1,12 @@
+/**
+ * ************************************
+ *
+ * @module  getLogs
+ * @description gets all logs from database
+ *
+ * ************************************
+ **/
+
 import LogModel from '../../models/logModel.js';
 
 const getLogs = async (req, res, next) => {

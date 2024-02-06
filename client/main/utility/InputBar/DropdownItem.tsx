@@ -2,8 +2,6 @@
  * ************************************
  *
  * @module  DropdownInputItem
- * @authors Preston Coldwell, Ryan Smithey, Geoff Sun, Andrew Wagner, Brian Hwang
- * @date 09/06/2023
  * @description .jsx - An item of a dropdown associated with inputbar dropdown
  * 
  * ************************************

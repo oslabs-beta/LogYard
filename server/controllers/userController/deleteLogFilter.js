@@ -2,8 +2,6 @@
  * ************************************
  *
  * @module  deleteLogFilter
- * @authors Preston Coldwell, Ryan Smithey, Geoff Sun, Andrew Wagner, Brian Hwang
- * @date 09/06/2023
  * @description Deletes a user created filter. Requires the filter name in the request body.
  *
  * ************************************

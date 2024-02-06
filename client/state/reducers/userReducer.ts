@@ -2,8 +2,6 @@
  * ************************************
  *
  * @module  userReducer
- * @authors Preston Coldwell, Ryan Smithey, Geoff Sun, Andrew Wagner, Brian Hwang
- * @date 09/06/2023
  * @description Contains user information such as saved filters
  * 
  * ************************************

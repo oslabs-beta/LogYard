@@ -2,11 +2,7 @@
  * ************************************
  *
  * @module  GraphResize
- * @authors Preston Coldwell, Ryan Smithey, Geoff Sun, Andrew Wagner, Brian Hwang
- * @date 09/06/2023
  * @description .jsx - Contains a DOM object for a C3 component to hook into.
- * 
- * It allows conventional responsive CSS design while using a C3 component (not native)
  * 
  * ************************************
  */

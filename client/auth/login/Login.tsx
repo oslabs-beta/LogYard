@@ -4,7 +4,7 @@
  * @module  Login
  * @authors Preston Coldwell, Ryan Smithey, Geoff Sun, Andrew Wagner, Brian Hwang
  * @date 09/06/2023
- * @description .tsx - Server password login page
+ * @description .jsx - Server password login page
  *
  * ************************************
  */

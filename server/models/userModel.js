@@ -2,8 +2,6 @@
  * ************************************
  *
  * @module  sessionModel
- * @authors Preston Coldwell, Ryan Smithey, Geoff Sun, Andrew Wagner, Brian Hwang
- * @date 09/06/2023
  * @description creates a schema to save the user to the database
  * 
  * ************************************

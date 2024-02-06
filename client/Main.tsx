@@ -1,8 +1,6 @@
 /**
  * ************************************
  *
- * @authors Preston Coldwell, Ryan Smithey, Geoff Sun, Andrew Wagner, Brian Hwang
- * @date 09/06/2023
  * @description Connects the store to App and implements state persistence
  * 
  * ************************************
@@ -14,7 +12,6 @@ import App from './App.js';
 import { Provider } from 'react-redux';
 import { store, persistor } from './state/store/store.js';
 import { PersistGate } from 'redux-persist/integration/react';
-
 
 const root = document.getElementById('root');
 
