@@ -7,14 +7,13 @@
  * ************************************
  */
 
-import React from 'react';
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 import { deleteAllLogs } from '../../state/actions/actions';
+import { Dispatch } from 'redux';
 
 
-const deleteAllLogsClicked = async (dispatch) => {
+const deleteAllLogsClicked = async (dispatch: Dispatch<any>) => {
 
   const prompt = confirm('Are you sure you want to delete ALL of your logs?');
 
