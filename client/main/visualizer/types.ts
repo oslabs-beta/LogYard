@@ -18,3 +18,8 @@ export interface DonutGraphProps {
   logData: LogItem;
   className: string;
 }
+
+export interface TimeSeriesGraphProps {
+  logData: LogItem;
+  className: string;
+}
