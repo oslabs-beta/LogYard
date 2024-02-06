@@ -13,3 +13,8 @@ export interface CheckBoxProps {
   displayBar: boolean;
   setDisplayBar: React.Dispatch<React.SetStateAction<boolean>>;
 }
+
+export interface DonutGraphProps {
+  logData: LogItem;
+  className: string;
+}
