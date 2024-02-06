@@ -7,7 +7,9 @@
  * ************************************
  */
 
-function getIndex(millisecondsEpoc) {
+import { TimeOption } from "./types";
+
+function getIndex(this:TimeOption ,millisecondsEpoc: number) {
   const intervalWidth = ((this.millisecondsEnd - this.millisecondsStart) / this.numDivisions);
 
   return Math.floor((millisecondsEpoc - this.millisecondsStart) / intervalWidth );
@@ -74,7 +76,7 @@ export const userSpecified = (
   millisecondsStart = 0, 
   millisecondsEnd = Date.now(), 
   numDivisions = 1, 
-  getDivisionLabels) => { 
+  getDivisionLabels: undefined) => { 
   
   return {
     label,

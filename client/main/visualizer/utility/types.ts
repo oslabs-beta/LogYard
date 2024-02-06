@@ -20,3 +20,11 @@ export interface TimeOption {
   getDivisionLabels: () => string[];
   getIndex: (millisecondsEpoc: any) => number;
 }
+
+export interface TimeOption {
+  label: string;
+  millisecondsStart: number;
+  millisecondsEnd: number;
+  numDivisions: number;
+  getDivisionLabels: () => string[];
+}
