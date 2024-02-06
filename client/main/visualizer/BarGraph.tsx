@@ -32,7 +32,7 @@ const makeRandomID = (length: number) => {
   return result;
 };
 
-const assignDataToGraph = (lineGraph: any, logData: LogItem, timeOption: TimeOption) => {
+const assignDataToGraph = (lineGraph: any, logData: LogItem[], timeOption: TimeOption) => {
   timeOption.numDivisions = 1;
   lineGraph.clear();
 
@@ -45,7 +45,7 @@ const assignDataToGraph = (lineGraph: any, logData: LogItem, timeOption: TimeOpt
     const columnData = [];
     for (const [key, value] of Object.entries(logData)){
       labels.push(key);
-      columnData.push(timeBucketData(value, timeOption)[0]);
+      columnData.push(timeBucketData(value as LogItem[], timeOption)[0]);
     }
     
     lineGraph.Graph('Log Counts', columnData);

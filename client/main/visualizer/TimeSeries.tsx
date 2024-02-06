@@ -32,7 +32,7 @@ const makeRandomID = (length: number) => {
   return result;
 };
 
-const assignDataToGraph = (lineGraph: any, logData: LogItem, timeOption: TimeOption) => {
+const assignDataToGraph = (lineGraph: any, logData: LogItem[], timeOption: TimeOption) => {
   lineGraph.clear();
 
   if (Array.isArray(logData)){
@@ -40,7 +40,7 @@ const assignDataToGraph = (lineGraph: any, logData: LogItem, timeOption: TimeOpt
   }
   else {
     for (const [key, value] of Object.entries(logData)){
-      lineGraph.Graph(key, timeBucketData( value, timeOption ));
+      lineGraph.Graph(key, timeBucketData(value as LogItem[], timeOption));
     }
   }
 

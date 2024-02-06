@@ -1,7 +1,7 @@
 import { LogItem } from '../../state/reducers/logsReducer';
 
 export interface BarGraphProps {
-  logData: LogItem;
+  logData: LogItem[];
   className: string;
 }
 
@@ -15,11 +15,11 @@ export interface CheckBoxProps {
 }
 
 export interface DonutGraphProps {
-  logData: LogItem;
+  logData: LogItem[];
   className: string;
 }
 
 export interface TimeSeriesGraphProps {
-  logData: LogItem;
+  logData: LogItem[];
   className: string;
 }

@@ -15,15 +15,17 @@ import TimeSeries from './TimeSeries';
 import Donut from './Donut';
 import Checkbox from './Checkbox';
 import BarGraph from './BarGraph';
+import { RootState } from '../../state/store/store';
 
 
 
 const Visualizer = () => {
-  const logData = useSelector(state=>state.logsReducer.filteredLogs);
+  const logData = useSelector((state: RootState)=>state.logsReducer.filteredLogs);
   const [displayLine, setDisplayLine] = useState(true);
   const [displayDonut, setDisplayDonut] = useState(false);
   const [displayBar, setDisplayBar] = useState(false);
 
+  console.log('logData', logData)
   return (
     <div className='grow flex flex-col'>
       <Filter />
