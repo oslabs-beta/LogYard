@@ -22,7 +22,7 @@ export interface UserData {
   savedFilters: any
   createdAt: string
 }
-const initialState: UserState = {
+export const initialState: UserState = {
   userData: {
     _id: '',
     username: '',
