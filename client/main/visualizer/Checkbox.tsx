@@ -7,17 +7,17 @@
  * ************************************
  */
 
+import { CheckBoxProps } from "./types";
 
-import React from 'react';
 
-const handleToggle = (booleanValue, setBooleanValue) => {
+const handleToggle = (booleanValue: boolean, setBooleanValue: React.Dispatch<React.SetStateAction<boolean>> ) => {
   if (booleanValue) {
     setBooleanValue(false);
   }
   else setBooleanValue(true);
 };
 
-const CheckBox = ({displayLine, setDisplayLine, displayDonut, setDisplayDonut, displayBar, setDisplayBar}) => {
+const CheckBox = ({displayLine, setDisplayLine, displayDonut, setDisplayDonut, displayBar, setDisplayBar}: CheckBoxProps) => {
 
   return (
     <div className='h-8 w-1/2 mt-4 mx-5 py-2 bg-custom-darkgreen  rounded-lg flex'>
