@@ -7,7 +7,7 @@
  * ************************************
  */
 
-const levelToInd = (level) => {
+const levelToInd = (level: string) => {
   if (level === 'error ') return 0;
   else if (level === 'warn ') return 1;
   else if (level === 'info ') return 2;
