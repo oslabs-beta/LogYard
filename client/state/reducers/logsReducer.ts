@@ -25,7 +25,7 @@ import * as actions from '../actions/actions'
 export interface LogsState {
   logs: LogItem[]
   filteredLogs: LogItem[]
-  activeLog: LogItem | undefined
+  activeLog: LogItem 
 }
 
 export interface LogItem {
@@ -39,7 +39,13 @@ export interface LogItem {
 const initialState: LogsState = {
   logs: [],
   filteredLogs: [],
-  activeLog: undefined,
+  activeLog: {
+    level: '',
+    message: '',
+    meta: '',
+    timestamp: '',
+    _id: '',
+  },
 };
 
 
@@ -67,7 +73,13 @@ const logsReducer = createReducer(initialState, (builder) => {
     .addCase(actions.deleteAllLogs, (state) => {
       state.logs = [];
       state.filteredLogs = [];
-      state.activeLog = undefined;
+      state.activeLog = {
+        level: '',
+        message: '',
+        meta: '',
+        timestamp: '',
+        _id: '',
+      };
     })
     .addCase(actions.filterLogs, (state, action)=>{
       try{
