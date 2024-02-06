@@ -8,12 +8,17 @@
  */
 
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { NavigateFunction, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { setUserData } from '../../state/actions/actions';
 import InputBar, { TextInput, ButtonInputAuth} from '../../main/utility/InputBar/InputBar';
+import {Dispatch} from 'redux';
 
-const attemptLogin = async (username, password, navigate, dispatch, setLoginFailed) => {
+interface SetLoginFailed {
+  (value:boolean):void
+}
+
+const attemptLogin = async (username: string, password: string, navigate: NavigateFunction, dispatch:  Dispatch<any>, setLoginFailed: SetLoginFailed) => {
   const loginResult = await fetch('/api/profile/signin', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -47,8 +52,8 @@ const SignedLogin = () => {
         <div className='bg-custom-darkgreen/90 shadow-lg shadow-brown-900 p-5 pt-3 mt-28 rounded-lg text-center'>
         
           <h1 className='text-2xl pb-2 text-custom-tan'>SIGN IN:</h1>
-          <TextInput onChange={(e)=>setUsername(e.target.value)} placeholder='Username' className='w-96 px-4 py-2 mt-1 border border-custom-tan rounded-lg focus:ring-custom-tan focus:border-custom-tan p-2 italic placeholder-custom-tan text-custom-tan bg-transparent'/>
-          <TextInput type='password' onChange={(e)=>setPassword(e.target.value)} placeholder='Password' className='w-96 px-4 py-2 my-1 mb-4 border border-custom-tan rounded-lg focus:ring-custom-tan focus:border-custom-tan p-2 italic placeholder-custom-tan text-custom-tan bg-transparent'/>
+          <TextInput type='text' value={username} onChange={(e)=>setUsername(e.target.value)} placeholder='Username' className='w-96 px-4 py-2 mt-1 border border-custom-tan rounded-lg focus:ring-custom-tan focus:border-custom-tan p-2 italic placeholder-custom-tan text-custom-tan bg-transparent'/>
+          <TextInput type='password' value={password} onChange={(e)=>setPassword(e.target.value)} placeholder='Password' className='w-96 px-4 py-2 my-1 mb-4 border border-custom-tan rounded-lg focus:ring-custom-tan focus:border-custom-tan p-2 italic placeholder-custom-tan text-custom-tan bg-transparent'/>
           {loginFailed && <h1 className='text-gray-50 text-xl italic mb-4'>Invalid password</h1>}
         
           <ButtonInputAuth onClick={()=>attemptLogin(username, password, navigate, dispatch, setLoginFailed)} label='Login' className='w-96 rounded-lg my-1'/>

@@ -1,21 +1,22 @@
 /**
  * ************************************
  *
- * @module  groupEntryCreator
- * @description .jsx - Used to display a data group of logs in a Table
+ * @module  GroupEntryCreator
+ * @description .tsx - Used to display a data group of logs in a Table
  * 
  * ************************************
  */
 
-import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setFilteredLogs } from '../../../state/actions/actions';
+import { InspectEntryProps, TextEntryProps } from './types';
+import { RootState } from '../../../state/store/store';
 
-const TextEntry = ({ input }) => (<> {input} </>);
+const TextEntry = ({ input }: TextEntryProps) => (<> {input} </>);
 
-const InspectEntry = ({ groupKey }) => {
+const InspectEntry = ({ groupKey }: InspectEntryProps) => {
   const dispatch = useDispatch();
-  const localLogs = useSelector(state=>state.logsReducer.filteredLogs[groupKey]);
+  const localLogs: any = useSelector((state: RootState)=> state.logsReducer.filteredLogs[groupKey as number]);
 
   return (
     <button onClick={()=>{
@@ -28,7 +29,7 @@ const InspectEntry = ({ groupKey }) => {
   );
 };
 
-const groupEntryCreator = (key, value) => {
+const GroupEntryCreator = (key: string, value: []) => {
   return [
     <TextEntry key={Math.random()} input={key}/>,
     <TextEntry key={Math.random()} input={value.length}/>,
@@ -36,4 +37,4 @@ const groupEntryCreator = (key, value) => {
   ];
 };
 
-export default groupEntryCreator;
+export default GroupEntryCreator;
