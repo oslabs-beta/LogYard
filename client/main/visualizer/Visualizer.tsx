@@ -25,7 +25,6 @@ const Visualizer = () => {
   const [displayDonut, setDisplayDonut] = useState(false);
   const [displayBar, setDisplayBar] = useState(false);
 
-  console.log('logData', logData)
   return (
     <div className='grow flex flex-col'>
       <Filter />

@@ -65,8 +65,6 @@ const BarGraph = ({logData, className}: BarGraphProps) => {
   const [timeOption, setTimeOption] = useState(timeOptions[0]);
   const lineGraph = useRefGraph.current;
 
-  console.log(initializeObj, 'initializeObj');
-
   useEffect(() => {
     if (!lineGraph.chart) {
       lineGraph.data.type = 'bar';
