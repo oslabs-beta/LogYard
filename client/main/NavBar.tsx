@@ -7,11 +7,16 @@
  * ************************************
  */
 
-import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import NavItem from './NavItem.jsx';
 
-const NavBar = ({routes})=>{
+type Route = [string, ()=>void];
+
+interface NavBarProps {
+  routes: Route[]
+}
+
+const NavBar = ({routes}: NavBarProps)=>{
   const navigate = useNavigate();
 
   const allNavItems = [];
