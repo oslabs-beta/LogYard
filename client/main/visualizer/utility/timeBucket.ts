@@ -7,7 +7,10 @@
  * ************************************
  */
 
-const timeBucketData = (logArray, timeOption) => {
+import { LogItem } from "../../../state/reducers/logsReducer";
+import { TimeOption } from './types'
+
+const timeBucketData = (logArray: LogItem[], timeOption: TimeOption) => {
   const results = Array.from(Array(timeOption.numDivisions), ()=>0);
   
   for (const log of logArray){

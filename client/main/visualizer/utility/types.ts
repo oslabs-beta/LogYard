@@ -11,3 +11,12 @@ export interface GraphResizeProps {
 export interface OnceObject {
   initializedObserver: boolean;
 }
+
+export interface TimeOption {
+  label: string;
+  millisecondsStart: number;
+  millisecondsEnd: number;
+  numDivisions: number;
+  getDivisionLabels: () => string[];
+  getIndex: (millisecondsEpoc: any) => number;
+}
