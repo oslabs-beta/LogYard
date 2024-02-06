@@ -11,18 +11,21 @@
 
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { NavigateFunction, useNavigate } from 'react-router-dom';
 import { setActiveLog, deleteLog } from '../../../state/actions/actions';
 import axios from 'axios';
+import { Dispatch } from 'redux';
+import { LogItem } from '../../../state/reducers/logsReducer';
+import { ContextEntryProps, DeleteEntryProps, InspectLogEntryProps, TextEntryProps } from './types';
 
-const onInspectEntry = (dispatch, navigate, data) => {
+const onInspectEntry = (dispatch: Dispatch<any>, navigate: NavigateFunction, data:LogItem) => {
   navigate('/main/logviewer');
   dispatch(setActiveLog(data));
 };
 
-const TextEntry = ({ input }) => (<> {input} </>);
+const TextEntry = ({ input }: TextEntryProps) => (<> {input} </>);
 
-const ContextEntry = ({ contexts }) => (
+const ContextEntry = ({ contexts }: ContextEntryProps) => (
   <>
     {
       Object.entries(contexts).map(([key, value])=>{
@@ -32,7 +35,7 @@ const ContextEntry = ({ contexts }) => (
   </>
 );
 
-const InspectEntry = ({ log }) => {
+const InspectEntry = ({ log }: InspectLogEntryProps) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -45,7 +48,7 @@ const InspectEntry = ({ log }) => {
   );
 };
 
-const onDeleteClick = async (dispatch, id) => {
+const onDeleteClick = async (dispatch: Dispatch<any>, id: string) => {
   
   const prompt = confirm('Are you sure you want to delete this log?');
 
@@ -65,7 +68,7 @@ const onDeleteClick = async (dispatch, id) => {
   return;
 };
 
-const DeleteEntry = ({ input }) => {
+const DeleteEntry = ({ input }: DeleteEntryProps) => {
   const dispatch = useDispatch();
 
   return (
@@ -77,7 +80,7 @@ const DeleteEntry = ({ input }) => {
   );
 };
 
-const logEntryCreator = (individualLog) => {
+const logEntryCreator = (individualLog: LogItem) => {
   const { timestamp, level, meta, message, _id } = individualLog;
   const { Context } = meta;
 
