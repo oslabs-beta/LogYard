@@ -9,7 +9,6 @@
  * ************************************
  */
 
-import React from 'react';
 import FilteredLogsTable from './logViews/FilteredLogsTable';
 import Filter from './filters/Filter';
 
