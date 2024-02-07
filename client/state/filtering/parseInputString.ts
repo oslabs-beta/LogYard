@@ -7,9 +7,11 @@
  * ************************************
  */
 
+import { argument } from "./selectors/filterSelector";
+
 // Expects format of FilterMethod(LogDataType() LogDataType2("Argument")) FilterMethod2(FilterArg2("asdf")) /  is an escape character
 
-const parseLogDataTypes = (filterString, i, level0Arguments) => {
+const parseLogDataTypes = (filterString: string, i: number, level0Arguments: argument[]) => {
   if (filterString[i + 1] === ')') return i + 2;
 
   while (filterString[i] && filterString[i] !== ')'){
@@ -43,7 +45,7 @@ const parseLogDataTypes = (filterString, i, level0Arguments) => {
  * ************************************
  */
 
-const parseLogDataTypeArguments = (filterString, i, outputObject) => {
+const parseLogDataTypeArguments = (filterString: string, i: number, outputObject: string[]) => {
   if (filterString[i+1] === ')') return i + 2;
   
   while (filterString[i] && filterString[i] !== ')'){
@@ -76,7 +78,12 @@ const parseLogDataTypeArguments = (filterString, i, outputObject) => {
  * ************************************
  */
 
-const parseFilterMethod = (filterString, i, outputObject) => {
+interface outputObject {
+  name: string,
+  arguments: argument[]
+}
+
+const parseFilterMethod = (filterString: string, i: number, outputObject: outputObject[]) => {
   const outputFilterMethod = {
     name: '',
     arguments: []
@@ -104,9 +111,9 @@ const parseFilterMethod = (filterString, i, outputObject) => {
  * ************************************
  */
 
-const parseInputString = (filterString) => {
+const parseInputString = (filterString: string) => {
   let i = 0;
-  const results = [];
+  const results: outputObject[] = [];
   
   while (i < filterString.length){
     i = parseFilterMethod(filterString, i, results);
