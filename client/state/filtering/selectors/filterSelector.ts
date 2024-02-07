@@ -11,7 +11,7 @@
 import { FilterMetaData } from "../../../main/dashboard/filters/types";
 import { LogItem } from "../../reducers/logsReducer";
 
-interface argument {
+export interface argument {
   name: string,
   params: string[]
 }
