@@ -7,9 +7,11 @@
  * ************************************
  */
 
-import React from 'react';
+interface TableHeaderProps {
+  innerJSX: JSX.Element;
+}
 
-const TableHeader = ({ innerJSX }) => {
+const TableHeader: React.FC<TableHeaderProps> = ({ innerJSX }) => {
   return (
     <th scope="col" className="px-6 py-3">
       { innerJSX }
