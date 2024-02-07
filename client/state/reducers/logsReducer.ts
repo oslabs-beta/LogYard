@@ -24,7 +24,7 @@ import * as actions from '../actions/actions'
 
 export interface LogsState {
   logs: LogItem[]
-  filteredLogs: LogItem[]
+  filteredLogs: LogItem[] | Record<string, LogItem[]>
   activeLog: LogItem 
 }
 
@@ -48,8 +48,6 @@ const initialState: LogsState = {
   },
 };
 
-
-
 const logsReducer = createReducer(initialState, (builder) => {
   builder
     .addCase(actions.loadLogs, (state, action) => {
@@ -63,7 +61,14 @@ const logsReducer = createReducer(initialState, (builder) => {
       try{
         const idToDelete = action.payload;
         state.logs = state.logs.filter((log) => log._id !== idToDelete);
-        state.filteredLogs = state.filteredLogs.filter((log) => log._id !== idToDelete);
+
+        if (Array.isArray(state.filteredLogs)) {
+          state.filteredLogs = state.filteredLogs.filter((log) => log._id !== idToDelete);
+        } else {
+          for (const key in state.filteredLogs) {
+            state.filteredLogs[key] = state.filteredLogs[key].filter((log) => log._id !== idToDelete);
+          }
+        }
       }
       catch (e) {
         alert('Couldn\'t delete this log');
