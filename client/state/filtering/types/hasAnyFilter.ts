@@ -7,9 +7,11 @@
  * ************************************
  */
 
-import filterSelector from '../selectors/filterSelector';
+import { FilterMetaData } from '../../../main/dashboard/filters/types';
+import { LogItem } from '../../reducers/logsReducer';
+import filterSelector, { argument } from '../selectors/filterSelector';
 
-const HASANY = (logs, hasAnyArgs, metaData)=>{
+const HASANY = (logs: LogItem[], hasAnyArgs: argument[], metaData: FilterMetaData)=>{
   const output = [];
 
   outer: for (const log of logs) {
