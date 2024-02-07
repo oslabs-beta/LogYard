@@ -8,7 +8,15 @@
  * ************************************
  */
 
-const filterSelector = (log, argument, metaData)=>{
+import { FilterMetaData } from "../../../main/dashboard/filters/types";
+import { LogItem } from "../../reducers/logsReducer";
+
+interface argument {
+  name: string,
+  params: string[]
+}
+
+const filterSelector = (log: LogItem, argument: argument, metaData: FilterMetaData)=>{
   switch (argument.name){
   case ('LEVEL'):
     return log['level'];

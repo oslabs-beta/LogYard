@@ -32,7 +32,7 @@ export interface LogItem {
   level: string
   message: string
   meta: any
-  timestamp: string
+  Time: string
   _id: string
 }
 
@@ -43,7 +43,7 @@ const initialState: LogsState = {
     level: '',
     message: '',
     meta: '',
-    timestamp: '',
+    Time: '',
     _id: '',
   },
 };
@@ -77,7 +77,7 @@ const logsReducer = createReducer(initialState, (builder) => {
         level: '',
         message: '',
         meta: '',
-        timestamp: '',
+        Time: '',
         _id: '',
       };
     })
