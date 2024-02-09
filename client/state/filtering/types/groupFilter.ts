@@ -7,10 +7,12 @@
  * ************************************
  */
 
-import filterSelector from '../selectors/filterSelector';
+import { FilterMetaData } from '../../../main/dashboard/filters/types';
+import { LogItem } from '../../reducers/logsReducer';
+import filterSelector, { argument } from '../selectors/filterSelector';
 
-const GROUP = (logs, groupArgs, metaData) => {
-  const groupObject = {};
+const GROUP = (logs: LogItem[], groupArgs: argument[], metaData: FilterMetaData) => {
+  const groupObject: Record<string, LogItem[]> = {};
 
   for (const log of logs) {
     let key = '';

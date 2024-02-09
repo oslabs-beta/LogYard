@@ -7,9 +7,11 @@
  * ************************************
  */
 
-import filterSelector from '../selectors/filterSelector';
+import { FilterMetaData } from '../../../main/dashboard/filters/types';
+import { LogItem } from '../../reducers/logsReducer';
+import filterSelector, { argument } from '../selectors/filterSelector';
 
-const NOT = (logs, notArgs, metaData)=>{
+const NOT = (logs: LogItem[], notArgs: argument[], metaData: FilterMetaData)=>{
   const output = [];
 
   outer: for (const log of logs){

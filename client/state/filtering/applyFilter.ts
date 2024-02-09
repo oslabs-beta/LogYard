@@ -13,13 +13,23 @@ import HASANY from './types/hasAnyFilter';
 import NOT from './types/notFilter';
 import NOTANY from './types/notAnyFilter';
 import GROUP from './types/groupFilter';
+import { FilterMetaData } from '../../main/dashboard/filters/types';
+import { LogItem } from '../reducers/logsReducer';
 
-const applyFilter = (results, filterString, metaData = {}) => {
+const defaultMetaData: FilterMetaData = {
+  errors: [],
+  success: false,
+};
+
+const applyFilter = (results: LogItem[], filterString: string, metaData: FilterMetaData = defaultMetaData) => {
+
   //Step 1 Parse the filter String
   const filters = parseInputString(filterString);
   metaData.errors = [];
   metaData.success = false;
-  
+
+  let groupedResults: Record<string, LogItem[]> | null = null;
+
   //Step 2 Run the current logs through the filter string
   for (const filter of filters) {
     switch (filter.name) {
@@ -36,17 +46,21 @@ const applyFilter = (results, filterString, metaData = {}) => {
       results = NOTANY(results, filter.arguments, metaData);
       break;
     case 'GROUP':
-      results = GROUP(results, filter.arguments, metaData);
+      groupedResults = GROUP(results, filter.arguments, metaData);
       break;
     default:
       metaData.errors.push(`top level function: ${filter.name} not found`);
       break;
     }
   }
-  
+
   metaData.success = true;
 
-  return results;
+  if (groupedResults) {
+    return groupedResults;
+  } else {
+    return results;
+  }
 };
 
 

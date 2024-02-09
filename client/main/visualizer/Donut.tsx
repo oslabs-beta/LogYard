@@ -2,7 +2,7 @@
  * ************************************
  *
  * @module  Donut
- * @description A graph similar to time chart but it is a donut..
+ * @description A graph similar to time chart but it is a donut.
  * 
  * ************************************
  */
@@ -13,6 +13,9 @@ import LineGraph from './utility/LineGraph';
 import Dropdown from '../utility/InputBar/Dropdown';
 import timeBucketData from './utility/timeBucket';
 import { oneDay, twoDays, oneWeek } from './utility/timeOptions';
+import { LogItem } from '../../state/reducers/logsReducer';
+import { TimeOption } from './utility/types';
+import { DonutGraphProps } from './types';
 
 const timeOptions = [
   oneDay(),
@@ -20,7 +23,7 @@ const timeOptions = [
   oneWeek(),
 ];
 
-const makeRandomID = (length) => {
+const makeRandomID = (length: number) => {
   let result = '';
   const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
   for (let i = 0; i < length; i++) {
@@ -29,7 +32,7 @@ const makeRandomID = (length) => {
   return result;
 };
 
-const assignDataToGraph = (lineGraph, logData, timeOption) => {
+const assignDataToGraph = (lineGraph: any, logData: LogItem[], timeOption: TimeOption) => {
   lineGraph.clear();
 
   if (Array.isArray(logData)){
@@ -37,7 +40,7 @@ const assignDataToGraph = (lineGraph, logData, timeOption) => {
   }
   else {
     for (const [key, value] of Object.entries(logData)){
-      lineGraph.Graph(key, timeBucketData( value, timeOption ));
+      lineGraph.Graph(key, timeBucketData(value as LogItem[], timeOption));
     }
   }
 
@@ -47,10 +50,10 @@ const assignDataToGraph = (lineGraph, logData, timeOption) => {
   lineGraph.loadData();
 };
 
-const Donut = ({logData, className}) => {
+const Donut = ({logData, className}: DonutGraphProps) => {
   const bindIDRef = useRef(makeRandomID(6));
   const useRefGraph = useRef(new LineGraph(bindIDRef.current));
-  const initializeObj = useRef({});
+  const initializeObj: any = useRef({});
 
   const [timeOption, setTimeOption] = useState(timeOptions[0]);
   const lineGraph = useRefGraph.current;

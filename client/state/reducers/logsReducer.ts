@@ -24,25 +24,29 @@ import * as actions from '../actions/actions'
 
 export interface LogsState {
   logs: LogItem[]
-  filteredLogs: LogItem[]
-  activeLog: LogItem | undefined
+  filteredLogs: LogItem[] | Record<string, LogItem[]>
+  activeLog: LogItem 
 }
 
 export interface LogItem {
   level: string
   message: string
   meta: any
-  timestamp: string
+  Time: string
   _id: string
 }
 
 const initialState: LogsState = {
   logs: [],
   filteredLogs: [],
-  activeLog: undefined,
+  activeLog: {
+    level: '',
+    message: '',
+    meta: '',
+    Time: '',
+    _id: '',
+  },
 };
-
-
 
 const logsReducer = createReducer(initialState, (builder) => {
   builder
@@ -57,7 +61,14 @@ const logsReducer = createReducer(initialState, (builder) => {
       try{
         const idToDelete = action.payload;
         state.logs = state.logs.filter((log) => log._id !== idToDelete);
-        state.filteredLogs = state.filteredLogs.filter((log) => log._id !== idToDelete);
+
+        if (Array.isArray(state.filteredLogs)) {
+          state.filteredLogs = state.filteredLogs.filter((log) => log._id !== idToDelete);
+        } else {
+          for (const key in state.filteredLogs) {
+            state.filteredLogs[key] = state.filteredLogs[key].filter((log) => log._id !== idToDelete);
+          }
+        }
       }
       catch (e) {
         alert('Couldn\'t delete this log');
@@ -67,7 +78,13 @@ const logsReducer = createReducer(initialState, (builder) => {
     .addCase(actions.deleteAllLogs, (state) => {
       state.logs = [];
       state.filteredLogs = [];
-      state.activeLog = undefined;
+      state.activeLog = {
+        level: '',
+        message: '',
+        meta: '',
+        Time: '',
+        _id: '',
+      };
     })
     .addCase(actions.filterLogs, (state, action)=>{
       try{

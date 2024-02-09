@@ -7,7 +7,7 @@
  * ************************************
  */
 
-const levelToInd = (level) => {
+const levelTypeToInd = (level: string) => {
   if (level === 'error ') return 0;
   else if (level === 'warn ') return 1;
   else if (level === 'info ') return 2;
@@ -18,4 +18,4 @@ const levelToInd = (level) => {
   return undefined;
 };
 
-export default levelToInd;
+export default levelTypeToInd;

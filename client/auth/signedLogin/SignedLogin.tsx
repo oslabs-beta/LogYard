@@ -13,6 +13,7 @@ import { useDispatch } from 'react-redux';
 import { setUserData } from '../../state/actions/actions';
 import InputBar, { TextInput, ButtonInputAuth} from '../../main/utility/InputBar/InputBar';
 import {Dispatch} from 'redux';
+import { UserData } from '../../state/reducers/userReducer';
 
 interface SetLoginFailed {
   (value:boolean):void
@@ -26,7 +27,7 @@ const attemptLogin = async (username: string, password: string, navigate: Naviga
   });
 
   if (loginResult.ok){
-    const body = await loginResult.json();
+    const body = await loginResult.json() as UserData;
     
     dispatch(setUserData(body));
     navigate('/main');

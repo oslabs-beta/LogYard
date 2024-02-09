@@ -7,9 +7,11 @@
  * ************************************
  */
 
-import filterSelector from '../selectors/filterSelector';
+import { FilterMetaData } from '../../../main/dashboard/filters/types';
+import { LogItem } from '../../reducers/logsReducer';
+import filterSelector, { argument } from '../selectors/filterSelector';
 
-const NOTANY = (logs, notAnyArgs, metaData)=>{
+const NOTANY = (logs: LogItem[], notAnyArgs: argument[], metaData: FilterMetaData)=>{
   const output = [];
 
   outer: for (const log of logs) {

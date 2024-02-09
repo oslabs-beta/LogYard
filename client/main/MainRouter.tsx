@@ -7,30 +7,38 @@
  * ************************************
  */
 
-import React, { useEffect } from 'react';
-import { useNavigate, Outlet } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useNavigate, Outlet, NavigateFunction } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { loadLogs, setUserData } from '../state/actions/actions';
 import NavBar from './NavBar.jsx';
+import { Dispatch } from 'redux';
+import { LogItem } from '../state/reducers/logsReducer';
 
-const loadAllLogs = async (dispatch, navigate) => {
-  let logData = await fetch('/api/logs');
+const loadAllLogs = async (dispatch: Dispatch<any>, navigate: NavigateFunction) => {
+  const response = await fetch('/api/logs');
 
-  if (logData.ok) {
-    logData = await logData.json();
+  if (response.ok) {
+    const logData = await response.json() as LogItem[];
     dispatch(loadLogs(logData));
   } else {
     navigate('/');
   }
 };
 
-const signOutUser = async (dispatch, navigate) => {
+const signOutUser = async (dispatch: Dispatch<any>, navigate: NavigateFunction) => {
   try {
     await fetch('/api/profile/signout', {
       method: 'DELETE',
     });
 
-    dispatch(setUserData([]));
+    dispatch(setUserData({
+      _id: '',
+    username: '',
+    password: '',
+    savedFilters: [],
+    createdAt: ''
+  }));
 
     navigate('/');
 
