@@ -8,3 +8,4 @@ it('renders a table on the page correctly', () => {
   renderWithProviders(<FilteredLogsTable />);
   expect(screen.getByRole('table')).toBeVisible();
 });
+
