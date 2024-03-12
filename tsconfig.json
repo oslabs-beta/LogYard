@@ -17,5 +17,11 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["./public", "./client/**/*.tsx", "**/*.ts"]
+  "include": [
+    "./public",
+    "./client/**/*.tsx",
+    "**/*.ts",
+    "__tests__/Dashboard.test.tsx",
+    "./__tests__"
+  ]
 }

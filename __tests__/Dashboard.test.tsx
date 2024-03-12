@@ -1,4 +1,3 @@
-import React from 'react';
 import Dashboard from '../client/main/dashboard/Dashboard';
 import { screen } from '@testing-library/react';
 import { expect, it } from 'vitest';
@@ -6,7 +5,7 @@ import { renderWithProviders } from './utilities';
 
 it('renders a Load button on the page correctly', () => {
   renderWithProviders(<Dashboard />);
-  expect(screen.getByText('Load')).toBeVisible();
+  expect(screen.getByText<HTMLButtonElement>('Load')).toBeVisible();
 });
 
 it('renders a Filter Name field on the page correctly', () => {
