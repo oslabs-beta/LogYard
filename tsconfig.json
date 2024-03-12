@@ -1,11 +1,8 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "types": ["cypress", "node", "./__tests__/cypress/support"],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -22,6 +19,9 @@
   },
   "include": [
     "./public",
-    "./client/**/*.tsx"
+    "./client/**/*.tsx",
+    "**/*.ts",
+    "__tests__/Dashboard.test.tsx",
+    "./__tests__"
   ]
 }

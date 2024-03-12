@@ -11,24 +11,33 @@
 
 import { useState } from 'react';
 import { NavigateFunction, useNavigate } from 'react-router-dom';
-import InputBar, { TextInput, ButtonInputAuth} from '../../main/utility/InputBar/InputBar';
-
+import InputBar, {
+  TextInput,
+  ButtonInputAuth,
+} from '../../main/utility/InputBar/InputBar';
 
 interface ClickFunc {
-  (serverPassword: string, navigate: NavigateFunction, setPasswordFailed:React.Dispatch<React.SetStateAction<boolean>>):Promise<void>
+  (
+    serverPassword: string,
+    navigate: NavigateFunction,
+    setPasswordFailed: React.Dispatch<React.SetStateAction<boolean>>
+  ): Promise<void>;
 }
-const onLoginClicked:ClickFunc = async (serverPassword, navigate, setPasswordFailed) => {
+const onLoginClicked: ClickFunc = async (
+  serverPassword,
+  navigate,
+  setPasswordFailed
+) => {
   try {
     const response = await fetch('/api/auth', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ serverPassword }),
     });
-    
+
     if (response.ok) {
       navigate('/main');
-    }
-    else {
+    } else {
       setPasswordFailed(true);
     }
   } catch (err) {
@@ -39,7 +48,7 @@ const onLoginClicked:ClickFunc = async (serverPassword, navigate, setPasswordFai
 const Login = () => {
   const [serverPassword, setServerPassword] = useState('');
   const [passwordFailed, setPasswordFailed] = useState(false);
-  
+
   const navigate = useNavigate();
 
   return (
@@ -47,21 +56,43 @@ const Login = () => {
       <img src='/AuthLogo.png' className='h-36 mb-1 mt-12 ml-12'></img>
       <div className='mx-auto'>
         <div className='bg-custom-darkgreen/90 shadow-lg shadow-brown-900 p-5 pt-3 mt-28 rounded-lg text-center'>
-        
           <h1 className='text-2xl pb-2 text-custom-tan'>GUEST:</h1>
-          <TextInput type='password' value={serverPassword} onChange={(e)=>setServerPassword(e.target.value)} placeholder='Server Password' className='w-96 px-4 py-2 mb-4 mt-1 border border-custom-tan rounded-lg focus:ring-custom-tan focus:border-custom-tan p-2 italic placeholder-custom-tan text-custom-tan bg-transparent'/>
-          {passwordFailed && ( <h1 className='text-gray-50 italic mb-4'> Invalid password - please try again </h1> )}
-        
-          <ButtonInputAuth onClick={() => onLoginClicked(serverPassword, navigate, setPasswordFailed)} label='Login' className='w-96 mb-2 rounded-lg my-1'/>
-          <InputBar className='flex'>
-            <ButtonInputAuth onClick={()=> navigate('/')} label='User Sign In' className='w-[50%]'/>
-            <ButtonInputAuth onClick={()=> navigate('/signup')} label='Sign Up' className='w-[50%]'/>
-          </InputBar>
+          <TextInput
+            type='password'
+            value={serverPassword}
+            onChange={(e) => setServerPassword(e.target.value)}
+            placeholder='Server Password'
+            className='w-96 px-4 py-2 mb-4 mt-1 border border-custom-tan rounded-lg focus:ring-custom-tan focus:border-custom-tan p-2 italic placeholder-custom-tan text-custom-tan bg-transparent'
+          />
+          {passwordFailed && (
+            <h1 className='text-gray-50 italic mb-4'>
+              {' '}
+              Invalid password - please try again{' '}
+            </h1>
+          )}
 
+          <ButtonInputAuth
+            onClick={() =>
+              onLoginClicked(serverPassword, navigate, setPasswordFailed)
+            }
+            data-testid='login-button'
+            label='Login'
+            className='w-96 mb-2 rounded-lg my-1'
+          />
+          <InputBar className='flex'>
+            <ButtonInputAuth
+              onClick={() => navigate('/')}
+              label='User Sign In'
+              className='w-[50%]'
+            />
+            <ButtonInputAuth
+              onClick={() => navigate('/signup')}
+              label='Sign Up'
+              className='w-[50%]'
+            />
+          </InputBar>
         </div>
       </div>
-      
-      
     </div>
   );
 };

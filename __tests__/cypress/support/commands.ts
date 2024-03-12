@@ -1,4 +1,5 @@
-Cypress.Commands.add('login', (serverPassword) => {
+
+Cypress.Commands.add('login', (serverPassword: string): void => {
   cy.visit('/');
 
   cy.get('input').type(serverPassword);
