@@ -21,7 +21,7 @@
     "./public",
     "./client/**/*.tsx",
     "**/*.ts",
-    "__tests__/Dashboard.test.tsx",
+    "client/main/dashboard/Dashboard.test.tsx",
     "./__tests__"
   ]
 }
