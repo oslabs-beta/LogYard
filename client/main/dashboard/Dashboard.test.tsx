@@ -1,7 +1,8 @@
-import Dashboard from '../client/main/dashboard/Dashboard';
+import React from 'react';
+import Dashboard from './Dashboard';
 import { screen } from '@testing-library/react';
 import { expect, it } from 'vitest';
-import { renderWithProviders } from './utilities';
+import { renderWithProviders } from '../../../__tests__/utilities';
 
 it('renders a Load button on the page correctly', () => {
   renderWithProviders(<Dashboard />);

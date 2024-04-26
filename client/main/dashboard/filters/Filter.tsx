@@ -18,7 +18,7 @@ const Filter = () => {
   const [filterErrors, setFilterErrors] = useState<string[]>([]);
 
   return (
-    <div>
+    <div data-testid='filter'>
       <div className='flex flex-row pt-5 px-5'>
         <SaveLoad filterText = { filterText } setFilterText = { setFilterText } />
 

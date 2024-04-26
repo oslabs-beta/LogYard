@@ -21,7 +21,7 @@ interface InputBarProps {
 const InputBar: React.FC<InputBarProps> = ({ children, className })=>{
   
   return (
-    <div className={`flex items-stretch rounded-lg ${className}`}>
+    <div data-testid='save-load-inputbar' className={`flex items-stretch rounded-lg ${className}`}>
       {children}
     </div>
   );

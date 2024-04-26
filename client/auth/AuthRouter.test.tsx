@@ -1,4 +1,4 @@
-import AuthRouter from '../client/auth/AuthRouter';
+import AuthRouter from './AuthRouter';
 import { expect, it } from 'vitest';
 import { getByTestId, render } from '@testing-library/react';
 

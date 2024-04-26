@@ -1,4 +1,5 @@
-import Login from '../client/auth/login/Login';
+import React from 'react';
+import Login from './Login';
 import { render, screen, waitFor } from '@testing-library/react';
 import { expect, it } from 'vitest';
 import { BrowserRouter } from 'react-router-dom';
