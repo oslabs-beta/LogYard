@@ -1,8 +1,13 @@
-![README Banner](./public/READMEBanner.png)
+<!-- allowed_elements: <img> -->
 
-# <img width='20px' src='./public/Icon.png' /> About
+<!-- <h1 align='center'><img alt='LogYard icon: Cross-section of a log with a bar graph ring next to the words "LogYard: An Open Source Product" with a background of a forest' src='./public/READMEBanner.png'/></h1> -->
+
+# ![LogYard Logo](./public/READMEBanner.png)
+
+# <img width='20px' src='./public/Icon.png' alt='LogYard Icon' /> About
 
 ## Built With
+
 ![JavaScript](https://img.shields.io/badge/-javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 ![React](https://img.shields.io/badge/-react-white?style=for-the-badge&logo=react&logoColor=blue)
 ![ReactRouter](https://img.shields.io/badge/-ReactRouter-white?style=for-the-badge&logo=ReactRouter&logoColor=blue)
@@ -27,78 +32,77 @@
 ![Vitest](https://img.shields.io/badge/-Vitest-white?style=for-the-badge&logo=Vitest&logoColor=yellow)
 ![Cypress](https://img.shields.io/badge/-cypress-%23E5E5E5?style=for-the-badge&logo=cypress&logoColor=058a5e)
 ![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
-<br>
 
 ## Introduction
 
-Our mission is to simplify log management for our users. With our custom logging package implemented in your code, alongside the LogYard GUI, you can easily visualize and analyze logs using multiple, customizable graphs based on time and log types. Our platform also offers dynamic log filtering, allowing users to group logs and filter them based on their individual properties. These features aim to make log management a breeze -- helping you monitor and troubleshoot effortlessly. 
+Our mission is to simplify log management for software developers. With LogYard's custom logging package and GUI, you can easily visualize and analyze logs using multiple, customizable graphs based on time and log types. LogYard's platform also offers dynamic log filtering, allowing users to group logs and filter them based on  individual properties. These features aim to make log management a breeze--helping you monitor and troubleshoot your application with ease.
 
 ## Features
 
 - Logging Package
 
-    - Our custom logging packages allow you to record frontend and backend logs and store them safely in a local Docker or MongoDB cloud database.
-    - Logs have various customizable attributes:
-        - Level ( Options: error, warn, info, http, verbose, debug, silly )
-        - Message ( What message do you want to be displayed with this log? )
-        - Context ( Allows you to assign relevant information to your log, such as which file or container it came from. )
+  - Our custom logging packages allow you to record frontend and backend logs and store them safely in a local Docker or MongoDB cloud database.
+  - Logs have various customizable attributes:
+    - Level ( Options: error, warn, info, http, verbose, debug, silly )
+    - Message ( What message do you want to be displayed with this log? )
+    - Context ( Allows you to assign relevant information to your log, such as which file or container it came from. )
 
 - Application
 
-    - See your logs in real time.
-    - Sort and filter logs based on level and customizable properties.
-    - Save custom filters to your account.
-    - Visualize your logs through several graph types. Using filters and time selection, only visualize the logs you need.
+  - See your logs in real time.
+  - Sort and filter logs based on level and customizable properties.
+  - Save custom filters to your account.
+  - Visualize your logs with several graph types. Using filters and time selection, visualize only the logs you need.
 
-# <img width='20px' src='./public/Icon.png'/> Demo Our Product
+# <img width='20px' src='./public/Icon.png' alt='LogYard Icon' /> Demo Our Product
 
-We created a demo project for you to easily test our product's logging functionality and use our GUI. Follow the steps below in order to properly run the demo.
+We created a demo project for you to test our product's logging functionality and use our GUI. Follow the steps below in order to properly run the demo.
 
 1. LogYard
 
-    1. Ensure you have Docker Desktop installed and opened, and that you are signed in with your Docker account.
+   1. Ensure you have Docker Desktop installed and opened, and that you are signed in with your Docker account.
 
-    2. Clone the LogYard repository using the following terminal command:
+   2. Clone the LogYard repository using the following terminal command:
 
-        `git clone https://github.com/oslabs-beta/LogYard.git`
+      `git clone https://github.com/oslabs-beta/LogYard.git`
 
-    3. Open the LogYard repo that you just cloned in your terminal and enter the following command lines to properly create and run the Docker image.
+   3. Open the LogYard repo you just cloned in your terminal and enter the following command lines to properly create and run the Docker image.
 
-        `docker build -t logyard .`
+      `docker build -t logyard .`
 
-        `docker compose up`
+      `docker compose up`
 
-    4. Open Docker Dashboard and navigate to Containers.
+   4. Open Docker Dashboard and navigate to Containers.
 
-    5. To open the LogYard application, click on the logyard app_container running on port '3333:3333'.
+   5. To open the LogYard application, click on the logyard app_container running on port 3333:3333.
 
-        <img width='' src='./public/GIF/DockerDesktop.gif'/>
+      <img width='' src='./public/GIF/DockerDesktop.gif' alt='Gif of Docker Desktop Dashboard' />
 
-    6. You should now see LogYard's user sign-in page in your browser (shown below). To sign in as a guest, enter your server password located in your .env file (named 'VITE_USER_PASSWORD'). Or sign up to have access to additional features, such as the ability to save custom log filters.
-        <img width='' src='./public/GIF/AuthRouterNav.gif'/>
+   6. You should now see LogYard's user sign-in page in your browser (shown below). To sign in as a guest, enter the server password located in your .env file (named 'VITE_USER_PASSWORD'). Or sign up to have access to additional features, such as the ability to save custom log filters.
+      <img width='' src='./public/GIF/AuthRouterNav.gif' alt='Gif of the LogYard sign-in page' />
 
 2. Demo App
 
-    1. Clone the LogYard demo app's repository using the following terminal command (you can visit the repo [here](https://github.com/OSP7/LogYard-Demo-App)):
+   1. Clone the LogYard demo app's repository using the following terminal command (you can visit the repo [here](https://github.com/OSP7/LogYard-Demo-App)):
 
-        `git clone https://github.com/OSP7/LogYard-Demo-App.git`
+      `git clone https://github.com/OSP7/LogYard-Demo-App.git`
 
-    2. Within the demo app's directory, install package dependencies and run the app using the following terminal commands, in order:
+   2. Within the demo app's directory, install package dependencies and run the app using the following terminal commands, in order:
 
-        `npm install`
+      `npm install`
 
-        `npm run dev`
+      `npm run dev`
 
-        After following the above steps, the demo app should now be visible on localhost:9000 and the LogYard GUI should remain accessible through your Docker container.
+      After following the above steps, the demo app should now be visible on localhost:9000 and the LogYard GUI should remain accessible through your Docker container.
 
-    3. Interacting with the demo app will generate logs that can be seen in the LogYard GUI! Go ahead and give it a try -- filter and visualize these logs!
+   3. Interacting with the demo app will generate logs that can be seen in the LogYard GUI. Go ahead and give it a try--filter and visualize these logs!
 
-        <img width='' src='./public/GIF/SaveFilter.gif'/>
-        <img width='' src='./public/GIF/GraphFilterAndTime.gif'/>
-    
-        We hope you find our product useful. Once you're done, implement the logger package in your own application to view your own logs in our app! (see [below](#Use-Our-Product))
+      <img width='' src='./public/GIF/SaveFilter.gif' alt='Gif showing a user saving a filter' />
+      <img width='' src='./public/GIF/GraphFilterAndTime.gif' alt='Gif showing a user loading a filter' />
 
-# <img width='20px' src='./public/Icon.png'/> Use Our Product
+      We hope you find our product useful. Once you're done, implement the logger package in your own application to view your own logs in the LogYard GUI! (see [below](#-use-our-product))
+
+# <img width='20px' src='./public/Icon.png' alt='LogYard logo' /> Use Our Product
 
 In order to start logging in your application and using the GUI, follow the steps below to install the proper dependencies.
 
@@ -110,90 +114,100 @@ In order to start logging in your application and using the GUI, follow the step
 
 2. In your terminal, type the following command to install the appropriate packages for frontend and backend logging capabilities.
 
-    `npm install logyard logyardbackend`
+   `npm install logyard logyardbackend`
 
 ### Using packages
 
-1. Navigate to the specific file that you would like to use the logger in. 
+1. Navigate to the specific file you would like to use the logger in.
 
-2. At the top of your file, import the appropriate logger using one of the following lines of code: 
+2. At the top of your file, import the appropriate logger using one of the following lines of code:
 
-    - For Frontend Logs:
-        ```JavaScript
-            import logyard from 'logyard'
-        ```
+   - For Frontend Logs:
 
-    - For Backend Logs: 
-        ```JavaScript
-            import logyardbackend from 'logyardbackend'
-             
-            // this step is not necessary if using CJS 'require' to import the logger
-            const { logyard } = logyardbackend;
-        ```
+     ```JavaScript
+         import logyard from 'logyard'
+     ```
 
-3. Once the logger has been imported, invoke the 'logyard' function with the following argument options and by using the template below.
-    - Arguments:
+   - For Backend Logs:
 
-        1. level (Type: String) : 
-            - 'error', 'warn', 'info', 'http', 'verbose', 'debug', or 'silly'.
+     ```JavaScript
+         import logyardbackend from 'logyardbackend'
 
-        2. message (Type: String) : 
-            - Any message you wish to be sent with the log.
+         // this step is not necessary if using CJS 'require' to import the logger
+         const { logyard } = logyardbackend;
+     ```
 
-        3. context(s) (Type: Object) :
-            - Key-value pairs for each context you wish to include.
+3. After importing the logger, use the provided template below to invoke the 'logyard' function with the specified argument options.
 
-        ```JavaScript
-            // Template:
-            logyard(
-                'level', 
-                'message' , 
-                { 
-                    ContextOneKey : ContextOneValue, 
-                    ContextTwoKey : ContextTwoValue,
-                } 
-            );
-            
-            // Example:
-            logyard(
-                'error', 
-                'authController.setCookie failure', 
-                { 
-                    Location: 'controllers/authController', 
-                    Server: 6,
-                    Etc: 'etc',
-                }
-            )
-        ```
+   - Arguments:
+
+     1. level (Type: String) :
+
+        - 'error', 'warn', 'info', 'http', 'verbose', 'debug', or 'silly'.
+
+     2. message (Type: String) :
+
+        - Any message you wish to be sent with the log.
+
+     3. context(s) (Type: Object) :
+        - Key-value pairs for each context you wish to include.
+
+     ```JavaScript
+         // Template:
+         logyard(
+             'level',
+             'message' ,
+             {
+                 ContextOneKey : ContextOneValue,
+                 ContextTwoKey : ContextTwoValue,
+             }
+         );
+
+         // Example:
+         logyard(
+             'error',
+             'authController.setCookie failure',
+             {
+                 Location: 'controllers/authController',
+                 Server: 6,
+                 Etc: 'etc',
+             }
+         )
+     ```
 
 ## 2. Setting up .config file
+
 1. In your project's root directory, create a new directory named 'config'.
 2. Within this new 'config' directory, create a new file titled 'default.json'.
-    ```
-        my_project  
-             └─── config
-             │    └─── default.json
-             └─── node_modules
-             │
-             └─── src
-             │
-             └─── server
-             │
-             other root files...
-    ```
+
+   ```text
+       my_project
+            └─── config
+            │    └─── default.json
+            └─── node_modules
+            │
+            └─── src
+            │
+            └─── server
+            │
+            other root files...
+   ```
+
 3. Copy and paste the following code into your newly created 'default.json' file.
-    ```json
-        {
-            "uri": "mongodb://localhost:8000",
-            "level": "silly",
-            "dbName": "LogYard"
-        }
-    ```
+
+   ```json
+   {
+     "uri": "mongodb://localhost:8000",
+     "level": "silly",
+     "dbName": "LogYard"
+   }
+   ```
+
 4. Optional: Modify these 'default.json' variables to meet your needs.
-    - uri: URI for which the back-end logger will connect to. Defaults to the MongoDB in the container.
-    - level: Level at which all logs <em>and below</em> will be collected and sent to the database and thus, to the LogYard GUI. All logs collected at default level 'silly'.
-        - Hierarchy: silly <em>(Highest)</em>, debug, verbose, http, info, warn, error <em>(Lowest)</em>  
-    - dbName: The name for which you would like your database to be saved under. This must match the VITE_DB_DBNAME in your .env file.
+   - uri: URI the backend logger will connect to. Defaults to the MongoDB database in the container.
+   - level: Level at which all logs *and below* will be collected and sent to the database and LogYard GUI. All logs are collected at the default level 'silly'.
+     - Hierarchy: silly *(Highest)*, debug, verbose, http, info, warn, error *(Lowest)*
+   - dbName: The name you would like your database to be saved under. This must match the VITE_DB_DBNAME in your .env file.
 
 ## 3. LogYard GUI
 
@@ -203,81 +217,93 @@ Note: If you have already installed the GUI from the demo, please ensure you hav
 
 2. Clone the LogYard repository using the following terminal command (you can visit the repo [here](https://github.com/oslabs-beta/LogYard)):
 
-    `git clone https://github.com/oslabs-beta/LogYard.git`
+   `git clone https://github.com/oslabs-beta/LogYard.git`
 
-3. Navigate to your .env file and configure its properties to you and your application's needs.  
-    - VITE_USER_PASSWORD - This is the 'server password' used on login.
-    - VITE_DB_URI - Database URI that you'd like to connect to. You can use the given MongoDB in the container or put your own MongoDB URI here to have logs and other app information sent there.
-    - VITE_DB_DBNAME - The name of your database. This must match 'dbName' in your config/default.json file.
+3. Navigate to your .env file and configure its properties to your needs.
 
-4. Open the LogYard repo that you just cloned in your terminal and enter the following command lines to properly create and run the Docker image.
+   - VITE_USER_PASSWORD - This is the 'server password' used on login.
+   - VITE_DB_URI - Database URI you'd like to connect to. You can use the given MongoDB in the container or put your own MongoDB URI here to have logs and other app information sent there.
+   - VITE_DB_DBNAME - The name of your database. This must match 'dbName' in your config/default.json file.
 
-    `docker build -t logyard .`
+4. Open the LogYard repo you just cloned in your terminal and enter the following command lines to properly create and run the Docker image.
 
-    `docker compose up`
+   `docker build -t logyard .`
+
+   `docker compose up`
 
 5. Open Docker Desktop and navigate to Containers.
 
-6. To open the LogYard application, click on the logyard app_container running on port '3333:3333'.
+6. To open the LogYard application, click on the logyard app_container running on port 3333:3333.
 
-    <img width='' src='./public/GIF/DockerDesktop.gif'/>
+    <img width='' src='./public/GIF/DockerDesktop.gif' alt='Gif showing a user clicking on the logyard container in Docker Desktop'/>
 
 7. You should now see LogYard's user sign-in page in your browser (shown below). To sign in as a guest, enter your server password located in your .env file (named 'VITE_USER_PASSWORD'). Or sign up to have access to additional features, such as the ability to save custom log filters.
-    <img width='' src='./public/GIF/AuthRouterNav.gif'/>
+   <img width='' src='./public/GIF/AuthRouterNav.gif' alt='Gif showing a user logging into LogYard'/>
 
 8. Interacting with your app to invoke your logging functions will populate them in the LogYard application, allowing them to be analyzed, filtered, and visualized!
 
-    <img width='' src='./public/GIF/SaveFilter.gif'/>
-    <img width='' src='./public/GIF/GraphFilterAndTime.gif'/> 
+    <img width='' src='./public/GIF/SaveFilter.gif' alt='Gif showing a user saving a filter'/>
+    <img width='' src='./public/GIF/GraphFilterAndTime.gif' alt='Gif showing a user loading a filter'/>
 
-# <img width='20px' src='./public/Icon.png' /> FAQ
+# <img width='20px' src='./public/Icon.png' alt='LogYard logo'/> FAQ
 
 1. Why do two separate packages exist for logging?
-    - A browser application cannot directly connect to a database. Therefore the frontend logger sends logs first to a server that is connected to your database. The backend logger directly connects to the database. 
+
+   - Because a browser application cannot directly connect to a database, the frontend logger first sends logs to a server that is connected to your database. The backend logger directly connects to the database.
 
 2. Does my container need to be running in order for the loggers to work?
-    - Yes, the container hosts the database, which must be online to to recieve the incoming logs. However, if you only need logs from the backend logger, you can pause the 'app_container' in Docker. This restricts the ability to send logs from the front end, since they use this server as an API.
- 
+
+   - Yes, the container hosts the database, which must be online to to recieve the incoming logs. However, if you only need logs from the backend logger, you can pause the 'app_container' in Docker. This restricts the ability to send logs from the front end, since they use this server as an API.
+
 3. I can already read my server logs. Why use this service?
-    - LogYard provides a central location for accessing, reading, and analyzing logs. As an organization scales, reading logs from more than 2-3 sources quickly becomes a time sink.
+
+   - LogYard provides a central location for accessing, reading, and analyzing logs. As an organization scales, reading logs from more than 2-3 sources can become a time-consuming process.
 
 4. Will this work with my distributed compute cluster?
-    - LogYard is designed to work with any compute service that can connect to a database.
+
+   - LogYard is designed to work with any compute service that can connect to a database.
 
 5. Can I use this for state replication?
-    - LogYard does not provide state replication. It is intended as a lightweight solution for active logging analysis, not a Real User Monitoring (RUM) solution.
+   - LogYard does not provide state replication. It is intended as a lightweight solution for active logging analysis, not a Real User Monitoring (RUM) solution.
 
-# <img width='20px' src='./public/Icon.png' /> Contributing
-We hope you enjoy using our product and find it useful! 
+# <img width='20px' src='./public/Icon.png' alt='LogYard logo'/> Contributing
 
-If you have found a bug or an area that you feel could be improved within our product, please reach out -- or if you'd like, you can create a fork on this repo and contribute to our product yourself! Contributions are vital to the open-source community and all contributions are greatly appreciated!
+We hope you enjoy using our product and find it useful!
 
-Following the completion of your outstanding work, if you create a PR, our team will review your code! We thank all of those who contribute toward improving our product's reliability and expanding upon its features.
+If you have found a bug or an area that you feel could be improved within our product, please reach out--or if you'd like, you can create a fork on this repo and contribute to our product yourself! Contributions are vital to the open-source community and all contributions are greatly appreciated.
+
+Following the completion of your outstanding work, if you create a PR, our team will review your code. We thank everyone who contributes toward improving our product's reliability and expanding upon its features.
 
 ## Tasks for Contribution
+
 - [ ] Improving analysis tools. Current tools provide a simple interface but lack in-depth capabilities.
-- [ ] Additional account customization: 
-    - Current accounts lack any organization features. Managing access to logs could be useful depending on application.
-    - A more customizable dashboard and visualization page. Currently, save, load, and delete are used for monitoring.
+- [ ] Additional account customization:
+  - Current accounts lack any organization features. Managing access to logs could be useful depending on application.
+  - A more customizable dashboard and visualization page. Currently, save, load, and delete are used for monitoring.
 - [ ] More robust log displays. Currently all logs require a specific layout. A major improvement would be a single location to allow a drop-in replacement for different log models.
 - [ ] Improved C3 integrations. C3 is a powerful graphing tool; however, it directly affects the DOM unlike React which uses a virtual DOM. A major task would be to improve the current interface between C3 and React; specifically, creating a more responsive layout for graphs to allow a more customizable visualization page.
 
-# <img width='20px' src='./public/Icon.png'> Publications
+# <img width='20px' src='./public/Icon.png' alt='LogYard logo'> Publications
+
 - [LogYard: A New Log Management and Visualization Platform for Developers](https://medium.com/@andrewclarkwagner/logyard-a-new-log-management-and-visualization-platform-for-developers-3df574575586)
 
-# <img width='20px' src='./public/Icon.png'> Our Team
-| [<img src="./public/PrestonHeadshot.jpeg" width="100px" >](https://www.linkedin.com/in/prestoncoldwell/) | [<img src="./public/RyanHeadshot.jpg" width="100px" >](https://www.linkedin.com/in/ryan-smithey/) | [<img src="./public/GeoffHeadshot.png" width="100px" >](https://www.linkedin.com/in/geoffrey-sun/) | [<img src="./public/AndyHeadshot.jpeg" width="100px" >](https://www.linkedin.com/in/andrewclarkwagner/) | [<img src="./public/BrianHeadshot.jpeg" width="100px" >](https://www.linkedin.com/in/brianhwang2/) |
-| ------------- | ------------- |------------- | ------------- | ------------- |
-| <div style="text-align: center">Preston Coldwell</div>  <div style="text-align: center">[<img src="./public/githubIcon.png" width="20px" >](https://github.com/PrestonColdwell) [<img src="./public/linkedInLogo.png" width="22px" >](https://www.linkedin.com/in/prestoncoldwell/)</div> | <div style="text-align: center">Ryan Smithey</div>  <div style="text-align: center">[<img src="./public/githubIcon.png" width="20px" >](https://github.com/RyanSmithey) [<img src="./public/linkedInLogo.png" width="22px" >](https://www.linkedin.com/in/ryan-smithey/)</div> | <div style="text-align: center">Geoffrey Sun</div>  <div style="text-align: center">[<img src="./public/githubIcon.png" width="20px" >](https://github.com/geoffsun2) [<img src="./public/linkedInLogo.png" width="22px" >](https://www.linkedin.com/in/geoffrey-sun/)</div> | <div style="text-align: center">Andy Wagner</div>  <div style="text-align: center">[<img src="./public/githubIcon.png" width="20px" >](https://github.com/a-c-wagner) [<img src="./public/linkedInLogo.png" width="22px" >](https://www.linkedin.com/in/andrewclarkwagner/)</div> | <div style="text-align: center">Brian Hwang</div>  <div style="text-align: center">[<img src="./public/githubIcon.png" width="20px" >](https://github.com/bri-engineer) [<img src="./public/linkedInLogo.png" width="22px" >](https://www.linkedin.com/in/brianhwang2/)</div> |
+# <img width='20px' src='./public/Icon.png' alt='LogYard logo'> Our Team
 
-# <img width='20px' src='./public/Icon.png'> Acknowledgments
+| [<img src="./public/PrestonHeadshot.jpeg" width="100px" alt='headshot of Preston Coldwell'>](https://www.linkedin.com/in/prestoncoldwell/)                                                                                                                                                                                 | [<img src="./public/RyanHeadshot.jpg" width="100px" alt='headshot of Ryan Smithey'>](https://www.linkedin.com/in/ryan-smithey/)                                                                                                                                                                             | [<img src="./public/GeoffHeadshot.png" width="100px" alt='headshot of Geoffrey Sun'>](https://www.linkedin.com/in/geoffrey-sun/)                                                                                                                                                                          | [<img src="./public/AndyHeadshot.jpeg" width="100px" alt='headshot of Andrew Wagner'>](https://www.linkedin.com/in/andrewclarkwagner/)                                                                                                                                                                          | [<img src="./public/BrianHeadshot.jpeg" width="100px" alt='headshot of Brian Hwang'>](https://www.linkedin.com/in/brianhwang2/)                                                                                                                                                                           |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <div style="text-align: center">Preston Coldwell</div> <div style="text-align: center">[<img src="./public/githubIcon.png" width="20px" alt='GitHub Icon'>](https://github.com/PrestonColdwell) [<img src="./public/linkedInLogo.png" width="22px" alt='LinkedIn Logo'>](https://www.linkedin.com/in/prestoncoldwell/)</div> | <div style="text-align: center">Ryan Smithey</div> <div style="text-align: center">[<img src="./public/githubIcon.png" width="20px" alt='GitHub Icon'/>](https://github.com/RyanSmithey) [<img src="./public/linkedInLogo.png" width="22px" alt='LinkedIn Logo'>](https://www.linkedin.com/in/ryan-smithey/)</div> | <div style="text-align: center">Geoffrey Sun</div> <div style="text-align: center">[<img src="./public/githubIcon.png" width="20px" alt='GitHub Icon'>](https://github.com/geoffsun2) [<img src="./public/linkedInLogo.png" width="22px" alt='LinkedIn Logo'>](https://www.linkedin.com/in/geoffrey-sun/)</div> | <div style="text-align: center">Andy Wagner</div> <div style="text-align: center">[<img src="./public/githubIcon.png" width="20px" alt='GitHub Icon'>](https://github.com/a-c-wagner) [<img src="./public/linkedInLogo.png" width="22px" alt='LinkedIn Logo'>](https://www.linkedin.com/in/andrewclarkwagner/)</div> | <div style="text-align: center">Brian Hwang</div> <div style="text-align: center">[<img src="./public/githubIcon.png" width="20px" alt='GitHub Icon'>](https://github.com/bri-engineer) [<img src="./public/linkedInLogo.png" width="22px" alt='LinkedIn Logo'>](https://www.linkedin.com/in/brianhwang2/)</div> |
+
+# <img width='20px' src='./public/Icon.png' alt='LogYard Icon'> Acknowledgments
+
 - [OSLabs](https://github.com/open-source-labs)
 
-# <img width='20px' src='./public/Icon.png'> License
+# <img width='20px' src='./public/Icon.png' alt='LogYard Icon'> License
+
 Licensed by MIT.
 See 'MIT License' file for more information.
 
-# <img width='20px' src='./public/Icon.png'> Support Us
+# <img width='20px' src='./public/Icon.png' alt='LogYard Icon'> Support Us
+
 If our product has helped you, or you would like to show your support, please ⭐️ this repository! It helps more than you know!
 
 <!-- level: USER DECLARED ( (0)error, (1)warn, (2)info, (3)http, (4)verbose, (5)debug, (6)silly ) -->
